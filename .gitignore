@@ -1,0 +1,13 @@
+.idea
+*.elf
+*.gba
+*.sav
+.DS_Store
+build
+.venv
+.pyc
+__pycache__
+include/generated
+graphics/generated
+.env
+.vscode
