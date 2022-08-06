@@ -29,6 +29,8 @@ namespace cd
             bn::fixed _strings_size = 0);
 
         virtual ~Entity();
+        bn::fixed_point get_position() const;
+        EntityType get_type() const;
 
     private:
         EntityType type;

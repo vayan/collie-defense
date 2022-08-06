@@ -17,3 +17,13 @@ Entity::Entity(
 Entity::~Entity()
 {
 }
+
+EntityType Entity::get_type() const
+{
+    return type;
+}
+
+bn::fixed_point Entity::get_position() const
+{
+    return position;
+}
