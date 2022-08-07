@@ -17,6 +17,7 @@
 #include "bn_unique_ptr.h"
 
 #include "entity.h"
+#include "path.h"
 
 namespace cd
 {
@@ -35,17 +36,12 @@ namespace cd
         void init(bn::camera_ptr camera);
         void tick(bn::camera_ptr camera);
 
-        bn::fixed_point get_start();
-        bn::fixed_point get_end();
-
     private:
         bn::regular_bg_item load_bg;
         const int *int_grid;
         const Entity **entities;
         bn::fixed number_of_entities;
         bn::fixed_point world_position;
-        bn::fixed_point start;
-        bn::fixed_point end;
 
         bn::optional<bn::regular_bg_ptr> bg;
     };

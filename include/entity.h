@@ -23,23 +23,26 @@ namespace cd
             EntityType _type,
             bn::fixed x,
             bn::fixed y,
-            const bn::pair<bn::string<10>, bn::fixed_point> **_coords = nullptr,
-            const bn::pair<bn::string<10>, bn::string<string_metadata_max_size>> **_strings = nullptr,
-            bn::fixed _coords_size = 0,
-            bn::fixed _strings_size = 0);
+            bn::fixed_point **arr_points_1,
+            bn::fixed arr_points_1_size,
+            bn::string<10> string_10_1,
+            bn::fixed number_1);
 
         virtual ~Entity();
         bn::fixed_point get_position() const;
         EntityType get_type() const;
+        bn::fixed get_number_1() const;
+        bn::fixed_point **get_arr_points_1() const;
+        bn::fixed get_arr_points_1_size() const;
 
     private:
-        EntityType type;
-        bn::fixed_point position;
-        const bn::pair<bn::string<10>, bn::fixed_point> **coords;
-        const bn::pair<bn::string<10>, bn::string<string_metadata_max_size>> **strings;
-        bn::fixed coords_size;
-        bn::fixed strings_size;
         const bn::fixed id;
+        EntityType type;
+        bn::fixed_point **arr_points_1;
+        bn::fixed arr_points_1_size;
+        bn::fixed number_1;
+        bn::string<10> string_10_1;
+        bn::fixed_point position;
     };
 }
 

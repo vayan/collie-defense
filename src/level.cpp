@@ -2,6 +2,8 @@
 
 using namespace cd;
 
+BN_DATA_EWRAM bn::vector<cd::Path, 40> paths;
+
 Level::Level(
     bn::regular_bg_item _load_bg,
     const int *_int_grid,
@@ -14,17 +16,21 @@ Level::Level(
                                      number_of_entities(_number_of_entities)
 {
     world_position = bn::fixed_point(_world_x, _world_y);
-    start = bn::fixed_point(0, 0);
-    end = bn::fixed_point(0, 0);
 }
 
 Level::~Level()
 {
+    paths.clear();
 }
 
 void Level::tick(bn::camera_ptr camera)
 {
     bg.value().set_camera(camera);
+
+    for (Path &path : paths)
+    {
+        path.on_tick();
+    }
 }
 
 void Level::init(bn::camera_ptr camera)
@@ -44,23 +50,11 @@ void Level::init(bn::camera_ptr camera)
 
         switch (entities[i]->get_type())
         {
-        case EntityType::Spawn:
-            start = ldtk_coord_to_us;
-            break;
-        case EntityType::End:
-            end = ldtk_coord_to_us;
+        case EntityType::Path:
+            paths.emplace_back(ldtk_coord_to_us, bg.value().camera().value(), entities[i]->get_number_1(), entities[i]->get_arr_points_1(), entities[i]->get_arr_points_1_size());
             break;
         default:
             BN_LOG("cannot create unkown entity, im not god yet");
         }
     }
-}
-
-bn::fixed_point Level::get_start()
-{
-    return start;
-}
-bn::fixed_point Level::get_end()
-{
-    return end;
 }

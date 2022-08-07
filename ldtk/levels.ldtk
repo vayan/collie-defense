@@ -10,7 +10,7 @@
 	},
 	"jsonVersion": "1.1.3",
 	"appBuildId": 458364,
-	"nextUid": 22,
+	"nextUid": 29,
 	"identifierStyle": "Capitalize",
 	"worldLayout": "GridVania",
 	"worldGridWidth": 256,
@@ -121,11 +121,11 @@
 		}
 	], "entities": [
 		{
-			"identifier": "Spawn",
+			"identifier": "Path",
 			"uid": 18,
-			"tags": [],
-			"width": 16,
-			"height": 16,
+			"tags": ["meta"],
+			"width": 8,
+			"height": 8,
 			"resizableX": false,
 			"resizableY": false,
 			"keepAspectRatio": false,
@@ -134,7 +134,7 @@
 			"lineOpacity": 1,
 			"hollow": false,
 			"color": "#94D9B3",
-			"renderMode": "Rectangle",
+			"renderMode": "Ellipse",
 			"showName": true,
 			"tilesetId": null,
 			"tileId": null,
@@ -146,14 +146,102 @@
 			"limitBehavior": "MoveLastOne",
 			"pivotX": 0,
 			"pivotY": 0,
-			"fieldDefs": []
+			"fieldDefs": [
+				{
+					"identifier": "Step",
+					"__type": "Array<Point>",
+					"uid": 22,
+					"type": "F_Point",
+					"isArray": true,
+					"canBeNull": false,
+					"arrayMinLength": 1,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "PointPath",
+					"editorDisplayPos": "Center",
+					"editorAlwaysShow": true,
+					"editorCutLongValues": true,
+					"editorTextSuffix": null,
+					"editorTextPrefix": null,
+					"useForSmartColor": false,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null,
+					"symmetricalRef": false,
+					"autoChainRef": true,
+					"allowOutOfLevelRef": true,
+					"allowedRefs": "OnlySame",
+					"allowedRefTags": [],
+					"tilesetUid": null
+				},
+				{
+					"identifier": "RatePerSec",
+					"__type": "Int",
+					"uid": 26,
+					"type": "F_Int",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Beneath",
+					"editorAlwaysShow": true,
+					"editorCutLongValues": true,
+					"editorTextSuffix": null,
+					"editorTextPrefix": null,
+					"useForSmartColor": false,
+					"min": 1,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Int", "params": [1] },
+					"textLanguageMode": null,
+					"symmetricalRef": false,
+					"autoChainRef": true,
+					"allowOutOfLevelRef": true,
+					"allowedRefs": "OnlySame",
+					"allowedRefTags": [],
+					"tilesetUid": null
+				},
+				{
+					"identifier": "EnemyType",
+					"__type": "LocalEnum.EnemyType",
+					"uid": 28,
+					"type": "F_Enum(27)",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "EntityTile",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": true,
+					"editorCutLongValues": true,
+					"editorTextSuffix": null,
+					"editorTextPrefix": null,
+					"useForSmartColor": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null,
+					"symmetricalRef": false,
+					"autoChainRef": true,
+					"allowOutOfLevelRef": true,
+					"allowedRefs": "OnlySame",
+					"allowedRefTags": [],
+					"tilesetUid": null
+				}
+			]
 		},
 		{
-			"identifier": "End",
-			"uid": 21,
-			"tags": [],
-			"width": 16,
-			"height": 16,
+			"identifier": "BasicEnemy",
+			"uid": 24,
+			"tags": ["enemy"],
+			"width": 8,
+			"height": 8,
 			"resizableX": false,
 			"resizableY": false,
 			"keepAspectRatio": false,
@@ -161,8 +249,8 @@
 			"fillOpacity": 1,
 			"lineOpacity": 1,
 			"hollow": false,
-			"color": "#282ECA",
-			"renderMode": "Cross",
+			"color": "#841010",
+			"renderMode": "Rectangle",
 			"showName": true,
 			"tilesetId": null,
 			"tileId": null,
@@ -199,7 +287,11 @@
 				"averageColors": "f985f885f985f985f985fa85fa85fa8517844645967666890000f885f894f985f895f8950000f895f895f885f895f885f985f985f985f885f985f895f895f895f985f985f985f885f985f985f894000038644864087600001544954415440000b784a684000000003743e854f85448651544c544f544f65558659673a67300000000d844f964f864c844a544f644f865f654a6440000000000000000e975f985fa86d975b544f875f764f875b54400000000000000008b96e875e9757b966654e876e454e876665400000000000000006b976a976b975a97bb64286427644664576467646964786400006b976a976b975a97b96328642864466475648564a6538a530000"
 			}
 		}
-	], "enums": [], "externalEnums": [], "levelFields": [] },
+	], "enums": [{ "identifier": "EnemyType", "uid": 27, "values": [
+		{ "id": "Basic", "tileId": null, "color": 756492, "__tileSrcRect": null },
+		{ "id": "Middle", "tileId": null, "color": 1126081, "__tileSrcRect": null },
+		{ "id": "Hard", "tileId": null, "color": 11210254, "__tileSrcRect": null }
+	], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] }], "externalEnums": [], "levelFields": [] },
 	"levels": [
 		{
 			"identifier": "Level_0",
@@ -247,32 +339,137 @@
 					"gridTiles": [],
 					"entityInstances": [
 						{
-							"__identifier": "Spawn",
+							"__identifier": "Path",
 							"__grid": [0,25],
 							"__pivot": [0,0],
-							"__tags": [],
+							"__tags": ["meta"],
 							"__tile": null,
-							"__smartColor": "#94D9B3",
+							"__smartColor": "#0B8B0C",
 							"iid": "f5745b50-02f0-11ed-9e21-67ce84a78cb8",
-							"width": 16,
-							"height": 16,
+							"width": 8,
+							"height": 8,
 							"defUid": 18,
 							"px": [0,200],
-							"fieldInstances": []
-						},
-						{
-							"__identifier": "End",
-							"__grid": [18,12],
-							"__pivot": [0,0],
-							"__tags": [],
-							"__tile": null,
-							"__smartColor": "#282ECA",
-							"iid": "bd5c28e0-02f0-11ed-a805-ff22ee9f9e6d",
-							"width": 16,
-							"height": 16,
-							"defUid": 21,
-							"px": [144,96],
-							"fieldInstances": []
+							"fieldInstances": [
+								{ "__identifier": "Step", "__value": [
+									{ "cx": 5, "cy": 25 },
+									{ "cx": 11, "cy": 24 },
+									{ "cx": 18, "cy": 27 },
+									{ "cx": 17, "cy": 24 },
+									{ "cx": 20, "cy": 22 },
+									{ "cx": 16, "cy": 21 },
+									{ "cx": 20, "cy": 19 },
+									{ "cx": 16, "cy": 17 },
+									{ "cx": 21, "cy": 15 },
+									{ "cx": 17, "cy": 13 },
+									{ "cx": 19, "cy": 11 },
+									{ "cx": 15, "cy": 10 },
+									{ "cx": 14, "cy": 8 },
+									{ "cx": 15, "cy": 6 },
+									{ "cx": 18, "cy": 5 },
+									{ "cx": 21, "cy": 5 },
+									{ "cx": 24, "cy": 6 },
+									{ "cx": 24, "cy": 9 },
+									{ "cx": 28, "cy": 8 },
+									{ "cx": 28, "cy": 6 },
+									{ "cx": 28, "cy": 4 },
+									{ "cx": 24, "cy": 2 }
+								], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [
+									{
+										"id": "V_String",
+										"params": ["5,25"]
+									},
+									{
+										"id": "V_String",
+										"params": ["11,24"]
+									},
+									{
+										"id": "V_String",
+										"params": ["18,27"]
+									},
+									{
+										"id": "V_String",
+										"params": ["17,24"]
+									},
+									{
+										"id": "V_String",
+										"params": ["20,22"]
+									},
+									{
+										"id": "V_String",
+										"params": ["16,21"]
+									},
+									{
+										"id": "V_String",
+										"params": ["20,19"]
+									},
+									{
+										"id": "V_String",
+										"params": ["16,17"]
+									},
+									{
+										"id": "V_String",
+										"params": ["21,15"]
+									},
+									{
+										"id": "V_String",
+										"params": ["17,13"]
+									},
+									{
+										"id": "V_String",
+										"params": ["19,11"]
+									},
+									{
+										"id": "V_String",
+										"params": ["15,10"]
+									},
+									{
+										"id": "V_String",
+										"params": ["14,8"]
+									},
+									{
+										"id": "V_String",
+										"params": ["15,6"]
+									},
+									{
+										"id": "V_String",
+										"params": ["18,5"]
+									},
+									{
+										"id": "V_String",
+										"params": ["21,5"]
+									},
+									{
+										"id": "V_String",
+										"params": ["24,6"]
+									},
+									{
+										"id": "V_String",
+										"params": ["24,9"]
+									},
+									{
+										"id": "V_String",
+										"params": ["28,8"]
+									},
+									{
+										"id": "V_String",
+										"params": ["28,6"]
+									},
+									{
+										"id": "V_String",
+										"params": ["28,4"]
+									},
+									{
+										"id": "V_String",
+										"params": ["24,2"]
+									}
+								] },
+								{ "__identifier": "RatePerSec", "__value": 1, "__type": "Int", "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__value": "Basic", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Basic"]
+								}] }
+							]
 						}
 					]
 				},
@@ -393,32 +590,28 @@
 					"gridTiles": [],
 					"entityInstances": [
 						{
-							"__identifier": "Spawn",
+							"__identifier": "Path",
 							"__grid": [15,20],
 							"__pivot": [0,0],
-							"__tags": [],
+							"__tags": ["meta"],
 							"__tile": null,
-							"__smartColor": "#94D9B3",
+							"__smartColor": "#112EC1",
 							"iid": "f9396c10-02f0-11ed-a4d2-15b8eddd9a83",
-							"width": 16,
-							"height": 16,
+							"width": 8,
+							"height": 8,
 							"defUid": 18,
 							"px": [120,160],
-							"fieldInstances": []
-						},
-						{
-							"__identifier": "End",
-							"__grid": [15,10],
-							"__pivot": [0,0],
-							"__tags": [],
-							"__tile": null,
-							"__smartColor": "#282ECA",
-							"iid": "c053be00-02f0-11ed-a805-dfc111b4c3c1",
-							"width": 16,
-							"height": 16,
-							"defUid": 21,
-							"px": [120,80],
-							"fieldInstances": []
+							"fieldInstances": [
+								{ "__identifier": "Step", "__value": [{ "cx": 15, "cy": 10 }], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["15,10"]
+								}] },
+								{ "__identifier": "RatePerSec", "__value": 1, "__type": "Int", "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__value": "Middle", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Middle"]
+								}] }
+							]
 						}
 					]
 				},

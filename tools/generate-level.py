@@ -120,16 +120,14 @@ def parse_levels(_levels):
             if layer_instance.type == "Entities":
                 entities = []
                 for entity_instance in layer_instance.entity_instances:
-                    fields = {"point": [], "str": []}
+                    fields = {"points": [], "enemy": None, "rate": 1}
                     for field_instance in entity_instance.field_instances:
-                        if field_instance.type == "Point":
-                            fields["point"].append(
-                                {field_instance.identifier: field_instance.value}
-                            )
-                        else:
-                            fields["str"].append(
-                                {field_instance.identifier: field_instance.value}
-                            )
+                        if field_instance.type == "LocalEnum.EnemyType":
+                            fields["enemy"] = field_instance.value
+                        if field_instance.type == "Int":
+                            fields["rate"] = field_instance.value
+                        if field_instance.type == "Array<Point>":
+                            fields["points"] = field_instance.value
                     entities.append(
                         {
                             "type": entity_instance.identifier,
@@ -241,57 +239,37 @@ for level_index, level in enumerate(levels):
 
     for index, entity in enumerate(level["entities"]):
         id = level_index * 1000 + index
-        points_var_declr = ""
-        points_var_list = []
-        strings_var_declr = ""
-        strings_var_list = []
         var_name = f'level_{zfill_id}_entity_{entity["type"]}_{index}'
 
-        for point in entity["fields"]["point"]:
-            point_var_name = f"{var_name}_to"
-            points_var_declr = f'{points_var_declr}\nBN_DATA_EWRAM static const bn::pair<bn::string<10>, bn::fixed_point> {point_var_name} = bn::pair<bn::string<10>, bn::fixed_point>("to", bn::fixed_point({point["to"]["cx"]}, {point["to"]["cy"]}));'
-            points_var_list.append(f"&{point_var_name}")
+        path_points_var_declr = ""
+        path_points_var_list = []
 
-        for str_field in entity["fields"]["str"]:
-            if "speech" not in str_field:
-                continue  # TODO get the other one too
-            if len(str_field["speech"]) > STRING_METADATA_SIZE:
-                print(
-                    f"increasing STRING_METADATA_SIZE to something more than {STRING_METADATA_SIZE}"
-                )
-                raise BaseException
-            string_var_name = f"{var_name}_speech"
-            strings_var_declr = f'{strings_var_declr}\nBN_DATA_EWRAM static const bn::pair<bn::string<10>, bn::string<{STRING_METADATA_SIZE}>> {string_var_name} = bn::pair<bn::string<10>, bn::string<{STRING_METADATA_SIZE}>>("speech", "{str_field["speech"]}");'
-            strings_var_list.append(f"&{string_var_name}")
+        for index, path_point in enumerate(entity["fields"]["points"]):
+            path_point_var_name = f"{var_name}_path_point_{index}"
+            path_points_var_declr = f'{path_points_var_declr}\nBN_DATA_EWRAM static bn::fixed_point {path_point_var_name} = bn::fixed_point({(path_point["cx"] * 8) - (level["width"] / 2)}, {(path_point["cy"] * 8) - (level["height"] / 2)});'
+            path_points_var_list.append(f"&{path_point_var_name}")
+
+        path_coords_value = ""
+        path_coords_var_name = "nullptr"
+        if len(path_points_var_list) > 0:
+            path_coords_value = f"""BN_DATA_EWRAM static bn::fixed_point *{var_name}_path_coords[] = {str(path_points_var_list).replace('[', '{').replace(']', '}').replace("'", '')};"""
+            path_coords_var_name = f"{var_name}_path_coords"
 
         entities_var_list.append(f"&{var_name}")
-        coords_value = ""
-        coords_var_name = "nullptr"
-        if len(points_var_list) > 0:
-            coords_value = f"""BN_DATA_EWRAM static const bn::pair<bn::string<10>, bn::fixed_point> *{var_name}_coords[] = {str(points_var_list).replace('[', '{').replace(']', '}').replace("'", '')};"""
-            coords_var_name = f"{var_name}_coords"
-
-        strings_value = ""
-        strings_var_name = "nullptr"
-        if len(strings_var_list) > 0:
-            strings_value = f"""BN_DATA_EWRAM static const bn::pair<bn::string<10>, bn::string<{STRING_METADATA_SIZE}>> *{var_name}_strings[] = {str(strings_var_list).replace('[', '{').replace(']', '}').replace("'", '')};"""
-            strings_var_name = f"{var_name}_strings"
 
         entities_var_declar = f"""
 
-{points_var_declr}
-{strings_var_declr}
-{coords_value}
-{strings_value}
+{path_points_var_declr}
+{path_coords_value}
 {entities_var_declar}\nBN_DATA_EWRAM static const Entity {var_name} = Entity(
     {id},
     EntityType::{entity["type"]},
     {entity["location"][0]},
     {entity["location"][1]},
-    {coords_var_name},
-    {strings_var_name},
-    {len(points_var_list)},
-    0
+    {path_coords_var_name},
+    {len(path_points_var_list)},
+    "{entity["fields"]["enemy"]}",
+    {entity["fields"]["rate"]}
 );
 """
 
@@ -304,6 +282,7 @@ for level_index, level in enumerate(levels):
 #include "bn_regular_bg_items_levels_{zfill_id}.h"
 #include "bn_utility.h"
 #include "bn_string.h"
+#include "bn_fixed_point.h"
 #include "level.h"
 #include "entity.h"
 #include "generated/world_config.h"
@@ -320,8 +299,8 @@ namespace cd {{
         entities_{level['int_identifier']},
         {len(entities_var_list)}
     );
-
+}}
 #endif
-}}"""
+"""
         )
 print("Done!")
