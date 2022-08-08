@@ -1,5 +1,7 @@
 #include "path.h"
 
+BN_DATA_EWRAM bn::vector<cd::Enemy, 40> enemies;
+
 namespace cd
 {
     Path::Path(
@@ -13,44 +15,27 @@ namespace cd
                                    steps(_steps),
                                    steps_number(_steps_number)
     {
-        sprite = bn::sprite_items::sheep.create_sprite(0, 0);
-
-        position = from;
-        to = *steps[0];
-
-        sprite.value()
-            .set_position(from);
-        sprite.value().set_camera(camera);
-        sprite.value().set_visible(true);
+        last_fire_timer = bn::timer();
     }
 
     Path::~Path()
     {
-        sprite.value().remove_camera();
-        sprite.value().set_visible(false);
-        sprite.reset();
     }
 
     void Path::on_tick()
     {
-        if (current_step == steps_number)
+        if (last_fire_timer.value().elapsed_ticks() > 167800 * fire_rate && !enemies.full())
         {
-            // remove
-            return;
-        }
-        progress = progress + delta;
-
-        position = lerp_points(from, to, progress);
-
-        if (progress >= 1)
-        {
-            current_step += 1;
-            from = to;
-            to = *steps[current_step.integer()];
-            progress = 0;
-            // TODO check no more steps
+            BN_LOG("fire!!!");
+            last_fire_timer = bn::timer();
+            enemies.emplace_back(camera, from, steps, steps_number);
         }
 
-        sprite.value().set_position(position);
+        for (cd::Enemy &enemy : enemies)
+        {
+            enemy.on_tick();
+
+            // TODO delete dead enemy
+        }
     }
 }

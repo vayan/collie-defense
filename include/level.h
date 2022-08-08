@@ -16,6 +16,7 @@
 #include "bn_size.h"
 #include "bn_unique_ptr.h"
 
+#include "enemy.h"
 #include "entity.h"
 #include "path.h"
 

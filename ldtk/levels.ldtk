@@ -352,116 +352,66 @@
 							"px": [0,200],
 							"fieldInstances": [
 								{ "__identifier": "Step", "__value": [
-									{ "cx": 5, "cy": 25 },
-									{ "cx": 11, "cy": 24 },
-									{ "cx": 18, "cy": 27 },
-									{ "cx": 17, "cy": 24 },
-									{ "cx": 20, "cy": 22 },
-									{ "cx": 16, "cy": 21 },
-									{ "cx": 20, "cy": 19 },
-									{ "cx": 16, "cy": 17 },
-									{ "cx": 21, "cy": 15 },
-									{ "cx": 17, "cy": 13 },
-									{ "cx": 19, "cy": 11 },
-									{ "cx": 15, "cy": 10 },
-									{ "cx": 14, "cy": 8 },
-									{ "cx": 15, "cy": 6 },
-									{ "cx": 18, "cy": 5 },
-									{ "cx": 21, "cy": 5 },
-									{ "cx": 24, "cy": 6 },
-									{ "cx": 24, "cy": 9 },
-									{ "cx": 28, "cy": 8 },
-									{ "cx": 28, "cy": 6 },
-									{ "cx": 28, "cy": 4 },
-									{ "cx": 24, "cy": 2 }
+									{ "cx": 4, "cy": 25 },
+									{ "cx": 9, "cy": 25 },
+									{ "cx": 14, "cy": 25 },
+									{ "cx": 16, "cy": 25 },
+									{ "cx": 18, "cy": 26 },
+									{ "cx": 20, "cy": 24 },
+									{ "cx": 19, "cy": 22 },
+									{ "cx": 17, "cy": 21 },
+									{ "cx": 19, "cy": 19 },
+									{ "cx": 17, "cy": 17 },
+									{ "cx": 19, "cy": 15 },
+									{ "cx": 17, "cy": 12 }
 								], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [
 									{
 										"id": "V_String",
-										"params": ["5,25"]
+										"params": ["4,25"]
 									},
 									{
 										"id": "V_String",
-										"params": ["11,24"]
+										"params": ["9,25"]
 									},
 									{
 										"id": "V_String",
-										"params": ["18,27"]
+										"params": ["14,25"]
 									},
 									{
 										"id": "V_String",
-										"params": ["17,24"]
+										"params": ["16,25"]
 									},
 									{
 										"id": "V_String",
-										"params": ["20,22"]
+										"params": ["18,26"]
 									},
 									{
 										"id": "V_String",
-										"params": ["16,21"]
+										"params": ["20,24"]
 									},
 									{
 										"id": "V_String",
-										"params": ["20,19"]
+										"params": ["19,22"]
 									},
 									{
 										"id": "V_String",
-										"params": ["16,17"]
+										"params": ["17,21"]
 									},
 									{
 										"id": "V_String",
-										"params": ["21,15"]
+										"params": ["19,19"]
 									},
 									{
 										"id": "V_String",
-										"params": ["17,13"]
+										"params": ["17,17"]
 									},
 									{
 										"id": "V_String",
-										"params": ["19,11"]
+										"params": ["19,15"]
 									},
 									{
 										"id": "V_String",
-										"params": ["15,10"]
-									},
-									{
-										"id": "V_String",
-										"params": ["14,8"]
-									},
-									{
-										"id": "V_String",
-										"params": ["15,6"]
-									},
-									{
-										"id": "V_String",
-										"params": ["18,5"]
-									},
-									{
-										"id": "V_String",
-										"params": ["21,5"]
-									},
-									{
-										"id": "V_String",
-										"params": ["24,6"]
-									},
-									{
-										"id": "V_String",
-										"params": ["24,9"]
-									},
-									{
-										"id": "V_String",
-										"params": ["28,8"]
-									},
-									{
-										"id": "V_String",
-										"params": ["28,6"]
-									},
-									{
-										"id": "V_String",
-										"params": ["28,4"]
-									},
-									{
-										"id": "V_String",
-										"params": ["24,2"]
+										"params": ["17,12"]
 									}
 								] },
 								{ "__identifier": "RatePerSec", "__value": 1, "__type": "Int", "__tile": null, "defUid": 26, "realEditorValues": [] },
