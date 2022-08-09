@@ -32,19 +32,21 @@ namespace cd
         Path(
             bn::fixed_point _from,
             bn::camera_ptr _camera,
-            bn::fixed fire_rate,
+            bn::fixed fire_pause_sec,
             bn::fixed_point **steps,
             bn::fixed steps_number);
         ~Path();
 
         void on_tick();
 
+        bn::vector<Enemy, 20> *get_enemies();
+
     private:
         bn::fixed_point position;
         bn::fixed_point from;
         bn::fixed_point to;
         bn::camera_ptr camera;
-        bn::fixed fire_rate;
+        bn::fixed fire_pause_sec;
         bn::fixed_point **steps;
         bn::fixed steps_number;
 
@@ -54,6 +56,7 @@ namespace cd
         bn::fixed delta = 0.02;
         bn::fixed current_step = 0;
         bn::optional<bn::timer> last_fire_timer;
+        bn::vector<Enemy, 20> enemies;
     };
 }
 

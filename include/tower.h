@@ -1,5 +1,5 @@
-#ifndef COLLIE_DEFENCE_GBA_ENEMY_H
-#define COLLIE_DEFENCE_GBA_ENEMY_H
+#ifndef COLLIE_DEFENCE_GBA_TOWER_H
+#define COLLIE_DEFENCE_GBA_TOWER_H
 
 #include "bn_regular_bg_ptr.h"
 #include "bn_regular_bg_item.h"
@@ -18,45 +18,36 @@
 #include "bn_unique_ptr.h"
 #include "bn_sprite_builder.h"
 #include "bn_sprite_ptr.h"
+#include "bn_keypad.h"
 
-#include "bn_sprite_items_sheep.h"
+#include "bn_sprite_items_tower.h"
 
 #include "math.h"
+#include "bullet.h"
 #include "target.h"
+#include "level.h"
 
 namespace cd
 {
-    class Enemy : public Target
+    class Tower
     {
     public:
-        Enemy(
+        Tower(
             bn::camera_ptr camera,
-            bn::fixed_point origin,
-            bn::fixed_point **steps,
-            bn::fixed steps_number);
+            bn::fixed_point position);
 
-        ~Enemy();
+        ~Tower();
 
-        void on_tick();
-
-        bool is_dead();
-
-        virtual bn::fixed_point get_position();
+        void on_tick(Level *level);
+        void fire(Target *target);
 
     private:
         bn::fixed_point position;
         bn::camera_ptr camera;
-        bn::fixed_point origin;
-        bn::fixed_point **steps;
-        bn::fixed steps_number;
-        bn::fixed progress = 0;
-        bn::fixed delta = 0.02;
-        bn::fixed current_step = 0;
         bn::optional<bn::sprite_ptr>
             sprite;
-        bn::fixed_point from;
-        bn::fixed_point to;
-        bool dead = false;
+        bn::optional<bn::timer> last_fire_timer;
+        bn::vector<Bullet, 2> bullets;
     };
 }
 

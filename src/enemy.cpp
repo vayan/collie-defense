@@ -55,3 +55,8 @@ bool Enemy::is_dead()
 {
     return dead;
 }
+
+bn::fixed_point Enemy::get_position()
+{
+    return position;
+}

@@ -1,5 +1,5 @@
-#ifndef COLLIE_DEFENCE_GBA_ENEMY_H
-#define COLLIE_DEFENCE_GBA_ENEMY_H
+#ifndef COLLIE_DEFENCE_GBA_BULLET_H
+#define COLLIE_DEFENCE_GBA_BULLET_H
 
 #include "bn_regular_bg_ptr.h"
 #include "bn_regular_bg_item.h"
@@ -18,45 +18,39 @@
 #include "bn_unique_ptr.h"
 #include "bn_sprite_builder.h"
 #include "bn_sprite_ptr.h"
+#include "bn_timer.h"
 
-#include "bn_sprite_items_sheep.h"
+#include "bn_sprite_items_bullet.h"
 
 #include "math.h"
 #include "target.h"
+#include "debug.h"
 
 namespace cd
 {
-    class Enemy : public Target
+    class Bullet
     {
     public:
-        Enemy(
+        Bullet(
             bn::camera_ptr camera,
-            bn::fixed_point origin,
-            bn::fixed_point **steps,
-            bn::fixed steps_number);
+            bn::fixed_point position,
+            Target *target);
 
-        ~Enemy();
+        ~Bullet();
 
         void on_tick();
 
-        bool is_dead();
-
-        virtual bn::fixed_point get_position();
+        bool to_be_destroyed();
 
     private:
         bn::fixed_point position;
         bn::camera_ptr camera;
-        bn::fixed_point origin;
-        bn::fixed_point **steps;
-        bn::fixed steps_number;
-        bn::fixed progress = 0;
-        bn::fixed delta = 0.02;
-        bn::fixed current_step = 0;
+        Target *target;
         bn::optional<bn::sprite_ptr>
             sprite;
-        bn::fixed_point from;
-        bn::fixed_point to;
-        bool dead = false;
+        bool destroyed = false;
+        bn::fixed progress = 0;
+        bn::fixed delta = 0.001;
     };
 }
 

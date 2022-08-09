@@ -124,7 +124,7 @@ def parse_levels(_levels):
                     for field_instance in entity_instance.field_instances:
                         if field_instance.type == "LocalEnum.EnemyType":
                             fields["enemy"] = field_instance.value
-                        if field_instance.type == "Int":
+                        if field_instance.type == "Float":
                             fields["rate"] = field_instance.value
                         if field_instance.type == "Array<Point>":
                             fields["points"] = field_instance.value

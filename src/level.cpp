@@ -2,8 +2,6 @@
 
 using namespace cd;
 
-BN_DATA_EWRAM bn::vector<cd::Path, 40> paths;
-
 Level::Level(
     bn::regular_bg_item _load_bg,
     const int *_int_grid,
@@ -54,7 +52,12 @@ void Level::init(bn::camera_ptr camera)
             paths.emplace_back(ldtk_coord_to_us, bg.value().camera().value(), entities[i]->get_number_1(), entities[i]->get_arr_points_1(), entities[i]->get_arr_points_1_size());
             break;
         default:
-            BN_LOG("cannot create unkown entity, im not god yet");
+            log("cannot create unkown entity, im not god yet");
         }
     }
+}
+
+bn::vector<Path, 10> *Level::get_paths()
+{
+    return &paths;
 }

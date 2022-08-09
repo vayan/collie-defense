@@ -1,17 +1,15 @@
 #include "path.h"
 
-BN_DATA_EWRAM bn::vector<cd::Enemy, 40> enemies;
-
 namespace cd
 {
     Path::Path(
         bn::fixed_point _from,
         bn::camera_ptr _camera,
-        bn::fixed _fire_rate,
+        bn::fixed _fire_pause_sec,
         bn::fixed_point **_steps,
         bn::fixed _steps_number) : from(_from),
                                    camera(_camera),
-                                   fire_rate(_fire_rate),
+                                   fire_pause_sec(_fire_pause_sec),
                                    steps(_steps),
                                    steps_number(_steps_number)
     {
@@ -24,18 +22,27 @@ namespace cd
 
     void Path::on_tick()
     {
-        if (last_fire_timer.value().elapsed_ticks() > 167800 * fire_rate && !enemies.full())
+        if (last_fire_timer.value().elapsed_ticks() > (one_sec_in_ticks * fire_pause_sec) && !enemies.full())
         {
-            BN_LOG("fire!!!");
             last_fire_timer = bn::timer();
             enemies.emplace_back(camera, from, steps, steps_number);
         }
 
-        for (cd::Enemy &enemy : enemies)
+        for (auto enemy = enemies.begin(); enemy != enemies.end();)
         {
-            enemy.on_tick();
+            enemy->on_tick();
 
-            // TODO delete dead enemy
+            if (enemy->is_dead())
+            {
+                enemies.erase(enemy);
+            }
+
+            ++enemy;
         }
+    }
+
+    bn::vector<Enemy, 20> *Path::get_enemies()
+    {
+        return &enemies;
     }
 }
