@@ -5,7 +5,7 @@ from PIL import Image
 
 from ldtkpy.api import ldtk_json_from_dict
 
-LTDK_PROJECT_PATH = os.getenv("LDTK_PATH")
+LTDK_PROJECT_PATH = "ldtk/levels.ldtk"
 BASE_LTDK_PROJECT_PATH = os.path.dirname(LTDK_PROJECT_PATH)
 
 OFFSET_WORLD_MAP = 0  # needs to be multiple of 256 (offset to avoid negative coordinate, easier on 2D arrays)

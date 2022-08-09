@@ -50,7 +50,7 @@ namespace cd
             sprite;
         bool destroyed = false;
         bn::fixed progress = 0;
-        bn::fixed delta = 0.001;
+        bn::fixed delta = 0.01;
     };
 }
 

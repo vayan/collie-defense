@@ -57,7 +57,7 @@ ifneq (,$(wildcard ./.env))
 endif
 
 levels:
-	LDTK_PATH=${LDTK_PATH} poetry run python ./tools/generate-level.py
+	poetry run python ./tools/generate-level.py
 
 graphics: $(RAW_GRAPHICS)
 
