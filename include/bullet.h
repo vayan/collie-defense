@@ -28,6 +28,7 @@
 
 namespace cd
 {
+    class Level;
     class Bullet
     {
     public:
@@ -38,7 +39,7 @@ namespace cd
 
         ~Bullet();
 
-        void on_tick();
+        void on_tick(Level *level);
 
         bool to_be_destroyed();
 

@@ -21,7 +21,7 @@ Bullet::~Bullet()
 {
 }
 
-void Bullet::on_tick()
+void Bullet::on_tick(Level *level)
 {
     progress = progress + delta;
 

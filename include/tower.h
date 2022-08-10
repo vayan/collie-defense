@@ -25,10 +25,10 @@
 #include "math.h"
 #include "bullet.h"
 #include "target.h"
-#include "level.h"
 
 namespace cd
 {
+    class Level;
     class Tower
     {
     public:
@@ -40,6 +40,7 @@ namespace cd
 
         void on_tick(Level *level);
         void fire(Target *target);
+        bn::vector<Bullet, 2> *get_bullets();
 
     private:
         bn::camera_ptr camera;

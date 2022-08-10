@@ -27,7 +27,12 @@ void Level::tick(bn::camera_ptr camera)
 
     for (Path &path : paths)
     {
-        path.on_tick();
+        path.on_tick(this);
+    }
+
+    for (Tower &tower : towers)
+    {
+        tower.on_tick(this);
     }
 }
 
@@ -39,6 +44,8 @@ void Level::init(bn::camera_ptr camera)
 
     bg.value().set_camera(camera);
     bg.value().set_position(0, 0);
+
+    towers.emplace_back(camera, bn::fixed_point(-25, 0));
 
     for (int i = 0; i < number_of_entities; ++i)
     {
@@ -60,4 +67,9 @@ void Level::init(bn::camera_ptr camera)
 bn::vector<Path, 10> *Level::get_paths()
 {
     return &paths;
+}
+
+bn::vector<Tower, 10> *Level::get_towers()
+{
+    return &towers;
 }

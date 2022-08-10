@@ -26,6 +26,7 @@
 
 namespace cd
 {
+    class Level;
     class Path
     {
     public:
@@ -37,7 +38,7 @@ namespace cd
             bn::fixed steps_number);
         ~Path();
 
-        void on_tick();
+        void on_tick(Level *level);
 
         bn::vector<Enemy, 20> *get_enemies();
 

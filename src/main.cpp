@@ -5,7 +5,6 @@
 #include "bn_sprite_ptr.h"
 
 #include "level.h"
-#include "tower.h"
 #include "debug.h"
 #include "generated/levels_intgrid.h"
 #include "generated/world_config.h"
@@ -22,12 +21,9 @@ int main()
 
     cd::log("Start Game!");
 
-    cd::Tower tower = cd::Tower(camera, bn::fixed_point(-25, 0));
-
     while (true)
     {
         current_level->tick(camera);
-        tower.on_tick(current_level);
 
         if (bn::keypad::right_held())
         {

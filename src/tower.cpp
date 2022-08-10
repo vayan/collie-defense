@@ -1,4 +1,5 @@
 #include "tower.h"
+#include "level.h"
 
 using namespace cd;
 
@@ -42,7 +43,7 @@ void Tower::on_tick(Level *level)
 
     for (auto bullet = bullets.begin(); bullet != bullets.end();)
     {
-        bullet->on_tick();
+        bullet->on_tick(level);
 
         if (bullet->to_be_destroyed())
         {
@@ -52,4 +53,9 @@ void Tower::on_tick(Level *level)
 
         ++bullet;
     }
+}
+
+bn::vector<Bullet, 2> *Tower::get_bullets()
+{
+    return &bullets;
 }

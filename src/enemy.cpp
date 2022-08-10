@@ -27,7 +27,7 @@ Enemy::~Enemy()
 {
 }
 
-void Enemy::on_tick()
+void Enemy::on_tick(Level *level)
 {
     if (current_step == steps_number)
     {

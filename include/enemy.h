@@ -26,6 +26,7 @@
 
 namespace cd
 {
+    class Level;
     class Enemy : public Target
     {
     public:
@@ -37,7 +38,7 @@ namespace cd
 
         ~Enemy();
 
-        void on_tick();
+        void on_tick(Level *level);
 
         bool is_dead();
 

@@ -20,6 +20,7 @@
 #include "entity.h"
 #include "path.h"
 #include "debug.h"
+#include "tower.h"
 
 namespace cd
 {
@@ -38,6 +39,7 @@ namespace cd
         void init(bn::camera_ptr camera);
         void tick(bn::camera_ptr camera);
         bn::vector<Path, 10> *get_paths();
+        bn::vector<Tower, 10> *get_towers();
 
     private:
         bn::regular_bg_item load_bg;
@@ -48,6 +50,7 @@ namespace cd
 
         bn::optional<bn::regular_bg_ptr> bg;
         bn::vector<Path, 10> paths;
+        bn::vector<Tower, 10> towers;
     };
 }
 
