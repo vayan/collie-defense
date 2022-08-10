@@ -55,8 +55,8 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: collie-defence-gba
-          path: collie-defence-gba.gba
+          name: collie-defence
+          path: collie-defence.gba
           retention-days: 7
           if-no-files-found: error
 
@@ -74,6 +74,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./collie-defence-gba/collie-defence-gba.gba
+          asset_path: ./collie-defence/collie-defence.gba
           asset_name: collie-defence-${{ github.event.release.tag_name }}.gba
           asset_content_type: application/octet-stream
