@@ -43,8 +43,8 @@ namespace cd
         bool to_be_destroyed();
 
     private:
-        bn::fixed_point position;
         bn::camera_ptr camera;
+        bn::fixed_point position;
         Target *target;
         bn::optional<bn::sprite_ptr>
             sprite;

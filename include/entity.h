@@ -40,8 +40,8 @@ namespace cd
         EntityType type;
         bn::fixed_point **arr_points_1;
         bn::fixed arr_points_1_size;
-        bn::fixed number_1;
         bn::string<10> string_10_1;
+        bn::fixed number_1;
         bn::fixed_point position;
     };
 }

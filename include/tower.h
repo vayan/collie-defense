@@ -42,8 +42,8 @@ namespace cd
         void fire(Target *target);
 
     private:
-        bn::fixed_point position;
         bn::camera_ptr camera;
+        bn::fixed_point position;
         bn::optional<bn::sprite_ptr>
             sprite;
         bn::optional<bn::timer> last_fire_timer;

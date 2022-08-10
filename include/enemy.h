@@ -41,7 +41,7 @@ namespace cd
 
         bool is_dead();
 
-        virtual bn::fixed_point get_position();
+        bn::fixed_point get_position();
 
     private:
         bn::fixed_point position;

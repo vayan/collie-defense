@@ -26,6 +26,7 @@ namespace cd
     {
     public:
         virtual bn::fixed_point get_position();
+        virtual ~Target() = default;
     };
 }
 
