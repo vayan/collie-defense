@@ -28,16 +28,14 @@ namespace cd
             enemies.emplace_back(camera, from, steps, steps_number);
         }
 
-        for (auto enemy = enemies.begin(); enemy != enemies.end();)
+        for (Enemy &enemy : enemies)
         {
-            enemy->on_tick(level);
+            enemy.on_tick(level);
 
-            if (enemy->is_dead())
+            if (enemy.is_dead())
             {
-                enemies.erase(enemy);
+                enemies.erase(&enemy);
             }
-
-            ++enemy;
         }
     }
 

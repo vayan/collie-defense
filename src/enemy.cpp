@@ -60,3 +60,8 @@ bn::fixed_point Enemy::get_position()
 {
     return position;
 }
+
+void Enemy::hit()
+{
+    dead = true;
+}

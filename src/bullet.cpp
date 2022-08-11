@@ -30,6 +30,7 @@ void Bullet::on_tick(Level *level)
     if (progress >= 1)
     {
         destroyed = true;
+        target->hit();
     }
 
     sprite.value().set_position(position);

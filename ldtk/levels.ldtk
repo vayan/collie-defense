@@ -424,7 +424,7 @@
 										"params": ["31,23"]
 									}
 								] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 0.7, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [0.7] }] },
+								{ "__identifier": "PauseBetweenFireSec", "__value": 1.2, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [1.2] }] },
 								{ "__identifier": "EnemyType", "__value": "Middle", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Middle"]

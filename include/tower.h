@@ -25,6 +25,7 @@
 #include "math.h"
 #include "bullet.h"
 #include "target.h"
+#include "debug.h"
 
 namespace cd
 {
@@ -40,7 +41,7 @@ namespace cd
 
         void on_tick(Level *level);
         void fire(Target *target);
-        bn::vector<Bullet, 2> *get_bullets();
+        bn::vector<Bullet, 5> *get_bullets();
 
     private:
         bn::camera_ptr camera;
@@ -48,7 +49,8 @@ namespace cd
         bn::optional<bn::sprite_ptr>
             sprite;
         bn::optional<bn::timer> last_fire_timer;
-        bn::vector<Bullet, 2> bullets;
+        bn::vector<Bullet, 5> bullets;
+        bn::fixed aggro_radius_px = 30;
     };
 }
 

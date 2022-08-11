@@ -22,7 +22,10 @@ Tower::~Tower()
 
 void Tower::fire(Target *target)
 {
-    if (bullets.full())
+    if (
+        bullets.full() ||
+        (last_fire_timer.has_value() &&
+         last_fire_timer.value().elapsed_ticks() < (one_sec_in_ticks * 1)))
     {
         return;
     }
@@ -34,28 +37,30 @@ void Tower::on_tick(Level *level)
 {
     sprite.value().set_position(position);
 
-    if (bn::keypad::a_pressed())
+    for (Bullet &bullet : bullets)
     {
-        auto path = level->get_paths()->begin();
-        auto enemy = path->get_enemies()->begin();
-        fire(enemy);
+        bullet.on_tick(level);
+
+        if (bullet.to_be_destroyed())
+        {
+            bullets.erase(&bullet);
+        }
     }
 
-    for (auto bullet = bullets.begin(); bullet != bullets.end();)
+    for (Path &path : *level->get_paths())
     {
-        bullet->on_tick(level);
-
-        if (bullet->to_be_destroyed())
+        for (Enemy &enemy : *path.get_enemies())
         {
-            bullets.erase(bullet);
-            return;
+            bool is_inside = (enemy.get_position().x() - position.x()) * (enemy.get_position().x() - position.x()) + (enemy.get_position().y() - position.y()) * (enemy.get_position().y() - position.y()) <= aggro_radius_px * aggro_radius_px;
+            if (is_inside)
+            {
+                fire(&enemy);
+            }
         }
-
-        ++bullet;
     }
 }
 
-bn::vector<Bullet, 2> *Tower::get_bullets()
+bn::vector<Bullet, 5> *Tower::get_bullets()
 {
     return &bullets;
 }

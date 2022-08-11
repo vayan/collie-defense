@@ -43,6 +43,7 @@ namespace cd
         bool is_dead();
 
         bn::fixed_point get_position();
+        void hit();
 
     private:
         bn::fixed_point position;
@@ -51,7 +52,7 @@ namespace cd
         bn::fixed_point **steps;
         bn::fixed steps_number;
         bn::fixed progress = 0;
-        bn::fixed delta = 0.02;
+        bn::fixed delta = 0.01;
         bn::fixed current_step = 0;
         bn::optional<bn::sprite_ptr>
             sprite;
