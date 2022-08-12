@@ -6,6 +6,7 @@
 
 #include "level.h"
 #include "debug.h"
+#include "player.h"
 #include "generated/levels_intgrid.h"
 #include "generated/world_config.h"
 
@@ -16,6 +17,7 @@ int main()
     bn::camera_ptr camera = bn::camera_ptr::create(0, 0);
 
     cd::Level *current_level = cd::levels[0];
+    cd::Player player = cd::Player();
 
     current_level->init(camera);
 
@@ -24,6 +26,7 @@ int main()
     while (true)
     {
         current_level->tick(camera);
+        player.on_tick(current_level);
 
         if (bn::keypad::right_held())
         {
