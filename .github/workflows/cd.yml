@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: GValiente/butano
-          ref: 10.5.0
+          ref: 11.0.0
           path: butano
 
       - name: Install Poetry
