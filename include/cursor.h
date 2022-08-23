@@ -39,6 +39,7 @@ namespace cd
     private:
         bn::optional<bn::sprite_ptr>
             sprite;
+        bool targeting_buildable_grid = false;
     };
 }
 
