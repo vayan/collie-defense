@@ -40,8 +40,12 @@ namespace cd
         void tick(bn::camera_ptr camera);
         bn::vector<Path, 10> *get_paths();
         bn::vector<Tower, 10> *get_towers();
+        bn::optional<bn::regular_bg_ptr> get_bg();
+        GridTileType get_map_cell(bn::fixed x, bn::fixed y);
 
     private:
+        GridTileType get_tile_type(int tile_index);
+
         bn::regular_bg_item load_bg;
         const int *int_grid;
         const Entity **entities;

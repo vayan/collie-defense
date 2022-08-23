@@ -74,3 +74,32 @@ bn::vector<Tower, 10> *Level::get_towers()
 {
     return &towers;
 }
+
+GridTileType Level::get_tile_type(int tile_index)
+{
+    return static_cast<GridTileType>(int_grid[tile_index]);
+}
+
+GridTileType Level::get_map_cell(bn::fixed x, bn::fixed y)
+{
+    bn::fixed ldtk_coord_x = (x + (bg.value().dimensions().width() / 2)).safe_division(16).right_shift_integer();
+    bn::fixed ldtk_coord_y = (y + (bg.value().dimensions().height() / 2)).safe_division(16).right_shift_integer();
+
+    bn::fixed ldtk_int_grid_row_size = bg.value().dimensions().width() / 16;
+    bn::fixed ldtk_int_grid_col_size = bg.value().dimensions().height() / 16;
+
+    // if we're outside of the intgrid we consider it like empty cell
+    if (ldtk_coord_x < 0 || ldtk_coord_x >= ldtk_int_grid_row_size || ldtk_coord_y < 0 || ldtk_coord_y >= ldtk_int_grid_col_size)
+    {
+        return GridTileType::empty;
+    }
+
+    bn::fixed ldtk_int_grid_index = ldtk_int_grid_row_size * ldtk_coord_y + ldtk_coord_x;
+
+    return get_tile_type(ldtk_int_grid_index.integer());
+}
+
+bn::optional<bn::regular_bg_ptr> Level::get_bg()
+{
+    return bg;
+}

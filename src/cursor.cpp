@@ -24,5 +24,16 @@ void Cursor::disable()
 
 void Cursor::on_tick(Level *level)
 {
-    disable();
+    GridTileType grid = level->get_map_cell(
+        level->get_bg().value().camera().value().x(),
+        level->get_bg().value().camera().value().y());
+
+    if (grid == GridTileType::buildable)
+    {
+        enable();
+    }
+    else
+    {
+        disable();
+    }
 }
