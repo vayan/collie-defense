@@ -28,12 +28,12 @@ namespace cd
     class Player
     {
     public:
-        Player();
+        Player(bn::camera_ptr _camera);
         ~Player();
         void on_tick(Level *level);
 
     private:
-        Cursor cursor;
+        bn::optional<Cursor> cursor;
     };
 }
 

@@ -20,26 +20,31 @@
 #include "bn_sprite_items_sheep.h"
 #include "bn_timer.h"
 #include "bn_sprite_animate_actions.h"
+#include "bn_display.h"
 
 #include "bn_sprite_items_cursor.h"
 
 #include "level.h"
+#include "utils.h"
 
 namespace cd
 {
     class Cursor
     {
     public:
-        Cursor();
+        Cursor(bn::camera_ptr camera);
         ~Cursor();
         void on_tick(Level *level);
         void enable();
         void disable();
+        void update_camera(bn::regular_bg_ptr map);
 
     private:
         bn::optional<bn::sprite_ptr>
             sprite;
         bool targeting_buildable_grid = false;
+        bn::fixed_point position;
+        bn::camera_ptr camera;
     };
 }
 

@@ -2,9 +2,9 @@
 
 using namespace cd;
 
-Player::Player()
+Player::Player(bn::camera_ptr _camera)
 {
-    cursor = Cursor();
+    cursor = Cursor(_camera);
 }
 
 Player::~Player()
@@ -13,5 +13,5 @@ Player::~Player()
 
 void Player::on_tick(Level *level)
 {
-    cursor.on_tick(level);
+    cursor.value().on_tick(level);
 }

@@ -45,9 +45,6 @@ void Level::init(bn::camera_ptr camera)
     bg.value().set_camera(camera);
     bg.value().set_position(0, 0);
 
-    towers.emplace_back(camera, bn::fixed_point(-25, 0));
-    towers.emplace_back(camera, bn::fixed_point(-70, -90));
-
     for (int i = 0; i < number_of_entities; ++i)
     {
         bn::fixed_point ldtk_coord_to_us = bn::fixed_point(

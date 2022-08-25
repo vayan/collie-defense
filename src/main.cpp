@@ -17,7 +17,7 @@ int main()
     bn::camera_ptr camera = bn::camera_ptr::create(0, 0);
 
     cd::Level *current_level = cd::levels[0];
-    cd::Player player = cd::Player();
+    cd::Player player = cd::Player(camera);
 
     current_level->init(camera);
 
@@ -27,26 +27,6 @@ int main()
     {
         current_level->tick(camera);
         player.on_tick(current_level);
-
-        if (bn::keypad::right_held())
-        {
-            camera.set_x(camera.x() + 1);
-        }
-
-        if (bn::keypad::left_held())
-        {
-            camera.set_x(camera.x() - 1);
-        }
-
-        if (bn::keypad::down_held())
-        {
-            camera.set_y(camera.y() + 1);
-        }
-
-        if (bn::keypad::up_held())
-        {
-            camera.set_y(camera.y() - 1);
-        }
 
         bn::core::update();
     }
