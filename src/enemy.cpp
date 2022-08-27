@@ -65,3 +65,12 @@ void Enemy::hit()
 {
     dead = true;
 }
+
+bn::fixed_rect Enemy::get_hitbox()
+{
+    return bn::fixed_rect(
+        position.x(),
+        position.y(),
+        sprite.value().dimensions().width(),
+        sprite.value().dimensions().height());
+}

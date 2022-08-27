@@ -18,6 +18,7 @@
 #include "bn_unique_ptr.h"
 #include "bn_sprite_builder.h"
 #include "bn_sprite_ptr.h"
+#include "bn_fixed_rect.h"
 
 #include "bn_sprite_items_sheep.h"
 
@@ -44,6 +45,7 @@ namespace cd
 
         bn::fixed_point get_position();
         void hit();
+        bn::fixed_rect get_hitbox();
 
     private:
         bn::fixed_point position;

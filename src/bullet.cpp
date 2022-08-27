@@ -27,16 +27,25 @@ void Bullet::on_tick(Level *level)
 
     position = lerp_points(position, target->get_position(), progress);
 
-    if (progress >= 1)
+    sprite.value().set_position(position);
+
+    if (get_hitbox().intersects(target->get_hitbox()))
     {
         destroyed = true;
         target->hit();
     }
-
-    sprite.value().set_position(position);
 }
 
 bool Bullet::to_be_destroyed()
 {
     return destroyed;
+}
+
+bn::fixed_rect Bullet::get_hitbox()
+{
+    return bn::fixed_rect(
+        position.x(),
+        position.y(),
+        sprite.value().dimensions().width(),
+        sprite.value().dimensions().height());
 }

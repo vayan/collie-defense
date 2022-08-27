@@ -19,6 +19,7 @@
 #include "bn_sprite_builder.h"
 #include "bn_sprite_ptr.h"
 #include "bn_timer.h"
+#include "bn_fixed_rect.h"
 
 #include "bn_sprite_items_bullet.h"
 
@@ -40,8 +41,8 @@ namespace cd
         ~Bullet();
 
         void on_tick(Level *level);
-
         bool to_be_destroyed();
+        bn::fixed_rect get_hitbox();
 
     private:
         bn::camera_ptr camera;
