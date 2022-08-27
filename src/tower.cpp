@@ -64,3 +64,12 @@ bn::vector<Bullet, 5> *Tower::get_bullets()
 {
     return &bullets;
 }
+
+bn::fixed_rect Tower::get_hitbox()
+{
+    return bn::fixed_rect(
+        position.x(),
+        position.y(),
+        sprite.value().dimensions().width(),
+        sprite.value().dimensions().height());
+}

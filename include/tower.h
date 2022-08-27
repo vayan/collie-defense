@@ -19,6 +19,7 @@
 #include "bn_sprite_builder.h"
 #include "bn_sprite_ptr.h"
 #include "bn_keypad.h"
+#include "bn_fixed_rect.h"
 
 #include "bn_sprite_items_tower.h"
 
@@ -42,6 +43,7 @@ namespace cd
         void on_tick(Level *level);
         void fire(Target *target);
         bn::vector<Bullet, 5> *get_bullets();
+        bn::fixed_rect get_hitbox();
 
     private:
         bn::camera_ptr camera;

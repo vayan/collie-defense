@@ -21,6 +21,7 @@
 #include "bn_timer.h"
 #include "bn_sprite_animate_actions.h"
 #include "bn_display.h"
+#include "bn_fixed_rect.h"
 
 #include "bn_sprite_items_cursor.h"
 
@@ -38,8 +39,10 @@ namespace cd
         void enable();
         void disable();
         void update_camera(bn::regular_bg_ptr map);
+        bn::fixed_rect get_hitbox();
 
     private:
+        bool can_build(Level *level);
         bn::optional<bn::sprite_ptr>
             sprite;
         bool targeting_buildable_grid = false;

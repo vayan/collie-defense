@@ -31,7 +31,7 @@ void Cursor::disable()
         .set_item(bn::sprite_items::cursor, 1);
 }
 
-void Cursor::on_tick(Level *level)
+bool Cursor::can_build(Level *level)
 {
     GridTileType top_left_grid = level->get_map_cell(
         position.x() - 8,
@@ -41,7 +41,26 @@ void Cursor::on_tick(Level *level)
         position.y() + 7);
     // TODO check other corners
 
+    for (Tower &tower : *level->get_towers())
+    {
+        if (tower.get_hitbox().intersects(get_hitbox()))
+        {
+            return false;
+        }
+    }
+
     if (top_left_grid == bottom_right_grid && top_left_grid == GridTileType::buildable)
+    {
+        return true;
+    }
+
+    return false;
+}
+
+void Cursor::on_tick(Level *level)
+{
+
+    if (can_build(level))
     {
         enable();
     }
@@ -120,4 +139,13 @@ void Cursor::update_camera(bn::regular_bg_ptr map)
     }
 
     camera.set_position(x, y);
+}
+
+bn::fixed_rect Cursor::get_hitbox()
+{
+    return bn::fixed_rect(
+        position.x(),
+        position.y(),
+        sprite.value().dimensions().width(),
+        sprite.value().dimensions().height());
 }
