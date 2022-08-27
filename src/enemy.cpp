@@ -1,4 +1,5 @@
 #include "enemy.h"
+#include "player.h"
 
 using namespace cd;
 
@@ -27,11 +28,12 @@ Enemy::~Enemy()
 {
 }
 
-void Enemy::on_tick(Level *level)
+void Enemy::on_tick(Level *level, Player *player)
 {
     if (current_step == steps_number)
     {
         // remove
+        player->on_hit(this);
         dead = true;
         return;
     }
@@ -73,4 +75,14 @@ bn::fixed_rect Enemy::get_hitbox()
         position.y(),
         sprite.value().dimensions().width(),
         sprite.value().dimensions().height());
+}
+
+bn::fixed Enemy::get_reward()
+{
+    return 10; // TODO get dynamic value
+}
+
+bn::fixed Enemy::get_strenght()
+{
+    return 10; // TODO get dynamic value
 }

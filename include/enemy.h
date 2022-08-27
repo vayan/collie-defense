@@ -27,6 +27,7 @@
 
 namespace cd
 {
+    class Player;
     class Level;
     class Enemy : public Target
     {
@@ -39,13 +40,15 @@ namespace cd
 
         ~Enemy();
 
-        void on_tick(Level *level);
+        void on_tick(Level *level, Player *player);
 
         bool is_dead();
 
         bn::fixed_point get_position();
         void hit();
         bn::fixed_rect get_hitbox();
+        bn::fixed get_reward();
+        bn::fixed get_strenght();
 
     private:
         bn::fixed_point position;

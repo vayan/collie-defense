@@ -22,6 +22,7 @@
 
 #include "level.h"
 #include "cursor.h"
+#include "debug.h"
 
 namespace cd
 {
@@ -31,9 +32,13 @@ namespace cd
         Player(bn::camera_ptr _camera);
         ~Player();
         void on_tick(Level *level);
+        void on_target_killed(Target *target);
+        void on_hit(Enemy *enemy);
 
     private:
         bn::optional<Cursor> cursor;
+        bn::fixed life = 100;
+        bn::fixed money = 0;
     };
 }
 

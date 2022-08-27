@@ -21,23 +21,25 @@ Level::~Level()
     paths.clear();
 }
 
-void Level::tick(bn::camera_ptr camera)
+void Level::tick(bn::camera_ptr camera, Player *player)
 {
     bg.value().set_camera(camera);
 
     for (Path &path : paths)
     {
-        path.on_tick(this);
+        path.on_tick(this, player);
     }
 
     for (Tower &tower : towers)
     {
-        tower.on_tick(this);
+        tower.on_tick(this, player);
     }
 }
 
 void Level::init(bn::camera_ptr camera)
 {
+    paths.clear();
+    towers.clear();
     camera.set_position(0, 0);
 
     bg = load_bg.create_bg(0, 0);
@@ -109,4 +111,10 @@ void Level::add_tower(bn::fixed_point position)
         return;
     }
     towers.emplace_back(bg.value().camera().value(), position);
+}
+
+void Level::on_gameover()
+{
+    // TODO do proper game over screen - but for now just restart
+    init(bg.value().camera().value());
 }

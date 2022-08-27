@@ -24,6 +24,7 @@
 
 namespace cd
 {
+    class Player;
     class Level
     {
     public:
@@ -37,12 +38,13 @@ namespace cd
 
         ~Level();
         void init(bn::camera_ptr camera);
-        void tick(bn::camera_ptr camera);
+        void tick(bn::camera_ptr camera, Player *player);
         bn::vector<Path, 10> *get_paths();
         bn::vector<Tower, 10> *get_towers();
         bn::optional<bn::regular_bg_ptr> get_bg();
         GridTileType get_map_cell(bn::fixed x, bn::fixed y);
         void add_tower(bn::fixed_point position);
+        void on_gameover();
 
     private:
         GridTileType get_tile_type(int tile_index);

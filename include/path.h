@@ -38,7 +38,7 @@ namespace cd
             bn::fixed steps_number);
         ~Path();
 
-        void on_tick(Level *level);
+        void on_tick(Level *level, Player *player);
 
         bn::vector<Enemy, 20> *get_enemies();
 

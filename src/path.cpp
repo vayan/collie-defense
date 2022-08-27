@@ -20,7 +20,7 @@ namespace cd
     {
     }
 
-    void Path::on_tick(Level *level)
+    void Path::on_tick(Level *level, Player *player)
     {
         if (last_fire_timer.value().elapsed_ticks() > (one_sec_in_ticks * fire_pause_sec) && !enemies.full())
         {
@@ -30,7 +30,7 @@ namespace cd
 
         for (Enemy &enemy : enemies)
         {
-            enemy.on_tick(level);
+            enemy.on_tick(level, player);
 
             if (enemy.is_dead())
             {

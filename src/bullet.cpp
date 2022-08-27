@@ -1,4 +1,5 @@
 #include "bullet.h"
+#include "player.h"
 
 using namespace cd;
 
@@ -21,7 +22,7 @@ Bullet::~Bullet()
 {
 }
 
-void Bullet::on_tick(Level *level)
+void Bullet::on_tick(Level *level, Player *player)
 {
     progress = progress + delta;
 
@@ -31,6 +32,7 @@ void Bullet::on_tick(Level *level)
 
     if (get_hitbox().intersects(target->get_hitbox()))
     {
+        player->on_target_killed(target);
         destroyed = true;
         target->hit();
     }

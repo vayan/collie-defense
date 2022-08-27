@@ -25,7 +25,7 @@ int main()
 
     while (true)
     {
-        current_level->tick(camera);
+        current_level->tick(camera, &player);
         player.on_tick(current_level);
 
         bn::core::update();

@@ -30,6 +30,7 @@
 
 namespace cd
 {
+    class Player;
     class Level;
     class Tower
     {
@@ -40,7 +41,7 @@ namespace cd
 
         ~Tower();
 
-        void on_tick(Level *level);
+        void on_tick(Level *level, Player *player);
         void fire(Target *target);
         bn::vector<Bullet, 5> *get_bullets();
         bn::fixed_rect get_hitbox();

@@ -33,13 +33,13 @@ void Tower::fire(Target *target)
     bullets.emplace_back(camera, position, target);
 }
 
-void Tower::on_tick(Level *level)
+void Tower::on_tick(Level *level, Player *player)
 {
     sprite.value().set_position(position);
 
     for (Bullet &bullet : bullets)
     {
-        bullet.on_tick(level);
+        bullet.on_tick(level, player);
 
         if (bullet.to_be_destroyed())
         {

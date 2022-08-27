@@ -27,6 +27,7 @@ namespace cd
     public:
         virtual bn::fixed_point get_position();
         virtual bn::fixed_rect get_hitbox();
+        virtual bn::fixed get_reward();
 
         virtual void hit();
         virtual ~Target() = default;
