@@ -25,11 +25,18 @@ void Player::on_tick(Level *level)
 void Player::on_target_killed(Target *target)
 {
     money += target->get_reward();
-    log("money is now", money);
 }
 
 void Player::on_hit(Enemy *enemy)
 {
     life -= enemy->get_strenght();
-    log("life is now", life);
+}
+
+bn::fixed Player::get_life()
+{
+    return life;
+}
+bn::fixed Player::get_money()
+{
+    return money;
 }

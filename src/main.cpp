@@ -9,6 +9,7 @@
 #include "player.h"
 #include "generated/levels_intgrid.h"
 #include "generated/world_config.h"
+#include "ui.h"
 
 int main()
 {
@@ -18,6 +19,7 @@ int main()
 
     cd::Level *current_level = cd::levels[0];
     cd::Player player = cd::Player(camera);
+    cd::UI ui = cd::UI();
 
     current_level->init(camera);
 
@@ -27,6 +29,7 @@ int main()
     {
         current_level->tick(camera, &player);
         player.on_tick(current_level);
+        ui.on_tick(current_level, &player);
 
         bn::core::update();
     }

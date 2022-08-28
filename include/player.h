@@ -35,8 +35,12 @@ namespace cd
         void on_target_killed(Target *target);
         void on_hit(Enemy *enemy);
 
+        bn::fixed get_life();
+        bn::fixed get_money();
+
     private:
-        bn::optional<Cursor> cursor;
+        bn::optional<Cursor>
+            cursor;
         bn::fixed life = 100;
         bn::fixed money = 0;
     };
