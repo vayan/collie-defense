@@ -53,7 +53,7 @@ namespace cd
             sprite;
         bn::optional<bn::timer> last_fire_timer;
         bn::vector<Bullet, 5> bullets;
-        bn::fixed aggro_radius_px = 30;
+        bn::fixed aggro_radius_px = 32;
     };
 }
 

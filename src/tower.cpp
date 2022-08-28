@@ -1,5 +1,6 @@
 #include "tower.h"
 #include "level.h"
+#include "player.h"
 
 using namespace cd;
 
@@ -51,7 +52,10 @@ void Tower::on_tick(Level *level, Player *player)
     {
         for (Enemy &enemy : *path.get_enemies())
         {
-            bool is_inside = (enemy.get_position().x() - position.x()) * (enemy.get_position().x() - position.x()) + (enemy.get_position().y() - position.y()) * (enemy.get_position().y() - position.y()) <= aggro_radius_px * aggro_radius_px;
+            bn::fixed delta_x = enemy.get_position().x() - position.x();
+            bn::fixed delta_y = enemy.get_position().y() - position.y();
+
+            bool is_inside = delta_x * delta_x + delta_y * delta_y < aggro_radius_px * aggro_radius_px;
             if (is_inside)
             {
                 fire(&enemy);

@@ -3,6 +3,8 @@
 
 #include "bn_regular_bg_ptr.h"
 #include "bn_regular_bg_item.h"
+#include "bn_affine_bg_ptr.h"
+#include "bn_affine_bg_item.h"
 #include "bn_sprite_builder.h"
 #include "bn_fixed.h"
 #include "bn_optional.h"
@@ -24,6 +26,7 @@
 #include "bn_fixed_rect.h"
 
 #include "bn_sprite_items_cursor.h"
+#include "bn_affine_bg_items_range.h"
 
 #include "level.h"
 #include "utils.h"
@@ -48,6 +51,7 @@ namespace cd
         bool targeting_buildable_grid = false;
         bn::fixed_point position;
         bn::camera_ptr camera;
+        bn::optional<bn::affine_bg_ptr> range;
     };
 }
 

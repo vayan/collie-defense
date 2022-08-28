@@ -10,6 +10,9 @@ Cursor::Cursor(bn::camera_ptr _camera) : camera(_camera)
     sprite.value().set_camera(_camera);
     sprite.value()
         .set_position(position);
+
+    range = bn::affine_bg_items::range.create_bg(0, 0);
+    range.value().set_camera(_camera);
 }
 
 Cursor::~Cursor()
@@ -59,7 +62,6 @@ bool Cursor::can_build(Level *level)
 
 void Cursor::on_tick(Level *level)
 {
-
     if (can_build(level))
     {
         enable();
@@ -92,6 +94,16 @@ void Cursor::on_tick(Level *level)
     if (bn::keypad::up_pressed())
     {
         position.set_y(position.y() - 8);
+    }
+
+    if (range.has_value())
+    {
+        range.value().set_visible(true);
+        range.value().set_position(position);
+        range.value().set_priority(0);
+        range.value().set_horizontal_scale(0.5);
+        range.value().set_vertical_scale(0.5);
+        range.value().set_wrapping_enabled(false);
     }
 
     update_camera(level->get_bg().value());
