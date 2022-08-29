@@ -43,7 +43,7 @@ namespace cd
         bn::vector<Tower, 10> *get_towers();
         bn::optional<bn::regular_bg_ptr> get_bg();
         GridTileType get_map_cell(bn::fixed x, bn::fixed y);
-        void add_tower(bn::fixed_point position);
+        void add_tower(bn::fixed_point position, TowerType type);
         void on_gameover();
 
     private:

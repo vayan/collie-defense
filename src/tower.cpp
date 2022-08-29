@@ -5,11 +5,13 @@
 using namespace cd;
 
 Tower::Tower(
+    TowerType _type,
     bn::camera_ptr _camera,
-    bn::fixed_point _position) : camera(_camera),
+    bn::fixed_point _position) : type(_type),
+                                 camera(_camera),
                                  position(_position)
 {
-    sprite = bn::sprite_items::tower.create_sprite(0, 0);
+    sprite = get_sprite(type).create_sprite(0, 0);
 
     sprite.value()
         .set_position(position);
@@ -64,7 +66,7 @@ void Tower::on_tick(Level *level, Player *player)
     }
 }
 
-bn::vector<Bullet, 5> *Tower::get_bullets()
+bn::vector<Bullet, 1> *Tower::get_bullets()
 {
     return &bullets;
 }
@@ -76,4 +78,17 @@ bn::fixed_rect Tower::get_hitbox()
         position.y(),
         sprite.value().dimensions().width(),
         sprite.value().dimensions().height());
+}
+
+bn::sprite_item Tower::get_sprite(TowerType type)
+{
+    switch (type)
+    {
+    case TowerType::Basic:
+        return bn::sprite_items::tower_basic;
+    case TowerType::AoE:
+        return bn::sprite_items::tower_aoe;
+    case TowerType::Sticky:
+        return bn::sprite_items::tower_sticky;
+    }
 }

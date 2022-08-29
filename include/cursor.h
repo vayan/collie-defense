@@ -24,10 +24,14 @@
 #include "bn_sprite_animate_actions.h"
 #include "bn_display.h"
 #include "bn_fixed_rect.h"
+#include "bn_blending.h"
 
 #include "bn_sprite_items_cursor.h"
 #include "bn_affine_bg_items_range.h"
+#include "bn_regular_bg_items_tower_select_ui.h"
+#include "bn_regular_bg_items_overlay_bg.h"
 
+#include "generated/world_config.h"
 #include "level.h"
 #include "utils.h"
 
@@ -44,14 +48,26 @@ namespace cd
         void update_camera(bn::regular_bg_ptr map);
         bn::fixed_rect get_hitbox();
 
+        void remove_current_selection();
+        void set_selection(TowerType type);
+        void hide_tower_select_ui();
+        void open_tower_select_ui();
+
     private:
         bool can_build(Level *level);
         bn::optional<bn::sprite_ptr>
             sprite;
         bool targeting_buildable_grid = false;
+        bool tower_select_open = false;
         bn::fixed_point position;
         bn::camera_ptr camera;
         bn::optional<bn::affine_bg_ptr> range;
+        bn::optional<bn::regular_bg_ptr> tower_select_ui;
+        bn::optional<TowerType> current_selection;
+        bn::optional<bn::sprite_ptr>
+            placeholder;
+        bn::optional<bn::regular_bg_ptr>
+            overlay_bg;
     };
 }
 

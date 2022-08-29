@@ -103,14 +103,14 @@ bn::optional<bn::regular_bg_ptr> Level::get_bg()
     return bg;
 }
 
-void Level::add_tower(bn::fixed_point position)
+void Level::add_tower(bn::fixed_point position, TowerType type)
 {
     if (towers.full())
     {
         log("level is full of towers");
         return;
     }
-    towers.emplace_back(bg.value().camera().value(), position);
+    towers.emplace_back(type, bg.value().camera().value(), position);
 }
 
 void Level::on_gameover()

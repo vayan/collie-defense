@@ -44,26 +44,41 @@ def parse_grid_tiles_values(layers):
 
 
 def generate_world_file(
-    _grid_tiles_values, _entities_tiles_values, _world_int_grid, _levels
+    _grid_tiles_values, _entities_tiles_values, _world_int_grid, _levels, _enums
 ):
     print("Generating world header file...")
 
+    enums = ""
+
+    for enum_def in _enums:
+        enum_val = ""
+        for (k, v) in enumerate(enum_def.values):
+            enum_val = f"{enum_val}{v.id} = {k},\n\t\t"
+
+        enums = f"""
+    {enums}
+    enum class {enum_def.identifier} {{
+        {enum_val}
+    }};
+    """
+
     tiles_int_def = ""
     for (k, v) in _grid_tiles_values.items():
-        tiles_int_def = f"{tiles_int_def}{k} = {v},\n"
+        tiles_int_def = f"{tiles_int_def}{k} = {v},\n\t\t"
 
     entities_def = ""
     for (k, v) in _entities_tiles_values.items():
-        entities_def = f"{entities_def}{k} = {v},\n"
+        entities_def = f"{entities_def}{k} = {v},\n\t\t"
 
     enums = f"""
+    {enums}
     enum class GridTileType {{
-         empty = 0,
-         {tiles_int_def}
+        empty = 0,
+        {tiles_int_def}
     }};
 
     enum class EntityType {{
-         {entities_def}
+        {entities_def}
     }};
     """
 
@@ -221,7 +236,9 @@ levels = parse_levels(content.levels)
 
 world_int_grid = generate_world_int_grid(levels)
 
-generate_world_file(grid_tiles_values, entities_tiles_values, world_int_grid, levels)
+generate_world_file(
+    grid_tiles_values, entities_tiles_values, world_int_grid, levels, content.defs.enums
+)
 
 generate_level_intgrid_file(levels)
 

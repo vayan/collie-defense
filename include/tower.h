@@ -21,8 +21,11 @@
 #include "bn_keypad.h"
 #include "bn_fixed_rect.h"
 
-#include "bn_sprite_items_tower.h"
+#include "bn_sprite_items_tower_basic.h"
+#include "bn_sprite_items_tower_aoe.h"
+#include "bn_sprite_items_tower_sticky.h"
 
+#include "generated/world_config.h"
 #include "math.h"
 #include "bullet.h"
 #include "target.h"
@@ -36,6 +39,7 @@ namespace cd
     {
     public:
         Tower(
+            TowerType _type,
             bn::camera_ptr camera,
             bn::fixed_point position);
 
@@ -43,16 +47,19 @@ namespace cd
 
         void on_tick(Level *level, Player *player);
         void fire(Target *target);
-        bn::vector<Bullet, 5> *get_bullets();
+        bn::vector<Bullet, 1> *get_bullets();
         bn::fixed_rect get_hitbox();
 
+        static bn::sprite_item get_sprite(TowerType type);
+
     private:
+        TowerType type;
         bn::camera_ptr camera;
         bn::fixed_point position;
         bn::optional<bn::sprite_ptr>
             sprite;
         bn::optional<bn::timer> last_fire_timer;
-        bn::vector<Bullet, 5> bullets;
+        bn::vector<Bullet, 1> bullets;
         bn::fixed aggro_radius_px = 32;
     };
 }
