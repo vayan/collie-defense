@@ -54,6 +54,7 @@ namespace cd
         bool destroyed = false;
         bn::fixed progress = 0;
         bn::fixed delta = 0.02;
+        bn::fixed dammage = 10;
     };
 }
 

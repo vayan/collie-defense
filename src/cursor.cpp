@@ -142,7 +142,8 @@ void Cursor::on_tick(Level *level)
         tower_select_ui.value().set_position(position);
     }
 
-    update_camera(level->get_bg().value());
+    // can re-enable this if I do levels bigger than 240×160
+    // update_camera(level->get_bg().value());
     sprite.value().set_position(position);
 }
 

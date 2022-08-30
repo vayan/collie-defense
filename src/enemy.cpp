@@ -13,10 +13,14 @@ Enemy::Enemy(
                                steps_number(_steps_number)
 {
     sprite = bn::sprite_items::sheep.create_sprite(0, 0);
+    life_bar = bn::sprite_items::life_bar.create_sprite(0, 0);
 
     position = origin;
     from = origin;
     to = *steps[0];
+
+    life_bar.value().set_camera(camera);
+    life_bar.value().set_visible(false);
 
     sprite.value()
         .set_position(from);
@@ -50,6 +54,12 @@ void Enemy::on_tick(Level *level, Player *player)
         // TODO check no more steps
     }
 
+    if (life < max_life)
+    {
+        life_bar.value().set_visible(true);
+    }
+
+    life_bar.value().set_position(bn::fixed_point(position.x(), position.y() - 8));
     sprite.value().set_position(position);
 }
 
@@ -63,9 +73,18 @@ bn::fixed_point Enemy::get_position()
     return position;
 }
 
-void Enemy::hit()
+void Enemy::hit(bn::fixed dmg)
 {
-    dead = true;
+    life -= dmg;
+
+    if (life <= 0)
+    {
+        dead = true;
+    }
+    bn::fixed progress_index = life.safe_multiplication(11).safe_division(100).right_shift_integer();
+    life_bar.value().set_item(
+        bn::sprite_items::life_bar,
+        progress_index.integer());
 }
 
 bn::fixed_rect Enemy::get_hitbox()

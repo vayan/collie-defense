@@ -61,6 +61,10 @@ levels:
 
 graphics: $(RAW_GRAPHICS)
 
+cl: clean
+	@echo cleaning generated assets
+	@rm -rf graphics/generated/levels
+
 .PHONY: force
 $(RAW_GRAPHICS): force
 	aseprite --split-layers --batch $@ --color-mode indexed --sheet graphics/$(@F:.aseprite=.bmp) --sheet-type vertical

@@ -37,6 +37,8 @@ namespace cd
 
         bn::fixed get_life();
         bn::fixed get_money();
+        bool is_dead();
+        void reset();
 
     private:
         bn::optional<Cursor>

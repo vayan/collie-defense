@@ -37,9 +37,13 @@ namespace cd
 
         void on_tick(Level *level, Player *player);
 
+        bool is_paused();
+
     private:
         bn::optional<bn::sprite_text_generator> text_generator;
         bn::vector<bn::sprite_ptr, 32> text_sprites;
+
+        bool paused = false;
     };
 }
 

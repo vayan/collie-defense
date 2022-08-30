@@ -5,15 +5,12 @@ using namespace cd;
 Level::Level(
     bn::regular_bg_item _load_bg,
     const int *_int_grid,
-    bn::fixed _world_x,
-    bn::fixed _world_y,
     const Entity **_entities,
     bn::fixed _number_of_entities) : load_bg(_load_bg),
                                      int_grid(_int_grid),
                                      entities(_entities),
                                      number_of_entities(_number_of_entities)
 {
-    world_position = bn::fixed_point(_world_x, _world_y);
 }
 
 Level::~Level()
@@ -53,7 +50,7 @@ void Level::tick(bn::camera_ptr camera, Player *player)
     else if (current_wave_finished)
     {
         current_wave += 1;
-        log("moving to wave number", current_wave);
+        log("moving to wave number", current_wave + 1); // 0 indexed
         current_wave_finished = false;
     }
 }
@@ -141,13 +138,7 @@ void Level::add_tower(bn::fixed_point position, TowerType type)
     towers.emplace_back(type, bg.value().camera().value(), position);
 }
 
-void Level::on_gameover()
-{
-    // TODO do proper game over screen - but for now just restart
-    init(bg.value().camera().value());
-}
-
-bool Level::is_finished()
+bool Level::is_won()
 {
     return all_waves_finished;
 }

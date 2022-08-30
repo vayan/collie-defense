@@ -8,9 +8,6 @@ from ldtkpy.api import ldtk_json_from_dict
 LTDK_PROJECT_PATH = "ldtk/levels.ldtk"
 BASE_LTDK_PROJECT_PATH = os.path.dirname(LTDK_PROJECT_PATH)
 
-OFFSET_WORLD_MAP = 0  # needs to be multiple of 256 (offset to avoid negative coordinate, easier on 2D arrays)
-STRING_METADATA_SIZE = 45
-
 print("\nLoading LTdk JSON..")
 content = None
 with open(LTDK_PROJECT_PATH) as f:
@@ -28,7 +25,6 @@ def parse_entities(entities):
     return _entities_tiles_values
 
 
-# parse grid tiles ID like platform=1, spikes=3 etc...
 def parse_grid_tiles_values(layers):
     print("Parsing grid tiles values...")
     _grid_tiles_values = {}
@@ -43,9 +39,7 @@ def parse_grid_tiles_values(layers):
     return _grid_tiles_values
 
 
-def generate_world_file(
-    _grid_tiles_values, _entities_tiles_values, _world_int_grid, _levels, _enums
-):
+def generate_world_file(_grid_tiles_values, _entities_tiles_values, _levels, _enums):
     print("Generating world header file...")
 
     enums = ""
@@ -90,12 +84,11 @@ def generate_world_file(
 #ifndef COLLIE_DEFENCE_GBA_LEVEL_WORLDCONFIG_H
 #define COLLIE_DEFENCE_GBA_LEVEL_WORLDCONFIG_H
 
+#include "bn_fixed.h"
+
 namespace cd {{
+    static const bn::fixed number_of_levels = {len(_levels)};
     {enums}
-    static const int world_grid_width = {content.world_grid_width};
-    static const int world_grid_height = {content.world_grid_height};
-    static const int world_int_grid[] = {str(_world_int_grid).replace('[', '{').replace(']', '}')};
-    static const int string_metadata_max_size = {STRING_METADATA_SIZE};
 }}
 
 #endif
@@ -113,17 +106,8 @@ def parse_levels(_levels):
             "identifier": raw_level.identifier,
             "width": raw_level.px_wid,
             "height": raw_level.px_hei,
-            # TODO use this int_grid_width to check for invalid level, if the division doesn't give an int exclude the level
             "int_grid_width": int(raw_level.px_wid / content.world_grid_width),
             "int_grid_height": int(raw_level.px_hei / content.world_grid_height),
-            "world_x": raw_level.world_x + OFFSET_WORLD_MAP,
-            "world_y": raw_level.world_y + OFFSET_WORLD_MAP,
-            "world_int_grid_x": int(
-                (raw_level.world_x + OFFSET_WORLD_MAP) / content.world_grid_width
-            ),
-            "world_int_grid_y": int(
-                (raw_level.world_y + OFFSET_WORLD_MAP) / content.world_grid_height
-            ),
         }
         for layer_instance in raw_level.layer_instances:
             if (
@@ -167,27 +151,6 @@ def parse_levels(_levels):
     return parsed_levels
 
 
-def generate_world_int_grid(_levels):
-    print("Generating a world grid int map...")
-    world_int_grid = numpy.empty(
-        shape=(
-            100,
-            100,
-        ),  # TODO we need to use the 100 size in the code, maybe I should store it in headers
-        dtype=int,
-    )
-    world_int_grid.fill(-1)
-
-    for _level in _levels:
-        for col in range(_level["int_grid_width"]):
-            for row in range(_level["int_grid_height"]):
-                world_col = col + _level["world_int_grid_x"]
-                world_row = row + _level["world_int_grid_y"]
-                world_int_grid[world_row, world_col] = _level["int_identifier"]
-    print("Done!\n")
-    return world_int_grid.flatten().tolist()
-
-
 def generate_level_intgrid_file(_levels):
     intgrid_string = []
     headers = ""
@@ -225,7 +188,14 @@ def import_level_png(_levels):
 
         image_png = f'{BASE_LTDK_PROJECT_PATH}/levels/png/{_level["identifier"]}.png'
         img = Image.open(image_png)
-        newimg = img.convert(mode="P")
+        img.save(image_png)
+        newimg = img.convert(
+            mode="P",
+            palette=Image.Palette.ADAPTIVE,
+            colors=256,
+            dither=Image.Dither.NONE,
+        )
+
         newimg.save(f"./graphics/generated/levels/levels_{zfill_id}.bmp")
 
         json_filename = f"./graphics/generated/levels/levels_{zfill_id}.json"
@@ -244,10 +214,8 @@ grid_tiles_values = parse_grid_tiles_values(content.defs.layers)
 
 levels = parse_levels(content.levels)
 
-world_int_grid = generate_world_int_grid(levels)
-
 generate_world_file(
-    grid_tiles_values, entities_tiles_values, world_int_grid, levels, content.defs.enums
+    grid_tiles_values, entities_tiles_values, levels, content.defs.enums
 )
 
 generate_level_intgrid_file(levels)
@@ -273,7 +241,7 @@ for level_index, level in enumerate(levels):
 
         for index, path_point in enumerate(entity["fields"]["points"]):
             path_point_var_name = f"{var_name}_path_point_{index}"
-            path_points_var_declr = f'{path_points_var_declr}\nBN_DATA_EWRAM static bn::fixed_point {path_point_var_name} = bn::fixed_point({(path_point["cx"] * 8) - (level["width"] / 2)}, {(path_point["cy"] * 8) - (level["height"] / 2)});'
+            path_points_var_declr = f'{path_points_var_declr}\nBN_DATA_EWRAM static bn::fixed_point {path_point_var_name} = bn::fixed_point({(path_point["cx"] * 4) - (level["width"] / 2)}, {(path_point["cy"] * 4) - (level["height"] / 2)});'
             path_points_var_list.append(f"&{path_point_var_name}")
 
         path_coords_value = ""
@@ -322,8 +290,6 @@ namespace cd {{
     BN_DATA_EWRAM static Level level_{level['int_identifier']} = Level(
         bn::regular_bg_items::levels_{zfill_id},
         int_grid_{level['int_identifier']},
-        {level['world_x']},
-        {level['world_y']},
         entities_{level['int_identifier']},
         {len(entities_var_list)}
     );

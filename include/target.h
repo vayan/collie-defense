@@ -29,7 +29,7 @@ namespace cd
         virtual bn::fixed_rect get_hitbox();
         virtual bn::fixed get_reward();
 
-        virtual void hit();
+        virtual void hit(bn::fixed dmg);
         virtual ~Target() = default;
     };
 }

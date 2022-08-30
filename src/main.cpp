@@ -29,15 +29,37 @@ int main()
 
     while (true)
     {
-        current_level->tick(camera, &player);
-        player.on_tick(current_level);
+        if (ui.is_paused())
+        {
+        }
+        else
+        {
+            current_level->tick(camera, &player);
+            player.on_tick(current_level);
+        }
+
         ui.on_tick(current_level, &player);
 
         bn::core::update();
 
-        if (current_level->is_finished())
+        if (player.is_dead())
         {
-            current_level_index += 1; // TODO check endgame
+            cd::log("game over");
+
+            // TODO implement gameover screen - restart for now
+            return 0;
+        }
+        else if (current_level->is_won())
+        {
+            current_level_index += 1;
+
+            if (current_level_index >= cd::number_of_levels)
+            {
+                cd::log("end of game");
+                // TODO show end screen - restart for now
+                return 0;
+            }
+
             cd::log("loading next level number", current_level_index);
             current_level->reset();
             current_level = cd::levels[current_level_index];

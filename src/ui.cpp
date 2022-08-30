@@ -14,8 +14,18 @@ UI::~UI()
 
 void UI::on_tick(Level *level, Player *player)
 {
+    if (bn::keypad::start_pressed())
+    {
+        paused = !paused;
+    }
+
     bn::string<50> text = bn::format<50>("life: {} | money: {}", player->get_life(), player->get_money());
     text_sprites.clear();
     text_generator.value()
-        .generate(bn::fixed_point(-110, -70), text, text_sprites);
+        .generate(bn::fixed_point(-114, -72), text, text_sprites);
+}
+
+bool UI::is_paused()
+{
+    return paused;
 }

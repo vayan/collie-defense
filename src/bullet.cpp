@@ -34,7 +34,7 @@ void Bullet::on_tick(Level *level, Player *player)
     {
         player->on_target_killed(target);
         destroyed = true;
-        target->hit();
+        target->hit(dammage);
     }
 }
 

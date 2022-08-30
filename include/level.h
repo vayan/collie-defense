@@ -31,8 +31,6 @@ namespace cd
         Level(
             bn::regular_bg_item _load_bg,
             const int *_int_grid,
-            bn::fixed _world_x,
-            bn::fixed _world_y,
             const Entity **_entities,
             bn::fixed _number_of_entities);
 
@@ -44,8 +42,8 @@ namespace cd
         bn::optional<bn::regular_bg_ptr> get_bg();
         GridTileType get_map_cell(bn::fixed x, bn::fixed y);
         void add_tower(bn::fixed_point position, TowerType type);
-        void on_gameover();
-        bool is_finished();
+        bool is_won();
+        bool is_lost();
         void reset();
 
     private:
@@ -56,7 +54,6 @@ namespace cd
         const int *int_grid;
         const Entity **entities;
         bn::fixed number_of_entities;
-        bn::fixed_point world_position;
 
         bn::optional<bn::regular_bg_ptr> bg;
         bn::vector<Path, 10> paths;

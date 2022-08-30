@@ -21,6 +21,7 @@
 #include "bn_fixed_rect.h"
 
 #include "bn_sprite_items_sheep.h"
+#include "bn_sprite_items_life_bar.h"
 
 #include "math.h"
 #include "target.h"
@@ -45,7 +46,7 @@ namespace cd
         bool is_dead();
 
         bn::fixed_point get_position();
-        void hit();
+        void hit(bn::fixed dmg);
         bn::fixed_rect get_hitbox();
         bn::fixed get_reward();
         bn::fixed get_strenght();
@@ -61,8 +62,12 @@ namespace cd
         bn::fixed current_step = 0;
         bn::optional<bn::sprite_ptr>
             sprite;
+        bn::optional<bn::sprite_ptr>
+            life_bar;
         bn::fixed_point from;
         bn::fixed_point to;
+        bn::fixed max_life = 100;
+        bn::fixed life = 100;
         bool dead = false;
     };
 }
