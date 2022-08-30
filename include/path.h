@@ -27,7 +27,7 @@
 namespace cd
 {
     class Level;
-    class Path
+    class Path // TODO rename it to Wave
     {
     public:
         Path(
@@ -35,12 +35,17 @@ namespace cd
             bn::camera_ptr _camera,
             bn::fixed fire_pause_sec,
             bn::fixed_point **steps,
-            bn::fixed steps_number);
+            bn::fixed steps_number,
+            bn::fixed wave_order,
+            bn::fixed wave_duration_sec);
         ~Path();
 
         void on_tick(Level *level, Player *player);
 
         bn::vector<Enemy, 20> *get_enemies();
+
+        bn::fixed get_wave_order();
+        bool to_be_removed();
 
     private:
         bn::fixed_point position;
@@ -50,6 +55,8 @@ namespace cd
         bn::fixed fire_pause_sec;
         bn::fixed_point **steps;
         bn::fixed steps_number;
+        bn::fixed wave_order;
+        bn::fixed wave_duration_sec;
 
         bn::optional<bn::sprite_ptr>
             sprite;
@@ -57,6 +64,9 @@ namespace cd
         bn::fixed delta = 0.02;
         bn::fixed current_step = 0;
         bn::optional<bn::timer> last_fire_timer;
+        bn::optional<bn::timer> first_tick_timer;
+        bool is_finished = false;
+
         bn::vector<Enemy, 20> enemies;
     };
 }

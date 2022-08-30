@@ -26,12 +26,16 @@ namespace cd
             bn::fixed_point **arr_points_1,
             bn::fixed arr_points_1_size,
             bn::string<10> string_10_1,
-            bn::fixed number_1);
+            bn::fixed number_1,
+            bn::fixed number_2,
+            bn::fixed number_3);
 
         virtual ~Entity();
         bn::fixed_point get_position() const;
         EntityType get_type() const;
         bn::fixed get_number_1() const;
+        bn::fixed get_number_2() const;
+        bn::fixed get_number_3() const;
         bn::fixed_point **get_arr_points_1() const;
         bn::fixed get_arr_points_1_size() const;
 
@@ -42,6 +46,8 @@ namespace cd
         bn::fixed arr_points_1_size;
         bn::string<10> string_10_1;
         bn::fixed number_1;
+        bn::fixed number_2;
+        bn::fixed number_3;
         bn::fixed_point position;
     };
 }

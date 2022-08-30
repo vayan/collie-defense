@@ -12,7 +12,7 @@ void cd::log(bn::string<50> message)
     BN_LOG(message);
 }
 
-void cd::log(bn::string<20> message, bn::fixed number)
+void cd::log(bn::string<50> message, bn::fixed number)
 {
-    BN_LOG(bn::format<20>("{}: {}", message, number));
+    BN_LOG(bn::format<50>("{}: {}", message, number));
 }

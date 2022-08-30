@@ -17,7 +17,9 @@ int main()
 
     bn::camera_ptr camera = bn::camera_ptr::create(0, 0);
 
-    cd::Level *current_level = cd::levels[0];
+    int current_level_index = 0;
+
+    cd::Level *current_level = cd::levels[current_level_index];
     cd::Player player = cd::Player(camera);
     cd::UI ui = cd::UI();
 
@@ -32,5 +34,14 @@ int main()
         ui.on_tick(current_level, &player);
 
         bn::core::update();
+
+        if (current_level->is_finished())
+        {
+            current_level_index += 1; // TODO check endgame
+            cd::log("loading next level number", current_level_index);
+            current_level->reset();
+            current_level = cd::levels[current_level_index];
+            current_level->init(camera);
+        }
     }
 }

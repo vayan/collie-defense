@@ -45,9 +45,12 @@ namespace cd
         GridTileType get_map_cell(bn::fixed x, bn::fixed y);
         void add_tower(bn::fixed_point position, TowerType type);
         void on_gameover();
+        bool is_finished();
+        void reset();
 
     private:
-        GridTileType get_tile_type(int tile_index);
+        GridTileType
+        get_tile_type(int tile_index);
 
         bn::regular_bg_item load_bg;
         const int *int_grid;
@@ -58,6 +61,8 @@ namespace cd
         bn::optional<bn::regular_bg_ptr> bg;
         bn::vector<Path, 10> paths;
         bn::vector<Tower, 10> towers;
+        bn::fixed current_wave = 0;
+        bool all_waves_finished = false;
     };
 }
 

@@ -135,7 +135,13 @@ def parse_levels(_levels):
             if layer_instance.type == "Entities":
                 entities = []
                 for entity_instance in layer_instance.entity_instances:
-                    fields = {"points": [], "enemy": None, "rate": 1}
+                    fields = {
+                        "points": [],
+                        "enemy": None,
+                        "rate": 1,
+                        "waveNumber": 0,
+                        "waveDuration": 5,
+                    }
                     for field_instance in entity_instance.field_instances:
                         if field_instance.type == "LocalEnum.EnemyType":
                             fields["enemy"] = field_instance.value
@@ -143,6 +149,10 @@ def parse_levels(_levels):
                             fields["rate"] = field_instance.value
                         if field_instance.type == "Array<Point>":
                             fields["points"] = field_instance.value
+                        if field_instance.identifier == "WaveNumber":
+                            fields["waveNumber"] = field_instance.value
+                        if field_instance.identifier == "WaveDuration":
+                            fields["waveDuration"] = field_instance.value
                     entities.append(
                         {
                             "type": entity_instance.identifier,
@@ -273,7 +283,6 @@ for level_index, level in enumerate(levels):
             path_coords_var_name = f"{var_name}_path_coords"
 
         entities_var_list.append(f"&{var_name}")
-
         entities_var_declar = f"""
 
 {path_points_var_declr}
@@ -286,7 +295,9 @@ for level_index, level in enumerate(levels):
     {path_coords_var_name},
     {len(path_points_var_list)},
     "{entity["fields"]["enemy"]}",
-    {entity["fields"]["rate"]}
+    {entity["fields"]["rate"]},
+    {entity["fields"]["waveNumber"]},
+    {entity["fields"]["waveDuration"]}
 );
 """
 

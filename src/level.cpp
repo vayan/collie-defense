@@ -24,15 +24,37 @@ Level::~Level()
 void Level::tick(bn::camera_ptr camera, Player *player)
 {
     bg.value().set_camera(camera);
+    bool current_wave_finished = true;
 
     for (Path &path : paths)
     {
-        path.on_tick(this, player);
+        if (current_wave == path.get_wave_order())
+        {
+            current_wave_finished = false;
+            path.on_tick(this, player);
+
+            if (path.to_be_removed())
+            {
+                paths.erase(&path);
+            }
+        }
     }
 
     for (Tower &tower : towers)
     {
         tower.on_tick(this, player);
+    }
+
+    if (paths.empty())
+    {
+        log("current level is finished!");
+        all_waves_finished = true;
+    }
+    else if (current_wave_finished)
+    {
+        current_wave += 1;
+        log("moving to wave number", current_wave);
+        current_wave_finished = false;
     }
 }
 
@@ -56,7 +78,13 @@ void Level::init(bn::camera_ptr camera)
         switch (entities[i]->get_type())
         {
         case EntityType::Path:
-            paths.emplace_back(ldtk_coord_to_us, bg.value().camera().value(), entities[i]->get_number_1(), entities[i]->get_arr_points_1(), entities[i]->get_arr_points_1_size());
+            paths.emplace_back(
+                ldtk_coord_to_us, bg.value().camera().value(),
+                entities[i]->get_number_1(),
+                entities[i]->get_arr_points_1(),
+                entities[i]->get_arr_points_1_size(),
+                entities[i]->get_number_2(),
+                entities[i]->get_number_3());
             break;
         default:
             log("cannot create unkown entity, im not god yet");
@@ -117,4 +145,18 @@ void Level::on_gameover()
 {
     // TODO do proper game over screen - but for now just restart
     init(bg.value().camera().value());
+}
+
+bool Level::is_finished()
+{
+    return all_waves_finished;
+}
+
+void Level::reset()
+{
+    paths.clear();
+    towers.clear();
+    bg.reset();
+    current_wave = 0;
+    all_waves_finished = false;
 }
