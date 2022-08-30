@@ -90,5 +90,7 @@ bn::sprite_item Tower::get_sprite(TowerType type)
         return bn::sprite_items::tower_aoe;
     case TowerType::Sticky:
         return bn::sprite_items::tower_sticky;
+    default:
+        return bn::sprite_items::tower_basic;
     }
 }
