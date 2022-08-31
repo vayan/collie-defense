@@ -1,15 +1,20 @@
 # Collie Defence
 
+## How To Play
+
+1. Download the latest .gba rom file in the [release page](https://github.com/vayan/collie-defence/releases)
+2. Open the rom with an emulator (e.g [mGBA](https://mgba.io/downloads.html))
+
 ## How to contribute
 
 ### Requirements
 
-- devkitARM <https://devkitpro.org/wiki/Getting_Started>
-- Butano <https://gvaliente.github.io/butano/getting_started.html>
-- Python <https://www.python.org/downloads/>
-- Poetry <https://python-poetry.org/docs/#installation>
-- LDtk <https://ldtk.io/>
-- mGBA <https://mgba.io/downloads.html>
+- devkitARM \<https://devkitpro.org/wiki/Getting_Started\>
+- Butano \<https://gvaliente.github.io/butano/getting_started.html\>
+- Python \<https://www.python.org/downloads/\>
+- Poetry \<https://python-poetry.org/docs/#installation\>
+- LDtk \<https://ldtk.io/\>
+- mGBA \<https://mgba.io/downloads.html\>
 
 ### Instructions
 
@@ -51,3 +56,10 @@ You can also add mGBA to you path if you want `/Applications/mGBA.app/Contents/M
 (Need Aseprite installed)
 
 `make graphics`
+
+
+# Licenses
+
+Artwork and music are licenced under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
+
+All of the code, under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
