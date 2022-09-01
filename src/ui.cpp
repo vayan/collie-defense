@@ -19,7 +19,7 @@ void UI::on_tick(Level *level, Player *player)
         paused = !paused;
     }
 
-    bn::string<50> text = bn::format<50>("life: {} | money: {}", player->get_life(), player->get_money());
+    bn::string<50> text = bn::format<50>("life: {}", player->get_life());
     text_sprites.clear();
     text_generator.value()
         .generate(bn::fixed_point(-114, -72), text, text_sprites);

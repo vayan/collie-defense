@@ -13,7 +13,7 @@ Player::~Player()
 
 void Player::on_tick(Level *level)
 {
-    cursor.value().on_tick(level);
+    cursor.value().on_tick(level, this);
 }
 
 void Player::on_target_killed(Target *target)
@@ -44,4 +44,9 @@ void Player::reset()
 {
     life = 100;
     money = 0;
+}
+
+void Player::spend_money(bn::fixed cost)
+{
+    money -= cost;
 }

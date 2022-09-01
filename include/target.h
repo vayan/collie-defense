@@ -22,6 +22,7 @@
 
 namespace cd
 {
+    class Player;
     class Target
     {
     public:
@@ -29,7 +30,7 @@ namespace cd
         virtual bn::fixed_rect get_hitbox();
         virtual bn::fixed get_reward();
 
-        virtual void hit(bn::fixed dmg);
+        virtual void hit(bn::fixed dmg, Player *player);
         virtual ~Target() = default;
     };
 }

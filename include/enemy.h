@@ -46,7 +46,7 @@ namespace cd
         bool is_dead();
 
         bn::fixed_point get_position();
-        void hit(bn::fixed dmg);
+        void hit(bn::fixed dmg, Player *player);
         bn::fixed_rect get_hitbox();
         bn::fixed get_reward();
         bn::fixed get_strenght();

@@ -73,15 +73,18 @@ bn::fixed_point Enemy::get_position()
     return position;
 }
 
-void Enemy::hit(bn::fixed dmg)
+void Enemy::hit(bn::fixed dmg, Player *player)
 {
     life -= dmg;
 
     if (life <= 0)
     {
+        player->on_target_killed(this);
         dead = true;
     }
-    bn::fixed progress_index = life.safe_multiplication(11).safe_division(100).right_shift_integer();
+
+    // TODO progress_index is out of bound sometimes - fix it
+    bn::fixed progress_index = life.safe_multiplication(11).safe_division(100).round_integer();
     life_bar.value().set_item(
         bn::sprite_items::life_bar,
         progress_index.integer());

@@ -33,7 +33,7 @@ void Tower::fire(Target *target)
         return;
     }
     last_fire_timer = bn::timer();
-    bullets.emplace_back(camera, position, target);
+    bullets.emplace_back(camera, position, target, get_attack_speed(), get_damage());
 }
 
 void Tower::on_tick(Level *level, Player *player)
@@ -57,7 +57,7 @@ void Tower::on_tick(Level *level, Player *player)
             bn::fixed delta_x = enemy.get_position().x() - position.x();
             bn::fixed delta_y = enemy.get_position().y() - position.y();
 
-            bool is_inside = delta_x * delta_x + delta_y * delta_y < aggro_radius_px * aggro_radius_px;
+            bool is_inside = delta_x * delta_x + delta_y * delta_y < get_aggro_range() * get_aggro_range();
             if (is_inside)
             {
                 fire(&enemy);
@@ -93,4 +93,85 @@ bn::sprite_item Tower::get_sprite(TowerType type)
     default:
         return bn::sprite_items::tower_basic;
     }
+}
+
+// I'll create real child classes at some point if I'm not lazy
+bn::fixed Tower::get_aggro_range(TowerType type)
+{
+    switch (type)
+    {
+    case TowerType::Basic:
+        return 32;
+    case TowerType::AoE:
+        return 24;
+    case TowerType::Sticky:
+        return 24;
+    default:
+        return 10;
+    }
+}
+
+bn::fixed Tower::get_aggro_range()
+{
+    return get_aggro_range(type);
+}
+
+bn::fixed Tower::get_damage(TowerType type)
+{
+    switch (type)
+    {
+    case TowerType::Basic:
+        return 10;
+    case TowerType::AoE:
+        return 20;
+    case TowerType::Sticky:
+        return 5;
+    default:
+        return 10;
+    }
+}
+
+bn::fixed Tower::get_damage()
+{
+    return get_damage(type);
+}
+
+bn::fixed Tower::get_attack_speed(TowerType type)
+{
+    switch (type)
+    {
+    case TowerType::Basic:
+        return 0.02;
+    case TowerType::AoE:
+        return 0.01;
+    case TowerType::Sticky:
+        return 0.04;
+    default:
+        return 0.02;
+    }
+}
+
+bn::fixed Tower::get_attack_speed()
+{
+    return get_attack_speed(type);
+}
+
+bn::fixed Tower::get_cost(TowerType type)
+{
+    switch (type)
+    {
+    case TowerType::Basic:
+        return 10;
+    case TowerType::AoE:
+        return 50;
+    case TowerType::Sticky:
+        return 30;
+    default:
+        return 9999;
+    }
+}
+
+bn::fixed Tower::get_cost()
+{
+    return get_cost(type);
 }

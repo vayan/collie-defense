@@ -39,12 +39,13 @@ namespace cd
         bn::fixed get_money();
         bool is_dead();
         void reset();
+        void spend_money(bn::fixed cost);
 
     private:
         bn::optional<Cursor>
             cursor;
         bn::fixed life = 100;
-        bn::fixed money = 0;
+        bn::fixed money = 100;
     };
 }
 

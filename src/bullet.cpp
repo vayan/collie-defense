@@ -6,9 +6,14 @@ using namespace cd;
 Bullet::Bullet(
     bn::camera_ptr _camera,
     bn::fixed_point _position,
-    Target *_target) : camera(_camera),
-                       position(_position),
-                       target(_target)
+    Target *_target,
+    bn::fixed _speed_delta,
+    bn::fixed _damage) : camera(_camera),
+                         position(_position),
+                         target(_target),
+                         delta(_speed_delta),
+                         damage(_damage)
+
 {
     sprite = bn::sprite_items::bullet.create_sprite(0, 0);
 
@@ -32,9 +37,8 @@ void Bullet::on_tick(Level *level, Player *player)
 
     if (get_hitbox().intersects(target->get_hitbox()))
     {
-        player->on_target_killed(target);
         destroyed = true;
-        target->hit(damage);
+        target->hit(damage, player);
     }
 }
 

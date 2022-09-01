@@ -1,4 +1,5 @@
 #include "cursor.h"
+#include "player.h"
 
 using namespace cd;
 
@@ -21,9 +22,7 @@ Cursor::~Cursor()
 void Cursor::enable()
 {
     targeting_buildable_grid = true;
-    // no idea if set_item is fast... let's see later
-    sprite.value()
-        .set_item(bn::sprite_items::cursor, 0);
+    sprite.value().set_item(bn::sprite_items::cursor, 0);
 }
 
 void Cursor::disable()
@@ -59,7 +58,7 @@ bool Cursor::can_build(Level *level)
     return false;
 }
 
-void Cursor::on_tick(Level *level)
+void Cursor::on_tick(Level *level, Player *player)
 {
     if (can_build(level))
     {
@@ -70,15 +69,28 @@ void Cursor::on_tick(Level *level)
         disable();
     }
 
-    if (bn::keypad::a_pressed() && targeting_buildable_grid && current_selection.has_value())
+    if (
+        bn::keypad::a_pressed() &&
+        targeting_buildable_grid &&
+        current_selection.has_value())
     {
-        level->add_tower(position, current_selection.value());
-        remove_current_selection();
+        bn::fixed cost = Tower::get_cost(current_selection.value());
+
+        if (player->get_money() >= cost)
+        {
+            level->add_tower(position, current_selection.value());
+            player->spend_money(cost);
+            remove_current_selection();
+        }
+        else
+        {
+            // TODO show no money warning
+        }
     }
 
     if (shop.has_value())
     {
-        shop.value().on_tick(level);
+        shop.value().on_tick(level, player);
 
         if (shop.value().get_purchase().has_value())
         {
@@ -127,9 +139,12 @@ void Cursor::on_tick(Level *level)
         range.value().set_position(position);
     }
 
+    check_screen_bounds();
+
     // can re-enable this if I do levels bigger than 240×160
     // update_camera(level->get_bg().value());
-    sprite.value().set_position(position);
+    sprite.value()
+        .set_position(position);
 }
 
 void Cursor::update_camera(bn::regular_bg_ptr map)
@@ -210,17 +225,49 @@ void Cursor::set_selection(TowerType type)
     hide_shop();
     current_selection = type;
 
+    // range background is 128x128px
+    bn::fixed scale = (Tower::get_aggro_range(type)).safe_division(64);
+
     range = bn::affine_bg_items::range.create_bg(0, 0);
     range.value().set_camera(camera);
     range.value().set_visible(true);
     range.value().set_wrapping_enabled(false);
     range.value().set_priority(0);
-    range.value().set_horizontal_scale(1);
-    range.value().set_vertical_scale(1);
+    range.value().set_horizontal_scale(scale);
+    range.value().set_vertical_scale(scale);
 
     placeholder = Tower::get_sprite(current_selection.value()).create_sprite(0, 0);
     placeholder.value().set_camera(camera);
     placeholder.value()
         .set_visible(true);
     placeholder.value().set_blending_enabled(true);
+}
+
+void Cursor::check_screen_bounds()
+{
+    bn::fixed x = position.x();
+    bn::fixed y = position.y();
+    bn::fixed half_display_width = bn::display::width() / 2;
+    bn::fixed half_display_height = bn::display::height() / 2;
+
+    if (x < -half_display_width)
+    {
+        x = -half_display_width;
+    }
+    else if (x > half_display_width)
+    {
+        x = half_display_width;
+    }
+
+    if (y < -half_display_height)
+    {
+        y = -half_display_height;
+    }
+    else if (y > half_display_height)
+    {
+        y = half_display_height;
+    }
+
+    position.set_x(x);
+    position.set_y(y);
 }

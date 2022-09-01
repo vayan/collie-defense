@@ -51,6 +51,15 @@ namespace cd
         bn::fixed_rect get_hitbox();
 
         static bn::sprite_item get_sprite(TowerType type);
+        static bn::fixed get_aggro_range(TowerType type);
+        static bn::fixed get_damage(TowerType type);
+        static bn::fixed get_attack_speed(TowerType type);
+        static bn::fixed get_cost(TowerType type);
+
+        bn::fixed get_aggro_range();
+        bn::fixed get_damage();
+        bn::fixed get_attack_speed();
+        bn::fixed get_cost();
 
     private:
         TowerType type;
@@ -60,7 +69,6 @@ namespace cd
             sprite;
         bn::optional<bn::timer> last_fire_timer;
         bn::vector<Bullet, 1> bullets;
-        bn::fixed aggro_radius_px = 32;
     };
 }
 

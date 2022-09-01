@@ -37,7 +37,9 @@ namespace cd
         Bullet(
             bn::camera_ptr camera,
             bn::fixed_point position,
-            Target *target);
+            Target *target,
+            bn::fixed speed_delta,
+            bn::fixed damage);
 
         ~Bullet();
 
@@ -53,8 +55,8 @@ namespace cd
             sprite;
         bool destroyed = false;
         bn::fixed progress = 0;
-        bn::fixed delta = 0.02;
-        bn::fixed damage = 10;
+        bn::fixed delta;
+        bn::fixed damage;
     };
 }
 

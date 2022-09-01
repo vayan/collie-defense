@@ -44,7 +44,7 @@ namespace cd
     public:
         Cursor(bn::camera_ptr camera);
         ~Cursor();
-        void on_tick(Level *level);
+        void on_tick(Level *level, Player *player);
         void enable();
         void disable();
         void update_camera(bn::regular_bg_ptr map);
@@ -54,6 +54,7 @@ namespace cd
         void set_selection(TowerType type);
         void hide_shop();
         void show_shop();
+        void check_screen_bounds();
 
     private:
         bool can_build(Level *level);
