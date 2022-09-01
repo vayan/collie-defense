@@ -1,5 +1,5 @@
-#ifndef COLLIE_DEFENCE_GBA_CURSOR_H
-#define COLLIE_DEFENCE_GBA_CURSOR_H
+#ifndef COLLIE_DEFENCE_GBA_SHOP_H
+#define COLLIE_DEFENCE_GBA_SHOP_H
 
 #include "bn_regular_bg_ptr.h"
 #include "bn_regular_bg_item.h"
@@ -26,8 +26,6 @@
 #include "bn_fixed_rect.h"
 #include "bn_blending.h"
 
-#include "bn_sprite_items_cursor.h"
-#include "bn_affine_bg_items_range.h"
 #include "bn_regular_bg_items_tower_select_ui.h"
 #include "bn_sprite_items_tower_select_ui_highlight.h"
 #include "bn_regular_bg_items_overlay_bg.h"
@@ -35,39 +33,28 @@
 #include "generated/world_config.h"
 #include "level.h"
 #include "utils.h"
-#include "shop.h"
 
 namespace cd
 {
-    class Cursor
+    class Shop
     {
     public:
-        Cursor(bn::camera_ptr camera);
-        ~Cursor();
+        Shop(bn::camera_ptr camera);
+        ~Shop();
         void on_tick(Level *level);
-        void enable();
-        void disable();
-        void update_camera(bn::regular_bg_ptr map);
-        bn::fixed_rect get_hitbox();
 
-        void remove_current_selection();
-        void set_selection(TowerType type);
-        void hide_shop();
-        void show_shop();
+        bn::optional<TowerType> get_purchase();
+        bool is_closed();
 
     private:
-        bool can_build(Level *level);
-        bn::optional<bn::sprite_ptr>
-            sprite;
-        bool targeting_buildable_grid = false;
-        bn::fixed_point position;
         bn::camera_ptr camera;
-        bn::optional<bn::affine_bg_ptr> range;
-        bn::optional<TowerType> current_selection;
+        bn::optional<bn::regular_bg_ptr> tower_select_ui;
         bn::optional<bn::sprite_ptr>
-            placeholder;
-        bn::optional<Shop>
-            shop;
+            select_highlight;
+        bn::optional<bn::regular_bg_ptr>
+            overlay_bg;
+        bool open = true;
+        bn::optional<TowerType> purchase;
     };
 }
 

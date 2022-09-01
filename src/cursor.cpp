@@ -76,33 +76,24 @@ void Cursor::on_tick(Level *level)
         remove_current_selection();
     }
 
-    if (tower_select_open)
+    if (shop.has_value())
     {
-        if (bn::keypad::right_pressed())
-        {
-            set_selection(TowerType::AoE);
-        }
+        shop.value().on_tick(level);
 
-        if (bn::keypad::left_pressed())
+        if (shop.value().get_purchase().has_value())
         {
-            set_selection(TowerType::Sticky);
+            set_selection(shop.value().get_purchase().value());
         }
-
-        if (bn::keypad::up_pressed())
+        if (shop.has_value() && shop.value().is_closed())
         {
-            set_selection(TowerType::Basic);
-        }
-
-        if (bn::keypad::down_pressed() || bn::keypad::b_pressed())
-        {
-            hide_tower_select_ui();
+            hide_shop();
         }
     }
     else
     {
         if (bn::keypad::b_pressed())
         {
-            open_tower_select_ui();
+            show_shop();
         }
 
         if (bn::keypad::right_pressed())
@@ -134,12 +125,6 @@ void Cursor::on_tick(Level *level)
     if (range.has_value())
     {
         range.value().set_position(position);
-    }
-
-    if (tower_select_ui.has_value())
-    {
-        tower_select_ui.value().set_camera(camera);
-        tower_select_ui.value().set_position(position);
     }
 
     // can re-enable this if I do levels bigger than 240×160
@@ -206,34 +191,23 @@ void Cursor::remove_current_selection()
     placeholder.reset();
 }
 
-void Cursor::hide_tower_select_ui()
+void Cursor::hide_shop()
 {
-    tower_select_ui.reset();
-    overlay_bg.reset();
-    tower_select_open = false;
+    if (shop.has_value())
+    {
+        shop.reset();
+    }
 }
 
-void Cursor::open_tower_select_ui()
+void Cursor::show_shop()
 {
-    tower_select_open = true;
     remove_current_selection();
-
-    tower_select_ui = bn::regular_bg_items::tower_select_ui.create_bg(0, 0);
-    tower_select_ui.value().set_priority(0);
-
-    overlay_bg = bn::regular_bg_items::overlay_bg.create_bg(0, 0);
-    overlay_bg.value().set_camera(camera);
-    overlay_bg.value().set_visible(false);
-    overlay_bg.value().set_priority(1);
-    overlay_bg.value().set_blending_enabled(true);
-
-    overlay_bg.value()
-        .set_visible(true);
+    shop = Shop(camera);
 }
 
 void Cursor::set_selection(TowerType type)
 {
-    hide_tower_select_ui();
+    hide_shop();
     current_selection = type;
 
     range = bn::affine_bg_items::range.create_bg(0, 0);
