@@ -83,11 +83,16 @@ void Enemy::hit(bn::fixed dmg, Player *player)
         dead = true;
     }
 
-    // TODO progress_index is out of bound sometimes - fix it
     bn::fixed progress_index = life.safe_multiplication(11).safe_division(100).round_integer();
-    life_bar.value().set_item(
-        bn::sprite_items::life_bar,
-        progress_index.integer());
+    if (progress_index < 0)
+    {
+        // TODO check why this happen
+        progress_index = 0;
+    }
+    life_bar.value()
+        .set_item(
+            bn::sprite_items::life_bar,
+            progress_index.integer());
 }
 
 bn::fixed_rect Enemy::get_hitbox()
