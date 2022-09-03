@@ -57,6 +57,7 @@ namespace cd
         bn::fixed progress = 0;
         bn::fixed delta;
         bn::fixed damage;
+        bn::fixed target_id = 0;
     };
 }
 

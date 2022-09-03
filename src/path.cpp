@@ -3,13 +3,15 @@
 namespace cd
 {
     Path::Path(
+        bn::fixed _id,
         bn::fixed_point _from,
         bn::camera_ptr _camera,
         bn::fixed _fire_pause_sec,
         bn::fixed_point **_steps,
         bn::fixed _steps_number,
         bn::fixed _wave_order,
-        bn::fixed _wave_duration_sec) : from(_from),
+        bn::fixed _wave_duration_sec) : id(_id),
+                                        from(_from),
                                         camera(_camera),
                                         fire_pause_sec(_fire_pause_sec),
                                         steps(_steps),
@@ -18,7 +20,13 @@ namespace cd
                                         wave_duration_sec(_wave_duration_sec)
 
     {
-        last_fire_timer = bn::timer();
+        frame_elapsed_since_last_fire = fire_pause_sec;
+        rand = bn::random();
+
+        for (bn::fixed i = 0; i < id; i += 1)
+        {
+            rand.value().update();
+        }
     }
 
     Path::~Path()
@@ -27,19 +35,18 @@ namespace cd
 
     void Path::on_tick(Level *level, Player *player)
     {
-        if (!first_tick_timer.has_value())
-        {
-            first_tick_timer = bn::timer();
-        }
-        else if (first_tick_timer.value().elapsed_ticks() > (one_sec_in_ticks.integer() * wave_duration_sec.integer()))
+        frame_elapsed_since_last_fire += 1;
+        frame_elapsed_since_create += 1;
+
+        if ((frame_elapsed_since_create / frame_per_sec) > wave_duration_sec)
         {
             is_finished = true;
         }
 
-        if (!is_finished && last_fire_timer.value().elapsed_ticks() > (one_sec_in_ticks * fire_pause_sec) && !enemies.full())
+        if (!is_finished && (frame_elapsed_since_last_fire / frame_per_sec) > fire_pause_sec && !enemies.full())
         {
-            last_fire_timer = bn::timer();
-            enemies.emplace_back(camera, from, steps, steps_number);
+            frame_elapsed_since_last_fire = 0;
+            enemies.emplace_back(generate_enemy_id(), camera, from, steps, steps_number);
         }
 
         for (Enemy &enemy : enemies)
@@ -66,5 +73,10 @@ namespace cd
     bool Path::to_be_removed()
     {
         return is_finished && enemies.empty();
+    }
+
+    bn::fixed Path::generate_enemy_id()
+    {
+        return id + rand.value().get_fixed(id, id + 10000).ceil_integer();
     }
 }

@@ -29,6 +29,7 @@ namespace cd
         virtual bn::fixed_point get_position();
         virtual bn::fixed_rect get_hitbox();
         virtual bn::fixed get_reward();
+        virtual bn::fixed get_id();
 
         virtual void hit(bn::fixed dmg, Player *player);
         virtual ~Target() = default;

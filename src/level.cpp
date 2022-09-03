@@ -76,6 +76,7 @@ void Level::init(bn::camera_ptr camera)
         {
         case EntityType::Path:
             paths.emplace_back(
+                entities[i]->get_id(),
                 ldtk_coord_to_us, bg.value().camera().value(),
                 entities[i]->get_number_1(),
                 entities[i]->get_arr_points_1(),

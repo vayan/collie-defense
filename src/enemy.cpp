@@ -4,10 +4,12 @@
 using namespace cd;
 
 Enemy::Enemy(
+    bn::fixed _id,
     bn::camera_ptr _camera,
     bn::fixed_point _origin,
     bn::fixed_point **_steps,
-    bn::fixed _steps_number) : camera(_camera),
+    bn::fixed _steps_number) : id(_id),
+                               camera(_camera),
                                origin(_origin),
                                steps(_steps),
                                steps_number(_steps_number)
@@ -41,7 +43,8 @@ void Enemy::on_tick(Level *level, Player *player)
         dead = true;
         return;
     }
-    progress = progress + delta;
+
+    progress += speed / (distance(from, to) * 100);
 
     position = lerp_points(from, to, progress);
 
@@ -51,7 +54,6 @@ void Enemy::on_tick(Level *level, Player *player)
         from = to;
         to = *steps[current_step.integer()];
         progress = 0;
-        // TODO check no more steps
     }
 
     if (life < max_life)
@@ -112,4 +114,9 @@ bn::fixed Enemy::get_reward()
 bn::fixed Enemy::get_strenght()
 {
     return 10; // TODO get dynamic value
+}
+
+bn::fixed Enemy::get_id()
+{
+    return id;
 }

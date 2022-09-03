@@ -21,6 +21,7 @@ Bullet::Bullet(
         .set_position(position);
     sprite.value().set_camera(camera);
     sprite.value().set_visible(true);
+    target_id = target->get_id();
 }
 
 Bullet::~Bullet()
@@ -29,13 +30,19 @@ Bullet::~Bullet()
 
 void Bullet::on_tick(Level *level, Player *player)
 {
+    if (target->get_id() != target_id)
+    {
+        destroyed = true;
+        return;
+    }
+
     progress = progress + delta;
 
     position = lerp_points(position, target->get_position(), progress);
 
     sprite.value().set_position(position);
 
-    if (get_hitbox().intersects(target->get_hitbox()))
+    if (get_hitbox().intersects(target->get_hitbox()) && target->get_id() == target_id)
     {
         destroyed = true;
         target->hit(damage, player);

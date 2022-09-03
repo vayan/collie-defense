@@ -23,6 +23,7 @@
 #include "enemy.h"
 #include "entity.h"
 #include "math.h"
+#include "debug.h"
 
 namespace cd
 {
@@ -31,6 +32,7 @@ namespace cd
     {
     public:
         Path(
+            bn::fixed _id,
             bn::fixed_point _from,
             bn::camera_ptr _camera,
             bn::fixed fire_pause_sec,
@@ -46,8 +48,10 @@ namespace cd
 
         bn::fixed get_wave_order();
         bool to_be_removed();
+        bn::fixed generate_enemy_id();
 
     private:
+        bn::fixed id;
         bn::fixed_point position;
         bn::fixed_point from;
         bn::fixed_point to;
@@ -63,8 +67,12 @@ namespace cd
         bn::fixed progress = 0;
         bn::fixed delta = 0.02;
         bn::fixed current_step = 0;
-        bn::optional<bn::timer> last_fire_timer;
-        bn::optional<bn::timer> first_tick_timer;
+        bn::fixed wave_ = 0;
+        bn::fixed frame_elapsed_since_last_fire = 0;
+        bn::fixed frame_elapsed_since_create = 0;
+        bn::optional<bn::random>
+            rand;
+
         bool is_finished = false;
 
         bn::vector<Enemy, 20> enemies;

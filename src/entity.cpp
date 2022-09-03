@@ -62,3 +62,8 @@ bn::fixed Entity::get_arr_points_1_size() const
 {
     return arr_points_1_size;
 }
+
+bn::fixed Entity::get_id() const
+{
+    return id;
+}

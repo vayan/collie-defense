@@ -47,19 +47,21 @@ namespace cd
 
         void on_tick(Level *level, Player *player);
         void fire(Target *target);
-        bn::vector<Bullet, 1> *get_bullets();
+        bn::vector<Bullet, 2> *get_bullets();
         bn::fixed_rect get_hitbox();
 
         static bn::sprite_item get_sprite(TowerType type);
         static bn::fixed get_aggro_range(TowerType type);
         static bn::fixed get_damage(TowerType type);
-        static bn::fixed get_attack_speed(TowerType type);
+        static bn::fixed get_bullet_speed(TowerType type);
         static bn::fixed get_cost(TowerType type);
+        static bn::fixed get_fire_rate_per_sec(TowerType type);
 
         bn::fixed get_aggro_range();
         bn::fixed get_damage();
-        bn::fixed get_attack_speed();
+        bn::fixed get_bullet_speed();
         bn::fixed get_cost();
+        bn::fixed get_fire_rate_per_sec();
 
     private:
         TowerType type;
@@ -67,8 +69,8 @@ namespace cd
         bn::fixed_point position;
         bn::optional<bn::sprite_ptr>
             sprite;
-        bn::optional<bn::timer> last_fire_timer;
-        bn::vector<Bullet, 1> bullets;
+        bn::fixed frame_elapsed_since_last_fire = 0;
+        bn::vector<Bullet, 2> bullets;
     };
 }
 

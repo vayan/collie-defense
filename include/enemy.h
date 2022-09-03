@@ -19,6 +19,7 @@
 #include "bn_sprite_builder.h"
 #include "bn_sprite_ptr.h"
 #include "bn_fixed_rect.h"
+#include "bn_random.h"
 
 #include "bn_sprite_items_sheep.h"
 #include "bn_sprite_items_life_bar.h"
@@ -34,6 +35,7 @@ namespace cd
     {
     public:
         Enemy(
+            bn::fixed _id,
             bn::camera_ptr camera,
             bn::fixed_point origin,
             bn::fixed_point **steps,
@@ -50,15 +52,17 @@ namespace cd
         bn::fixed_rect get_hitbox();
         bn::fixed get_reward();
         bn::fixed get_strenght();
+        bn::fixed get_id();
 
     private:
+        bn::fixed id;
         bn::fixed_point position;
         bn::camera_ptr camera;
         bn::fixed_point origin;
         bn::fixed_point **steps;
         bn::fixed steps_number;
         bn::fixed progress = 0;
-        bn::fixed delta = 0.01;
+        bn::fixed speed = 15;
         bn::fixed current_step = 0;
         bn::optional<bn::sprite_ptr>
             sprite;

@@ -38,6 +38,7 @@ namespace cd
         bn::fixed get_number_3() const;
         bn::fixed_point **get_arr_points_1() const;
         bn::fixed get_arr_points_1_size() const;
+        bn::fixed get_id() const;
 
     private:
         const bn::fixed id;

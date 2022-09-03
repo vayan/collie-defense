@@ -25,20 +25,19 @@ Tower::~Tower()
 
 void Tower::fire(Target *target)
 {
-    if (
-        bullets.full() ||
-        (last_fire_timer.has_value() &&
-         last_fire_timer.value().elapsed_ticks() < (one_sec_in_ticks * 1)))
+    if (bullets.full() || (frame_elapsed_since_last_fire / frame_per_sec) < get_fire_rate_per_sec())
     {
         return;
     }
-    last_fire_timer = bn::timer();
-    bullets.emplace_back(camera, position, target, get_attack_speed(), get_damage());
+    frame_elapsed_since_last_fire = 0;
+    bullets.emplace_back(camera, position, target, get_bullet_speed(), get_damage());
 }
 
 void Tower::on_tick(Level *level, Player *player)
 {
-    sprite.value().set_position(position);
+    frame_elapsed_since_last_fire += 1;
+    sprite.value()
+        .set_position(position);
 
     for (Bullet &bullet : bullets)
     {
@@ -66,7 +65,7 @@ void Tower::on_tick(Level *level, Player *player)
     }
 }
 
-bn::vector<Bullet, 1> *Tower::get_bullets()
+bn::vector<Bullet, 2> *Tower::get_bullets()
 {
     return &bullets;
 }
@@ -136,7 +135,7 @@ bn::fixed Tower::get_damage()
     return get_damage(type);
 }
 
-bn::fixed Tower::get_attack_speed(TowerType type)
+bn::fixed Tower::get_bullet_speed(TowerType type)
 {
     switch (type)
     {
@@ -151,9 +150,9 @@ bn::fixed Tower::get_attack_speed(TowerType type)
     }
 }
 
-bn::fixed Tower::get_attack_speed()
+bn::fixed Tower::get_bullet_speed()
 {
-    return get_attack_speed(type);
+    return get_bullet_speed(type);
 }
 
 bn::fixed Tower::get_cost(TowerType type)
@@ -174,4 +173,24 @@ bn::fixed Tower::get_cost(TowerType type)
 bn::fixed Tower::get_cost()
 {
     return get_cost(type);
+}
+
+bn::fixed Tower::get_fire_rate_per_sec(TowerType type)
+{
+    switch (type)
+    {
+    case TowerType::Basic:
+        return 1;
+    case TowerType::AoE:
+        return 1;
+    case TowerType::Sticky:
+        return 1;
+    default:
+        return 1;
+    }
+}
+
+bn::fixed Tower::get_fire_rate_per_sec()
+{
+    return get_fire_rate_per_sec(type);
 }
