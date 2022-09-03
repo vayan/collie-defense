@@ -1,17 +1,16 @@
 #ifndef COLLIE_DEFENCE_GBA_ENTITY_H
 #define COLLIE_DEFENCE_GBA_ENTITY_H
 
-#include "generated/world_config.h"
 #include "bn_fixed.h"
 #include "bn_fixed_point.h"
+#include "bn_format.h"
+#include "bn_log.h"
 #include "bn_optional.h"
 #include "bn_regular_bg_item.h"
 #include "bn_regular_bg_ptr.h"
-#include "bn_log.h"
-#include "bn_utility.h"
 #include "bn_string.h"
-#include "bn_format.h"
-#include "bn_optional.h"
+#include "bn_utility.h"
+#include "generated/world_config.h"
 
 namespace cd
 {

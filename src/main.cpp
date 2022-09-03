@@ -3,12 +3,11 @@
 #include "bn_log.h"
 #include "bn_sprite_builder.h"
 #include "bn_sprite_ptr.h"
-
-#include "level.h"
 #include "debug.h"
-#include "player.h"
 #include "generated/levels_intgrid.h"
 #include "generated/world_config.h"
+#include "level.h"
+#include "player.h"
 #include "ui.h"
 
 int main()
