@@ -15,7 +15,7 @@ Level::Level(
 
 Level::~Level()
 {
-    paths.clear();
+    waves.clear();
 }
 
 void Level::tick(bn::camera_ptr camera, Player *player)
@@ -23,16 +23,16 @@ void Level::tick(bn::camera_ptr camera, Player *player)
     bg.value().set_camera(camera);
     bool current_wave_finished = true;
 
-    for (Path &path : paths)
+    for (Wave &wave : waves)
     {
-        if (current_wave == path.get_wave_order())
+        if (current_wave == wave.get_wave_order())
         {
             current_wave_finished = false;
-            path.on_tick(this, player);
+            wave.on_tick(this, player);
 
-            if (path.to_be_removed())
+            if (wave.to_be_removed())
             {
-                paths.erase(&path);
+                waves.erase(&wave);
             }
         }
     }
@@ -42,7 +42,7 @@ void Level::tick(bn::camera_ptr camera, Player *player)
         tower.on_tick(this, player);
     }
 
-    if (paths.empty())
+    if (waves.empty())
     {
         log("current level is finished!");
         all_waves_finished = true;
@@ -57,7 +57,7 @@ void Level::tick(bn::camera_ptr camera, Player *player)
 
 void Level::init(bn::camera_ptr camera)
 {
-    paths.clear();
+    waves.clear();
     towers.clear();
     camera.set_position(0, 0);
 
@@ -74,8 +74,8 @@ void Level::init(bn::camera_ptr camera)
 
         switch (entities[i]->get_type())
         {
-        case EntityType::Path:
-            paths.emplace_back(
+        case EntityType::Wave:
+            waves.emplace_back(
                 entities[i]->get_id(),
                 ldtk_coord_to_us, bg.value().camera().value(),
                 entities[i]->get_number_1(),
@@ -90,9 +90,9 @@ void Level::init(bn::camera_ptr camera)
     }
 }
 
-bn::vector<Path, 10> *Level::get_paths()
+bn::vector<Wave, 10> *Level::get_waves()
 {
-    return &paths;
+    return &waves;
 }
 
 bn::vector<Tower, 10> *Level::get_towers()
@@ -146,7 +146,7 @@ bool Level::is_won()
 
 void Level::reset()
 {
-    paths.clear();
+    waves.clear();
     towers.clear();
     bg.reset();
     current_wave = 0;

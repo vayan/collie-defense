@@ -18,7 +18,7 @@
 
 #include "enemy.h"
 #include "entity.h"
-#include "path.h"
+#include "wave.h"
 #include "debug.h"
 #include "tower.h"
 
@@ -37,7 +37,7 @@ namespace cd
         ~Level();
         void init(bn::camera_ptr camera);
         void tick(bn::camera_ptr camera, Player *player);
-        bn::vector<Path, 10> *get_paths();
+        bn::vector<Wave, 10> *get_waves();
         bn::vector<Tower, 10> *get_towers();
         bn::optional<bn::regular_bg_ptr> get_bg();
         GridTileType get_map_cell(bn::fixed x, bn::fixed y);
@@ -56,7 +56,7 @@ namespace cd
         bn::fixed number_of_entities;
 
         bn::optional<bn::regular_bg_ptr> bg;
-        bn::vector<Path, 10> paths;
+        bn::vector<Wave, 10> waves;
         bn::vector<Tower, 10> towers;
         bn::fixed current_wave = 0;
         bool all_waves_finished = false;

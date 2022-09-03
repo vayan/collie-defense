@@ -1,8 +1,8 @@
-#include "path.h"
+#include "wave.h"
 
 namespace cd
 {
-    Path::Path(
+    Wave::Wave(
         bn::fixed _id,
         bn::fixed_point _from,
         bn::camera_ptr _camera,
@@ -29,11 +29,11 @@ namespace cd
         }
     }
 
-    Path::~Path()
+    Wave::~Wave()
     {
     }
 
-    void Path::on_tick(Level *level, Player *player)
+    void Wave::on_tick(Level *level, Player *player)
     {
         frame_elapsed_since_last_fire += 1;
         frame_elapsed_since_create += 1;
@@ -60,22 +60,22 @@ namespace cd
         }
     }
 
-    bn::vector<Enemy, 20> *Path::get_enemies()
+    bn::vector<Enemy, 20> *Wave::get_enemies()
     {
         return &enemies;
     }
 
-    bn::fixed Path::get_wave_order()
+    bn::fixed Wave::get_wave_order()
     {
         return wave_order;
     }
 
-    bool Path::to_be_removed()
+    bool Wave::to_be_removed()
     {
         return is_finished && enemies.empty();
     }
 
-    bn::fixed Path::generate_enemy_id()
+    bn::fixed Wave::generate_enemy_id()
     {
         return id + rand.value().get_fixed(id, id + 10000).ceil_integer();
     }

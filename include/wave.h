@@ -1,5 +1,5 @@
-#ifndef COLLIE_DEFENCE_GBA_PATH_H
-#define COLLIE_DEFENCE_GBA_PATH_H
+#ifndef COLLIE_DEFENCE_GBA_WAVE_H
+#define COLLIE_DEFENCE_GBA_WAVE_H
 
 #include "bn_regular_bg_ptr.h"
 #include "bn_regular_bg_item.h"
@@ -28,10 +28,10 @@
 namespace cd
 {
     class Level;
-    class Path // TODO rename it to Wave
+    class Wave
     {
     public:
-        Path(
+        Wave(
             bn::fixed _id,
             bn::fixed_point _from,
             bn::camera_ptr _camera,
@@ -40,7 +40,7 @@ namespace cd
             bn::fixed steps_number,
             bn::fixed wave_order,
             bn::fixed wave_duration_sec);
-        ~Path();
+        ~Wave();
 
         void on_tick(Level *level, Player *player);
 
