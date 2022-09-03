@@ -232,6 +232,7 @@ void Cursor::set_selection(TowerType type)
     range.value().set_camera(camera);
     range.value().set_visible(true);
     range.value().set_wrapping_enabled(false);
+    range.value().set_blending_enabled(true);
     range.value().set_priority(0);
     range.value().set_horizontal_scale(scale);
     range.value().set_vertical_scale(scale);
@@ -241,6 +242,7 @@ void Cursor::set_selection(TowerType type)
     placeholder.value()
         .set_visible(true);
     placeholder.value().set_blending_enabled(true);
+    placeholder.value().set_bg_priority(2);
 }
 
 void Cursor::check_screen_bounds()
