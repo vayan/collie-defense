@@ -9,12 +9,12 @@
 
 ### Requirements
 
-- devkitARM \<https://devkitpro.org/wiki/Getting_Started\>
-- Butano \<https://gvaliente.github.io/butano/getting_started.html\>
-- Python \<https://www.python.org/downloads/\>
-- Poetry \<https://python-poetry.org/docs/#installation\>
-- LDtk \<https://ldtk.io/\>
-- mGBA \<https://mgba.io/downloads.html\>
+- devkitARM <https://devkitpro.org/wiki/Getting_Started>
+- Butano <https://gvaliente.github.io/butano/getting_started.html>
+- Python <https://www.python.org/downloads/>
+- Poetry <https://python-poetry.org/docs/#installation>
+- LDtk <https://ldtk.io/>
+- mGBA <https://mgba.io/downloads.html>
 
 ### Instructions
 
