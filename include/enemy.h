@@ -15,6 +15,7 @@
 #include "bn_regular_bg_item.h"
 #include "bn_regular_bg_ptr.h"
 #include "bn_size.h"
+#include "bn_sprite_animate_actions.h"
 #include "bn_sprite_builder.h"
 #include "bn_sprite_items_life_bar.h"
 #include "bn_sprite_items_sheep.h"
@@ -50,6 +51,11 @@ namespace cd
         bn::fixed get_reward();
         bn::fixed get_strenght();
         bn::fixed get_id();
+        void set_animation_right_walk();
+        void set_animation_left_walk();
+        void set_animation_down_walk();
+        void set_animation_up_walk();
+        void update_animation();
 
     private:
         bn::fixed id;
@@ -70,6 +76,8 @@ namespace cd
         bn::fixed max_life = 100;
         bn::fixed life = 100;
         bool dead = false;
+        bn::optional<bn::sprite_animate_action<8>>
+            animation;
     };
 }
 

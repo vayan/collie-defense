@@ -54,6 +54,12 @@ void Enemy::on_tick(Level *level, Player *player)
         from = to;
         to = *steps[current_step.integer()];
         progress = 0;
+        animation.reset();
+    }
+
+    if (!animation.has_value())
+    {
+        update_animation();
     }
 
     if (life < max_life)
@@ -63,6 +69,11 @@ void Enemy::on_tick(Level *level, Player *player)
 
     life_bar.value().set_position(bn::fixed_point(position.x(), position.y() - 8));
     sprite.value().set_position(position);
+
+    if (animation.has_value())
+    {
+        animation.value().update();
+    }
 }
 
 bool Enemy::is_dead()
@@ -119,4 +130,75 @@ bn::fixed Enemy::get_strenght()
 bn::fixed Enemy::get_id()
 {
     return id;
+}
+
+void Enemy::set_animation_right_walk()
+{
+    if (animation.has_value() && animation.value().graphics_indexes().front() == 0)
+    {
+        return;
+    }
+    sprite.value().set_horizontal_flip(false);
+    animation = bn::create_sprite_animate_action_forever(
+        sprite.value(),
+        8,
+        bn::sprite_items::sheep.tiles_item(),
+        0, 1, 2, 3, 4, 5, 6, 7);
+}
+
+void Enemy::set_animation_left_walk()
+{
+    set_animation_right_walk();
+    sprite.value()
+        .set_horizontal_flip(true);
+}
+
+void Enemy::set_animation_down_walk()
+{
+    if (animation.has_value() && animation.value().graphics_indexes().front() == 16)
+    {
+        return;
+    }
+    animation = bn::create_sprite_animate_action_forever(
+        sprite.value(),
+        8,
+        bn::sprite_items::sheep.tiles_item(),
+        16, 17, 18, 19, 20, 21, 22, 23);
+}
+
+void Enemy::set_animation_up_walk()
+{
+    if (animation.has_value() && animation.value().graphics_indexes().front() == 32)
+    {
+        return;
+    }
+    animation = bn::create_sprite_animate_action_forever(
+        sprite.value(),
+        8,
+        bn::sprite_items::sheep.tiles_item(),
+        32, 33, 34, 35, 36, 37, 38, 39);
+}
+
+void Enemy::update_animation()
+{
+    bn::fixed deg = bn::degrees_atan2(
+        from.y().integer() - to.y().integer(),
+        from.x().integer() - to.x().integer());
+
+    if (deg > 45 && deg < 135)
+    {
+        set_animation_up_walk();
+    }
+    else if (deg < -45 && deg > -135)
+    {
+        set_animation_down_walk();
+    }
+    else if (deg <= 45 && deg >= -45)
+    {
+        set_animation_left_walk();
+    }
+    else
+    {
+        set_animation_right_walk();
+    }
 }

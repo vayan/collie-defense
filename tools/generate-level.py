@@ -241,7 +241,7 @@ for level_index, level in enumerate(levels):
 
         for index, path_point in enumerate(entity["fields"]["points"]):
             path_point_var_name = f"{var_name}_path_point_{index}"
-            path_points_var_declr = f'{path_points_var_declr}\nBN_DATA_EWRAM static bn::fixed_point {path_point_var_name} = bn::fixed_point({(path_point["cx"] * 4) - (level["width"] / 2)}, {(path_point["cy"] * 4) - (level["height"] / 2)});'
+            path_points_var_declr = f'{path_points_var_declr}\nBN_DATA_EWRAM static bn::fixed_point {path_point_var_name} = bn::fixed_point({(path_point["cx"] * 2) - (level["width"] / 2)}, {(path_point["cy"] * 2) - (level["height"] / 2)});'
             path_points_var_list.append(f"&{path_point_var_name}")
 
         path_coords_value = ""
