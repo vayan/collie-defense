@@ -188,7 +188,6 @@ def import_level_png(_levels):
 
         image_png = f'{BASE_LTDK_PROJECT_PATH}/levels/png/{_level["identifier"]}.png'
         img = Image.open(image_png)
-        img.save(image_png)
         newimg = img.convert(
             mode="P",
             palette=Image.Palette.ADAPTIVE,
@@ -196,6 +195,27 @@ def import_level_png(_levels):
             dither=Image.Dither.NONE,
         )
 
+        # get the image palette as RGB tuples: [(r,g,b) (r,g,b), etc..]
+        palette = [tuple(newimg.getpalette()[i * 3 : (i + 1) * 3]) for i in range(256)]
+
+        # for now every color stay at their original place
+        new_mapping = list(range(256))
+
+        try:
+            # find the first occurence of the transparent color (black for now)
+            # and put it in index 0 (Butano read the color at index 0 to set
+            # the transparent color)
+            transparent_color_index = palette.index((0, 0, 0))
+            new_mapping[0], new_mapping[transparent_color_index] = (
+                new_mapping[transparent_color_index],
+                new_mapping[0],
+            )
+        except:
+            # .index() will raise an error if there's no black in the palette
+            print("no transparent color in this level")
+            os.exit(1)
+
+        newimg = newimg.remap_palette(new_mapping)
         newimg.save(f"./graphics/generated/levels/levels_{zfill_id}.bmp")
 
         json_filename = f"./graphics/generated/levels/levels_{zfill_id}.json"
