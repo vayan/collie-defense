@@ -48,7 +48,7 @@ namespace cd
         void update_camera(bn::regular_bg_ptr map);
         bn::fixed_rect get_hitbox();
 
-        void remove_current_selection();
+        void remove_current_selection(bool hard_clean);
         void set_selection(TowerType type);
         void hide_shop();
         void show_shop();
@@ -62,9 +62,7 @@ namespace cd
         bn::fixed_point position;
         bn::camera_ptr camera;
         bn::optional<bn::affine_bg_ptr> range;
-        bn::optional<TowerType> current_selection;
-        bn::optional<bn::sprite_ptr>
-            placeholder;
+        bn::optional<Tower *> current_selection;
         bn::optional<Shop>
             shop;
     };

@@ -18,3 +18,22 @@ bn::fixed cd::distance(bn::fixed_point from, bn::fixed_point to)
     bn::fixed delta_y = from.y() - to.y();
     return sqrt(delta_x * delta_x + delta_y * delta_y);
 }
+
+bn::fixed cd::degrees_atan2(bn::fixed_point from, bn::fixed_point to)
+{
+    int delta_y = (from.y() - to.y()).integer();
+
+    if (delta_y < -32767 || delta_y > 32767)
+    {
+        return bad_deg;
+    }
+
+    int delta_x = (from.x() - to.x()).integer();
+
+    if (delta_x < -32767 || delta_x > 32767)
+    {
+        return bad_deg;
+    }
+
+    return bn::degrees_atan2(delta_y, delta_x);
+}

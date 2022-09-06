@@ -4,40 +4,26 @@
 
 using namespace cd;
 
-Tower::Tower(
-    TowerType _type,
-    bn::camera_ptr _camera,
-    bn::fixed_point _position) : type(_type),
-                                 camera(_camera),
-                                 position(_position)
-{
-    sprite = get_sprite(type).create_sprite(0, 0);
-
-    sprite.value()
-        .set_position(position);
-    sprite.value().set_camera(camera);
-    sprite.value().set_visible(true);
-}
-
-Tower::~Tower()
+Tower::Tower(bn::camera_ptr _camera, bn::fixed_point _position) : camera(_camera),
+                                                                  position(_position),
+                                                                  bullet_start_position(_position)
 {
 }
 
 void Tower::fire(Target *target)
 {
-    if (bullets.full() || (frame_elapsed_since_last_fire / frame_per_sec) < get_fire_rate_per_sec())
+    if (bullets.full() || (frame_elapsed_since_last_fire / frame_per_sec) < fire_rate_per_sec)
     {
         return;
     }
     frame_elapsed_since_last_fire = 0;
-    bullets.emplace_back(camera, position, target, get_bullet_speed(), get_damage());
+    bullets.emplace_back(camera, bullet_start_position, target, bullet_speed, damage);
 }
 
 void Tower::on_tick(Level *level, Player *player)
 {
     frame_elapsed_since_last_fire += 1;
-    sprite.value()
-        .set_position(position);
+    set_position(position);
 
     for (Bullet &bullet : bullets)
     {
@@ -60,7 +46,20 @@ void Tower::on_tick(Level *level, Player *player)
             if (is_inside)
             {
                 fire(&enemy);
+                update_animation(&enemy);
             }
+        }
+    }
+
+    if (animation.has_value())
+    {
+        if (!animation.value().done())
+        {
+            animation.value().update();
+        }
+        else
+        {
+            animation.reset();
         }
     }
 }
@@ -79,118 +78,76 @@ bn::fixed_rect Tower::get_hitbox()
         sprite.value().dimensions().height());
 }
 
-bn::sprite_item Tower::get_sprite(TowerType type)
-{
-    switch (type)
-    {
-    case TowerType::Basic:
-        return bn::sprite_items::tower_basic;
-    case TowerType::AoE:
-        return bn::sprite_items::tower_aoe;
-    case TowerType::Sticky:
-        return bn::sprite_items::tower_sticky;
-    default:
-        return bn::sprite_items::tower_basic;
-    }
-}
-
-// I'll create real child classes at some point if I'm not lazy
-bn::fixed Tower::get_aggro_range(TowerType type)
-{
-    switch (type)
-    {
-    case TowerType::Basic:
-        return 32;
-    case TowerType::AoE:
-        return 24;
-    case TowerType::Sticky:
-        return 24;
-    default:
-        return 10;
-    }
-}
-
 bn::fixed Tower::get_aggro_range()
 {
-    return get_aggro_range(type);
-}
-
-bn::fixed Tower::get_damage(TowerType type)
-{
-    switch (type)
-    {
-    case TowerType::Basic:
-        return 10;
-    case TowerType::AoE:
-        return 20;
-    case TowerType::Sticky:
-        return 5;
-    default:
-        return 10;
-    }
-}
-
-bn::fixed Tower::get_damage()
-{
-    return get_damage(type);
-}
-
-bn::fixed Tower::get_bullet_speed(TowerType type)
-{
-    switch (type)
-    {
-    case TowerType::Basic:
-        return 0.02;
-    case TowerType::AoE:
-        return 0.01;
-    case TowerType::Sticky:
-        return 0.04;
-    default:
-        return 0.02;
-    }
-}
-
-bn::fixed Tower::get_bullet_speed()
-{
-    return get_bullet_speed(type);
-}
-
-bn::fixed Tower::get_cost(TowerType type)
-{
-    switch (type)
-    {
-    case TowerType::Basic:
-        return 10;
-    case TowerType::AoE:
-        return 50;
-    case TowerType::Sticky:
-        return 30;
-    default:
-        return 9999;
-    }
+    return aggro_range;
 }
 
 bn::fixed Tower::get_cost()
 {
-    return get_cost(type);
+    return cost;
 }
 
-bn::fixed Tower::get_fire_rate_per_sec(TowerType type)
+void Tower::set_animation_shoot_right()
 {
-    switch (type)
+}
+
+void Tower::set_animation_shoot_left()
+{
+}
+
+void Tower::set_animation_shoot_down()
+{
+}
+
+void Tower::set_animation_shoot_up()
+{
+}
+
+void Tower::update_animation(Target *target)
+{
+    bn::fixed deg = degrees_atan2(position, target->get_position());
+
+    if (deg == bad_deg)
     {
-    case TowerType::Basic:
-        return 1;
-    case TowerType::AoE:
-        return 1;
-    case TowerType::Sticky:
-        return 1;
-    default:
-        return 1;
+        return;
+    }
+
+    if (deg > 45 && deg < 135)
+    {
+        set_animation_shoot_up();
+    }
+    else if (deg < -45 && deg > -135)
+    {
+        set_animation_shoot_down();
+    }
+    else if (deg <= 45 && deg >= -45)
+    {
+        set_animation_shoot_left();
+    }
+    else
+    {
+        set_animation_shoot_right();
     }
 }
 
-bn::fixed Tower::get_fire_rate_per_sec()
+void Tower::place()
 {
-    return get_fire_rate_per_sec(type);
+}
+
+void Tower::set_position(bn::fixed x, bn::fixed y)
+{
+    position.set_x(x);
+    position.set_y(y);
+    bullet_start_position = position;
+
+    if (sprite.has_value())
+    {
+        sprite.value().set_position(position);
+    }
+}
+
+void Tower::set_position(bn::fixed_point pos)
+{
+    set_position(pos.x(), pos.y());
 }

@@ -6,7 +6,7 @@ using namespace cd;
 Shop::Shop(bn::camera_ptr _camera) : camera(_camera)
 {
 
-    select_highlight = bn::sprite_items::tower_select_ui_highlight.create_sprite(83, -30);
+    select_highlight = bn::sprite_items::tower_select_ui_highlight.create_sprite(78, -30);
     select_highlight.value().set_bg_priority(0);
 
     tower_select_ui = bn::regular_bg_items::tower_select_ui.create_bg(0, 0);
@@ -22,8 +22,8 @@ Shop::Shop(bn::camera_ptr _camera) : camera(_camera)
         .set_visible(true);
 
     elements.push_back(bn::pair<TowerType, bn::fixed>(TowerType::Basic, -30));
-    elements.push_back(bn::pair<TowerType, bn::fixed>(TowerType::Sticky, 0));
-    elements.push_back(bn::pair<TowerType, bn::fixed>(TowerType::AoE, 30));
+    elements.push_back(bn::pair<TowerType, bn::fixed>(TowerType::AoE, 0));
+    elements.push_back(bn::pair<TowerType, bn::fixed>(TowerType::Sticky, 30));
 
     bn::sprite_text_generator _sprite_text_generator(as::fixed_font_8x8);
     text_generator = _sprite_text_generator;

@@ -37,9 +37,9 @@ void Level::tick(bn::camera_ptr camera, Player *player)
         }
     }
 
-    for (Tower &tower : towers)
+    for (Tower *tower : towers)
     {
-        tower.on_tick(this, player);
+        tower->on_tick(this, player);
     }
 
     if (waves.empty())
@@ -58,7 +58,7 @@ void Level::tick(bn::camera_ptr camera, Player *player)
 void Level::init(bn::camera_ptr camera)
 {
     waves.clear();
-    towers.clear();
+    clear_towers();
     camera.set_position(0, 0);
 
     bg = load_bg.create_bg(0, 0);
@@ -95,7 +95,7 @@ bn::vector<Wave, 10> *Level::get_waves()
     return &waves;
 }
 
-bn::vector<Tower, 10> *Level::get_towers()
+bn::vector<Tower *, 10> *Level::get_towers()
 {
     return &towers;
 }
@@ -129,14 +129,28 @@ bn::optional<bn::regular_bg_ptr> Level::get_bg()
     return bg;
 }
 
-void Level::add_tower(bn::fixed_point position, TowerType type)
+void Level::add_tower(bn::fixed_point position, Tower *tower)
 {
     if (towers.full())
     {
         log("level is full of towers");
         return;
     }
-    towers.emplace_back(type, bg.value().camera().value(), position);
+
+    // switch (type)
+    // {
+    // case TowerType::Sticky:
+    //     tower = new TowerMagic(bg.value().camera().value(), position);
+    //     break;
+    // case TowerType::AoE:
+    //     tower = new TowerBallista(bg.value().camera().value(), position);
+    //     break;
+    // default:
+    //     tower = new TowerBasic(bg.value().camera().value(), position);
+    //     break;
+    // }
+
+    towers.push_back(tower);
 }
 
 bool Level::is_won()
@@ -147,8 +161,17 @@ bool Level::is_won()
 void Level::reset()
 {
     waves.clear();
-    towers.clear();
+    clear_towers();
     bg.reset();
     current_wave = 0;
     all_waves_finished = false;
+}
+
+void Level::clear_towers()
+{
+    for (Tower *tower : towers)
+    {
+        delete tower;
+    }
+    towers.clear();
 }

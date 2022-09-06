@@ -42,9 +42,9 @@ bool Cursor::can_build(Level *level)
         position.y() + 7);
     // TODO check other corners
 
-    for (Tower &tower : *level->get_towers())
+    for (Tower *tower : *level->get_towers())
     {
-        if (tower.get_hitbox().intersects(get_hitbox()))
+        if (tower->get_hitbox().intersects(get_hitbox()))
         {
             return false;
         }
@@ -74,13 +74,13 @@ void Cursor::on_tick(Level *level, Player *player)
         targeting_buildable_grid &&
         current_selection.has_value())
     {
-        bn::fixed cost = Tower::get_cost(current_selection.value());
+        bn::fixed cost = current_selection.value()->get_cost();
 
         if (player->get_money() >= cost)
         {
             level->add_tower(position, current_selection.value());
             player->spend_money(cost);
-            remove_current_selection();
+            remove_current_selection(false);
         }
         else
         {
@@ -129,9 +129,9 @@ void Cursor::on_tick(Level *level, Player *player)
         }
     }
 
-    if (placeholder.has_value())
+    if (current_selection.has_value())
     {
-        placeholder.value().set_position(position);
+        current_selection.value()->set_position(position.x(), position.y());
     }
 
     if (range.has_value())
@@ -199,11 +199,14 @@ bn::fixed_rect Cursor::get_hitbox()
         sprite.value().dimensions().height());
 }
 
-void Cursor::remove_current_selection()
+void Cursor::remove_current_selection(bool hard_clean)
 {
+    if (current_selection.has_value() && hard_clean)
+    {
+        delete current_selection.value();
+    }
     current_selection.reset();
     range.reset();
-    placeholder.reset();
 }
 
 void Cursor::hide_shop()
@@ -216,17 +219,29 @@ void Cursor::hide_shop()
 
 void Cursor::show_shop()
 {
-    remove_current_selection();
+    remove_current_selection(true);
     shop = Shop(camera);
 }
 
 void Cursor::set_selection(TowerType type)
 {
     hide_shop();
-    current_selection = type;
+
+    switch (type)
+    {
+    case TowerType::Sticky:
+        current_selection = new TowerMagic(camera, position);
+        break;
+    case TowerType::AoE:
+        current_selection = new TowerBallista(camera, position);
+        break;
+    default:
+        current_selection = new TowerBasic(camera, position);
+        break;
+    }
 
     // range background is 128x128px
-    bn::fixed scale = (Tower::get_aggro_range(type)).safe_division(64);
+    bn::fixed scale = current_selection.value()->get_aggro_range().safe_division(64);
 
     range = bn::affine_bg_items::range.create_bg(0, 0);
     range.value().set_camera(camera);
@@ -236,13 +251,6 @@ void Cursor::set_selection(TowerType type)
     range.value().set_priority(0);
     range.value().set_horizontal_scale(scale);
     range.value().set_vertical_scale(scale);
-
-    placeholder = Tower::get_sprite(current_selection.value()).create_sprite(0, 0);
-    placeholder.value().set_camera(camera);
-    placeholder.value()
-        .set_visible(true);
-    placeholder.value().set_blending_enabled(true);
-    placeholder.value().set_bg_priority(2);
 }
 
 void Cursor::check_screen_bounds()

@@ -181,9 +181,12 @@ void Enemy::set_animation_up_walk()
 
 void Enemy::update_animation()
 {
-    bn::fixed deg = bn::degrees_atan2(
-        from.y().integer() - to.y().integer(),
-        from.x().integer() - to.x().integer());
+    bn::fixed deg = degrees_atan2(from, to);
+
+    if (deg == bad_deg)
+    {
+        return;
+    }
 
     if (deg > 45 && deg < 135)
     {
