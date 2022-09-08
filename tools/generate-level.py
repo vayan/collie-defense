@@ -15,6 +15,13 @@ with open(LTDK_PROJECT_PATH) as f:
 print("Done!\n")
 
 
+# for images with more than 16 colors we need to use the same palette
+# https://gvaliente.github.io/butano/faq.html#faq_multiple_8bpp_objects
+print("\nLoading palette..")
+palette_img = Image.open("tools/palette.bmp")
+print("Done!\n")
+
+
 def parse_entities(entities):
     print("Parsing entities values...")
     _entities_tiles_values = {}
@@ -189,10 +196,11 @@ def import_level_png(_levels):
         image_png = f'{BASE_LTDK_PROJECT_PATH}/levels/png/{_level["identifier"]}.png'
         img = Image.open(image_png)
         newimg = img.convert(
-            mode="P",
-            palette=Image.Palette.ADAPTIVE,
+            mode="RGB",
+        )
+        newimg = newimg.quantize(
             colors=256,
-            dither=Image.Dither.NONE,
+            palette=palette_img,
         )
 
         # get the image palette as RGB tuples: [(r,g,b) (r,g,b), etc..]
@@ -210,6 +218,7 @@ def import_level_png(_levels):
                 new_mapping[transparent_color_index],
                 new_mapping[0],
             )
+
         except:
             # .index() will raise an error if there's no black in the palette
             print("no transparent color in this level")
