@@ -24,6 +24,7 @@ void Player::on_target_killed(Target *target)
 void Player::on_hit(Enemy *enemy)
 {
     life -= enemy->get_strenght();
+    log("player life is now", life);
 }
 
 bn::fixed Player::get_life()
