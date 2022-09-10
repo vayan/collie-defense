@@ -23,8 +23,10 @@
 #include "enemy.h"
 #include "enemy_bear.h"
 #include "enemy_fox.h"
+#include "enemy_tiger.h"
 #include "entity.h"
 #include "math.h"
+
 namespace cd
 {
     class Level;
