@@ -9,14 +9,14 @@ Entity::Entity(
     bn::fixed y,
     bn::fixed_point **_arr_points_1,
     bn::fixed _arr_points_1_size,
-    bn::string<10> _string_10_1,
+    EnemyType _enemy_type,
     bn::fixed _number_1,
     bn::fixed _number_2,
     bn::fixed _number_3) : id(_id),
                            type(_type),
                            arr_points_1(_arr_points_1),
                            arr_points_1_size(_arr_points_1_size),
-                           string_10_1(_string_10_1),
+                           enemy_type(_enemy_type),
                            number_1(_number_1),
                            number_2(_number_2),
                            number_3(_number_3)
@@ -66,4 +66,9 @@ bn::fixed Entity::get_arr_points_1_size() const
 bn::fixed Entity::get_id() const
 {
     return id;
+}
+
+EnemyType Entity::get_enemy_type() const
+{
+    return enemy_type;
 }

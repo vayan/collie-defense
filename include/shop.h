@@ -22,7 +22,7 @@
 #include "bn_size.h"
 #include "bn_sprite_animate_actions.h"
 #include "bn_sprite_builder.h"
-#include "bn_sprite_items_sheep.h"
+#include "bn_sprite_items_bear.h"
 #include "bn_sprite_items_tower_select_ui_highlight.h"
 #include "bn_sprite_ptr.h"
 #include "bn_sprite_text_generator.h"

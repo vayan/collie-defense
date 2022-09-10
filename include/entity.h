@@ -24,7 +24,7 @@ namespace cd
             bn::fixed y,
             bn::fixed_point **arr_points_1,
             bn::fixed arr_points_1_size,
-            bn::string<10> string_10_1,
+            EnemyType enemy_type,
             bn::fixed number_1,
             bn::fixed number_2,
             bn::fixed number_3);
@@ -38,13 +38,14 @@ namespace cd
         bn::fixed_point **get_arr_points_1() const;
         bn::fixed get_arr_points_1_size() const;
         bn::fixed get_id() const;
+        EnemyType get_enemy_type() const;
 
     private:
         const bn::fixed id;
         EntityType type;
         bn::fixed_point **arr_points_1;
         bn::fixed arr_points_1_size;
-        bn::string<10> string_10_1;
+        EnemyType enemy_type;
         bn::fixed number_1;
         bn::fixed number_2;
         bn::fixed number_3;

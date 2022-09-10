@@ -82,7 +82,8 @@ void Level::init(bn::camera_ptr camera)
                 entities[i]->get_arr_points_1(),
                 entities[i]->get_arr_points_1_size(),
                 entities[i]->get_number_2(),
-                entities[i]->get_number_3());
+                entities[i]->get_number_3(),
+                entities[i]->get_enemy_type());
             break;
         default:
             log("cannot create unkown entity, im not god yet");
@@ -136,19 +137,6 @@ void Level::add_tower(bn::fixed_point position, Tower *tower)
         log("level is full of towers");
         return;
     }
-
-    // switch (type)
-    // {
-    // case TowerType::Sticky:
-    //     tower = new TowerMagic(bg.value().camera().value(), position);
-    //     break;
-    // case TowerType::AoE:
-    //     tower = new TowerBallista(bg.value().camera().value(), position);
-    //     break;
-    // default:
-    //     tower = new TowerBasic(bg.value().camera().value(), position);
-    //     break;
-    // }
 
     towers.push_back(tower);
 }

@@ -37,16 +37,17 @@ void Tower::on_tick(Level *level, Player *player)
 
     for (Wave &wave : *level->get_waves())
     {
-        for (Enemy &enemy : *wave.get_enemies())
+        for (Enemy *enemy : *wave.get_enemies())
         {
-            bn::fixed delta_x = enemy.get_position().x() - position.x();
-            bn::fixed delta_y = enemy.get_position().y() - position.y();
+
+            bn::fixed delta_x = enemy->get_position().x() - position.x();
+            bn::fixed delta_y = enemy->get_position().y() - position.y();
 
             bool is_inside = delta_x * delta_x + delta_y * delta_y < get_aggro_range() * get_aggro_range();
             if (is_inside)
             {
-                fire(&enemy);
-                update_animation(&enemy);
+                fire(enemy);
+                update_animation(enemy);
             }
         }
     }

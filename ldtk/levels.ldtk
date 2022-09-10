@@ -1069,9 +1069,9 @@
 		}
 	], "enums": [
 		{ "identifier": "EnemyType", "uid": 27, "values": [
-			{ "id": "Basic", "tileId": null, "color": 756492, "__tileSrcRect": null },
-			{ "id": "Middle", "tileId": null, "color": 1126081, "__tileSrcRect": null },
-			{ "id": "Hard", "tileId": null, "color": 11210254, "__tileSrcRect": null }
+			{ "id": "Tiger", "tileId": null, "color": 15066385, "__tileSrcRect": null },
+			{ "id": "Fox", "tileId": null, "color": 16737280, "__tileSrcRect": null },
+			{ "id": "Bear", "tileId": null, "color": 7416593, "__tileSrcRect": null }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] },
 		{ "identifier": "TowerType", "uid": 35, "values": [
 			{ "id": "Basic", "tileId": null, "color": 2300898, "__tileSrcRect": null },
@@ -1252,7 +1252,7 @@
 							"__pivot": [0.5,0.5],
 							"__tags": ["visible"],
 							"__tile": null,
-							"__smartColor": "#112EC1",
+							"__smartColor": "#712B11",
 							"iid": "10795a90-02f0-11ed-a805-7718e9b53c6c",
 							"width": 4,
 							"height": 4,
@@ -1323,9 +1323,9 @@
 									}
 								] },
 								{ "__identifier": "PauseBetweenFireSec", "__value": 2.5, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [2.5] }] },
-								{ "__identifier": "EnemyType", "__value": "Middle", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["Middle"]
+									"params": ["Bear"]
 								}] },
 								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [0] }] },
 								{ "__identifier": "WaveDuration", "__value": 30, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [30] }] }
@@ -1671,7 +1671,7 @@
 							"__pivot": [0.5,0.5],
 							"__tags": ["visible"],
 							"__tile": null,
-							"__smartColor": "#112EC1",
+							"__smartColor": "#712B11",
 							"iid": "67a8f400-2a00-11ed-9c9b-5b07b36d9d9f",
 							"width": 4,
 							"height": 4,
@@ -1717,9 +1717,9 @@
 									}
 								] },
 								{ "__identifier": "PauseBetweenFireSec", "__value": 4, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [4] }] },
-								{ "__identifier": "EnemyType", "__value": "Middle", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["Middle"]
+									"params": ["Bear"]
 								}] },
 								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
 								{ "__identifier": "WaveDuration", "__value": 15, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
@@ -2072,7 +2072,7 @@
 							"__pivot": [0.5,0.5],
 							"__tags": ["visible"],
 							"__tile": null,
-							"__smartColor": "#112EC1",
+							"__smartColor": "#712B11",
 							"iid": "cbb63430-2a00-11ed-9c9b-437b07a8bf3e",
 							"width": 4,
 							"height": 4,
@@ -2090,9 +2090,9 @@
 									"params": ["52,103"]
 								} ] },
 								{ "__identifier": "PauseBetweenFireSec", "__value": 3, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
-								{ "__identifier": "EnemyType", "__value": "Middle", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["Middle"]
+									"params": ["Bear"]
 								}] },
 								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
 								{ "__identifier": "WaveDuration", "__value": 10, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [10] }] }

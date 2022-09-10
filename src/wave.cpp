@@ -10,14 +10,16 @@ namespace cd
         bn::fixed_point **_steps,
         bn::fixed _steps_number,
         bn::fixed _wave_order,
-        bn::fixed _wave_duration_sec) : id(_id),
-                                        from(_from),
-                                        camera(_camera),
-                                        fire_pause_sec(_fire_pause_sec),
-                                        steps(_steps),
-                                        steps_number(_steps_number),
-                                        wave_order(_wave_order),
-                                        wave_duration_sec(_wave_duration_sec)
+        bn::fixed _wave_duration_sec,
+        EnemyType _enemy_type) : id(_id),
+                                 from(_from),
+                                 camera(_camera),
+                                 fire_pause_sec(_fire_pause_sec),
+                                 steps(_steps),
+                                 steps_number(_steps_number),
+                                 wave_order(_wave_order),
+                                 wave_duration_sec(_wave_duration_sec),
+                                 enemy_type(_enemy_type)
 
     {
         frame_elapsed_since_last_fire = fire_pause_sec;
@@ -46,21 +48,38 @@ namespace cd
         if (!is_finished && (frame_elapsed_since_last_fire / frame_per_sec) > fire_pause_sec && !enemies.full())
         {
             frame_elapsed_since_last_fire = 0;
-            enemies.emplace_back(generate_enemy_id(), camera, from, steps, steps_number);
-        }
-
-        for (Enemy &enemy : enemies)
-        {
-            enemy.on_tick(level, player);
-
-            if (enemy.is_dead())
+            switch (enemy_type)
             {
-                enemies.erase(&enemy);
+            case EnemyType::Bear:
+                enemies.push_back(new EnemyBear(generate_enemy_id(), camera, from, steps, steps_number));
+                break;
+            case EnemyType::Fox:
+                // todo
+                break;
+            case EnemyType::Tiger:
+                // todo
+                break;
+            default:
+                break;
             }
         }
+
+        erase_if(
+            enemies,
+            [=](Enemy *enemy)
+            {
+                enemy->on_tick(level, player);
+
+                if (enemy->is_dead())
+                {
+                    delete enemy;
+                    return true;
+                }
+                return false;
+            });
     }
 
-    bn::vector<Enemy, 20> *Wave::get_enemies()
+    bn::vector<Enemy *, 20> *Wave::get_enemies()
     {
         return &enemies;
     }

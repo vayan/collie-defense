@@ -14,13 +14,14 @@
 #include "bn_regular_bg_ptr.h"
 #include "bn_size.h"
 #include "bn_sprite_builder.h"
-#include "bn_sprite_items_sheep.h"
+#include "bn_sprite_items_bear.h"
 #include "bn_sprite_ptr.h"
 #include "bn_timer.h"
 #include "bn_unique_ptr.h"
 #include "bn_vector.h"
 #include "debug.h"
 #include "enemy.h"
+#include "enemy_bear.h"
 #include "entity.h"
 #include "math.h"
 
@@ -38,12 +39,13 @@ namespace cd
             bn::fixed_point **steps,
             bn::fixed steps_number,
             bn::fixed wave_order,
-            bn::fixed wave_duration_sec);
+            bn::fixed wave_duration_sec,
+            EnemyType _enemy_type);
         ~Wave();
 
         void on_tick(Level *level, Player *player);
 
-        bn::vector<Enemy, 20> *get_enemies();
+        bn::vector<Enemy *, 20> *get_enemies();
 
         bn::fixed get_wave_order();
         bool to_be_removed();
@@ -74,7 +76,8 @@ namespace cd
 
         bool is_finished = false;
 
-        bn::vector<Enemy, 20> enemies;
+        bn::vector<Enemy *, 20> enemies;
+        EnemyType enemy_type;
     };
 }
 

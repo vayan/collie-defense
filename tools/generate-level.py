@@ -291,7 +291,7 @@ for level_index, level in enumerate(levels):
     {entity["location"][1]},
     {path_coords_var_name},
     {len(path_points_var_list)},
-    "{entity["fields"]["enemy"]}",
+    EnemyType::{entity["fields"]["enemy"]},
     {entity["fields"]["rate"]},
     {entity["fields"]["waveNumber"]},
     {entity["fields"]["waveDuration"]}
