@@ -1252,7 +1252,7 @@
 							"__pivot": [0.5,0.5],
 							"__tags": ["visible"],
 							"__tile": null,
-							"__smartColor": "#712B11",
+							"__smartColor": "#FF6400",
 							"iid": "10795a90-02f0-11ed-a805-7718e9b53c6c",
 							"width": 4,
 							"height": 4,
@@ -1323,9 +1323,9 @@
 									}
 								] },
 								{ "__identifier": "PauseBetweenFireSec", "__value": 2.5, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [2.5] }] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["Bear"]
+									"params": ["Fox"]
 								}] },
 								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [0] }] },
 								{ "__identifier": "WaveDuration", "__value": 30, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [30] }] }

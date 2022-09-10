@@ -54,7 +54,7 @@ namespace cd
                 enemies.push_back(new EnemyBear(generate_enemy_id(), camera, from, steps, steps_number));
                 break;
             case EnemyType::Fox:
-                // todo
+                enemies.push_back(new EnemyFox(generate_enemy_id(), camera, from, steps, steps_number));
                 break;
             case EnemyType::Tiger:
                 // todo
