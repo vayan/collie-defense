@@ -17,6 +17,7 @@
 #include "bn_size.h"
 #include "bn_sprite_animate_actions.h"
 #include "bn_sprite_builder.h"
+#include "bn_sprite_items_bullet_arrow.h"
 #include "bn_sprite_items_tower_ballista.h"
 #include "bn_sprite_ptr.h"
 #include "bn_unique_ptr.h"

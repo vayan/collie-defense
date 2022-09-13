@@ -12,6 +12,28 @@ bn::fixed_point cd::lerp_points(bn::fixed_point start, bn::fixed_point end, bn::
     return bn::fixed_point(lerp(start.x(), end.x(), progress), lerp(start.y(), end.y(), progress));
 }
 
+bn::fixed_point cd::move_to(bn::fixed_point start, bn::fixed_point end, bn::fixed delta)
+{
+    bn::fixed delta_x = end.x() - start.x();
+    bn::fixed delta_y = end.y() - start.y();
+    bn::fixed dist = sqrt(delta_x * delta_x + delta_y * delta_y);
+
+    start.set_x(start.x() + (delta_x * (delta / dist)));
+    start.set_y(start.y() + (delta_y * (delta / dist)));
+
+    return start;
+}
+
+bn::fixed cd::to_360_angle(bn::fixed deg)
+{
+    if (deg < 0)
+    {
+        deg += 360;
+    }
+
+    return deg;
+}
+
 bn::fixed cd::distance(bn::fixed_point from, bn::fixed_point to)
 {
     bn::fixed delta_x = from.x() - to.x();

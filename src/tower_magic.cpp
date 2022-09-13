@@ -12,9 +12,13 @@ TowerMagic::TowerMagic(bn::camera_ptr _camera, bn::fixed_point _position) : Towe
 
     aggro_range = 24;
     damage = 5;
-    bullet_speed = 0.04;
+    bullet_speed = 1;
     cost = 30;
     fire_rate_per_sec = 1;
+
+    bullet_sprite = bn::sprite_items::bullet_magic;
+
+    bullet_start_position_offset = bn::fixed_point(0, -16);
 }
 
 TowerMagic::~TowerMagic()
@@ -37,10 +41,6 @@ void TowerMagic::set_animation_shoot_right()
 
 void TowerMagic::set_animation_shoot_left()
 {
-    if (animation.has_value() && animation.value().graphics_indexes().front() == 0)
-    {
-        return;
-    }
     animation = bn::create_sprite_animate_action_once(
         sprite.value(),
         8,
@@ -61,8 +61,6 @@ void TowerMagic::set_animation_shoot_down()
 void TowerMagic::set_position(bn::fixed x, bn::fixed y)
 {
     Tower::set_position(x, y);
-
-    bullet_start_position.set_y(bullet_start_position.y() - 8);
 
     if (sprite.has_value())
     {

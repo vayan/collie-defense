@@ -12,9 +12,11 @@ TowerBasic::TowerBasic(bn::camera_ptr _camera, bn::fixed_point _position) : Towe
 
     aggro_range = 32;
     damage = 10;
-    bullet_speed = 0.02;
+    bullet_speed = 1;
     cost = 10;
     fire_rate_per_sec = 1;
+
+    bullet_sprite = bn::sprite_items::bullet_canon;
 }
 
 TowerBasic::~TowerBasic()
@@ -34,14 +36,12 @@ void TowerBasic::set_animation_shoot_right()
 {
     set_animation_shoot_left();
     sprite.value().set_horizontal_flip(true);
+    bullet_start_position_offset = bn::fixed_point(9, -16);
 }
 
 void TowerBasic::set_animation_shoot_left()
 {
-    if (animation.has_value() && animation.value().graphics_indexes().front() == 0)
-    {
-        return;
-    }
+    bullet_start_position_offset = bn::fixed_point(-8, -16);
     sprite.value().set_horizontal_flip(false);
     animation = bn::create_sprite_animate_action_once(
         sprite.value(),
@@ -52,10 +52,7 @@ void TowerBasic::set_animation_shoot_left()
 
 void TowerBasic::set_animation_shoot_up()
 {
-    if (animation.has_value() && animation.value().graphics_indexes().front() == 8)
-    {
-        return;
-    }
+    bullet_start_position_offset = bn::fixed_point(6, -16);
     sprite.value().set_horizontal_flip(false);
     animation = bn::create_sprite_animate_action_once(
         sprite.value(),
@@ -66,10 +63,7 @@ void TowerBasic::set_animation_shoot_up()
 
 void TowerBasic::set_animation_shoot_down()
 {
-    if (animation.has_value() && animation.value().graphics_indexes().front() == 16)
-    {
-        return;
-    }
+    bullet_start_position_offset = bn::fixed_point(0, -6);
     sprite.value().set_horizontal_flip(false);
     animation = bn::create_sprite_animate_action_once(
         sprite.value(),
@@ -81,8 +75,6 @@ void TowerBasic::set_animation_shoot_down()
 void TowerBasic::set_position(bn::fixed x, bn::fixed y)
 {
     Tower::set_position(x, y);
-
-    bullet_start_position.set_y(bullet_start_position.y() - 8);
 
     if (sprite.has_value())
     {

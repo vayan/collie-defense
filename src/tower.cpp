@@ -5,9 +5,9 @@
 using namespace cd;
 
 Tower::Tower(bn::camera_ptr _camera, bn::fixed_point _position) : camera(_camera),
-                                                                  position(_position),
-                                                                  bullet_start_position(_position)
+                                                                  position(_position)
 {
+    bullet_sprite = bn::sprite_items::bullet_canon;
 }
 
 void Tower::fire(Target *target)
@@ -17,7 +17,15 @@ void Tower::fire(Target *target)
         return;
     }
     frame_elapsed_since_last_fire = 0;
-    bullets.emplace_back(camera, bullet_start_position, target, bullet_speed, damage);
+    bullets.emplace_back(
+        camera,
+        bn::fixed_point(
+            position.x() + bullet_start_position_offset.x(),
+            position.y() + bullet_start_position_offset.y()),
+        target,
+        bullet_speed,
+        damage,
+        bullet_sprite.value());
 }
 
 void Tower::on_tick(Level *level, Player *player)
@@ -46,8 +54,8 @@ void Tower::on_tick(Level *level, Player *player)
             bool is_inside = delta_x * delta_x + delta_y * delta_y < get_aggro_range() * get_aggro_range();
             if (is_inside)
             {
-                fire(enemy);
                 update_animation(enemy);
+                fire(enemy);
             }
         }
     }
@@ -107,6 +115,11 @@ void Tower::set_animation_shoot_up()
 
 void Tower::update_animation(Target *target)
 {
+    if (animation.has_value() && !animation.value().done())
+    {
+        return;
+    }
+
     bn::fixed deg = degrees_atan2(position, target->get_position());
 
     if (deg == bad_deg)
@@ -140,7 +153,6 @@ void Tower::set_position(bn::fixed x, bn::fixed y)
 {
     position.set_x(x);
     position.set_y(y);
-    bullet_start_position = position;
 
     if (sprite.has_value())
     {

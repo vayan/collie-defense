@@ -63,13 +63,15 @@ namespace cd
         bn::optional<bn::sprite_animate_action<8>>
             animation;
         bn::fixed_point position;
-        bn::fixed_point bullet_start_position;
+        bn::fixed_point bullet_start_position_offset = bn::fixed_point(0, 0);
         bn::fixed offset_base = 0;
         bn::fixed aggro_range = 0;
         bn::fixed damage = 0;
         bn::fixed bullet_speed = 0;
         bn::fixed cost = 0;
         bn::fixed fire_rate_per_sec = 0;
+        bn::optional<bn::sprite_item>
+            bullet_sprite;
 
     private:
         bn::camera_ptr camera;

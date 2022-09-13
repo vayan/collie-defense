@@ -15,7 +15,7 @@
 #include "bn_regular_bg_ptr.h"
 #include "bn_size.h"
 #include "bn_sprite_builder.h"
-#include "bn_sprite_items_bullet.h"
+#include "bn_sprite_items_bullet_canon.h"
 #include "bn_sprite_ptr.h"
 #include "bn_timer.h"
 #include "bn_unique_ptr.h"
@@ -36,7 +36,8 @@ namespace cd
             bn::fixed_point position,
             Target *target,
             bn::fixed speed_delta,
-            bn::fixed damage);
+            bn::fixed damage,
+            bn::sprite_item _sprite);
 
         ~Bullet();
 
@@ -50,6 +51,7 @@ namespace cd
         Target *target;
         bn::optional<bn::sprite_ptr>
             sprite;
+
         bool destroyed = false;
         bn::fixed progress = 0;
         bn::fixed delta;

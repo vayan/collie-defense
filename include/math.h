@@ -13,6 +13,8 @@ namespace cd
     const bn::fixed frame_per_sec = 60;
     bn::fixed degrees_atan2(bn::fixed_point from, bn::fixed_point to);
     const bn::fixed bad_deg = 6969;
+    bn::fixed_point move_to(bn::fixed_point start, bn::fixed_point end, bn::fixed delta);
+    bn::fixed to_360_angle(bn::fixed deg);
 }
 
 #endif

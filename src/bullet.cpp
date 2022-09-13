@@ -8,19 +8,21 @@ Bullet::Bullet(
     bn::fixed_point _position,
     Target *_target,
     bn::fixed _speed_delta,
-    bn::fixed _damage) : camera(_camera),
-                         position(_position),
-                         target(_target),
-                         delta(_speed_delta),
-                         damage(_damage)
+    bn::fixed _damage,
+    bn::sprite_item _sprite) : camera(_camera),
+                               position(_position),
+                               target(_target),
+                               delta(_speed_delta),
+                               damage(_damage)
 
 {
-    sprite = bn::sprite_items::bullet.create_sprite(0, 0);
+    sprite = _sprite.create_sprite(0, 0);
 
     sprite.value()
         .set_position(position);
     sprite.value().set_camera(camera);
     sprite.value().set_visible(true);
+    sprite.value().set_z_order(-3);
     target_id = target->get_id();
 }
 
@@ -36,9 +38,7 @@ void Bullet::on_tick(Level *level, Player *player)
         return;
     }
 
-    progress = progress + delta;
-
-    position = lerp_points(position, target->get_position(), progress);
+    position = move_to(position, target->get_position(), delta);
 
     sprite.value().set_position(position);
 
@@ -59,6 +59,6 @@ bn::fixed_rect Bullet::get_hitbox()
     return bn::fixed_rect(
         position.x(),
         position.y(),
-        sprite.value().dimensions().width(),
-        sprite.value().dimensions().height());
+        sprite.value().dimensions().width() / 2,
+        sprite.value().dimensions().height() / 2);
 }
