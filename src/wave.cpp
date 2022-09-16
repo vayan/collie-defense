@@ -33,6 +33,10 @@ namespace cd
 
     Wave::~Wave()
     {
+        for (Enemy *enemy : enemies)
+        {
+            delete enemy;
+        }
     }
 
     void Wave::on_tick(Level *level, Player *player)

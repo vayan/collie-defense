@@ -68,7 +68,7 @@ namespace cd
         bn::fixed_point to;
 
     private:
-        bn::fixed id;
+        const bn::fixed id;
         bn::fixed_point position;
         bn::fixed_point **steps;
         bn::fixed steps_number;
