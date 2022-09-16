@@ -43,11 +43,11 @@ void Game::start_level_loop()
         }
         else
         {
-            current_level->tick(camera.value(), player);
-            player->on_tick(current_level);
+            current_level->tick(this);
+            player->on_tick(this);
         }
 
-        ui->on_tick(current_level, player);
+        ui->on_tick(this);
 
         bn::core::update();
 
@@ -80,4 +80,21 @@ int Game::start_main_loop()
 
         bn::core::update();
     }
+}
+
+UI *Game::get_ui()
+{
+    return ui;
+}
+Player *Game::get_player()
+{
+    return player;
+}
+Level *Game::get_current_level()
+{
+    return current_level;
+}
+bn::camera_ptr Game::get_camera()
+{
+    return camera.value();
 }

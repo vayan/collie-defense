@@ -27,6 +27,7 @@
 namespace cd
 {
     class Player;
+    class Game;
     class Level
     {
     public:
@@ -38,12 +39,12 @@ namespace cd
 
         ~Level();
         void init(bn::camera_ptr camera);
-        void tick(bn::camera_ptr camera, Player *player);
+        void tick(Game *game);
         bn::vector<Wave, 10> *get_waves();
         bn::vector<Tower *, 10> *get_towers();
         bn::optional<bn::regular_bg_ptr> get_bg();
         GridTileType get_map_cell(bn::fixed x, bn::fixed y);
-        void add_tower(bn::fixed_point position, Tower *tower);
+        void add_tower(Tower *tower);
         bool is_won();
         bool is_lost();
         void reset();

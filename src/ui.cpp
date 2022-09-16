@@ -1,4 +1,5 @@
 #include "ui.h"
+#include "game.h"
 
 using namespace cd;
 
@@ -20,14 +21,14 @@ UI::~UI()
 {
 }
 
-void UI::on_tick(Level *level, Player *player)
+void UI::on_tick(Game *game)
 {
     if (bn::keypad::start_pressed())
     {
         paused = !paused;
     }
 
-    int life_sprite_index = player->get_life().safe_division(10).ceil_integer() - 1;
+    int life_sprite_index = game->get_player()->get_life().safe_division(10).ceil_integer() - 1;
     if (life_sprite_index < 0)
     {
         life_sprite_index = 0;

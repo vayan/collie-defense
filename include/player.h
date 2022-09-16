@@ -25,12 +25,13 @@
 
 namespace cd
 {
+    class Game;
     class Player
     {
     public:
         Player(bn::camera_ptr _camera);
         ~Player();
-        void on_tick(Level *level);
+        void on_tick(Game *game);
         void on_target_killed(Target *target);
         void on_hit(Enemy *enemy);
 

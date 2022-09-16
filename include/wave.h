@@ -29,6 +29,7 @@
 
 namespace cd
 {
+    class Game;
     class Level;
     class Wave
     {
@@ -45,7 +46,7 @@ namespace cd
             EnemyType _enemy_type);
         ~Wave();
 
-        void on_tick(Level *level, Player *player);
+        void on_tick(Game *game);
 
         bn::vector<Enemy *, 20> *get_enemies();
 

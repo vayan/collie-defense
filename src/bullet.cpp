@@ -1,4 +1,5 @@
 #include "bullet.h"
+#include "game.h"
 #include "player.h"
 
 using namespace cd;
@@ -30,7 +31,7 @@ Bullet::~Bullet()
 {
 }
 
-void Bullet::on_tick(Level *level, Player *player)
+void Bullet::on_tick(Game *game)
 {
     if (target->get_id() != target_id)
     {
@@ -45,7 +46,7 @@ void Bullet::on_tick(Level *level, Player *player)
     if (get_hitbox().intersects(target->get_hitbox()) && target->get_id() == target_id)
     {
         destroyed = true;
-        target->hit(damage, player);
+        target->hit(damage, game->get_player());
     }
 }
 

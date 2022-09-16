@@ -37,12 +37,13 @@
 
 namespace cd
 {
+    class Game;
     class Cursor
     {
     public:
         Cursor(bn::camera_ptr camera);
         ~Cursor();
-        void on_tick(Level *level, Player *player);
+        void on_tick(Game *Game);
         void enable();
         void disable();
         void update_camera(bn::regular_bg_ptr map);

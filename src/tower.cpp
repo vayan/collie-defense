@@ -1,4 +1,5 @@
 #include "tower.h"
+#include "game.h"
 #include "level.h"
 #include "player.h"
 
@@ -27,14 +28,14 @@ void Tower::fire(Target *target)
         bullet_sprite.value());
 }
 
-void Tower::on_tick(Level *level, Player *player)
+void Tower::on_tick(Game *game)
 {
     frame_elapsed_since_last_fire += 1;
     set_position(position);
 
     for (Bullet &bullet : bullets)
     {
-        bullet.on_tick(level, player);
+        bullet.on_tick(game);
 
         if (bullet.to_be_destroyed())
         {
@@ -42,7 +43,7 @@ void Tower::on_tick(Level *level, Player *player)
         }
     }
 
-    for (Wave &wave : *level->get_waves())
+    for (Wave &wave : *game->get_current_level()->get_waves())
     {
         for (Enemy *enemy : *wave.get_enemies())
         {

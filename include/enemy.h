@@ -27,6 +27,7 @@
 
 namespace cd
 {
+    class Game;
     class Player;
     class Level;
     class Enemy : public Target
@@ -41,7 +42,7 @@ namespace cd
 
         ~Enemy();
 
-        void on_tick(Level *level, Player *player);
+        void on_tick(Game *game);
 
         bool is_dead();
 
@@ -57,6 +58,9 @@ namespace cd
         virtual void set_animation_up_walk();
         void update_animation();
 
+    private:
+        const bn::fixed id;
+
     protected:
         bn::optional<bn::sprite_animate_action<8>>
             animation;
@@ -68,7 +72,6 @@ namespace cd
         bn::fixed_point to;
 
     private:
-        const bn::fixed id;
         bn::fixed_point position;
         bn::fixed_point **steps;
         bn::fixed steps_number;

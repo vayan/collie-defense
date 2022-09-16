@@ -1,4 +1,5 @@
 #include "enemy.h"
+#include "game.h"
 #include "player.h"
 
 using namespace cd;
@@ -28,12 +29,12 @@ Enemy::~Enemy()
 {
 }
 
-void Enemy::on_tick(Level *level, Player *player)
+void Enemy::on_tick(Game *game)
 {
     if (current_step == steps_number)
     {
         // remove
-        player->on_hit(this);
+        game->get_player()->on_hit(this);
         dead = true;
         return;
     }

@@ -37,12 +37,13 @@
 
 namespace cd
 {
+    class Game;
     class Shop
     {
     public:
         Shop(bn::camera_ptr camera);
         ~Shop();
-        void on_tick(Level *level, Player *player);
+        void on_tick(Game *game);
 
         bn::optional<TowerType> get_purchase();
         bool is_closed();

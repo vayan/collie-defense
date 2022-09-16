@@ -1,4 +1,5 @@
 #include "level.h"
+#include "game.h"
 
 using namespace cd;
 
@@ -18,9 +19,9 @@ Level::~Level()
     waves.clear();
 }
 
-void Level::tick(bn::camera_ptr camera, Player *player)
+void Level::tick(Game *game)
 {
-    bg.value().set_camera(camera);
+    bg.value().set_camera(game->get_camera());
     bool current_wave_finished = true;
 
     for (Wave &wave : waves)
@@ -28,7 +29,7 @@ void Level::tick(bn::camera_ptr camera, Player *player)
         if (current_wave == wave.get_wave_order())
         {
             current_wave_finished = false;
-            wave.on_tick(this, player);
+            wave.on_tick(game);
 
             if (wave.to_be_removed())
             {
@@ -39,7 +40,7 @@ void Level::tick(bn::camera_ptr camera, Player *player)
 
     for (Tower *tower : towers)
     {
-        tower->on_tick(this, player);
+        tower->on_tick(game);
     }
 
     if (waves.empty())
@@ -130,7 +131,7 @@ bn::optional<bn::regular_bg_ptr> Level::get_bg()
     return bg;
 }
 
-void Level::add_tower(bn::fixed_point position, Tower *tower)
+void Level::add_tower(Tower *tower)
 {
     if (towers.full())
     {

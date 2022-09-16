@@ -1,4 +1,5 @@
 #include "wave.h"
+#include "game.h"
 
 namespace cd
 {
@@ -39,7 +40,7 @@ namespace cd
         }
     }
 
-    void Wave::on_tick(Level *level, Player *player)
+    void Wave::on_tick(Game *game)
     {
         frame_elapsed_since_last_fire += 1;
         frame_elapsed_since_create += 1;
@@ -72,7 +73,7 @@ namespace cd
             enemies,
             [=](Enemy *enemy)
             {
-                enemy->on_tick(level, player);
+                enemy->on_tick(game);
 
                 if (enemy->is_dead())
                 {

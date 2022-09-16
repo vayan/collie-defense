@@ -26,6 +26,7 @@
 
 namespace cd
 {
+    class Game;
     class Level;
     class Player;
     class Bullet
@@ -41,7 +42,7 @@ namespace cd
 
         ~Bullet();
 
-        void on_tick(Level *level, Player *player);
+        void on_tick(Game *game);
         bool to_be_destroyed();
         bn::fixed_rect get_hitbox();
 

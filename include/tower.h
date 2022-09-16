@@ -31,6 +31,7 @@
 
 namespace cd
 {
+    class Game;
     class Player;
     class Level;
     class Tower
@@ -39,7 +40,7 @@ namespace cd
         Tower(bn::camera_ptr camera, bn::fixed_point position);
         virtual ~Tower() = default;
 
-        void on_tick(Level *level, Player *player);
+        void on_tick(Game *game);
         void fire(Target *target);
         bn::vector<Bullet, 2> *get_bullets();
         virtual bn::fixed_rect get_hitbox();
@@ -57,6 +58,9 @@ namespace cd
         virtual void set_position(bn::fixed x, bn::fixed y);
         void set_position(bn::fixed_point pos);
 
+    private:
+        bn::camera_ptr camera;
+
     protected:
         bn::optional<bn::sprite_ptr>
             sprite;
@@ -73,8 +77,6 @@ namespace cd
             bullet_sprite;
 
     private:
-        bn::camera_ptr camera;
-
         bn::fixed frame_elapsed_since_last_fire = 0;
         bn::vector<Bullet, 2> bullets;
     };

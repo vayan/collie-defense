@@ -1,4 +1,5 @@
 #include "player.h"
+#include "game.h"
 
 using namespace cd;
 
@@ -11,9 +12,9 @@ Player::~Player()
 {
 }
 
-void Player::on_tick(Level *level)
+void Player::on_tick(Game *game)
 {
-    cursor.value().on_tick(level, this);
+    cursor.value().on_tick(game);
 }
 
 void Player::on_target_killed(Target *target)

@@ -28,13 +28,14 @@
 
 namespace cd
 {
+    class Game;
     class UI
     {
     public:
         UI();
         ~UI();
 
-        void on_tick(Level *level, Player *player);
+        void on_tick(Game *game);
 
         bool is_paused();
 

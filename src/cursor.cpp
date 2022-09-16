@@ -1,4 +1,5 @@
 #include "cursor.h"
+#include "game.h"
 #include "player.h"
 
 using namespace cd;
@@ -58,9 +59,9 @@ bool Cursor::can_build(Level *level)
     return false;
 }
 
-void Cursor::on_tick(Level *level, Player *player)
+void Cursor::on_tick(Game *game)
 {
-    if (can_build(level))
+    if (can_build(game->get_current_level()))
     {
         enable();
     }
@@ -76,10 +77,10 @@ void Cursor::on_tick(Level *level, Player *player)
     {
         bn::fixed cost = current_selection.value()->get_cost();
 
-        if (player->get_money() >= cost)
+        if (game->get_player()->get_money() >= cost)
         {
-            level->add_tower(position, current_selection.value());
-            player->spend_money(cost);
+            game->get_current_level()->add_tower(current_selection.value());
+            game->get_player()->spend_money(cost);
             remove_current_selection(false);
         }
         else
@@ -90,7 +91,7 @@ void Cursor::on_tick(Level *level, Player *player)
 
     if (shop.has_value())
     {
-        shop.value().on_tick(level, player);
+        shop.value().on_tick(game);
 
         if (shop.value().get_purchase().has_value())
         {

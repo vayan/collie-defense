@@ -1,4 +1,5 @@
 #include "shop.h"
+#include "game.h"
 #include "player.h"
 
 using namespace cd;
@@ -33,7 +34,7 @@ Shop::~Shop()
 {
 }
 
-void Shop::on_tick(Level *level, Player *player)
+void Shop::on_tick(Game *game)
 {
     if (bn::keypad::b_pressed())
     {
@@ -59,7 +60,7 @@ void Shop::on_tick(Level *level, Player *player)
     select_highlight.value()
         .set_y(elements.at(current_element).second);
 
-    refresh_money(player);
+    refresh_money(game->get_player());
 }
 
 bn::optional<TowerType> Shop::get_purchase()

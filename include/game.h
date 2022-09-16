@@ -39,6 +39,10 @@ namespace cd
         int start_main_loop();
         void start_level(int level_index);
         void start_level_loop();
+        UI *get_ui();
+        Player *get_player();
+        Level *get_current_level();
+        bn::camera_ptr get_camera();
 
     private:
         int current_level_index = -1;
