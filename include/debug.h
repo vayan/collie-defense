@@ -24,6 +24,7 @@ namespace cd
     void log(bn::string<50> label, bn::fixed number);
     void log(bn::string<20> label, bn::fixed_point point);
     void log(bn::string<50> message);
+    void display_memory_left();
 }
 
 #endif

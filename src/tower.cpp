@@ -8,6 +8,7 @@ using namespace cd;
 Tower::Tower(bn::camera_ptr _camera, bn::fixed_point _position) : camera(_camera),
                                                                   position(_position)
 {
+    display_memory_left();
 }
 
 void Tower::fire(Target *target)

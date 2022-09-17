@@ -31,6 +31,7 @@ void Game::start_level(int level_index)
 
     current_level = cd::levels[level_index];
     current_level->init(camera.value());
+    display_memory_left();
 }
 
 void Game::start_level_loop()

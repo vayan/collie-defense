@@ -23,6 +23,7 @@ Enemy::Enemy(
 
     life_bar.value().set_camera(camera);
     life_bar.value().set_visible(false);
+    display_memory_left();
 }
 
 Enemy::~Enemy()
