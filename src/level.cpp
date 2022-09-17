@@ -131,15 +131,16 @@ bn::optional<bn::regular_bg_ptr> Level::get_bg()
     return bg;
 }
 
-void Level::add_tower(Tower *tower)
+bool Level::add_tower(Tower *tower)
 {
     if (towers.full())
     {
         log("level is full of towers");
-        return;
+        return false;
     }
 
     towers.push_back(tower);
+    return true;
 }
 
 bool Level::is_won()

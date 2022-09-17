@@ -44,7 +44,7 @@ namespace cd
         bn::vector<Tower *, 10> *get_towers();
         bn::optional<bn::regular_bg_ptr> get_bg();
         GridTileType get_map_cell(bn::fixed x, bn::fixed y);
-        void add_tower(Tower *tower);
+        bool add_tower(Tower *tower);
         bool is_won();
         bool is_lost();
         void reset();

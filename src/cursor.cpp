@@ -79,9 +79,13 @@ void Cursor::on_tick(Game *game)
 
         if (game->get_player()->get_money() >= cost)
         {
-            game->get_current_level()->add_tower(current_selection.value());
-            game->get_player()->spend_money(cost);
-            remove_current_selection(false);
+            bool success = game->get_current_level()->add_tower(current_selection.value());
+
+            if (success)
+            {
+                game->get_player()->spend_money(cost);
+            }
+            remove_current_selection(!success);
         }
         else
         {
