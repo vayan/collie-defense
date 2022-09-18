@@ -1,9 +1,9 @@
-#include "ui.h"
+#include "hud.h"
 #include "game.h"
 
 using namespace cd;
 
-UI::UI()
+HUD::HUD()
 {
     bn::fixed half_display_width = bn::display::width() / 2;
     bn::fixed half_display_height = bn::display::height() / 2;
@@ -17,11 +17,11 @@ UI::UI()
     text_generator = _sprite_text_generator;
 }
 
-UI::~UI()
+HUD::~HUD()
 {
 }
 
-void UI::on_tick(Game *game)
+void HUD::on_tick(Game *game)
 {
     if (bn::keypad::start_pressed())
     {
@@ -38,7 +38,7 @@ void UI::on_tick(Game *game)
         .set_item(bn::sprite_items::player_life, life_sprite_index);
 }
 
-bool UI::is_paused()
+bool HUD::is_paused()
 {
     return paused;
 }

@@ -18,6 +18,7 @@
 #include "debug.h"
 #include "enemy.h"
 #include "entity.h"
+#include "hud.h"
 #include "tower.h"
 #include "tower_ballista.h"
 #include "tower_basic.h"
@@ -60,6 +61,7 @@ namespace cd
         bn::fixed number_of_entities;
 
         bn::optional<bn::regular_bg_ptr> bg;
+        bn::optional<HUD> hud;
         bn::vector<Wave, 10> waves;
         bn::vector<Tower *, 10> towers;
         bn::fixed current_wave = 0;

@@ -21,6 +21,7 @@ Level::~Level()
 
 void Level::tick(Game *game)
 {
+    hud.value().on_tick(game);
     bg.value().set_camera(game->get_camera());
     bool current_wave_finished = true;
 
@@ -61,6 +62,7 @@ void Level::init(bn::camera_ptr camera)
     waves.clear();
     clear_towers();
     camera.set_position(0, 0);
+    hud = HUD();
 
     bg = load_bg.create_bg(0, 0);
 
@@ -150,6 +152,7 @@ bool Level::is_won()
 
 void Level::reset()
 {
+    hud.reset();
     waves.clear();
     clear_towers();
     bg.reset();

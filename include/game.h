@@ -25,21 +25,22 @@
 #include "generated/levels_intgrid.h"
 #include "generated/world_config.h"
 #include "level.h"
+#include "menu.h"
 #include "player.h"
 #include "text.h"
-#include "ui.h"
 
 namespace cd
 {
     class Game
     {
     public:
-        Game();
+        Game(Menu _menu);
         ~Game();
         int start_main_loop();
         void start_level(int level_index);
         void start_level_loop();
-        UI *get_ui();
+        void start_launch_screen_loop();
+
         Player *get_player();
         Level *get_current_level();
         bn::camera_ptr get_camera();
@@ -48,8 +49,8 @@ namespace cd
         int current_level_index = -1;
         bn::optional<bn::camera_ptr> camera;
         Level *current_level;
-        Player *player;
-        UI *ui;
+        bn::optional<Player> player;
+        Menu menu;
     };
 
 }
