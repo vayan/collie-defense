@@ -2,12 +2,10 @@
 
 using namespace cd;
 
-Game::Game()
+Game::Game(Menu _menu) : menu(_menu)
 {
     camera = bn::camera_ptr::create(0, 0);
-    player = new cd::Player(camera.value());
     current_level = cd::levels[0];
-    ui = new cd::UI();
     log("game manager created!");
 }
 
@@ -20,6 +18,7 @@ void Game::start_level(int level_index)
     if (level_index >= cd::number_of_levels)
     {
         cd::log("end of game");
+        current_level->reset();
         current_level_index = -1;
         // TODO show end screen - restart for now
         return;
@@ -39,23 +38,16 @@ void Game::start_level_loop()
     start_level(current_level_index);
     while (current_level_index > -1)
     {
-        if (ui->is_paused())
-        {
-        }
-        else
-        {
-            current_level->tick(this);
-            player->on_tick(this);
-        }
 
-        ui->on_tick(this);
+        current_level->tick(this);
+        player->on_tick(this);
 
         bn::core::update();
 
         if (player->is_dead())
         {
             cd::log("game over");
-
+            current_level->reset();
             current_level_index = -1;
 
             // TODO implement gameover screen - restart for now
@@ -76,20 +68,28 @@ int Game::start_main_loop()
 
     while (true)
     {
+        start_launch_screen_loop();
+
+        player = cd::Player(camera.value());
         current_level_index = 0;
         start_level_loop();
+        player.reset();
 
         bn::core::update();
     }
 }
 
-UI *Game::get_ui()
+void Game::start_launch_screen_loop()
 {
-    return ui;
+    while (menu.on_tick(this))
+    {
+        bn::core::update();
+    }
 }
+
 Player *Game::get_player()
 {
-    return player;
+    return &player.value();
 }
 Level *Game::get_current_level()
 {

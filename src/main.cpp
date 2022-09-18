@@ -1,6 +1,7 @@
 #include "bn_core.h"
 #include "debug.h"
 #include "game.h"
+#include "menu.h"
 
 int main()
 {
@@ -10,7 +11,8 @@ int main()
 
     cd::log("butano initiated");
 
-    cd::Game *game = new cd::Game();
+    cd::Menu menu = cd::Menu();
+    cd::Game game = cd::Game(menu);
 
-    return game->start_main_loop();
+    return game.start_main_loop();
 }
