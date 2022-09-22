@@ -57,6 +57,12 @@ You can also add mGBA to you path if you want `/Applications/mGBA.app/Contents/M
 
 `make graphics`
 
+### VSCode
+
+Install these plugings for best result:
+- Makefile Tools
+- C/C++ Extension Pack
+
 
 # Licenses
 
