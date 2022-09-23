@@ -14,7 +14,7 @@ Menu::~Menu()
 
 bool Menu::on_tick(Game *game)
 {
-    bg.value().set_camera(game->get_camera());
+    bg->set_camera(game->get_camera());
 
     if (bn::keypad::start_pressed())
     {

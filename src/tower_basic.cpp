@@ -6,9 +6,9 @@ TowerBasic::TowerBasic(bn::camera_ptr _camera, bn::fixed_point _position) : Towe
 {
     sprite = bn::sprite_items::tower_basic.create_sprite(0, 0);
 
-    sprite.value().set_camera(_camera);
-    sprite.value().set_visible(true);
-    sprite.value().set_z_order(-2);
+    sprite->set_camera(_camera);
+    sprite->set_visible(true);
+    sprite->set_z_order(-2);
 
     aggro_range = 32;
     damage = 10;
@@ -28,21 +28,21 @@ bn::fixed_rect TowerBasic::get_hitbox()
     return bn::fixed_rect(
         position.x(),
         position.y(),
-        sprite.value().dimensions().width() / 2,
-        sprite.value().dimensions().height() / 2);
+        sprite->dimensions().width() / 2,
+        sprite->dimensions().height() / 2);
 }
 
 void TowerBasic::set_animation_shoot_right()
 {
     set_animation_shoot_left();
-    sprite.value().set_horizontal_flip(true);
+    sprite->set_horizontal_flip(true);
     bullet_start_position_offset = bn::fixed_point(9, -16);
 }
 
 void TowerBasic::set_animation_shoot_left()
 {
     bullet_start_position_offset = bn::fixed_point(-8, -16);
-    sprite.value().set_horizontal_flip(false);
+    sprite->set_horizontal_flip(false);
     animation = bn::create_sprite_animate_action_once(
         sprite.value(),
         8,
@@ -53,7 +53,7 @@ void TowerBasic::set_animation_shoot_left()
 void TowerBasic::set_animation_shoot_up()
 {
     bullet_start_position_offset = bn::fixed_point(6, -16);
-    sprite.value().set_horizontal_flip(false);
+    sprite->set_horizontal_flip(false);
     animation = bn::create_sprite_animate_action_once(
         sprite.value(),
         8,
@@ -64,7 +64,7 @@ void TowerBasic::set_animation_shoot_up()
 void TowerBasic::set_animation_shoot_down()
 {
     bullet_start_position_offset = bn::fixed_point(0, -6);
-    sprite.value().set_horizontal_flip(false);
+    sprite->set_horizontal_flip(false);
     animation = bn::create_sprite_animate_action_once(
         sprite.value(),
         8,
@@ -78,6 +78,6 @@ void TowerBasic::set_position(bn::fixed x, bn::fixed y)
 
     if (sprite.has_value())
     {
-        sprite.value().set_position(bn::fixed_point(position.x(), position.y() - 8));
+        sprite->set_position(bn::fixed_point(position.x(), position.y() - 8));
     }
 }

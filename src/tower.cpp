@@ -63,9 +63,9 @@ void Tower::on_tick(Game *game)
 
     if (animation.has_value())
     {
-        if (!animation.value().done())
+        if (!animation->done())
         {
-            animation.value().update();
+            animation->update();
         }
         else
         {
@@ -84,8 +84,8 @@ bn::fixed_rect Tower::get_hitbox()
     return bn::fixed_rect(
         position.x(),
         position.y(),
-        sprite.value().dimensions().width(),
-        sprite.value().dimensions().height());
+        sprite->dimensions().width(),
+        sprite->dimensions().height());
 }
 
 bn::fixed Tower::get_aggro_range()
@@ -116,7 +116,7 @@ void Tower::set_animation_shoot_up()
 
 void Tower::update_animation(Target *target)
 {
-    if (animation.has_value() && !animation.value().done())
+    if (animation.has_value() && !animation->done())
     {
         return;
     }
@@ -157,7 +157,7 @@ void Tower::set_position(bn::fixed x, bn::fixed y)
 
     if (sprite.has_value())
     {
-        sprite.value().set_position(position);
+        sprite->set_position(position);
     }
 }
 
