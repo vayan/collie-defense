@@ -14,7 +14,17 @@ Player::~Player()
 
 void Player::on_tick(Game *game)
 {
-    cursor.value().on_tick(game);
+    cursor->on_tick(game);
+
+    if (rumble.has_value())
+    {
+        rumble->update();
+
+        if (rumble->duration_updates() == 200)
+        {
+            rumble.reset();
+        }
+    }
 }
 
 void Player::on_target_killed(Target *target)
@@ -26,6 +36,7 @@ void Player::on_hit(Enemy *enemy)
 {
     life -= enemy->get_strenght();
     log("player life is now", life);
+    rumble = bn::rumble_toggle_action(200);
 }
 
 bn::fixed Player::get_life()

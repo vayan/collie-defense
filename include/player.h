@@ -12,6 +12,7 @@
 #include "bn_optional.h"
 #include "bn_regular_bg_item.h"
 #include "bn_regular_bg_ptr.h"
+#include "bn_rumble_actions.h"
 #include "bn_size.h"
 #include "bn_sprite_builder.h"
 #include "bn_sprite_items_bear.h"
@@ -46,6 +47,7 @@ namespace cd
             cursor;
         bn::fixed life = 100;
         bn::fixed money = 100;
+        bn::optional<bn::rumble_toggle_action> rumble;
     };
 }
 
