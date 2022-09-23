@@ -6,9 +6,9 @@ TowerMagic::TowerMagic(bn::camera_ptr _camera, bn::fixed_point _position) : Towe
 {
     sprite = bn::sprite_items::tower_magic.create_sprite(0, 0);
 
-    sprite.value().set_camera(_camera);
-    sprite.value().set_visible(true);
-    sprite.value().set_z_order(-2);
+    sprite->set_camera(_camera);
+    sprite->set_visible(true);
+    sprite->set_z_order(-2);
 
     aggro_range = 24;
     damage = 5;
@@ -30,8 +30,8 @@ bn::fixed_rect TowerMagic::get_hitbox()
     return bn::fixed_rect(
         position.x(),
         position.y(),
-        sprite.value().dimensions().width() / 2,
-        sprite.value().dimensions().height());
+        sprite->dimensions().width() / 2,
+        sprite->dimensions().height());
 }
 
 void TowerMagic::set_animation_shoot_right()
@@ -64,6 +64,6 @@ void TowerMagic::set_position(bn::fixed x, bn::fixed y)
 
     if (sprite.has_value())
     {
-        sprite.value().set_position(bn::fixed_point(position.x(), position.y() - 8));
+        sprite->set_position(bn::fixed_point(position.x(), position.y() - 8));
     }
 }

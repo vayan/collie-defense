@@ -28,7 +28,7 @@ namespace cd
 
         for (bn::fixed i = 0; i < id; i += 1)
         {
-            rand.value().update();
+            rand->update();
         }
     }
 
@@ -101,6 +101,6 @@ namespace cd
 
     bn::fixed Wave::generate_enemy_id()
     {
-        return id + rand.value().get_fixed(id, id + 10000).ceil_integer();
+        return id + rand->get_fixed(id, id + 10000).ceil_integer();
     }
 }

@@ -21,9 +21,9 @@ Bullet::Bullet(
 
     sprite.value()
         .set_position(position);
-    sprite.value().set_camera(camera);
-    sprite.value().set_visible(true);
-    sprite.value().set_z_order(-3);
+    sprite->set_camera(camera);
+    sprite->set_visible(true);
+    sprite->set_z_order(-3);
     target_id = target->get_id();
 }
 
@@ -41,7 +41,7 @@ void Bullet::on_tick(Game *game)
 
     position = move_to(position, target->get_position(), delta);
 
-    sprite.value().set_position(position);
+    sprite->set_position(position);
 
     if (get_hitbox().intersects(target->get_hitbox()) && target->get_id() == target_id)
     {
@@ -60,6 +60,6 @@ bn::fixed_rect Bullet::get_hitbox()
     return bn::fixed_rect(
         position.x(),
         position.y(),
-        sprite.value().dimensions().width() / 2,
-        sprite.value().dimensions().height() / 2);
+        sprite->dimensions().width() / 2,
+        sprite->dimensions().height() / 2);
 }

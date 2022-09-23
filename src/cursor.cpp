@@ -11,7 +11,7 @@ Cursor::Cursor(bn::camera_ptr _camera) : camera(_camera)
     sprite = bn::sprite_items::cursor.create_sprite(0, 0);
 
     position = bn::fixed_point(0, 0);
-    sprite.value().set_camera(_camera);
+    sprite->set_camera(_camera);
     sprite.value()
         .set_position(position);
 }
@@ -23,7 +23,7 @@ Cursor::~Cursor()
 void Cursor::enable()
 {
     targeting_buildable_grid = true;
-    sprite.value().set_item(bn::sprite_items::cursor, 0);
+    sprite->set_item(bn::sprite_items::cursor, 0);
 }
 
 void Cursor::disable()
@@ -95,13 +95,13 @@ void Cursor::on_tick(Game *game)
 
     if (shop.has_value())
     {
-        shop.value().on_tick(game);
+        shop->on_tick(game);
 
-        if (shop.value().get_purchase().has_value())
+        if (shop->get_purchase().has_value())
         {
-            set_selection(shop.value().get_purchase().value());
+            set_selection(shop->get_purchase().value());
         }
-        if (shop.has_value() && shop.value().is_closed())
+        if (shop.has_value() && shop->is_closed())
         {
             hide_shop();
         }
@@ -141,7 +141,7 @@ void Cursor::on_tick(Game *game)
 
     if (range.has_value())
     {
-        range.value().set_position(position);
+        range->set_position(position);
     }
 
     check_screen_bounds();
@@ -200,8 +200,8 @@ bn::fixed_rect Cursor::get_hitbox()
     return bn::fixed_rect(
         position.x(),
         position.y(),
-        sprite.value().dimensions().width(),
-        sprite.value().dimensions().height());
+        sprite->dimensions().width(),
+        sprite->dimensions().height());
 }
 
 void Cursor::remove_current_selection(bool hard_clean)
@@ -249,13 +249,13 @@ void Cursor::set_selection(TowerType type)
     bn::fixed scale = current_selection.value()->get_aggro_range().safe_division(64);
 
     range = bn::affine_bg_items::range.create_bg(0, 0);
-    range.value().set_camera(camera);
-    range.value().set_visible(true);
-    range.value().set_wrapping_enabled(false);
-    range.value().set_blending_enabled(true);
-    range.value().set_priority(0);
-    range.value().set_horizontal_scale(scale);
-    range.value().set_vertical_scale(scale);
+    range->set_camera(camera);
+    range->set_visible(true);
+    range->set_wrapping_enabled(false);
+    range->set_blending_enabled(true);
+    range->set_priority(0);
+    range->set_horizontal_scale(scale);
+    range->set_vertical_scale(scale);
 }
 
 void Cursor::check_screen_bounds()

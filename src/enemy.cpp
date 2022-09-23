@@ -21,8 +21,8 @@ Enemy::Enemy(
     from = origin;
     to = *steps[0];
 
-    life_bar.value().set_camera(camera);
-    life_bar.value().set_visible(false);
+    life_bar->set_camera(camera);
+    life_bar->set_visible(false);
     display_memory_left();
 }
 
@@ -60,15 +60,15 @@ void Enemy::on_tick(Game *game)
 
     if (life < max_life)
     {
-        life_bar.value().set_visible(true);
+        life_bar->set_visible(true);
     }
 
-    life_bar.value().set_position(bn::fixed_point(position.x(), position.y() - 8));
-    sprite.value().set_position(position);
+    life_bar->set_position(bn::fixed_point(position.x(), position.y() - 8));
+    sprite->set_position(position);
 
     if (animation.has_value())
     {
-        animation.value().update();
+        animation->update();
     }
 }
 
@@ -109,8 +109,8 @@ bn::fixed_rect Enemy::get_hitbox()
     return bn::fixed_rect(
         position.x(),
         position.y(),
-        sprite.value().dimensions().width(),
-        sprite.value().dimensions().height());
+        sprite->dimensions().width(),
+        sprite->dimensions().height());
 }
 
 bn::fixed Enemy::get_reward()

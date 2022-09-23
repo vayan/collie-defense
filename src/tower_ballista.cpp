@@ -6,9 +6,9 @@ TowerBallista::TowerBallista(bn::camera_ptr _camera, bn::fixed_point _position) 
 {
     sprite = bn::sprite_items::tower_ballista.create_sprite(0, 0);
 
-    sprite.value().set_camera(_camera);
-    sprite.value().set_visible(true);
-    sprite.value().set_z_order(-2);
+    sprite->set_camera(_camera);
+    sprite->set_visible(true);
+    sprite->set_z_order(-2);
 
     aggro_range = 24;
     damage = 20;
@@ -26,7 +26,7 @@ TowerBallista::~TowerBallista()
 void TowerBallista::set_animation_shoot_right()
 {
     set_animation_shoot_left();
-    sprite.value().set_rotation_angle(270);
+    sprite->set_rotation_angle(270);
 }
 
 void TowerBallista::set_animation_shoot_left()
@@ -36,17 +36,17 @@ void TowerBallista::set_animation_shoot_left()
         8,
         bn::sprite_items::tower_ballista.tiles_item(),
         0, 1, 2, 3, 4, 5, 6, 7);
-    sprite.value().set_rotation_angle(90);
+    sprite->set_rotation_angle(90);
 }
 
 void TowerBallista::set_animation_shoot_up()
 {
     set_animation_shoot_left();
-    sprite.value().set_rotation_angle(0);
+    sprite->set_rotation_angle(0);
 }
 
 void TowerBallista::set_animation_shoot_down()
 {
     set_animation_shoot_left();
-    sprite.value().set_rotation_angle(180);
+    sprite->set_rotation_angle(180);
 }

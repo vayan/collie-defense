@@ -21,8 +21,8 @@ Level::~Level()
 
 void Level::tick(Game *game)
 {
-    hud.value().on_tick(game);
-    bg.value().set_camera(game->get_camera());
+    hud->on_tick(game);
+    bg->set_camera(game->get_camera());
     bool current_wave_finished = true;
 
     for (Wave &wave : waves)
@@ -66,21 +66,21 @@ void Level::init(bn::camera_ptr camera)
 
     bg = load_bg.create_bg(0, 0);
 
-    bg.value().set_camera(camera);
-    bg.value().set_position(0, 0);
+    bg->set_camera(camera);
+    bg->set_position(0, 0);
 
     for (int i = 0; i < number_of_entities; ++i)
     {
         bn::fixed_point ldtk_coord_to_us = bn::fixed_point(
-            entities[i]->get_position().x() - (bg.value().dimensions().width() / 2),
-            entities[i]->get_position().y() - (bg.value().dimensions().height() / 2));
+            entities[i]->get_position().x() - (bg->dimensions().width() / 2),
+            entities[i]->get_position().y() - (bg->dimensions().height() / 2));
 
         switch (entities[i]->get_type())
         {
         case EntityType::Wave:
             waves.emplace_back(
                 entities[i]->get_id(),
-                ldtk_coord_to_us, bg.value().camera().value(),
+                ldtk_coord_to_us, bg->camera().value(),
                 entities[i]->get_number_1(),
                 entities[i]->get_arr_points_1(),
                 entities[i]->get_arr_points_1_size(),
@@ -111,11 +111,11 @@ GridTileType Level::get_tile_type(int tile_index)
 
 GridTileType Level::get_map_cell(bn::fixed x, bn::fixed y)
 {
-    bn::fixed ldtk_coord_x = (x + (bg.value().dimensions().width() / 2)).safe_division(16).right_shift_integer();
-    bn::fixed ldtk_coord_y = (y + (bg.value().dimensions().height() / 2)).safe_division(16).right_shift_integer();
+    bn::fixed ldtk_coord_x = (x + (bg->dimensions().width() / 2)).safe_division(16).right_shift_integer();
+    bn::fixed ldtk_coord_y = (y + (bg->dimensions().height() / 2)).safe_division(16).right_shift_integer();
 
-    bn::fixed ldtk_int_grid_row_size = bg.value().dimensions().width() / 16;
-    bn::fixed ldtk_int_grid_col_size = bg.value().dimensions().height() / 16;
+    bn::fixed ldtk_int_grid_row_size = bg->dimensions().width() / 16;
+    bn::fixed ldtk_int_grid_col_size = bg->dimensions().height() / 16;
 
     // if we're outside of the intgrid we consider it like empty cell
     if (ldtk_coord_x < 0 || ldtk_coord_x >= ldtk_int_grid_row_size || ldtk_coord_y < 0 || ldtk_coord_y >= ldtk_int_grid_col_size)

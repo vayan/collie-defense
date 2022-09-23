@@ -7,9 +7,9 @@ EnemyFox::EnemyFox(
 {
     sprite = bn::sprite_items::fox.create_sprite(0, 0);
 
-    sprite.value().set_position(from);
-    sprite.value().set_camera(camera);
-    sprite.value().set_visible(true);
+    sprite->set_position(from);
+    sprite->set_camera(camera);
+    sprite->set_visible(true);
 }
 
 EnemyFox::~EnemyFox()
@@ -18,11 +18,11 @@ EnemyFox::~EnemyFox()
 
 void EnemyFox::set_animation_right_walk()
 {
-    if (animation.has_value() && animation.value().graphics_indexes().front() == 0)
+    if (animation.has_value() && animation->graphics_indexes().front() == 0)
     {
         return;
     }
-    sprite.value().set_horizontal_flip(false);
+    sprite->set_horizontal_flip(false);
     animation = bn::create_sprite_animate_action_forever(
         sprite.value(),
         8,
@@ -39,7 +39,7 @@ void EnemyFox::set_animation_left_walk()
 
 void EnemyFox::set_animation_down_walk()
 {
-    if (animation.has_value() && animation.value().graphics_indexes().front() == 16)
+    if (animation.has_value() && animation->graphics_indexes().front() == 16)
     {
         return;
     }
@@ -52,7 +52,7 @@ void EnemyFox::set_animation_down_walk()
 
 void EnemyFox::set_animation_up_walk()
 {
-    if (animation.has_value() && animation.value().graphics_indexes().front() == 32)
+    if (animation.has_value() && animation->graphics_indexes().front() == 32)
     {
         return;
     }
