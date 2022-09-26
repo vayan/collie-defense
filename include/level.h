@@ -19,6 +19,7 @@
 #include "enemy.h"
 #include "entity.h"
 #include "hud.h"
+#include "sheep.h"
 #include "tower.h"
 #include "tower_ballista.h"
 #include "tower_basic.h"
@@ -42,7 +43,7 @@ namespace cd
         void init(bn::camera_ptr camera);
         void tick(Game *game);
         bn::vector<Wave, 10> *get_waves();
-        bn::vector<Tower *, 10> *get_towers();
+        bn::vector<Tower *, 20> *get_towers();
         bn::optional<bn::regular_bg_ptr> get_bg();
         GridTileType get_map_cell(bn::fixed x, bn::fixed y);
         bool add_tower(Tower *tower);
@@ -50,6 +51,7 @@ namespace cd
         bool is_lost();
         void reset();
         void clear_towers();
+        void clear_sheeps();
 
     private:
         GridTileType
@@ -63,7 +65,8 @@ namespace cd
         bn::optional<bn::regular_bg_ptr> bg;
         bn::optional<HUD> hud;
         bn::vector<Wave, 10> waves;
-        bn::vector<Tower *, 10> towers;
+        bn::vector<Sheep *, 10> sheeps;
+        bn::vector<Tower *, 20> towers;
         bn::fixed current_wave = 0;
         bool all_waves_finished = false;
     };

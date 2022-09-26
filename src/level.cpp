@@ -44,6 +44,11 @@ void Level::tick(Game *game)
         tower->on_tick(game);
     }
 
+    for (Sheep *sheep : sheeps)
+    {
+        sheep->on_tick(game);
+    }
+
     if (waves.empty())
     {
         log("current level is finished!");
@@ -61,6 +66,7 @@ void Level::init(bn::camera_ptr camera)
 {
     waves.clear();
     clear_towers();
+    clear_sheeps();
     camera.set_position(0, 0);
     hud = HUD();
 
@@ -88,6 +94,14 @@ void Level::init(bn::camera_ptr camera)
                 entities[i]->get_number_3(),
                 entities[i]->get_enemy_type());
             break;
+        case EntityType::Sheep:
+            sheeps.push_back(new Sheep(
+                entities[i]->get_id(),
+                bg->camera().value(),
+                ldtk_coord_to_us,
+                entities[i]->get_arr_points_1(),
+                entities[i]->get_arr_points_1_size()));
+            break;
         default:
             log("cannot create unkown entity, im not god yet");
         }
@@ -99,7 +113,7 @@ bn::vector<Wave, 10> *Level::get_waves()
     return &waves;
 }
 
-bn::vector<Tower *, 10> *Level::get_towers()
+bn::vector<Tower *, 20> *Level::get_towers()
 {
     return &towers;
 }
@@ -155,6 +169,7 @@ void Level::reset()
     hud.reset();
     waves.clear();
     clear_towers();
+    clear_sheeps();
     bg.reset();
     current_wave = 0;
     all_waves_finished = false;
@@ -167,4 +182,13 @@ void Level::clear_towers()
         delete tower;
     }
     towers.clear();
+}
+
+void Level::clear_sheeps()
+{
+    for (Sheep *sheep : sheeps)
+    {
+        delete sheep;
+    }
+    sheeps.clear();
 }
