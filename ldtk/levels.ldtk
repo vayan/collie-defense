@@ -10,7 +10,7 @@
 	},
 	"jsonVersion": "1.1.3",
 	"appBuildId": 458364,
-	"nextUid": 116,
+	"nextUid": 119,
 	"identifierStyle": "Capitalize",
 	"worldLayout": "LinearVertical",
 	"worldGridWidth": 256,
@@ -999,6 +999,64 @@
 			"pivotX": 0.5,
 			"pivotY": 0.5,
 			"fieldDefs": []
+		},
+		{
+			"identifier": "Sheep",
+			"uid": 116,
+			"tags": ["visible"],
+			"width": 16,
+			"height": 16,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"tileOpacity": 1,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#2776BE",
+			"renderMode": "Rectangle",
+			"showName": true,
+			"tilesetId": null,
+			"tileId": null,
+			"tileRenderMode": "FitInside",
+			"tileRect": null,
+			"nineSliceBorders": [],
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 0.5,
+			"fieldDefs": [
+				{
+					"identifier": "Point",
+					"__type": "Array<Point>",
+					"uid": 118,
+					"type": "F_Point",
+					"isArray": true,
+					"canBeNull": true,
+					"arrayMinLength": 1,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "PointPathLoop",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": true,
+					"editorCutLongValues": true,
+					"editorTextSuffix": null,
+					"editorTextPrefix": null,
+					"useForSmartColor": false,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null,
+					"symmetricalRef": false,
+					"autoChainRef": true,
+					"allowOutOfLevelRef": true,
+					"allowedRefs": "OnlySame",
+					"allowedRefTags": [],
+					"tilesetUid": null
+				}
+			]
 		}
 	], "tilesets": [
 		{
@@ -1071,7 +1129,8 @@
 		{ "identifier": "EnemyType", "uid": 27, "values": [
 			{ "id": "Tiger", "tileId": null, "color": 15066385, "__tileSrcRect": null },
 			{ "id": "Fox", "tileId": null, "color": 16737280, "__tileSrcRect": null },
-			{ "id": "Bear", "tileId": null, "color": 7416593, "__tileSrcRect": null }
+			{ "id": "Bear", "tileId": null, "color": 7416593, "__tileSrcRect": null },
+			{ "id": "None", "tileId": null, "color": 0, "__tileSrcRect": null }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] },
 		{ "identifier": "TowerType", "uid": 35, "values": [
 			{ "id": "Basic", "tileId": null, "color": 2300898, "__tileSrcRect": null },
@@ -1330,6 +1389,121 @@
 								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [0] }] },
 								{ "__identifier": "WaveDuration", "__value": 30, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [30] }] }
 							]
+						},
+						{
+							"__identifier": "Sheep",
+							"__grid": [115,28],
+							"__pivot": [0.5,0.5],
+							"__tags": ["visible"],
+							"__tile": null,
+							"__smartColor": "#2776BE",
+							"iid": "d296f130-2a00-11ed-b357-7b4017dc1560",
+							"width": 16,
+							"height": 16,
+							"defUid": 116,
+							"px": [231,57],
+							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 115, "cy": 50 }, { "cx": 101, "cy": 50 }, { "cx": 101, "cy": 27 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+								"id": "V_String",
+								"params": ["115,50"]
+							}, {
+								"id": "V_String",
+								"params": ["101,50"]
+							}, {
+								"id": "V_String",
+								"params": ["101,27"]
+							} ] }]
+						},
+						{
+							"__identifier": "Sheep",
+							"__grid": [7,11],
+							"__pivot": [0.5,0.5],
+							"__tags": ["visible"],
+							"__tile": null,
+							"__smartColor": "#2776BE",
+							"iid": "d8da7d00-2a00-11ed-b357-6f3063ee19a4",
+							"width": 16,
+							"height": 16,
+							"defUid": 116,
+							"px": [15,23],
+							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 26, "cy": 11 }, { "cx": 25, "cy": 32 }, { "cx": 9, "cy": 31 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+								"id": "V_String",
+								"params": ["26,11"]
+							}, {
+								"id": "V_String",
+								"params": ["25,32"]
+							}, {
+								"id": "V_String",
+								"params": ["9,31"]
+							} ] }]
+						},
+						{
+							"__identifier": "Sheep",
+							"__grid": [41,25],
+							"__pivot": [0.5,0.5],
+							"__tags": ["visible"],
+							"__tile": null,
+							"__smartColor": "#2776BE",
+							"iid": "dfcee240-2a00-11ed-b357-2360adfdafd8",
+							"width": 16,
+							"height": 16,
+							"defUid": 116,
+							"px": [83,51],
+							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 72, "cy": 21 }, { "cx": 71, "cy": 37 }, { "cx": 40, "cy": 42 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+								"id": "V_String",
+								"params": ["72,21"]
+							}, {
+								"id": "V_String",
+								"params": ["71,37"]
+							}, {
+								"id": "V_String",
+								"params": ["40,42"]
+							} ] }]
+						},
+						{
+							"__identifier": "Sheep",
+							"__grid": [47,79],
+							"__pivot": [0.5,0.5],
+							"__tags": ["visible"],
+							"__tile": null,
+							"__smartColor": "#2776BE",
+							"iid": "e5310ec0-2a00-11ed-b357-d548af4f534f",
+							"width": 16,
+							"height": 16,
+							"defUid": 116,
+							"px": [95,159],
+							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 66, "cy": 79 }, { "cx": 66, "cy": 102 }, { "cx": 42, "cy": 102 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+								"id": "V_String",
+								"params": ["66,79"]
+							}, {
+								"id": "V_String",
+								"params": ["66,102"]
+							}, {
+								"id": "V_String",
+								"params": ["42,102"]
+							} ] }]
+						},
+						{
+							"__identifier": "Sheep",
+							"__grid": [12,83],
+							"__pivot": [0.5,0.5],
+							"__tags": ["visible"],
+							"__tile": null,
+							"__smartColor": "#2776BE",
+							"iid": "ed0043a0-2a00-11ed-b357-25fe0c35c389",
+							"width": 16,
+							"height": 16,
+							"defUid": 116,
+							"px": [25,167],
+							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 27, "cy": 83 }, { "cx": 27, "cy": 67 }, { "cx": 12, "cy": 67 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+								"id": "V_String",
+								"params": ["27,83"]
+							}, {
+								"id": "V_String",
+								"params": ["27,67"]
+							}, {
+								"id": "V_String",
+								"params": ["12,67"]
+							} ] }]
 						}
 					]
 				},
