@@ -18,7 +18,7 @@ TowerMagic::TowerMagic(bn::camera_ptr _camera, bn::fixed_point _position) : Towe
 
     bullet_sprite = bn::sprite_items::bullet_magic;
 
-    bullet_start_position_offset = bn::fixed_point(0, -16);
+    bullet_start_position_offset = bn::fixed_point(0, -18);
 }
 
 TowerMagic::~TowerMagic()

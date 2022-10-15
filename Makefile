@@ -28,7 +28,7 @@ PYTHON      :=  python
 SOURCES     :=  src lib/src
 INCLUDES    :=  include lib/include
 DATA        :=
-GRAPHICS    :=  graphics graphics/generated/levels
+GRAPHICS    :=  graphics graphics/generated/levels graphics/fonts
 AUDIO       :=  audio
 ROMTITLE    :=  CollieDefence
 ROMCODE     :=  CDGBA
@@ -59,7 +59,10 @@ endif
 levels:
 	poetry run python ./tools/generate-level.py
 
-graphics: $(RAW_GRAPHICS)
+clean_graphics:
+	@rm graphics/*.bmp
+
+graphics: clean_graphics $(RAW_GRAPHICS)
 
 cl: clean
 	@echo cleaning generated assets
