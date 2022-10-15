@@ -29,7 +29,7 @@ SOURCES     :=  src lib/src
 INCLUDES    :=  include lib/include
 DATA        :=
 GRAPHICS    :=  graphics graphics/generated/levels graphics/fonts
-AUDIO       :=  audio
+AUDIO       :=  audio/music
 ROMTITLE    :=  CollieDefence
 ROMCODE     :=  CDGBA
 USERFLAGS   := -DBN_CFG_MEMORY_MAX_EWRAM_ALLOC_ITEMS=64

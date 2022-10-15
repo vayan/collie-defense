@@ -108,6 +108,12 @@ def parse_levels(_levels):
     print("Parsing all levels...")
     parsed_levels = []
     for index, raw_level in enumerate(_levels):
+
+        music = None
+        for field in raw_level.field_instances:
+            if field.identifier == "music" and field.value != None:
+                music, _ = os.path.splitext(os.path.basename(field.value))
+
         parsed_level = {
             "int_identifier": index,
             "identifier": raw_level.identifier,
@@ -115,6 +121,7 @@ def parse_levels(_levels):
             "height": raw_level.px_hei,
             "int_grid_width": int(raw_level.px_wid / content.world_grid_width),
             "int_grid_height": int(raw_level.px_hei / content.world_grid_height),
+            "music": music,
         }
         for layer_instance in raw_level.layer_instances:
             if (
@@ -258,6 +265,11 @@ for level_index, level in enumerate(levels):
     filename = f"./include/generated/levels/{level_name}.h"
     os.makedirs(os.path.dirname(filename), exist_ok=True)
 
+    music_declar = "bn::optional<bn::music_item>()"
+
+    if level["music"]:
+        music_declar = f"bn::music_items::{level['music']}"
+
     entities_var_list = []
     entities_var_declar = ""
 
@@ -320,7 +332,8 @@ namespace cd {{
         bn::regular_bg_items::levels_{zfill_id},
         int_grid_{level['int_identifier']},
         entities_{level['int_identifier']},
-        {len(entities_var_list)}
+        {len(entities_var_list)},
+        {music_declar}
     );
 }}
 #endif

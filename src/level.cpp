@@ -7,10 +7,12 @@ Level::Level(
     bn::regular_bg_item _load_bg,
     const int *_int_grid,
     const Entity **_entities,
-    bn::fixed _number_of_entities) : load_bg(_load_bg),
-                                     int_grid(_int_grid),
-                                     entities(_entities),
-                                     number_of_entities(_number_of_entities)
+    bn::fixed _number_of_entities,
+    bn::optional<bn::music_item> _music) : load_bg(_load_bg),
+                                           int_grid(_int_grid),
+                                           entities(_entities),
+                                           number_of_entities(_number_of_entities),
+                                           music(_music)
 {
 }
 
@@ -62,8 +64,21 @@ void Level::tick(Game *game)
     }
 }
 
+void Level::stop_music()
+{
+    if (bn::music::playing())
+    {
+        bn::music::stop();
+    }
+}
+
 void Level::init(bn::camera_ptr camera)
 {
+    stop_music();
+    if (music.has_value())
+    {
+        music->play();
+    }
     waves.clear();
     clear_towers();
     clear_sheeps();
@@ -173,6 +188,7 @@ void Level::reset()
     bg.reset();
     current_wave = 0;
     all_waves_finished = false;
+    stop_music();
 }
 
 void Level::clear_towers()
