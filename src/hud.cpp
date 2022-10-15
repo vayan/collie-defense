@@ -11,7 +11,7 @@ HUD::HUD()
     player_life_sprite = bn::sprite_items::player_life.create_sprite(-half_display_width + 40, -half_display_height + 12);
 
     player_life_sprite->set_visible(true);
-    player_life_sprite->set_z_order(-2);
+    player_life_sprite->set_z_order(-100);
 
     bn::sprite_text_generator _sprite_text_generator(as::fixed_font_8x8);
     text_generator = _sprite_text_generator;
