@@ -17,13 +17,13 @@
 #include "bn_optional.h"
 #include "bn_regular_bg_item.h"
 #include "bn_regular_bg_items_overlay_bg.h"
-#include "bn_regular_bg_items_tower_select_ui.h"
+#include "bn_regular_bg_items_store.h"
 #include "bn_regular_bg_ptr.h"
 #include "bn_size.h"
 #include "bn_sprite_animate_actions.h"
 #include "bn_sprite_builder.h"
 #include "bn_sprite_items_bear.h"
-#include "bn_sprite_items_tower_select_ui_highlight.h"
+#include "bn_sprite_items_store_select.h"
 #include "bn_sprite_ptr.h"
 #include "bn_sprite_text_generator.h"
 #include "bn_timer.h"
@@ -53,7 +53,7 @@ namespace cd
 
     private:
         bn::camera_ptr camera;
-        bn::optional<bn::regular_bg_ptr> tower_select_ui;
+        bn::optional<bn::regular_bg_ptr> store;
         bn::optional<bn::sprite_ptr>
             select_highlight;
         bn::optional<bn::regular_bg_ptr>

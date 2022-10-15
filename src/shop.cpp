@@ -7,11 +7,11 @@ using namespace cd;
 Shop::Shop(bn::camera_ptr _camera) : camera(_camera)
 {
 
-    select_highlight = bn::sprite_items::tower_select_ui_highlight.create_sprite(78, -30);
+    select_highlight = bn::sprite_items::store_select.create_sprite(78, -30);
     select_highlight->set_bg_priority(0);
 
-    tower_select_ui = bn::regular_bg_items::tower_select_ui.create_bg(0, 0);
-    tower_select_ui->set_priority(2);
+    store = bn::regular_bg_items::store.create_bg(0, 0);
+    store->set_priority(2);
 
     overlay_bg = bn::regular_bg_items::overlay_bg.create_bg(0, 0);
     overlay_bg->set_camera(camera);
@@ -94,10 +94,10 @@ void Shop::select_previous()
 
 void Shop::refresh_money(Player *player)
 {
-    bn::string<50> text = bn::format<50>("{}$$", player->get_money());
+    bn::string<50> text = bn::format<50>("{}$", player->get_money());
     text_sprites.clear();
     text_generator.value()
-        .generate(bn::fixed_point(68, -56), text, text_sprites);
+        .generate(bn::fixed_point(55, -56), text, text_sprites);
 
     for (bn::sprite_ptr text_sprite : text_sprites)
     {

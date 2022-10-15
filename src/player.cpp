@@ -29,7 +29,7 @@ void Player::on_tick(Game *game)
 
 void Player::on_target_killed(Target *target)
 {
-    money += target->get_reward();
+    add_money(target->get_reward());
 }
 
 void Player::on_hit(Enemy *enemy)
@@ -43,9 +43,20 @@ bn::fixed Player::get_life()
 {
     return life;
 }
+
 bn::fixed Player::get_money()
 {
     return money;
+}
+
+void Player::add_money(bn::fixed amount)
+{
+    if (money + amount > 999)
+    {
+        log("player cannot have more than 999 money");
+        return;
+    }
+    money += amount;
 }
 
 bool Player::is_dead()
@@ -62,4 +73,11 @@ void Player::reset()
 void Player::spend_money(bn::fixed cost)
 {
     money -= cost;
+
+    if (money < 0)
+    {
+        // should never happen but I don't trust myself
+        log("player money was negative. reset it to 0.");
+        money = 0;
+    }
 }

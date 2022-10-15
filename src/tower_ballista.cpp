@@ -13,7 +13,7 @@ TowerBallista::TowerBallista(bn::camera_ptr _camera, bn::fixed_point _position) 
     aggro_range = 24;
     damage = 20;
     bullet_speed = 1;
-    cost = 50;
+    cost = 20;
     fire_rate_per_sec = 1;
 
     bullet_sprite = bn::sprite_items::bullet_arrow;

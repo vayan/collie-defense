@@ -41,6 +41,7 @@ namespace cd
         bool is_dead();
         void reset();
         void spend_money(bn::fixed cost);
+        void add_money(bn::fixed amount);
 
     private:
         bn::optional<Cursor>

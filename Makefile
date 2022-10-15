@@ -62,7 +62,7 @@ levels:
 clean_graphics:
 	@rm graphics/*.bmp
 
-graphics: clean_graphics $(RAW_GRAPHICS)
+graphics: $(RAW_GRAPHICS) clean_graphics
 
 cl: clean
 	@echo cleaning generated assets
