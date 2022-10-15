@@ -17,10 +17,8 @@ Bullet::Bullet(
                                damage(_damage)
 
 {
-    sprite = _sprite.create_sprite(0, 0);
+    sprite = _sprite.create_sprite(position);
 
-    sprite.value()
-        .set_position(position);
     sprite->set_camera(camera);
     sprite->set_visible(true);
     sprite->set_z_order(-3);
