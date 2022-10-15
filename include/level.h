@@ -9,6 +9,8 @@
 #include "bn_log.h"
 #include "bn_math.h"
 #include "bn_memory.h"
+#include "bn_music.h"
+#include "bn_music_items.h"
 #include "bn_optional.h"
 #include "bn_regular_bg_item.h"
 #include "bn_regular_bg_ptr.h"
@@ -37,7 +39,8 @@ namespace cd
             bn::regular_bg_item _load_bg,
             const int *_int_grid,
             const Entity **_entities,
-            bn::fixed _number_of_entities);
+            bn::fixed _number_of_entities,
+            bn::optional<bn::music_item> _music);
 
         ~Level();
         void init(bn::camera_ptr camera);
@@ -52,6 +55,7 @@ namespace cd
         void reset();
         void clear_towers();
         void clear_sheeps();
+        void stop_music();
 
     private:
         GridTileType
@@ -61,8 +65,10 @@ namespace cd
         const int *int_grid;
         const Entity **entities;
         bn::fixed number_of_entities;
+        bn::optional<bn::music_item> music;
 
-        bn::optional<bn::regular_bg_ptr> bg;
+        bn::optional<bn::regular_bg_ptr>
+            bg;
         bn::optional<HUD> hud;
         bn::vector<Wave, 10> waves;
         bn::vector<Sheep *, 10> sheeps;

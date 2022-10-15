@@ -10,7 +10,7 @@
 	},
 	"jsonVersion": "1.1.3",
 	"appBuildId": 458364,
-	"nextUid": 119,
+	"nextUid": 120,
 	"identifierStyle": "Capitalize",
 	"worldLayout": "LinearVertical",
 	"worldGridWidth": 256,
@@ -1137,7 +1137,37 @@
 			{ "id": "AoE", "tileId": null, "color": 12783375, "__tileSrcRect": null },
 			{ "id": "Sticky", "tileId": null, "color": 2531088, "__tileSrcRect": null }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] }
-	], "externalEnums": [], "levelFields": [] },
+	], "externalEnums": [], "levelFields": [
+		{
+			"identifier": "music",
+			"__type": "FilePath",
+			"uid": 119,
+			"type": "F_Path",
+			"isArray": false,
+			"canBeNull": true,
+			"arrayMinLength": null,
+			"arrayMaxLength": null,
+			"editorDisplayMode": "NameAndValue",
+			"editorDisplayPos": "Above",
+			"editorAlwaysShow": true,
+			"editorCutLongValues": true,
+			"editorTextSuffix": null,
+			"editorTextPrefix": null,
+			"useForSmartColor": false,
+			"min": null,
+			"max": null,
+			"regex": null,
+			"acceptFileTypes": [ ".mod", ".xm", ".s3m", ".it" ],
+			"defaultOverride": null,
+			"textLanguageMode": null,
+			"symmetricalRef": false,
+			"autoChainRef": true,
+			"allowOutOfLevelRef": true,
+			"allowedRefs": "OnlySame",
+			"allowedRefTags": [],
+			"tilesetUid": null
+		}
+	] },
 	"levels": [
 		{
 			"identifier": "Level_0",
@@ -1158,7 +1188,10 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
-			"fieldInstances": [],
+			"fieldInstances": [{ "__identifier": "music", "__value": "../audio/music/hipp.xm", "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [{
+				"id": "V_String",
+				"params": ["../audio/music/hipp.xm"]
+			}] }],
 			"layerInstances": [
 				{
 					"__identifier": "AutoLayer",
@@ -1724,7 +1757,7 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
-			"fieldInstances": [],
+			"fieldInstances": [{ "__identifier": "music", "__value": null, "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [] }],
 			"layerInstances": [
 				{
 					"__identifier": "AutoLayer",
@@ -2118,7 +2151,7 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
-			"fieldInstances": [],
+			"fieldInstances": [{ "__identifier": "music", "__value": null, "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [] }],
 			"layerInstances": [
 				{
 					"__identifier": "AutoLayer",
@@ -2488,7 +2521,7 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
-			"fieldInstances": [],
+			"fieldInstances": [{ "__identifier": "music", "__value": null, "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [] }],
 			"layerInstances": [
 				{
 					"__identifier": "AutoLayer",
