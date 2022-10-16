@@ -10,6 +10,9 @@ EnemyBear::EnemyBear(
     sprite->set_position(from);
     sprite->set_camera(camera);
     sprite->set_visible(true);
+
+    speed = 10;
+    reward = 15;
 }
 
 EnemyBear::~EnemyBear()

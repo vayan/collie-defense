@@ -115,7 +115,7 @@ bn::fixed_rect Enemy::get_hitbox()
 
 bn::fixed Enemy::get_reward()
 {
-    return 10; // TODO get dynamic value
+    return reward;
 }
 
 bn::fixed Enemy::get_strenght()

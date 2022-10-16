@@ -70,13 +70,14 @@ namespace cd
         bn::fixed_point origin;
         bn::fixed_point from;
         bn::fixed_point to;
+        bn::fixed speed = 15;
+        bn::fixed reward = 10;
 
     private:
         bn::fixed_point position;
         bn::fixed_point **steps;
         bn::fixed steps_number;
         bn::fixed progress = 0;
-        bn::fixed speed = 15;
         bn::fixed current_step = 0;
 
         bn::optional<bn::sprite_ptr>

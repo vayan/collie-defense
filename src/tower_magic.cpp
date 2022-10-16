@@ -10,9 +10,9 @@ TowerMagic::TowerMagic(bn::camera_ptr _camera, bn::fixed_point _position) : Towe
     sprite->set_visible(true);
     sprite->set_z_order(-2);
 
-    aggro_range = 24;
-    damage = 5;
-    bullet_speed = 1;
+    aggro_range = 18;
+    damage = 15;
+    bullet_speed = 1.1;
     cost = 30;
     fire_rate_per_sec = 1;
 

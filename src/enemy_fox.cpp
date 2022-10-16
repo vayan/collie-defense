@@ -10,6 +10,9 @@ EnemyFox::EnemyFox(
     sprite->set_position(from);
     sprite->set_camera(camera);
     sprite->set_visible(true);
+
+    speed = 15;
+    reward = 5;
 }
 
 EnemyFox::~EnemyFox()

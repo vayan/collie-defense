@@ -10,6 +10,9 @@ EnemyTiger::EnemyTiger(
     sprite->set_position(from);
     sprite->set_camera(camera);
     sprite->set_visible(true);
+
+    speed = 20;
+    reward = 10;
 }
 
 EnemyTiger::~EnemyTiger()
