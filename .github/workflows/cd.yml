@@ -90,7 +90,8 @@ jobs:
           curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/15.21.0/archive/default
           unzip butler.zip
           chmod +x ./butler
+          cp ./collie-defence/collie-defence.gba ./collie-defence/collie-defence_jam.gba
           ./butler -V
-          ./butler push ./collie-defence/collie-defence.gba xvayan/collie-defence:rom --userversion ${{ github.event.release.tag_name }}
+          ./butler push ./collie-defence/collie-defence_jam.gba xvayan/collie-defence:rom --userversion ${{ github.event.release.tag_name }}
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
