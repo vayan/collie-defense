@@ -32,11 +32,11 @@ namespace cd
     {
     public:
         Sheep(
-            bn::fixed _id,
+            const bn::fixed _id,
             bn::camera_ptr camera,
-            bn::fixed_point origin,
-            bn::fixed_point **steps,
-            bn::fixed steps_number);
+            const bn::fixed_point origin,
+            const bn::fixed_point **steps,
+            const bn::fixed steps_number);
 
         ~Sheep();
 
@@ -57,14 +57,14 @@ namespace cd
         bn::optional<bn::sprite_ptr>
             sprite;
         bn::camera_ptr camera;
-        bn::fixed_point origin;
+        const bn::fixed_point origin;
         bn::fixed_point from;
         bn::fixed_point to;
 
     private:
         bn::fixed_point position;
-        bn::fixed_point **steps;
-        bn::fixed steps_number;
+        const bn::fixed_point **steps;
+        const bn::fixed steps_number;
         bn::fixed progress = 0;
         bn::fixed speed = 10;
         bn::fixed current_step = 0;

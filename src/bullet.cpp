@@ -31,7 +31,7 @@ Bullet::~Bullet()
 
 void Bullet::on_tick(Game *game)
 {
-    if (target->get_id() != target_id)
+    if (!target->is_active() || target->get_id() != target_id)
     {
         destroyed = true;
         return;

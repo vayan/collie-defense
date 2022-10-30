@@ -1,5 +1,7 @@
 # Collie Defence
 
+![logo](./graphics_raw/extra/logo.png)
+
 ## How To Play
 
 1. Download the latest .gba rom file in the [release page](https://github.com/vayan/collie-defence/releases)
@@ -62,10 +64,3 @@ You can also add mGBA to you path if you want `/Applications/mGBA.app/Contents/M
 Install these plugings for best result:
 - Makefile Tools
 - C/C++ Extension Pack
-
-
-# Licenses
-
-Artwork and music are licenced under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
-
-All of the code, under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).

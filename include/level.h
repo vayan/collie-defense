@@ -45,7 +45,7 @@ namespace cd
         ~Level();
         void init(bn::camera_ptr camera);
         void tick(Game *game);
-        bn::vector<Wave, 10> *get_waves();
+        bn::vector<Wave *, 10> *get_waves();
         bn::vector<Tower *, 20> *get_towers();
         bn::optional<bn::regular_bg_ptr> get_bg();
         GridTileType get_map_cell(bn::fixed x, bn::fixed y);
@@ -55,6 +55,7 @@ namespace cd
         void reset();
         void clear_towers();
         void clear_sheeps();
+        void clear_waves();
         void stop_music();
 
     private:
@@ -70,7 +71,7 @@ namespace cd
         bn::optional<bn::regular_bg_ptr>
             bg;
         bn::optional<HUD> hud;
-        bn::vector<Wave, 10> waves;
+        bn::vector<Wave *, 10> waves;
         bn::vector<Sheep *, 10> sheeps;
         bn::vector<Tower *, 20> towers;
         bn::fixed current_wave = 0;

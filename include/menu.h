@@ -11,8 +11,12 @@
 #include "bn_log.h"
 #include "bn_math.h"
 #include "bn_memory.h"
+#include "bn_music.h"
+#include "bn_music_items.h"
 #include "bn_optional.h"
 #include "bn_regular_bg_item.h"
+#include "bn_regular_bg_items_gameover.h"
+#include "bn_regular_bg_items_gamewin.h"
 #include "bn_regular_bg_items_launch_background.h"
 #include "bn_regular_bg_ptr.h"
 #include "bn_size.h"
@@ -29,6 +33,13 @@
 
 namespace cd
 {
+    enum MenuScreen
+    {
+        Start,
+        GameOver,
+        Win
+    };
+
     class Game;
     class Menu
     {
@@ -36,10 +47,14 @@ namespace cd
         Menu();
         ~Menu();
 
-        bool on_tick(Game *game);
+        bool on_tick(Game *game, MenuScreen screen);
+        void clear();
 
     private:
+        void switch_screen(MenuScreen screen);
+
         bn::optional<bn::regular_bg_ptr> bg;
+        MenuScreen current_screen = MenuScreen::Start;
     };
 }
 

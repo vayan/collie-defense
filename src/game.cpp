@@ -17,12 +17,10 @@ void Game::start_level(int level_index)
 {
     if (level_index >= cd::number_of_levels)
     {
-        cd::log("end of game");
-        current_level->reset();
-        current_level_index = -1;
-        // TODO show end screen - restart for now
         return;
     }
+
+    player->on_reset_store();
 
     current_level->reset();
 
@@ -33,25 +31,47 @@ void Game::start_level(int level_index)
     display_memory_left();
 }
 
-void Game::start_level_loop()
+MenuScreen Game::start_level_loop()
 {
     start_level(current_level_index);
-    while (current_level_index > -1)
+    while (true)
     {
+        if (bn::keypad::start_pressed())
+        {
+            log("paused the game");
+            toggle_pause();
+        }
 
-        current_level->tick(this);
-        player->on_tick(this);
+        if (bn::keypad::select_pressed() && is_paused)
+        {
+            log("restart the game");
+            stop_pause();
+            player->on_reset_store();
+            current_level->reset();
+            return MenuScreen::Start;
+        }
+
+        if (!is_paused)
+        {
+            current_level->tick(this);
+            player->on_tick(this);
+        }
 
         bn::core::update();
 
         if (player->is_dead())
         {
             cd::log("game over");
+            player->on_reset_store();
             current_level->reset();
-            current_level_index = -1;
 
-            // TODO implement gameover screen - restart for now
-            return;
+            return MenuScreen::GameOver;
+        }
+        else if (current_level_index >= cd::number_of_levels)
+        {
+            cd::log("end of game");
+            current_level->reset();
+            return MenuScreen::Win;
         }
         else if (current_level->is_won())
         {
@@ -60,29 +80,60 @@ void Game::start_level_loop()
             start_level(current_level_index);
         }
     }
+    player->on_reset_store();
+
+    return MenuScreen::Start;
 }
 
 int Game::start_main_loop()
 {
     log("starting main loop");
 
+    MenuScreen menu_state = MenuScreen::Start;
+
     while (true)
     {
-        start_launch_screen_loop();
+        start_menu_screen_loop(menu_state);
 
         player = cd::Player(camera.value());
         current_level_index = 0;
-        start_level_loop();
+        bn::core::update();
+        menu_state = start_level_loop();
         player.reset();
-
         bn::core::update();
     }
 }
 
-void Game::start_launch_screen_loop()
+void Game::start_menu_screen_loop(MenuScreen screen)
 {
-    while (menu.on_tick(this))
+    while (menu.on_tick(this, screen))
     {
+        bn::core::update();
+    }
+    menu.clear();
+}
+
+void Game::stop_pause()
+{
+    pause_bg.reset();
+    is_paused = false;
+}
+
+void Game::toggle_pause()
+{
+    if (is_paused)
+    {
+        stop_pause();
+    }
+    else
+    {
+        player->on_reset_store();
+        is_paused = true;
+        pause_bg = bn::regular_bg_items::pause.create_bg(0, 0);
+        pause_bg->set_camera(camera);
+        pause_bg->set_visible(true);
+        pause_bg->set_priority(1);
+        pause_bg->set_blending_enabled(true);
         bn::core::update();
     }
 }
@@ -91,10 +142,17 @@ Player *Game::get_player()
 {
     return &player.value();
 }
+
 Level *Game::get_current_level()
 {
     return current_level;
 }
+
+int Game::get_current_level_index()
+{
+    return current_level_index;
+}
+
 bn::camera_ptr Game::get_camera()
 {
     return camera.value();

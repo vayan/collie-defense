@@ -30,6 +30,7 @@ namespace cd
         virtual bn::fixed_rect get_hitbox();
         virtual bn::fixed get_reward();
         virtual bn::fixed get_id();
+        virtual bool is_active();
 
         virtual void hit(bn::fixed dmg, Player *player);
         virtual ~Target() = default;

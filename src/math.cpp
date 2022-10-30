@@ -18,8 +18,13 @@ bn::fixed_point cd::move_to(bn::fixed_point start, bn::fixed_point end, bn::fixe
     bn::fixed delta_y = end.y() - start.y();
     bn::fixed dist = sqrt(delta_x * delta_x + delta_y * delta_y);
 
-    start.set_x(start.x() + (delta_x * (delta / dist)));
-    start.set_y(start.y() + (delta_y * (delta / dist)));
+    if (dist == 0)
+    {
+        return start;
+    }
+
+    start.set_x(start.x() + (delta_x * (delta.safe_division(dist))));
+    start.set_y(start.y() + (delta_y * (delta.safe_division(dist))));
 
     return start;
 }

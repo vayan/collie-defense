@@ -4,25 +4,27 @@
 namespace cd
 {
     Wave::Wave(
-        bn::fixed _id,
-        bn::fixed_point _from,
+        const bn::fixed _id,
+        const bn::fixed_point _from,
         bn::camera_ptr _camera,
-        bn::fixed _fire_pause_sec,
-        bn::fixed_point **_steps,
-        bn::fixed _steps_number,
-        bn::fixed _wave_order,
-        bn::fixed _wave_duration_sec,
-        EnemyType _enemy_type) : id(_id),
-                                 from(_from),
-                                 camera(_camera),
-                                 fire_pause_sec(_fire_pause_sec),
-                                 steps(_steps),
-                                 steps_number(_steps_number),
-                                 wave_order(_wave_order),
-                                 wave_duration_sec(_wave_duration_sec),
-                                 enemy_type(_enemy_type)
+        const bn::fixed _fire_pause_sec,
+        const bn::fixed_point **_steps,
+        const bn::fixed _steps_number,
+        const bn::fixed _wave_order,
+        const bn::fixed _wave_duration_sec,
+        const EnemyType _enemy_type) : id(_id),
+                                       from(_from),
+                                       camera(_camera),
+                                       fire_pause_sec(_fire_pause_sec),
+                                       steps(_steps),
+                                       steps_number(_steps_number),
+                                       wave_order(_wave_order),
+                                       wave_duration_sec(_wave_duration_sec),
+                                       enemy_type(_enemy_type)
 
     {
+        log("wave created", id);
+
         frame_elapsed_since_last_fire = fire_pause_sec;
         rand = bn::random();
 
@@ -34,6 +36,7 @@ namespace cd
 
     Wave::~Wave()
     {
+        log("wave deleted", id);
         for (Enemy *enemy : enemies)
         {
             delete enemy;
@@ -89,7 +92,7 @@ namespace cd
         return &enemies;
     }
 
-    bn::fixed Wave::get_wave_order()
+    const bn::fixed Wave::get_wave_order()
     {
         return wave_order;
     }

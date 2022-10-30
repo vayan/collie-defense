@@ -19,36 +19,36 @@ namespace cd
     public:
         Entity(
             const bn::fixed id,
-            EntityType _type,
-            bn::fixed x,
-            bn::fixed y,
-            bn::fixed_point **arr_points_1,
-            bn::fixed arr_points_1_size,
-            EnemyType enemy_type,
-            bn::fixed number_1,
-            bn::fixed number_2,
-            bn::fixed number_3);
+            const EntityType _type,
+            const bn::fixed x,
+            const bn::fixed y,
+            const bn::fixed_point **arr_points_1,
+            const bn::fixed arr_points_1_size,
+            const EnemyType enemy_type,
+            const bn::fixed number_1,
+            const bn::fixed number_2,
+            const bn::fixed number_3);
 
         virtual ~Entity();
         bn::fixed_point get_position() const;
-        EntityType get_type() const;
-        bn::fixed get_number_1() const;
-        bn::fixed get_number_2() const;
-        bn::fixed get_number_3() const;
-        bn::fixed_point **get_arr_points_1() const;
-        bn::fixed get_arr_points_1_size() const;
-        bn::fixed get_id() const;
-        EnemyType get_enemy_type() const;
+        const EntityType get_type() const;
+        const bn::fixed get_number_1() const;
+        const bn::fixed get_number_2() const;
+        const bn::fixed get_number_3() const;
+        const bn::fixed_point **get_arr_points_1() const;
+        const bn::fixed get_arr_points_1_size() const;
+        const bn::fixed get_id() const;
+        const EnemyType get_enemy_type() const;
 
     private:
         const bn::fixed id;
-        EntityType type;
-        bn::fixed_point **arr_points_1;
-        bn::fixed arr_points_1_size;
-        EnemyType enemy_type;
-        bn::fixed number_1;
-        bn::fixed number_2;
-        bn::fixed number_3;
+        const EntityType type;
+        const bn::fixed_point **arr_points_1;
+        const bn::fixed arr_points_1_size;
+        const EnemyType enemy_type;
+        const bn::fixed number_1;
+        const bn::fixed number_2;
+        const bn::fixed number_3;
         bn::fixed_point position;
     };
 }

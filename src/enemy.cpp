@@ -5,15 +5,15 @@
 using namespace cd;
 
 Enemy::Enemy(
-    bn::fixed _id,
+    const bn::fixed _id,
     bn::camera_ptr _camera,
-    bn::fixed_point _origin,
-    bn::fixed_point **_steps,
-    bn::fixed _steps_number) : id(_id),
-                               camera(_camera),
-                               origin(_origin),
-                               steps(_steps),
-                               steps_number(_steps_number)
+    const bn::fixed_point _origin,
+    const bn::fixed_point **_steps,
+    const bn::fixed _steps_number) : id(_id),
+                                     camera(_camera),
+                                     origin(_origin),
+                                     steps(_steps),
+                                     steps_number(_steps_number)
 {
     life_bar = bn::sprite_items::life_bar.create_sprite(0, 0);
 
@@ -28,6 +28,7 @@ Enemy::Enemy(
 
 Enemy::~Enemy()
 {
+    log("enemy deleted", id);
 }
 
 void Enemy::on_tick(Game *game)
@@ -77,6 +78,11 @@ bool Enemy::is_dead()
     return dead;
 }
 
+bool Enemy::is_active()
+{
+    return !is_dead();
+}
+
 bn::fixed_point Enemy::get_position()
 {
     return position;
@@ -84,12 +90,13 @@ bn::fixed_point Enemy::get_position()
 
 void Enemy::hit(bn::fixed dmg, Player *player)
 {
-    life -= dmg;
+    life -= (dmg - armor);
 
     if (life <= 0)
     {
         player->on_target_killed(this);
         dead = true;
+        return;
     }
 
     bn::fixed progress_index = life.safe_multiplication(11).safe_division(100).round_integer();
@@ -148,8 +155,9 @@ void Enemy::update_animation()
 {
     bn::fixed deg = degrees_atan2(from, to);
 
-    if (deg == bad_deg)
+    if (deg == bad_deg || !sprite.has_value())
     {
+        // ugly early return to avoid finding real source of bugs
         return;
     }
 

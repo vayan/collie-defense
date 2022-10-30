@@ -31,11 +31,11 @@ namespace cd
     {
     public:
         EnemyBear(
-            bn::fixed _id,
+            const bn::fixed _id,
             bn::camera_ptr _camera,
-            bn::fixed_point _origin,
-            bn::fixed_point **_steps,
-            bn::fixed _steps_number);
+            const bn::fixed_point _origin,
+            const bn::fixed_point **_steps,
+            const bn::fixed _steps_number);
         ~EnemyBear();
 
         virtual void set_animation_right_walk();

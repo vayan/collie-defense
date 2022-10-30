@@ -44,9 +44,9 @@ void Tower::on_tick(Game *game)
         }
     }
 
-    for (Wave &wave : *game->get_current_level()->get_waves())
+    for (Wave *wave : *game->get_current_level()->get_waves())
     {
-        for (Enemy *enemy : *wave.get_enemies())
+        for (Enemy *enemy : *wave->get_enemies())
         {
 
             bn::fixed delta_x = enemy->get_position().x() - position.x();

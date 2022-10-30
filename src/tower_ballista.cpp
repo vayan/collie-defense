@@ -11,7 +11,7 @@ TowerBallista::TowerBallista(bn::camera_ptr _camera, bn::fixed_point _position) 
     sprite->set_z_order(-2);
 
     aggro_range = 44;
-    damage = 7;
+    damage = 10;
     bullet_speed = 0.9;
     cost = 20;
     fire_rate_per_sec = 1.1;

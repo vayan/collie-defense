@@ -18,7 +18,7 @@ Level::Level(
 
 Level::~Level()
 {
-    waves.clear();
+    reset();
 }
 
 void Level::tick(Game *game)
@@ -27,17 +27,29 @@ void Level::tick(Game *game)
     bg->set_camera(game->get_camera());
     bool current_wave_finished = true;
 
-    for (Wave &wave : waves)
+    erase_if(
+        waves,
+        [=](Wave *wave)
+        {
+            if (current_wave == wave->get_wave_order())
+            {
+                wave->on_tick(game);
+
+                if (wave->to_be_removed())
+                {
+                    delete wave;
+                    return true;
+                }
+            }
+            return false;
+        });
+
+    for (Wave *wave : waves)
     {
-        if (current_wave == wave.get_wave_order())
+        if (current_wave == wave->get_wave_order())
         {
             current_wave_finished = false;
-            wave.on_tick(game);
-
-            if (wave.to_be_removed())
-            {
-                waves.erase(&wave);
-            }
+            break;
         }
     }
 
@@ -79,7 +91,7 @@ void Level::init(bn::camera_ptr camera)
     {
         music->play();
     }
-    waves.clear();
+    clear_waves();
     clear_towers();
     clear_sheeps();
     camera.set_position(0, 0);
@@ -99,7 +111,7 @@ void Level::init(bn::camera_ptr camera)
         switch (entities[i]->get_type())
         {
         case EntityType::Wave:
-            waves.emplace_back(
+            waves.push_back(new Wave(
                 entities[i]->get_id(),
                 ldtk_coord_to_us, bg->camera().value(),
                 entities[i]->get_number_1(),
@@ -107,7 +119,7 @@ void Level::init(bn::camera_ptr camera)
                 entities[i]->get_arr_points_1_size(),
                 entities[i]->get_number_2(),
                 entities[i]->get_number_3(),
-                entities[i]->get_enemy_type());
+                entities[i]->get_enemy_type()));
             break;
         case EntityType::Sheep:
             sheeps.push_back(new Sheep(
@@ -123,7 +135,7 @@ void Level::init(bn::camera_ptr camera)
     }
 }
 
-bn::vector<Wave, 10> *Level::get_waves()
+bn::vector<Wave *, 10> *Level::get_waves()
 {
     return &waves;
 }
@@ -182,7 +194,7 @@ bool Level::is_won()
 void Level::reset()
 {
     hud.reset();
-    waves.clear();
+    clear_waves();
     clear_towers();
     clear_sheeps();
     bg.reset();
@@ -207,4 +219,13 @@ void Level::clear_sheeps()
         delete sheep;
     }
     sheeps.clear();
+}
+
+void Level::clear_waves()
+{
+    for (Wave *wave : waves)
+    {
+        delete wave;
+    }
+    waves.clear();
 }

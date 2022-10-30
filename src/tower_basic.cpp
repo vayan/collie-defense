@@ -11,7 +11,7 @@ TowerBasic::TowerBasic(bn::camera_ptr _camera, bn::fixed_point _position) : Towe
     sprite->set_z_order(-2);
 
     aggro_range = 32;
-    damage = 10;
+    damage = 9;
     bullet_speed = 1;
     cost = 10;
     fire_rate_per_sec = 1;

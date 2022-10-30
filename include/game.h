@@ -13,6 +13,7 @@
 #include "bn_memory.h"
 #include "bn_optional.h"
 #include "bn_regular_bg_item.h"
+#include "bn_regular_bg_items_pause.h"
 #include "bn_regular_bg_ptr.h"
 #include "bn_size.h"
 #include "bn_sprite_builder.h"
@@ -38,15 +39,21 @@ namespace cd
         ~Game();
         int start_main_loop();
         void start_level(int level_index);
-        void start_level_loop();
-        void start_launch_screen_loop();
+        MenuScreen start_level_loop();
+        void start_menu_screen_loop(MenuScreen screen);
 
         Player *get_player();
         Level *get_current_level();
+        int get_current_level_index();
+
         bn::camera_ptr get_camera();
+        void toggle_pause();
 
     private:
-        int current_level_index = -1;
+        void stop_pause();
+        bool is_paused = false;
+        bn::optional<bn::regular_bg_ptr> pause_bg;
+        int current_level_index = 0;
         bn::optional<bn::camera_ptr> camera;
         Level *current_level;
         bn::optional<Player> player;

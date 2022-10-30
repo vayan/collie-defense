@@ -52,6 +52,7 @@ namespace cd
         void refresh_money(Player *player);
 
     private:
+        void display_level_count(bn::fixed current_level_index, bn::fixed total_level_count);
         bn::camera_ptr camera;
         bn::optional<bn::regular_bg_ptr> store;
         bn::optional<bn::sprite_ptr>
@@ -64,6 +65,7 @@ namespace cd
         int current_element = 0;
         bn::optional<bn::sprite_text_generator> text_generator;
         bn::vector<bn::sprite_ptr, 32> text_sprites;
+        bn::vector<bn::sprite_ptr, 32> text_sprites_level;
     };
 }
 

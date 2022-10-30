@@ -35,36 +35,36 @@ namespace cd
     {
     public:
         Wave(
-            bn::fixed _id,
-            bn::fixed_point _from,
+            const bn::fixed _id,
+            const bn::fixed_point _from,
             bn::camera_ptr _camera,
-            bn::fixed fire_pause_sec,
-            bn::fixed_point **steps,
-            bn::fixed steps_number,
-            bn::fixed wave_order,
-            bn::fixed wave_duration_sec,
-            EnemyType _enemy_type);
+            const bn::fixed fire_pause_sec,
+            const bn::fixed_point **steps,
+            const bn::fixed steps_number,
+            const bn::fixed wave_order,
+            const bn::fixed wave_duration_sec,
+            const EnemyType _enemy_type);
         ~Wave();
 
         void on_tick(Game *game);
 
         bn::vector<Enemy *, 20> *get_enemies();
 
-        bn::fixed get_wave_order();
+        const bn::fixed get_wave_order();
         bool to_be_removed();
         bn::fixed generate_enemy_id();
 
     private:
-        bn::fixed id;
+        const bn::fixed id;
         bn::fixed_point position;
         bn::fixed_point from;
         bn::fixed_point to;
         bn::camera_ptr camera;
-        bn::fixed fire_pause_sec;
-        bn::fixed_point **steps;
-        bn::fixed steps_number;
-        bn::fixed wave_order;
-        bn::fixed wave_duration_sec;
+        const bn::fixed fire_pause_sec;
+        const bn::fixed_point **steps;
+        const bn::fixed steps_number;
+        const bn::fixed wave_order;
+        const bn::fixed wave_duration_sec;
 
         bn::optional<bn::sprite_ptr>
             sprite;

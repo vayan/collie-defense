@@ -11,12 +11,12 @@ Shop::Shop(bn::camera_ptr _camera) : camera(_camera)
     select_highlight->set_bg_priority(0);
 
     store = bn::regular_bg_items::store.create_bg(0, 0);
-    store->set_priority(2);
+    store->set_priority(0);
 
     overlay_bg = bn::regular_bg_items::overlay_bg.create_bg(0, 0);
     overlay_bg->set_camera(camera);
     overlay_bg->set_visible(false);
-    overlay_bg->set_priority(3);
+    overlay_bg->set_priority(1);
     overlay_bg->set_blending_enabled(true);
 
     overlay_bg.value()
@@ -61,6 +61,7 @@ void Shop::on_tick(Game *game)
         .set_y(elements.at(current_element).second);
 
     refresh_money(game->get_player());
+    display_level_count(game->get_current_level_index() + 1, cd::number_of_levels);
 }
 
 bn::optional<TowerType> Shop::get_purchase()
@@ -89,6 +90,19 @@ void Shop::select_previous()
     if (current_element < 0)
     {
         current_element = elements.size() - 1;
+    }
+}
+
+void Shop::display_level_count(bn::fixed current_level_index, bn::fixed total_level_count)
+{
+    bn::string<50> text = bn::format<50>("STAGE {}/{}", current_level_index, total_level_count);
+    text_sprites_level.clear();
+    text_generator.value()
+        .generate(bn::fixed_point(-115, 56), text, text_sprites_level);
+
+    for (bn::sprite_ptr text_sprite : text_sprites_level)
+    {
+        text_sprite.set_bg_priority(0);
     }
 }
 

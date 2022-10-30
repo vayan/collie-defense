@@ -59,14 +59,12 @@ endif
 levels:
 	poetry run python ./tools/generate-level.py
 
-clean_graphics:
-	@rm graphics/*.bmp
+graphics: $(RAW_GRAPHICS)
 
-graphics: $(RAW_GRAPHICS) clean_graphics
-
-cl: clean
+cl:
 	@echo cleaning generated assets
 	@rm -rf graphics/generated/levels
+	@rm -f graphics/*.bmp
 
 .PHONY: force
 $(RAW_GRAPHICS): force

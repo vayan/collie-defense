@@ -6,10 +6,17 @@ using namespace cd;
 Player::Player(bn::camera_ptr _camera)
 {
     cursor = Cursor(_camera);
+    reset();
 }
 
 Player::~Player()
 {
+}
+
+void Player::on_reset_store()
+{
+    cursor->remove_current_selection(true);
+    cursor->hide_shop();
 }
 
 void Player::on_tick(Game *game)
@@ -67,7 +74,7 @@ bool Player::is_dead()
 void Player::reset()
 {
     life = 100;
-    money = 0;
+    money = 999;
 }
 
 void Player::spend_money(bn::fixed cost)

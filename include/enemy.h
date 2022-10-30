@@ -34,11 +34,11 @@ namespace cd
     {
     public:
         Enemy(
-            bn::fixed _id,
+            const bn::fixed _id,
             bn::camera_ptr camera,
-            bn::fixed_point origin,
-            bn::fixed_point **steps,
-            bn::fixed steps_number);
+            const bn::fixed_point origin,
+            const bn::fixed_point **steps,
+            const bn::fixed steps_number);
 
         ~Enemy();
 
@@ -52,6 +52,7 @@ namespace cd
         bn::fixed get_reward();
         bn::fixed get_strenght();
         bn::fixed get_id();
+        bool is_active();
         virtual void set_animation_right_walk();
         virtual void set_animation_left_walk();
         virtual void set_animation_down_walk();
@@ -67,16 +68,17 @@ namespace cd
         bn::optional<bn::sprite_ptr>
             sprite;
         bn::camera_ptr camera;
-        bn::fixed_point origin;
+        const bn::fixed_point origin;
         bn::fixed_point from;
         bn::fixed_point to;
         bn::fixed speed = 15;
         bn::fixed reward = 10;
+        bn::fixed armor = 0;
 
     private:
         bn::fixed_point position;
-        bn::fixed_point **steps;
-        bn::fixed steps_number;
+        const bn::fixed_point **steps;
+        const bn::fixed steps_number;
         bn::fixed progress = 0;
         bn::fixed current_step = 0;
 

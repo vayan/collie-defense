@@ -42,12 +42,13 @@ namespace cd
         void reset();
         void spend_money(bn::fixed cost);
         void add_money(bn::fixed amount);
+        void on_reset_store();
 
     private:
         bn::optional<Cursor>
             cursor;
         bn::fixed life = 100;
-        bn::fixed money = 100;
+        bn::fixed money = 0;
         bn::optional<bn::rumble_toggle_action> rumble;
     };
 }

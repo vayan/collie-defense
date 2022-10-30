@@ -3,7 +3,7 @@
 using namespace cd;
 
 EnemyTiger::EnemyTiger(
-    bn::fixed _id, bn::camera_ptr _camera, bn::fixed_point _position, bn::fixed_point **_steps, bn::fixed _steps_number) : Enemy(_id, _camera, _position, _steps, _steps_number)
+    const bn::fixed _id, bn::camera_ptr _camera, const bn::fixed_point _position, const bn::fixed_point **_steps, const bn::fixed _steps_number) : Enemy(_id, _camera, _position, _steps, _steps_number)
 {
     sprite = bn::sprite_items::tiger.create_sprite(0, 0);
 
@@ -13,6 +13,7 @@ EnemyTiger::EnemyTiger(
 
     speed = 20;
     reward = 10;
+    armor = 2;
 }
 
 EnemyTiger::~EnemyTiger()

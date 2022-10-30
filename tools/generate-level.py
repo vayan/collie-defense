@@ -1,3 +1,4 @@
+from cgitb import enable
 import json
 import numpy
 import os
@@ -94,7 +95,7 @@ def generate_world_file(_grid_tiles_values, _entities_tiles_values, _levels, _en
 #include "bn_fixed.h"
 
 namespace cd {{
-    static const bn::fixed number_of_levels = {len(_levels)};
+    const bn::fixed number_of_levels = {len(_levels)};
     {enums}
 }}
 
@@ -110,7 +111,11 @@ def parse_levels(_levels):
     for index, raw_level in enumerate(_levels):
 
         music = None
+        enabled = True
         for field in raw_level.field_instances:
+            if field.identifier == "enabled":
+                enabled = field.value
+
             if field.identifier == "music" and field.value != None:
                 music, _ = os.path.splitext(os.path.basename(field.value))
 
@@ -122,6 +127,7 @@ def parse_levels(_levels):
             "int_grid_width": int(raw_level.px_wid / content.world_grid_width),
             "int_grid_height": int(raw_level.px_hei / content.world_grid_height),
             "music": music,
+            "enabled": enabled,
         }
         for layer_instance in raw_level.layer_instances:
             if (
@@ -160,7 +166,8 @@ def parse_levels(_levels):
                     )
                 parsed_level.update({"entities": entities})
                 pass
-        parsed_levels.append(parsed_level)
+        if parsed_level["enabled"]:
+            parsed_levels.append(parsed_level)
     print("Done!\n")
     return parsed_levels
 
@@ -282,13 +289,13 @@ for level_index, level in enumerate(levels):
 
         for index, path_point in enumerate(entity["fields"]["points"]):
             path_point_var_name = f"{var_name}_path_point_{index}"
-            path_points_var_declr = f'{path_points_var_declr}\nBN_DATA_EWRAM static bn::fixed_point {path_point_var_name} = bn::fixed_point({(path_point["cx"] * 2) - (level["width"] / 2)}, {(path_point["cy"] * 2) - (level["height"] / 2)});'
+            path_points_var_declr = f'{path_points_var_declr}\nconst bn::fixed_point {path_point_var_name} = bn::fixed_point({(path_point["cx"] * 2) - (level["width"] / 2)}, {(path_point["cy"] * 2) - (level["height"] / 2)});'
             path_points_var_list.append(f"&{path_point_var_name}")
 
         path_coords_value = ""
         path_coords_var_name = "nullptr"
         if len(path_points_var_list) > 0:
-            path_coords_value = f"""BN_DATA_EWRAM static bn::fixed_point *{var_name}_path_coords[] = {str(path_points_var_list).replace('[', '{').replace(']', '}').replace("'", '')};"""
+            path_coords_value = f"""BN_DATA_EWRAM static const bn::fixed_point *{var_name}_path_coords[] = {str(path_points_var_list).replace('[', '{').replace(']', '}').replace("'", '')};"""
             path_coords_var_name = f"{var_name}_path_coords"
 
         entities_var_list.append(f"&{var_name}")
@@ -296,7 +303,7 @@ for level_index, level in enumerate(levels):
 
 {path_points_var_declr}
 {path_coords_value}
-{entities_var_declar}\nBN_DATA_EWRAM static const Entity {var_name} = Entity(
+{entities_var_declar}\nconst Entity {var_name} = Entity(
     {id},
     EntityType::{entity["type"]},
     {entity["location"][0]},
@@ -326,8 +333,8 @@ for level_index, level in enumerate(levels):
 
 namespace cd {{
     {entities_var_declar}
-    static const Entity* entities_{level['int_identifier']}[] = {str(entities_var_list).replace('[', '{').replace(']', '}').replace("'", '')};
-    static const int int_grid_{level['int_identifier']}[] = {str(level['int_grid']).replace('[', '{').replace(']', '}')};
+    BN_DATA_EWRAM static const Entity* entities_{level['int_identifier']}[] = {str(entities_var_list).replace('[', '{').replace(']', '}').replace("'", '')};
+    const int int_grid_{level['int_identifier']}[] = {str(level['int_grid']).replace('[', '{').replace(']', '}')};
     BN_DATA_EWRAM static Level level_{level['int_identifier']} = Level(
         bn::regular_bg_items::levels_{zfill_id},
         int_grid_{level['int_identifier']},

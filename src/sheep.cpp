@@ -3,15 +3,15 @@
 using namespace cd;
 
 Sheep::Sheep(
-    bn::fixed _id,
+    const bn::fixed _id,
     bn::camera_ptr _camera,
-    bn::fixed_point _origin,
-    bn::fixed_point **_steps,
-    bn::fixed _steps_number) : id(_id),
-                               camera(_camera),
-                               origin(_origin),
-                               steps(_steps),
-                               steps_number(_steps_number)
+    const bn::fixed_point _origin,
+    const bn::fixed_point **_steps,
+    const bn::fixed _steps_number) : id(_id),
+                                     camera(_camera),
+                                     origin(_origin),
+                                     steps(_steps),
+                                     steps_number(_steps_number)
 {
     sprite = bn::sprite_items::sheep.create_sprite(origin);
     position = origin;
@@ -34,7 +34,11 @@ void Sheep::on_tick(Game *game)
         animation.reset();
     }
 
-    progress += speed / (distance(from, to) * 100);
+    bn::fixed dist = distance(from, to) * 100;
+    if (dist != 0)
+    {
+        progress += speed.safe_division(dist);
+    }
 
     position = lerp_points(from, to, progress);
 
