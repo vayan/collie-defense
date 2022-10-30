@@ -74,7 +74,7 @@ bool Player::is_dead()
 void Player::reset()
 {
     life = 100;
-    money = 999;
+    money = 50;
 }
 
 void Player::spend_money(bn::fixed cost)
