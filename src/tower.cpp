@@ -18,7 +18,7 @@ void Tower::fire(Target *target)
         return;
     }
     frame_elapsed_since_last_fire = 0;
-    bullets.emplace_back(
+    bullets.push_back(new Bullet(
         camera,
         bn::fixed_point(
             position.x() + bullet_start_position_offset.x(),
@@ -26,7 +26,16 @@ void Tower::fire(Target *target)
         target,
         bullet_speed,
         damage,
-        bullet_sprite.value());
+        bullet_sprite.value()));
+}
+
+Tower::~Tower()
+{
+    for (Bullet *bullet : bullets)
+    {
+        delete bullet;
+    }
+    log("tower deleted");
 }
 
 void Tower::on_tick(Game *game)
@@ -34,15 +43,20 @@ void Tower::on_tick(Game *game)
     frame_elapsed_since_last_fire += 1;
     set_position(position);
 
-    for (Bullet &bullet : bullets)
-    {
-        bullet.on_tick(game);
-
-        if (bullet.to_be_destroyed())
+    erase_if(
+        bullets,
+        [=](Bullet *bullet)
         {
-            bullets.erase(&bullet);
-        }
-    }
+            bullet->on_tick(game);
+
+            if (bullet->to_be_destroyed())
+            {
+                delete bullet;
+                return true;
+            }
+
+            return false;
+        });
 
     for (Wave *wave : *game->get_current_level()->get_waves())
     {
@@ -74,7 +88,7 @@ void Tower::on_tick(Game *game)
     }
 }
 
-bn::vector<Bullet, 2> *Tower::get_bullets()
+bn::vector<Bullet *, 2> *Tower::get_bullets()
 {
     return &bullets;
 }

@@ -53,6 +53,19 @@ void Level::tick(Game *game)
         }
     }
 
+    if (waves.empty())
+    {
+        log("current level is finished!");
+        all_waves_finished = true;
+        return;
+    }
+    else if (current_wave_finished)
+    {
+        current_wave += 1;
+        log("moving to wave number", current_wave + 1); // 0 indexed
+        current_wave_finished = false;
+    }
+
     for (Tower *tower : towers)
     {
         tower->on_tick(game);
@@ -61,18 +74,6 @@ void Level::tick(Game *game)
     for (Sheep *sheep : sheeps)
     {
         sheep->on_tick(game);
-    }
-
-    if (waves.empty())
-    {
-        log("current level is finished!");
-        all_waves_finished = true;
-    }
-    else if (current_wave_finished)
-    {
-        current_wave += 1;
-        log("moving to wave number", current_wave + 1); // 0 indexed
-        current_wave_finished = false;
     }
 }
 
@@ -194,8 +195,8 @@ bool Level::is_won()
 void Level::reset()
 {
     hud.reset();
-    clear_waves();
     clear_towers();
+    clear_waves();
     clear_sheeps();
     bg.reset();
     current_wave = 0;
