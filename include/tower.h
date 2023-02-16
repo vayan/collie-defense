@@ -38,11 +38,11 @@ namespace cd
     {
     public:
         Tower(bn::camera_ptr camera, bn::fixed_point position);
-        virtual ~Tower() = default;
+        ~Tower();
 
         void on_tick(Game *game);
         void fire(Target *target);
-        bn::vector<Bullet, 2> *get_bullets();
+        bn::vector<Bullet *, 2> *get_bullets();
         virtual bn::fixed_rect get_hitbox();
 
         bn::fixed get_aggro_range();
@@ -78,7 +78,7 @@ namespace cd
 
     private:
         bn::fixed frame_elapsed_since_last_fire = 0;
-        bn::vector<Bullet, 2> bullets;
+        bn::vector<Bullet *, 2> bullets;
     };
 }
 

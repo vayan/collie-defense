@@ -36,11 +36,11 @@ namespace cd
 
     Wave::~Wave()
     {
-        log("wave deleted", id);
         for (Enemy *enemy : enemies)
         {
             delete enemy;
         }
+        log("wave deleted", id);
     }
 
     void Wave::on_tick(Game *game)
