@@ -11,3 +11,4 @@ include/generated
 graphics/generated
 .env
 .vscode
+ldtk/levels/backups/
