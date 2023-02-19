@@ -15,12 +15,15 @@
 #include "bn_music_items.h"
 #include "bn_optional.h"
 #include "bn_regular_bg_item.h"
+#include "bn_regular_bg_items_all_levels.h"
 #include "bn_regular_bg_items_gameover.h"
 #include "bn_regular_bg_items_gamewin.h"
 #include "bn_regular_bg_items_launch_background.h"
+#include "bn_regular_bg_items_level_select.h"
 #include "bn_regular_bg_ptr.h"
 #include "bn_size.h"
 #include "bn_sprite_builder.h"
+#include "bn_sprite_items_dog.h"
 #include "bn_sprite_items_player_life.h"
 #include "bn_sprite_ptr.h"
 #include "bn_sprite_text_generator.h"
@@ -35,9 +38,10 @@ namespace cd
 {
     enum MenuScreen
     {
-        Start,
-        GameOver,
-        Win
+        Start = 0,
+        GameOver = 1,
+        Win = 2,
+        LevelSelect = 3
     };
 
     class Game;
@@ -47,13 +51,22 @@ namespace cd
         Menu();
         ~Menu();
 
-        bool on_tick(Game *game, MenuScreen screen);
+        bool on_tick(Game *game);
         void clear();
+        bn::fixed get_selected_level();
 
     private:
         void switch_screen(MenuScreen screen);
+        bool handle_start_menu(Game *game);
+        bool handle_level_select_menu(Game *game);
 
+        bn::optional<bn::regular_bg_ptr>
+            select_highlight;
+        bn::optional<bn::sprite_ptr>
+            collie_select;
         bn::optional<bn::regular_bg_ptr> bg;
+        bn::fixed selected_level = 0;
+        MenuScreen selected_menu_item = MenuScreen::Start;
         MenuScreen current_screen = MenuScreen::Start;
     };
 }

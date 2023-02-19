@@ -54,7 +54,7 @@ def generate_world_file(_grid_tiles_values, _entities_tiles_values, _levels, _en
 
     for enum_def in _enums:
         enum_val = ""
-        for (k, v) in enumerate(enum_def.values):
+        for k, v in enumerate(enum_def.values):
             enum_val = f"{enum_val}{v.id} = {k},\n\t\t"
 
         enums = f"""
@@ -65,11 +65,11 @@ def generate_world_file(_grid_tiles_values, _entities_tiles_values, _levels, _en
     """
 
     tiles_int_def = ""
-    for (k, v) in _grid_tiles_values.items():
+    for k, v in _grid_tiles_values.items():
         tiles_int_def = f"{tiles_int_def}{k} = {v},\n\t\t"
 
     entities_def = ""
-    for (k, v) in _entities_tiles_values.items():
+    for k, v in _entities_tiles_values.items():
         entities_def = f"{entities_def}{k} = {v},\n\t\t"
 
     enums = f"""
@@ -109,7 +109,6 @@ def parse_levels(_levels):
     print("Parsing all levels...")
     parsed_levels = []
     for index, raw_level in enumerate(_levels):
-
         music = None
         enabled = True
         for field in raw_level.field_instances:
@@ -201,44 +200,78 @@ namespace cd {{
         )
 
 
+def convert_palette(img):
+    img = img.quantize(
+        colors=256,
+        palette=palette_img,
+    )
+
+    # get the image palette as RGB tuples: [(r,g,b) (r,g,b), etc..]
+    palette = [tuple(img.getpalette()[i * 3 : (i + 1) * 3]) for i in range(256)]
+
+    # for now every color stay at their original place
+    new_mapping = list(range(256))
+
+    try:
+        # find the first occurence of the transparent color (black for now)
+        # and put it in index 0 (Butano read the color at index 0 to set
+        # the transparent color)
+        transparent_color_index = palette.index((0, 0, 0))
+        new_mapping[0], new_mapping[transparent_color_index] = (
+            new_mapping[transparent_color_index],
+            new_mapping[0],
+        )
+
+    except:
+        # .index() will raise an error if there's no black in the palette
+        print("no transparent color in this level")
+        os.exit(1)
+
+    img = img.remap_palette(new_mapping)
+
+    return img
+
+
 def import_level_png(_levels):
     print("Converting all levels PNG to BMP/JSON...")
-    for _level in _levels:
+    num_columns = 2
+    column_spacing = 32
+    offset = 32
+
+    merged_image = Image.new("RGB", (256, 512), color="#a8c23d")
+
+    x_offset = offset
+    y_offset = offset
+
+    for i, _level in enumerate(_levels):
         zfill_id = str(_level["int_identifier"]).zfill(4)
         os.makedirs("./graphics/generated/levels", exist_ok=True)
 
         image_png = f'{BASE_LTDK_PROJECT_PATH}/levels/png/{_level["identifier"]}.png'
         img = Image.open(image_png)
+
         newimg = img.convert(
             mode="RGB",
         )
-        newimg = newimg.quantize(
-            colors=256,
-            palette=palette_img,
+        newimg = convert_palette(newimg)
+
+        alpha = newimg.split()[-1]
+        bbox = alpha.getbbox()
+        image_to_merge = newimg.crop(bbox)
+        level_resized = (image_to_merge.width // 3, image_to_merge.height // 3)
+        image_to_merge = image_to_merge.resize(
+            (image_to_merge.width // 15, image_to_merge.height // 15)
         )
 
-        # get the image palette as RGB tuples: [(r,g,b) (r,g,b), etc..]
-        palette = [tuple(newimg.getpalette()[i * 3 : (i + 1) * 3]) for i in range(256)]
+        image_to_merge = image_to_merge.resize(level_resized, resample=Image.NEAREST)
+        column_index = i % num_columns
+        if column_index > 0:
+            x_offset += level_resized[0] + column_spacing
+        if column_index == 0 and i > 0:
+            y_offset += level_resized[1] + offset
+            x_offset = offset
+        merged_image.paste(image_to_merge, (x_offset, y_offset))
 
-        # for now every color stay at their original place
-        new_mapping = list(range(256))
-
-        try:
-            # find the first occurence of the transparent color (black for now)
-            # and put it in index 0 (Butano read the color at index 0 to set
-            # the transparent color)
-            transparent_color_index = palette.index((0, 0, 0))
-            new_mapping[0], new_mapping[transparent_color_index] = (
-                new_mapping[transparent_color_index],
-                new_mapping[0],
-            )
-
-        except:
-            # .index() will raise an error if there's no black in the palette
-            print("no transparent color in this level")
-            os.exit(1)
-
-        newimg = newimg.remap_palette(new_mapping)
         newimg.save(f"./graphics/generated/levels/levels_{zfill_id}.bmp")
 
         json_filename = f"./graphics/generated/levels/levels_{zfill_id}.json"
@@ -248,6 +281,20 @@ def import_level_png(_levels):
   "type": "regular_bg"
 }}"""
             )
+
+    merged_image = merged_image.convert(
+        mode="RGB",
+    )
+    merged_image = convert_palette(merged_image)
+    merged_image.save(f"./graphics/generated/levels/all_levels.bmp")
+    json_filename = f"./graphics/generated/levels/all_levels.json"
+    with open(json_filename, "w") as json_file:
+        json_file.write(
+            f"""{{
+                "type": "regular_bg"
+            }}"""
+        )
+
     print("Done!\n")
 
 

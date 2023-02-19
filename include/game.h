@@ -40,7 +40,7 @@ namespace cd
         int start_main_loop();
         void start_level(int level_index);
         MenuScreen start_level_loop();
-        void start_menu_screen_loop(MenuScreen screen);
+        void start_menu_screen_loop();
 
         Player *get_player();
         Level *get_current_level();

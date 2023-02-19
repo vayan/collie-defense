@@ -93,20 +93,21 @@ int Game::start_main_loop()
 
     while (true)
     {
-        start_menu_screen_loop(menu_state);
+        start_menu_screen_loop();
 
         player = cd::Player(camera.value());
-        current_level_index = 0;
+        current_level_index = menu.get_selected_level().integer();
         bn::core::update();
         menu_state = start_level_loop();
+        // TODO fix death
         player.reset();
         bn::core::update();
     }
 }
 
-void Game::start_menu_screen_loop(MenuScreen screen)
+void Game::start_menu_screen_loop()
 {
-    while (menu.on_tick(this, screen))
+    while (menu.on_tick(this))
     {
         bn::core::update();
     }
