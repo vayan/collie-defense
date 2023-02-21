@@ -68,6 +68,9 @@ namespace cd
         bn::fixed selected_level = 0;
         MenuScreen selected_menu_item = MenuScreen::Start;
         MenuScreen current_screen = MenuScreen::Start;
+        bn::optional<bn::sprite_text_generator> text_generator;
+        bn::vector<bn::sprite_ptr, 32> text_sprites;
+        bn::vector<bn::sprite_ptr, 32> text_sprites_level;
     };
 }
 

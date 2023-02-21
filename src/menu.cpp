@@ -7,6 +7,9 @@ Menu::Menu()
 {
     bg = bn::regular_bg_items::launch_background.create_bg(0, 0);
     bn::music_items::takeawalk.play();
+    bn::blending::set_transparency_alpha(0.6);
+    bn::sprite_text_generator _sprite_text_generator(as::fixed_font_8x8);
+    text_generator = _sprite_text_generator;
 }
 
 Menu::~Menu()
@@ -79,8 +82,10 @@ bool Menu::handle_start_menu(Game *game)
         }
         if (selected_menu_item == MenuScreen::LevelSelect)
         {
-            select_highlight = bn::regular_bg_items::level_select.create_bg(0, -24);
+            select_highlight = bn::regular_bg_items::level_select.create_bg(0, -17);
             select_highlight->set_priority(0);
+            select_highlight->set_blending_enabled(true);
+
             selected_level = 0;
             game->get_camera()
                 .set_position(0, -174);
@@ -119,13 +124,27 @@ bool Menu::handle_level_select_menu(Game *game)
         selected_level = 0;
     }
 
-    if (selected_level > cd::number_of_levels)
+    if (selected_level > cd::number_of_levels - 1)
     {
-        selected_level = cd::number_of_levels;
+        selected_level = cd::number_of_levels - 1;
     }
 
-    game->get_camera().set_y(-174 + (85 * (selected_level.safe_division(2).floor_integer())));
-    select_highlight->set_x(-51 + (117 * (selected_level.integer() % 2)));
+    game->get_camera().set_y(-186 + (80 * (selected_level.safe_division(2).floor_integer())));
+    select_highlight->set_x(-55 + (115 * (selected_level.integer() % 2)));
+
+    bn::string<50> text = bn::format<50>("STAGE {}", selected_level + 1);
+    bn::string<50> text_score = bn::format<50>("SCORE {}", "A++"); // TODO dynamic scores
+
+    text_sprites_level.clear();
+    text_generator.value()
+        .generate(bn::fixed_point(select_highlight->x() - 30, select_highlight->y() - 44), text, text_sprites_level);
+    text_generator.value()
+        .generate(bn::fixed_point(select_highlight->x() - 38, select_highlight->y() + 47), text_score, text_sprites_level);
+
+    for (bn::sprite_ptr text_sprite : text_sprites_level)
+    {
+        text_sprite.set_bg_priority(0);
+    }
 
     if (bn::keypad::b_pressed())
     {

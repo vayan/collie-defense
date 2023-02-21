@@ -235,13 +235,14 @@ def convert_palette(img):
 def import_level_png(_levels):
     print("Converting all levels PNG to BMP/JSON...")
     num_columns = 2
-    column_spacing = 32
-    offset = 32
+    column_spacing = 30
+    x_base_offset = 28
+    y_base_offset = 28
 
     merged_image = Image.new("RGB", (256, 512), color="#a8c23d")
 
-    x_offset = offset
-    y_offset = offset
+    x_offset = x_base_offset
+    y_offset = y_base_offset
 
     for i, _level in enumerate(_levels):
         zfill_id = str(_level["int_identifier"]).zfill(4)
@@ -268,8 +269,8 @@ def import_level_png(_levels):
         if column_index > 0:
             x_offset += level_resized[0] + column_spacing
         if column_index == 0 and i > 0:
-            y_offset += level_resized[1] + offset
-            x_offset = offset
+            y_offset += level_resized[1] + y_base_offset
+            x_offset = x_base_offset
         merged_image.paste(image_to_merge, (x_offset, y_offset))
 
         newimg.save(f"./graphics/generated/levels/levels_{zfill_id}.bmp")
