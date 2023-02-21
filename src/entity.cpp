@@ -28,7 +28,7 @@ Entity::~Entity()
 {
 }
 
-const EntityType Entity::get_type() const
+EntityType Entity::get_type() const
 {
     return type;
 }
@@ -38,17 +38,17 @@ bn::fixed_point Entity::get_position() const
     return position;
 }
 
-const bn::fixed Entity::get_number_1() const
+bn::fixed Entity::get_number_1() const
 {
     return number_1;
 }
 
-const bn::fixed Entity::get_number_2() const
+bn::fixed Entity::get_number_2() const
 {
     return number_2;
 }
 
-const bn::fixed Entity::get_number_3() const
+bn::fixed Entity::get_number_3() const
 {
     return number_3;
 }
@@ -58,17 +58,17 @@ const bn::fixed_point **Entity::get_arr_points_1() const
     return arr_points_1;
 }
 
-const bn::fixed Entity::get_arr_points_1_size() const
+bn::fixed Entity::get_arr_points_1_size() const
 {
     return arr_points_1_size;
 }
 
-const bn::fixed Entity::get_id() const
+bn::fixed Entity::get_id() const
 {
     return id;
 }
 
-const EnemyType Entity::get_enemy_type() const
+EnemyType Entity::get_enemy_type() const
 {
     return enemy_type;
 }

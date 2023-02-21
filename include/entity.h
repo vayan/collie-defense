@@ -31,14 +31,14 @@ namespace cd
 
         virtual ~Entity();
         bn::fixed_point get_position() const;
-        const EntityType get_type() const;
-        const bn::fixed get_number_1() const;
-        const bn::fixed get_number_2() const;
-        const bn::fixed get_number_3() const;
+        EntityType get_type() const;
+        bn::fixed get_number_1() const;
+        bn::fixed get_number_2() const;
+        bn::fixed get_number_3() const;
         const bn::fixed_point **get_arr_points_1() const;
-        const bn::fixed get_arr_points_1_size() const;
-        const bn::fixed get_id() const;
-        const EnemyType get_enemy_type() const;
+        bn::fixed get_arr_points_1_size() const;
+        bn::fixed get_id() const;
+        EnemyType get_enemy_type() const;
 
     private:
         const bn::fixed id;

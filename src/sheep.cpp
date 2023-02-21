@@ -23,7 +23,7 @@ Sheep::~Sheep()
 {
 }
 
-void Sheep::on_tick(Game *game)
+void Sheep::on_tick()
 {
     if (current_step == steps_number)
     {

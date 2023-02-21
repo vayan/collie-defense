@@ -74,7 +74,7 @@ namespace cd
 
         erase_if(
             enemies,
-            [=](Enemy *enemy)
+            [=, this](Enemy *enemy)
             {
                 enemy->on_tick(game);
 

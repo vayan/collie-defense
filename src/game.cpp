@@ -5,7 +5,7 @@ using namespace cd;
 Game::Game(Menu _menu) : menu(_menu)
 {
     camera = bn::camera_ptr::create(0, 0);
-    current_level = cd::levels[0];
+    current_level = levels[0];
     log("game manager created!");
 }
 
@@ -26,7 +26,7 @@ void Game::start_level(int level_index)
 
     cd::log("loading level number", level_index);
 
-    current_level = cd::levels[level_index];
+    current_level = levels[level_index];
     current_level->init(camera.value());
     display_memory_left();
 }
@@ -89,8 +89,6 @@ int Game::start_main_loop()
 {
     log("starting main loop");
 
-    MenuScreen menu_state = MenuScreen::Start;
-
     while (true)
     {
         start_menu_screen_loop();
@@ -98,7 +96,7 @@ int Game::start_main_loop()
         player = cd::Player(camera.value());
         current_level_index = menu.get_selected_level().integer();
         bn::core::update();
-        menu_state = start_level_loop();
+        start_level_loop();
         // TODO fix death
         player.reset();
         bn::core::update();

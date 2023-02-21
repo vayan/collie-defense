@@ -40,7 +40,7 @@ namespace cd
 
         ~Sheep();
 
-        void on_tick(Game *game);
+        void on_tick();
 
         void set_animation_right_walk();
         void set_animation_left_walk();

@@ -45,7 +45,7 @@ void Tower::on_tick(Game *game)
 
     erase_if(
         bullets,
-        [=](Bullet *bullet)
+        [=, this](Bullet *bullet)
         {
             bullet->on_tick(game);
 

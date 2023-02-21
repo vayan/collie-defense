@@ -38,7 +38,7 @@ namespace cd
     {
     public:
         Tower(bn::camera_ptr camera, bn::fixed_point position);
-        ~Tower();
+        virtual ~Tower();
 
         void on_tick(Game *game);
         void fire(Target *target);

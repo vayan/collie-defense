@@ -29,7 +29,7 @@ void Level::tick(Game *game)
 
     erase_if(
         waves,
-        [=](Wave *wave)
+        [=, this](Wave *wave)
         {
             if (current_wave == wave->get_wave_order())
             {
@@ -73,7 +73,7 @@ void Level::tick(Game *game)
 
     for (Sheep *sheep : sheeps)
     {
-        sheep->on_tick(game);
+        sheep->on_tick();
     }
 }
 
