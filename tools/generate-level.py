@@ -192,7 +192,7 @@ def generate_level_intgrid_file(_levels):
 #include "level.h"
 
 namespace cd {{
-    BN_DATA_EWRAM static Level* levels[] = {str(intgrid_string).replace('[', '{').replace(']', '}').replace("'", '')};
+    BN_DATA_EWRAM __attribute__((unused)) static Level* levels[] = {str(intgrid_string).replace('[', '{').replace(']', '}').replace("'", '')};
 }}
 
 #endif

@@ -32,7 +32,7 @@ GRAPHICS    :=  graphics graphics/generated/levels graphics/fonts
 AUDIO       :=  audio/music
 ROMTITLE    :=  CollieDefence
 ROMCODE     :=  CDGBA
-USERFLAGS   := # -DBN_CFG_MEMORY_MAX_EWRAM_ALLOC_ITEMS=64
+USERFLAGS   := -Werror -O3
 USERLIBDIRS :=
 USERLIBS    :=
 USERBUILD   :=
