@@ -6,6 +6,8 @@ Game::Game(Menu _menu) : menu(_menu)
 {
     camera = bn::camera_ptr::create(0, 0);
     current_level = levels[0];
+    save = new Save();
+
     log("game manager created!");
 }
 

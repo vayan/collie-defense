@@ -28,6 +28,7 @@
 #include "level.h"
 #include "menu.h"
 #include "player.h"
+#include "save.h"
 #include "text.h"
 
 namespace cd
@@ -58,6 +59,7 @@ namespace cd
         Level *current_level;
         bn::optional<Player> player;
         Menu menu;
+        Save *save;
     };
 
 }
