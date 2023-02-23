@@ -32,11 +32,23 @@ GRAPHICS    :=  graphics graphics/generated/levels graphics/fonts
 AUDIO       :=  audio/music
 ROMTITLE    :=  CollieDefence
 ROMCODE     :=  CDGBA
-USERFLAGS   := -Werror -O3
+USERFLAGS   :=
 USERLIBDIRS :=
 USERLIBS    :=
 USERBUILD   :=
 EXTTOOL     :=
+
+ifndef TYPE
+	TYPE := DEBUG
+endif
+
+ifeq ($(TYPE),RELEASE)
+	USERFLAGS := -O3 -DBN_CFG_LOG_ENABLED=false
+endif
+
+ifeq ($(TYPE), DEBUG)
+	USERFLAGS := -DBN_CFG_LOG_ENABLED=true -Werror -O3
+endif
 
 RAW_GRAPHICS = $(wildcard graphics_raw/*.aseprite)
 

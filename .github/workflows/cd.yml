@@ -48,7 +48,7 @@ jobs:
           LIBBUTANO: ${{ github.workspace }}/butano/butano
 
       - name: Build ROM file
-        run: make -j8 -o3
+        run: make -j$(nproc) TYPE=RELEASE
         env:
           LIBBUTANO: ${{ github.workspace }}/butano/butano
 
