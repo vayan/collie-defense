@@ -80,6 +80,7 @@ namespace cd
 
                 if (enemy->is_dead())
                 {
+                    game->get_current_level()->clear_bullets_with_invalid_target();
                     delete enemy;
                     return true;
                 }

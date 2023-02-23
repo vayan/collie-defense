@@ -179,3 +179,19 @@ void Tower::set_position(bn::fixed_point pos)
 {
     set_position(pos.x(), pos.y());
 }
+
+void Tower::clear_bullets_with_invalid_target()
+{
+    erase_if(
+        bullets,
+        [=, this](Bullet *bullet)
+        {
+            if (bullet->to_be_destroyed())
+            {
+                delete bullet;
+                return true;
+            }
+
+            return false;
+        });
+}

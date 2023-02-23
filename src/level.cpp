@@ -27,6 +27,11 @@ void Level::tick(Game *game)
     bg->set_camera(game->get_camera());
     bool current_wave_finished = true;
 
+    for (Tower *tower : towers)
+    {
+        tower->on_tick(game);
+    }
+
     erase_if(
         waves,
         [=, this](Wave *wave)
@@ -64,11 +69,6 @@ void Level::tick(Game *game)
         current_wave += 1;
         log("moving to wave number", current_wave + 1); // 0 indexed
         current_wave_finished = false;
-    }
-
-    for (Tower *tower : towers)
-    {
-        tower->on_tick(game);
     }
 
     for (Sheep *sheep : sheeps)
@@ -229,4 +229,12 @@ void Level::clear_waves()
         delete wave;
     }
     waves.clear();
+}
+
+void Level::clear_bullets_with_invalid_target()
+{
+    for (Tower *tower : towers)
+    {
+        tower->clear_bullets_with_invalid_target();
+    }
 }

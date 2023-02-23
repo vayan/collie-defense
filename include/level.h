@@ -57,6 +57,7 @@ namespace cd
         void clear_sheeps();
         void clear_waves();
         void stop_music();
+        void clear_bullets_with_invalid_target();
 
     private:
         GridTileType

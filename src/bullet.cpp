@@ -44,13 +44,15 @@ void Bullet::on_tick(Game *game)
     if (get_hitbox().intersects(target->get_hitbox()) && target->get_id() == target_id)
     {
         destroyed = true;
+        log("bullet hit target", target_id);
+
         target->hit(damage, game->get_player());
     }
 }
 
 bool Bullet::to_be_destroyed()
 {
-    return destroyed;
+    return destroyed || !target->is_active();
 }
 
 bn::fixed_rect Bullet::get_hitbox()

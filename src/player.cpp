@@ -63,6 +63,7 @@ void Player::add_money(bn::fixed amount)
         log("player cannot have more than 999 money");
         return;
     }
+    log("player earned money:", amount);
     money += amount;
 }
 

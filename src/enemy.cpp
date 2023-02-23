@@ -94,6 +94,7 @@ void Enemy::hit(bn::fixed dmg, Player *player)
 
     if (life <= 0)
     {
+        log("enemy dead, id:", id);
         player->on_target_killed(this);
         dead = true;
         return;

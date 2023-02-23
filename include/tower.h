@@ -57,6 +57,7 @@ namespace cd
         void place();
         virtual void set_position(bn::fixed x, bn::fixed y);
         void set_position(bn::fixed_point pos);
+        void clear_bullets_with_invalid_target();
 
     private:
         bn::camera_ptr camera;
