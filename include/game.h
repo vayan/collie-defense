@@ -33,10 +33,16 @@
 
 namespace cd
 {
+    enum GameMode
+    {
+        Story,
+        Single
+    };
+
     class Game
     {
     public:
-        Game(Menu _menu);
+        Game(Menu *_menu);
         ~Game();
         int start_main_loop();
         void start_level(int level_index);
@@ -49,6 +55,9 @@ namespace cd
 
         bn::camera_ptr get_camera();
         void toggle_pause();
+        GameMode get_game_mode();
+        void set_game_mode(GameMode mode);
+        Save *get_save();
 
     private:
         void stop_pause();
@@ -58,8 +67,9 @@ namespace cd
         bn::optional<bn::camera_ptr> camera;
         Level *current_level;
         bn::optional<Player> player;
-        Menu menu;
+        Menu *menu;
         Save *save;
+        GameMode game_mode = GameMode::Story;
     };
 
 }

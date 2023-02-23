@@ -54,9 +54,10 @@ namespace cd
         bool on_tick(Game *game);
         void clear();
         bn::fixed get_selected_level();
+        void set_current_screen(MenuScreen screen);
 
     private:
-        void switch_screen(MenuScreen screen);
+        void switch_screen(MenuScreen screen, Game *game);
         bool handle_start_menu(Game *game);
         bool handle_level_select_menu(Game *game);
 

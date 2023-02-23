@@ -2,7 +2,7 @@
 
 using namespace cd;
 
-Game::Game(Menu _menu) : menu(_menu)
+Game::Game(Menu *_menu) : menu(_menu)
 {
     camera = bn::camera_ptr::create(0, 0);
     current_level = levels[0];
@@ -75,11 +75,20 @@ MenuScreen Game::start_level_loop()
             current_level->reset();
             return MenuScreen::Win;
         }
-        else if (current_level->is_won())
+        else if (current_level->is_won() && get_game_mode() == GameMode::Story)
         {
             current_level_index += 1;
+            save->set_latest_level(current_level_index);
 
             start_level(current_level_index);
+        }
+        else if (current_level->is_won() && get_game_mode() == GameMode::Single)
+        {
+            cd::log("level finished");
+            player->on_reset_store();
+            current_level->reset();
+
+            return MenuScreen::LevelSelect;
         }
     }
     player->on_reset_store();
@@ -96,10 +105,11 @@ int Game::start_main_loop()
         start_menu_screen_loop();
 
         player = cd::Player(camera.value());
-        current_level_index = menu.get_selected_level().integer();
+        current_level_index = menu->get_selected_level().integer();
+
         bn::core::update();
-        start_level_loop();
-        // TODO fix death
+        MenuScreen transition_to = start_level_loop();
+        menu->set_current_screen(transition_to);
         player.reset();
         bn::core::update();
     }
@@ -107,11 +117,11 @@ int Game::start_main_loop()
 
 void Game::start_menu_screen_loop()
 {
-    while (menu.on_tick(this))
+    while (menu->on_tick(this))
     {
         bn::core::update();
     }
-    menu.clear();
+    menu->clear();
 }
 
 void Game::stop_pause()
@@ -157,4 +167,19 @@ int Game::get_current_level_index()
 bn::camera_ptr Game::get_camera()
 {
     return camera.value();
+}
+
+GameMode Game::get_game_mode()
+{
+    return game_mode;
+}
+
+void Game::set_game_mode(GameMode mode)
+{
+    game_mode = mode;
+}
+
+Save *Game::get_save()
+{
+    return save;
 }

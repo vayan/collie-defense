@@ -35,6 +35,7 @@ namespace cd
         void write();
         void reset();
         save_data get_data();
+        void set_latest_level(int level_index);
     };
 }
 

@@ -11,8 +11,8 @@ int main()
 
     cd::log("butano initiated");
 
-    cd::Menu menu = cd::Menu();
-    cd::Game game = cd::Game(menu);
+    cd::Menu *menu = new cd::Menu();
+    cd::Game *game = new cd::Game(menu);
 
-    return game.start_main_loop();
+    return game->start_main_loop();
 }

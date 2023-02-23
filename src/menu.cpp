@@ -5,7 +5,6 @@ using namespace cd;
 
 Menu::Menu()
 {
-    bg = bn::regular_bg_items::launch_background.create_bg(0, 0);
     bn::music_items::takeawalk.play();
     bn::blending::set_transparency_alpha(0.6);
     bn::sprite_text_generator _sprite_text_generator(as::fixed_font_8x8);
@@ -22,25 +21,38 @@ void Menu::clear()
     select_highlight.reset();
     current_screen = Start;
     collie_select.reset();
-    selected_menu_item = MenuScreen::Start;
+    text_sprites_level.clear();
 }
 
-void Menu::switch_screen(MenuScreen screen)
+void Menu::switch_screen(MenuScreen screen, Game *game)
 {
+    clear();
     switch (screen)
     {
     case MenuScreen::GameOver:
+        log("start game over screen");
         bg = bn::regular_bg_items::gameover.create_bg(0, 0);
         break;
 
     case MenuScreen::Win:
+        log("start win screen");
         bg = bn::regular_bg_items::gamewin.create_bg(0, 0);
         break;
     case MenuScreen::LevelSelect:
+        log("start leveling selection");
         bg = bn::regular_bg_items::all_levels.create_bg(0, 0);
+        select_highlight = bn::regular_bg_items::level_select.create_bg(0, -17);
+        select_highlight->set_priority(0);
+        select_highlight->set_blending_enabled(true);
+
+        selected_level = 0;
+        game->get_camera()
+            .set_position(0, -174);
         break;
 
     default:
+        log("start title screen");
+        collie_select = bn::sprite_items::dog.create_sprite(-85, 71);
         bg = bn::regular_bg_items::launch_background.create_bg(0, 0);
         break;
     }
@@ -55,11 +67,6 @@ bn::fixed Menu::get_selected_level()
 
 bool Menu::handle_start_menu(Game *game)
 {
-    if (!collie_select.has_value())
-    {
-        collie_select = bn::sprite_items::dog.create_sprite(-85, 71);
-    }
-
     if (bn::keypad::right_pressed())
     {
         selected_menu_item = MenuScreen::LevelSelect;
@@ -78,19 +85,13 @@ bool Menu::handle_start_menu(Game *game)
 
         if (selected_menu_item == MenuScreen::Start)
         {
+            game->set_game_mode(GameMode::Story);
+            selected_level = game->get_save()->get_data().latest_level.integer();
             return false;
         }
         if (selected_menu_item == MenuScreen::LevelSelect)
         {
-            select_highlight = bn::regular_bg_items::level_select.create_bg(0, -17);
-            select_highlight->set_priority(0);
-            select_highlight->set_blending_enabled(true);
-
-            selected_level = 0;
-            game->get_camera()
-                .set_position(0, -174);
-            switch_screen(MenuScreen::LevelSelect);
-            log("start leveling selection");
+            switch_screen(MenuScreen::LevelSelect, game);
         }
     }
 
@@ -154,6 +155,7 @@ bool Menu::handle_level_select_menu(Game *game)
 
     if (bn::keypad::start_pressed() || bn::keypad::a_pressed())
     {
+        game->set_game_mode(GameMode::Single);
         return false;
     }
 
@@ -164,8 +166,7 @@ bool Menu::on_tick(Game *game)
 {
     if (!bg.has_value())
     {
-        switch_screen(MenuScreen::Start);
-        game->get_camera().set_position(0, 0);
+        switch_screen(current_screen, game);
     }
 
     bg->set_camera(game->get_camera());
@@ -181,4 +182,9 @@ bool Menu::on_tick(Game *game)
     }
 
     return true;
+}
+
+void Menu::set_current_screen(MenuScreen screen)
+{
+    current_screen = screen;
 }

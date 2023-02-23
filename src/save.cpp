@@ -11,15 +11,22 @@ Save::~Save()
 {
 }
 
+void Save::set_latest_level(int level_index)
+{
+    read();
+    cart_save_data.latest_level = level_index;
+    write();
+}
+
 void Save::read()
 {
     bn::sram::read(cart_save_data);
     log("Save read!");
-    log("current level saved", cart_save_data.latest_level);
     if (cart_save_data.status != SAVE_STATUS_VALID_CODE) // this mean the save was never created
     {
         reset();
     }
+    log("latest level in story saved", cart_save_data.latest_level);
 }
 
 void Save::write()
