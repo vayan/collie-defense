@@ -98,6 +98,35 @@ bool Menu::handle_start_menu(Game *game)
     return true;
 }
 
+bn::string<10> Menu::human_readable_score(bn::fixed score)
+{
+    switch (score.integer())
+    {
+    case 1:
+        return "F";
+    case 2:
+        return "D";
+    case 3:
+        return "C";
+    case 4:
+        return "B-";
+    case 5:
+        return "B";
+    case 6:
+        return "B+";
+    case 7:
+        return "A-";
+    case 8:
+        return "A";
+    case 9:
+        return "A+";
+    case 10:
+        return "A++";
+    default:
+        return "-";
+    }
+}
+
 bool Menu::handle_level_select_menu(Game *game)
 {
     if (bn::keypad::up_pressed())
@@ -134,7 +163,11 @@ bool Menu::handle_level_select_menu(Game *game)
     select_highlight->set_x(-55 + (115 * (selected_level.integer() % 2)));
 
     bn::string<50> text = bn::format<50>("STAGE {}", selected_level + 1);
-    bn::string<50> text_score = bn::format<50>("SCORE {}", "A++"); // TODO dynamic scores
+
+    bn::fixed score = game->get_save()->get_data().score_per_level[selected_level.integer()];
+
+    bn::string<50>
+        text_score = bn::format<50>("SCORE: {}", human_readable_score(score));
 
     text_sprites_level.clear();
     text_generator.value()

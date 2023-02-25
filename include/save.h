@@ -13,6 +13,7 @@
 namespace cd
 {
     const bn::fixed SAVE_STATUS_VALID_CODE = 11;
+    const int MAX_LEVEL_COUNT = 30; // can switch to use cd::number_of_levels if needed
 
     struct save_data
     {
@@ -21,6 +22,8 @@ namespace cd
         // we need to keep the data simple to save it in the sram.
         // so forget maps, list, etc.. :)
         bn::fixed latest_level;
+
+        bn::fixed score_per_level[MAX_LEVEL_COUNT];
     };
 
     class Save
@@ -36,6 +39,7 @@ namespace cd
         void reset();
         save_data get_data();
         void set_latest_level(int level_index);
+        void set_level_score(int level_index, bn::fixed score);
     };
 }
 

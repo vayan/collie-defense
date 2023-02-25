@@ -88,6 +88,11 @@ MenuScreen Game::start_level_loop()
             player->on_reset_store();
             current_level->reset();
 
+            // add a timer or keep life left for scoring?? mhhh
+            save->set_level_score(
+                current_level_index,
+                player->get_life().safe_division(10).round_integer());
+
             return MenuScreen::LevelSelect;
         }
     }

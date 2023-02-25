@@ -18,6 +18,13 @@ void Save::set_latest_level(int level_index)
     write();
 }
 
+void Save::set_level_score(int level_index, bn::fixed score)
+{
+    read();
+    cart_save_data.score_per_level[level_index] = score;
+    write();
+}
+
 void Save::read()
 {
     bn::sram::read(cart_save_data);
@@ -40,6 +47,10 @@ void Save::reset()
     log("Save reset!");
     cart_save_data.status = SAVE_STATUS_VALID_CODE;
     cart_save_data.latest_level = 0;
+    for (int i = 0; i < MAX_LEVEL_COUNT; i++)
+    {
+        cart_save_data.score_per_level[i] = -1;
+    }
 
     write();
 }
