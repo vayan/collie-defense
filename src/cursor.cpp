@@ -35,14 +35,6 @@ void Cursor::disable()
 
 bool Cursor::can_build(Level *level)
 {
-    GridTileType top_left_grid = level->get_map_cell(
-        position.x() - 8,
-        position.y() - 8);
-    GridTileType bottom_right_grid = level->get_map_cell(
-        position.x() + 7,
-        position.y() + 7);
-    // TODO check other corners
-
     for (Tower *tower : *level->get_towers())
     {
         if (tower->get_hitbox().intersects(get_hitbox()))
@@ -51,7 +43,24 @@ bool Cursor::can_build(Level *level)
         }
     }
 
-    if (top_left_grid == bottom_right_grid && top_left_grid == GridTileType::buildable)
+    GridTileType top_left_grid = level->get_map_cell(
+        position.x() - 8,
+        position.y() - 8);
+    GridTileType top_right_grid = level->get_map_cell(
+        position.x() + 7,
+        position.y() - 8);
+    GridTileType bottom_right_grid = level->get_map_cell(
+        position.x() + 7,
+        position.y() + 7);
+    GridTileType bottom_left_grid = level->get_map_cell(
+        position.x() - 7,
+        position.y() + 7);
+
+    if (
+        top_left_grid == bottom_right_grid &&
+        bottom_right_grid == bottom_left_grid &&
+        top_right_grid == bottom_left_grid &&
+        top_left_grid == GridTileType::buildable)
     {
         return true;
     }
