@@ -29,7 +29,7 @@ SOURCES     :=  src lib/src
 INCLUDES    :=  include lib/include
 DATA        :=
 GRAPHICS    :=  graphics graphics/generated/levels graphics/fonts
-AUDIO       :=  audio/music
+AUDIO       :=  audio/music audio/sfx
 ROMTITLE    :=  CollieDefence
 ROMCODE     :=  CDGBA
 USERFLAGS   :=
@@ -51,6 +51,8 @@ ifeq ($(TYPE), DEBUG)
 endif
 
 RAW_GRAPHICS = $(wildcard graphics_raw/*.aseprite)
+ALL_SFX = $(wildcard audio/sfx/*.wav)
+
 
 #---------------------------------------------------------------------------------------------------------------------
 # Export absolute butano path:
@@ -81,3 +83,10 @@ cl:
 .PHONY: force
 $(RAW_GRAPHICS): force
 	aseprite --split-layers --batch $@ --color-mode indexed --sheet graphics/$(@F:.aseprite=.bmp) --sheet-type vertical
+
+$(ALL_SFX): force
+	mv $@ $@.old.wav
+	sox $@.old.wav -b 8 -r 22050 $@
+	rm $@.old.wav
+
+sfx: $(ALL_SFX)

@@ -5,7 +5,7 @@ using namespace cd;
 
 Menu::Menu()
 {
-    bn::music_items::takeawalk.play();
+    bn::music_items::takeawalk.play(0.2);
     bn::blending::set_transparency_alpha(0.6);
     bn::sprite_text_generator _sprite_text_generator(as::fixed_font_8x8);
     text_generator = _sprite_text_generator;
@@ -71,12 +71,14 @@ bool Menu::handle_start_menu(Game *game)
     {
         selected_menu_item = MenuScreen::LevelSelect;
         collie_select->set_position(2, 71);
+        bn::sound_items::select.play();
     }
 
     if (bn::keypad::left_pressed())
     {
         selected_menu_item = MenuScreen::Start;
         collie_select->set_position(-85, 71);
+        bn::sound_items::select.play();
     }
 
     if (bn::keypad::start_pressed() || bn::keypad::a_pressed())

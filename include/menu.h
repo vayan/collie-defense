@@ -22,6 +22,7 @@
 #include "bn_regular_bg_items_level_select.h"
 #include "bn_regular_bg_ptr.h"
 #include "bn_size.h"
+#include "bn_sound_items.h"
 #include "bn_sprite_builder.h"
 #include "bn_sprite_items_dog.h"
 #include "bn_sprite_items_player_life.h"
