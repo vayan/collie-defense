@@ -49,11 +49,13 @@ void Shop::on_tick(Game *game)
 
     if (bn::keypad::down_pressed())
     {
+        bn::sound_items::select.play();
         select_next();
     }
 
     if (bn::keypad::up_pressed())
     {
+        bn::sound_items::select.play();
         select_previous();
     }
 

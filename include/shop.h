@@ -20,6 +20,7 @@
 #include "bn_regular_bg_items_store.h"
 #include "bn_regular_bg_ptr.h"
 #include "bn_size.h"
+#include "bn_sound_items.h"
 #include "bn_sprite_animate_actions.h"
 #include "bn_sprite_builder.h"
 #include "bn_sprite_items_bear.h"

@@ -15,6 +15,7 @@
 #include "bn_regular_bg_item.h"
 #include "bn_regular_bg_ptr.h"
 #include "bn_size.h"
+#include "bn_sound_items.h"
 #include "bn_sprite_animate_actions.h"
 #include "bn_sprite_builder.h"
 #include "bn_sprite_items_tower_ballista.h"
@@ -80,6 +81,7 @@ namespace cd
     private:
         bn::fixed frame_elapsed_since_last_fire = 0;
         bn::vector<Bullet *, 2> bullets;
+        bn::optional<bn::sound_item> fire_sfx;
     };
 }
 

@@ -23,6 +23,9 @@ Enemy::Enemy(
 
     life_bar->set_camera(camera);
     life_bar->set_visible(false);
+    hit_sfx = bn::sound_items::hit;
+    death_sfx = bn::sound_items::death;
+
     display_memory_left();
 }
 
@@ -97,8 +100,11 @@ void Enemy::hit(bn::fixed dmg, Player *player)
         log("enemy dead, id:", id);
         player->on_target_killed(this);
         dead = true;
+        death_sfx->play();
         return;
     }
+
+    hit_sfx->play();
 
     bn::fixed progress_index = life.safe_multiplication(11).safe_division(100).round_integer();
     if (progress_index < 0)

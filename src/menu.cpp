@@ -133,21 +133,25 @@ bool Menu::handle_level_select_menu(Game *game)
 {
     if (bn::keypad::up_pressed())
     {
+        bn::sound_items::select.play();
         selected_level = selected_level - 2;
     }
 
     if (bn::keypad::down_pressed())
     {
+        bn::sound_items::select.play();
         selected_level = selected_level + 2;
     }
 
     if (bn::keypad::right_pressed())
     {
+        bn::sound_items::select.play();
         selected_level = selected_level + 1;
     }
 
     if (bn::keypad::left_pressed())
     {
+        bn::sound_items::select.play();
         selected_level = selected_level - 1;
     }
 
@@ -169,7 +173,7 @@ bool Menu::handle_level_select_menu(Game *game)
     bn::fixed score = game->get_save()->get_data().score_per_level[selected_level.integer()];
 
     bn::string<50>
-        text_score = bn::format<50>("SCORE: {}", human_readable_score(score));
+        text_score = bn::format<50>("RANK {}", human_readable_score(score));
 
     text_sprites_level.clear();
     text_generator.value()

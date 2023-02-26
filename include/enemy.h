@@ -15,6 +15,7 @@
 #include "bn_regular_bg_item.h"
 #include "bn_regular_bg_ptr.h"
 #include "bn_size.h"
+#include "bn_sound_items.h"
 #include "bn_sprite_animate_actions.h"
 #include "bn_sprite_builder.h"
 #include "bn_sprite_items_bear.h"
@@ -88,6 +89,8 @@ namespace cd
         bn::fixed max_life = 100;
         bn::fixed life = 100;
         bool dead = false;
+        bn::optional<bn::sound_item> hit_sfx;
+        bn::optional<bn::sound_item> death_sfx;
     };
 }
 

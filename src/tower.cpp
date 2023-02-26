@@ -9,6 +9,7 @@ Tower::Tower(bn::camera_ptr _camera, bn::fixed_point _position) : camera(_camera
                                                                   position(_position)
 {
     display_memory_left();
+    fire_sfx = bn::sound_items::ranged_shot;
 }
 
 void Tower::fire(Target *target)
@@ -17,6 +18,7 @@ void Tower::fire(Target *target)
     {
         return;
     }
+    fire_sfx->play(0.2);
     frame_elapsed_since_last_fire = 0;
     bullets.push_back(new Bullet(
         camera,

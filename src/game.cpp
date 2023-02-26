@@ -92,6 +92,7 @@ MenuScreen Game::start_level_loop()
         else if (current_level->is_won() && get_game_mode() == GameMode::Single)
         {
             cd::log("level finished");
+            bn::sound_items::win.play();
             current_level->reset();
 
             // add a timer or keep life left for scoring?? mhhh
