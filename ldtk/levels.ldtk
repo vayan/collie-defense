@@ -1211,8 +1211,8 @@
 			"tilesetUid": null
 		},
 		{
-			"identifier": "enabled",
-			"doc": "should it be in the final build",
+			"identifier": "production",
+			"doc": "should it be in the final production build",
 			"__type": "Bool",
 			"uid": 125,
 			"type": "F_Bool",
@@ -1303,7 +1303,7 @@
 					"id": "V_String",
 					"params": ["../audio/music/viral_legacy.xm"]
 				}] },
-				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
+				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
 				{ "__identifier": "start_money", "__value": 150, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [{ "id": "V_Int", "params": [150] }] }
 			],
 			"layerInstances": [
@@ -1824,7 +1824,7 @@
 					"id": "V_String",
 					"params": ["../audio/music/the_epic_chip.xm"]
 				}] },
-				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
+				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
 				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
 			],
 			"layerInstances": [
@@ -2271,7 +2271,7 @@
 					"id": "V_String",
 					"params": ["../audio/music/porn_industryy.xm"]
 				}] },
-				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
+				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
 				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
 			],
 			"layerInstances": [
@@ -2744,7 +2744,7 @@
 					"id": "V_String",
 					"params": ["../audio/music/viral_legacy.xm"]
 				}] },
-				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
+				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
 				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
 			],
 			"layerInstances": [
@@ -3328,7 +3328,7 @@
 					"id": "V_String",
 					"params": ["../audio/music/the_epic_chip.xm"]
 				}] },
-				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
+				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
 				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
 			],
 			"layerInstances": [
@@ -3906,7 +3906,7 @@
 					"id": "V_String",
 					"params": ["../audio/music/porn_industryy.xm"]
 				}] },
-				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
+				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
 				}] },
@@ -4514,7 +4514,7 @@
 					"id": "V_String",
 					"params": ["../audio/music/spdim.xm"]
 				}] },
-				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
+				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
 				}] },
@@ -4990,7 +4990,7 @@
 			"externalRelPath": null,
 			"fieldInstances": [
 				{ "__identifier": "music", "__value": null, "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [] },
-				{ "__identifier": "enabled", "__value": false, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
+				{ "__identifier": "production", "__value": false, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ false ]
 				}] },

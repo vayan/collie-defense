@@ -43,7 +43,7 @@ jobs:
         run: poetry install
 
       - name: Import levels from LDtk
-        run: make levels
+        run: make levels TYPE=RELEASE
         env:
           LIBBUTANO: ${{ github.workspace }}/butano/butano
 

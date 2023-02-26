@@ -71,7 +71,7 @@ ifneq (,$(wildcard ./.env))
 endif
 
 levels:
-	poetry run python ./tools/generate-level.py
+	poetry run python ./tools/generate-level.py $(TYPE)
 
 graphics: $(RAW_GRAPHICS)
 

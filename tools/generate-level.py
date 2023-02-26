@@ -2,12 +2,14 @@ from cgitb import enable
 import json
 import numpy
 import os
+import sys
 from PIL import Image
 
 from ldtkpy.api import ldtk_json_from_dict
 
 LTDK_PROJECT_PATH = "ldtk/levels.ldtk"
 BASE_LTDK_PROJECT_PATH = os.path.dirname(LTDK_PROJECT_PATH)
+RELEASE_TYPE = sys.argv[1:][0] or "DEBUG"
 
 print("\nLoading LTdk JSON..")
 content = None
@@ -110,11 +112,11 @@ def parse_levels(_levels):
     parsed_levels = []
     for index, raw_level in enumerate(_levels):
         music = None
-        enabled = True
+        is_for_production = True
         start_money = 0
         for field in raw_level.field_instances:
-            if field.identifier == "enabled":
-                enabled = field.value
+            if field.identifier == "production":
+                is_for_production = field.value
 
             if field.identifier == "music" and field.value != None:
                 music, _ = os.path.splitext(os.path.basename(field.value))
@@ -130,7 +132,7 @@ def parse_levels(_levels):
             "int_grid_width": int(raw_level.px_wid / content.world_grid_width),
             "int_grid_height": int(raw_level.px_hei / content.world_grid_height),
             "music": music,
-            "enabled": enabled,
+            "is_for_production": is_for_production,
             "start_money": start_money,
         }
         for layer_instance in raw_level.layer_instances:
@@ -170,7 +172,7 @@ def parse_levels(_levels):
                     )
                 parsed_level.update({"entities": entities})
                 pass
-        if parsed_level["enabled"]:
+        if parsed_level["is_for_production"] or RELEASE_TYPE != "RELEASE":
             parsed_levels.append(parsed_level)
     print("Done!\n")
     return parsed_levels
