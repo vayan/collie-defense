@@ -40,7 +40,8 @@ namespace cd
             const int *_int_grid,
             const Entity **_entities,
             bn::fixed _number_of_entities,
-            bn::optional<bn::music_item> _music);
+            bn::optional<bn::music_item> _music,
+            const bn::fixed start_money);
 
         ~Level();
         void init(bn::camera_ptr camera);
@@ -58,6 +59,7 @@ namespace cd
         void clear_waves();
         void stop_music();
         void clear_bullets_with_invalid_target();
+        const bn::fixed get_start_money();
 
     private:
         GridTileType
@@ -68,6 +70,7 @@ namespace cd
         const Entity **entities;
         bn::fixed number_of_entities;
         bn::optional<bn::music_item> music;
+        const bn::fixed start_money;
 
         bn::optional<bn::regular_bg_ptr>
             bg;

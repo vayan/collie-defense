@@ -111,12 +111,16 @@ def parse_levels(_levels):
     for index, raw_level in enumerate(_levels):
         music = None
         enabled = True
+        start_money = 0
         for field in raw_level.field_instances:
             if field.identifier == "enabled":
                 enabled = field.value
 
             if field.identifier == "music" and field.value != None:
                 music, _ = os.path.splitext(os.path.basename(field.value))
+
+            if field.identifier == "start_money":
+                start_money = field.value
 
         parsed_level = {
             "int_identifier": index,
@@ -127,6 +131,7 @@ def parse_levels(_levels):
             "int_grid_height": int(raw_level.px_hei / content.world_grid_height),
             "music": music,
             "enabled": enabled,
+            "start_money": start_money,
         }
         for layer_instance in raw_level.layer_instances:
             if (
@@ -388,7 +393,8 @@ namespace cd {{
         int_grid_{level['int_identifier']},
         entities_{level['int_identifier']},
         {len(entities_var_list)},
-        {music_declar}
+        {music_declar},
+        {level['start_money']}
     );
 }}
 #endif

@@ -29,6 +29,13 @@ void Game::start_level(int level_index)
     cd::log("loading level number", level_index);
 
     current_level = levels[level_index];
+
+    if (get_game_mode() == GameMode::Single)
+    {
+        player->reset();
+        player->set_money(current_level->get_start_money());
+    }
+
     current_level->init(camera.value());
     display_memory_left();
 }
@@ -85,13 +92,15 @@ MenuScreen Game::start_level_loop()
         else if (current_level->is_won() && get_game_mode() == GameMode::Single)
         {
             cd::log("level finished");
-            player->on_reset_store();
             current_level->reset();
 
             // add a timer or keep life left for scoring?? mhhh
             save->set_level_score(
                 current_level_index,
                 player->get_life().safe_division(10).round_integer());
+
+            player->on_reset_store();
+            player->reset();
 
             return MenuScreen::LevelSelect;
         }

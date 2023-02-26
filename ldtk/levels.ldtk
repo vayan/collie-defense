@@ -11,7 +11,7 @@
 	"iid": "d8784060-9f30-11ed-8672-1384fdf412fb",
 	"jsonVersion": "1.2.5",
 	"appBuildId": 464870,
-	"nextUid": 128,
+	"nextUid": 129,
 	"identifierStyle": "Capitalize",
 	"toc": [],
 	"worldLayout": "LinearVertical",
@@ -1180,7 +1180,7 @@
 	], "externalEnums": [], "levelFields": [
 		{
 			"identifier": "music",
-			"doc": null,
+			"doc": "music for this level",
 			"__type": "FilePath",
 			"uid": 119,
 			"type": "F_Path",
@@ -1212,7 +1212,7 @@
 		},
 		{
 			"identifier": "enabled",
-			"doc": null,
+			"doc": "should it be in the final build",
 			"__type": "Bool",
 			"uid": 125,
 			"type": "F_Bool",
@@ -1237,6 +1237,38 @@
 				"id": "V_Bool",
 				"params": [ true ]
 			},
+			"textLanguageMode": null,
+			"symmetricalRef": false,
+			"autoChainRef": true,
+			"allowOutOfLevelRef": true,
+			"allowedRefs": "OnlySame",
+			"allowedRefTags": [],
+			"tilesetUid": null
+		},
+		{
+			"identifier": "start_money",
+			"doc": "when played in high score mode, how much money the user should start the level with",
+			"__type": "Int",
+			"uid": 128,
+			"type": "F_Int",
+			"isArray": false,
+			"canBeNull": false,
+			"arrayMinLength": null,
+			"arrayMaxLength": null,
+			"editorDisplayMode": "NameAndValue",
+			"editorDisplayPos": "Above",
+			"editorLinkStyle": "StraightArrow",
+			"editorAlwaysShow": true,
+			"editorShowInWorld": true,
+			"editorCutLongValues": true,
+			"editorTextSuffix": null,
+			"editorTextPrefix": null,
+			"useForSmartColor": false,
+			"min": 0,
+			"max": null,
+			"regex": null,
+			"acceptFileTypes": null,
+			"defaultOverride": { "id": "V_Int", "params": [50] },
 			"textLanguageMode": null,
 			"symmetricalRef": false,
 			"autoChainRef": true,
@@ -1271,7 +1303,8 @@
 					"id": "V_String",
 					"params": ["../audio/music/viral_legacy.xm"]
 				}] },
-				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] }
+				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
+				{ "__identifier": "start_money", "__value": 150, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [{ "id": "V_Int", "params": [150] }] }
 			],
 			"layerInstances": [
 				{
@@ -1791,7 +1824,8 @@
 					"id": "V_String",
 					"params": ["../audio/music/the_epic_chip.xm"]
 				}] },
-				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] }
+				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
 			],
 			"layerInstances": [
 				{
@@ -2237,7 +2271,8 @@
 					"id": "V_String",
 					"params": ["../audio/music/porn_industryy.xm"]
 				}] },
-				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] }
+				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
 			],
 			"layerInstances": [
 				{
@@ -2709,7 +2744,8 @@
 					"id": "V_String",
 					"params": ["../audio/music/viral_legacy.xm"]
 				}] },
-				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] }
+				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
 			],
 			"layerInstances": [
 				{
@@ -3292,7 +3328,8 @@
 					"id": "V_String",
 					"params": ["../audio/music/the_epic_chip.xm"]
 				}] },
-				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] }
+				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
 			],
 			"layerInstances": [
 				{
@@ -3872,7 +3909,8 @@
 				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
-				}] }
+				}] },
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
 			],
 			"layerInstances": [
 				{
@@ -4479,7 +4517,8 @@
 				{ "__identifier": "enabled", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
-				}] }
+				}] },
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
 			],
 			"layerInstances": [
 				{
@@ -4954,7 +4993,8 @@
 				{ "__identifier": "enabled", "__value": false, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ false ]
-				}] }
+				}] },
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
 			],
 			"layerInstances": [
 				{

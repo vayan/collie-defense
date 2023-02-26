@@ -89,3 +89,8 @@ void Player::spend_money(bn::fixed cost)
         money = 0;
     }
 }
+
+void Player::set_money(const bn::fixed amount)
+{
+    money = amount;
+}

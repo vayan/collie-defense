@@ -42,6 +42,7 @@ namespace cd
         void reset();
         void spend_money(bn::fixed cost);
         void add_money(bn::fixed amount);
+        void set_money(const bn::fixed amount);
         void on_reset_store();
 
     private:
