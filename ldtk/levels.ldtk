@@ -1173,9 +1173,10 @@
 			{ "id": "None", "tileId": null, "color": 0, "__tileSrcRect": null }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] },
 		{ "identifier": "TowerType", "uid": 35, "values": [
-			{ "id": "Basic", "tileId": null, "color": 2300898, "__tileSrcRect": null },
-			{ "id": "AoE", "tileId": null, "color": 12783375, "__tileSrcRect": null },
-			{ "id": "Sticky", "tileId": null, "color": 2531088, "__tileSrcRect": null }
+			{ "id": "Canon", "tileId": null, "color": 2300898, "__tileSrcRect": null },
+			{ "id": "Arrow", "tileId": null, "color": 12783375, "__tileSrcRect": null },
+			{ "id": "Magic", "tileId": null, "color": 2531088, "__tileSrcRect": null },
+			{ "id": "Fire", "tileId": null, "color": 12470831, "__tileSrcRect": null }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] }
 	], "externalEnums": [], "levelFields": [
 		{
@@ -5110,28 +5111,28 @@
 					"entityInstances": [
 						{
 							"__identifier": "Wave",
-							"__grid": [59,25],
+							"__grid": [59,79],
 							"__pivot": [0.5,0.5],
 							"__tags": ["visible"],
 							"__tile": null,
-							"__smartColor": "#FF6400",
+							"__smartColor": "#712B11",
 							"iid": "b6cfece0-5110-11ed-b4fc-c94459d114a3",
 							"width": 4,
 							"height": 4,
 							"defUid": 18,
-							"px": [119,51],
+							"px": [119,159],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [{ "cx": 59, "cy": 39 }], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [{
+								{ "__identifier": "Step", "__value": [{ "cx": 59, "cy": 104 }], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["59,39"]
+									"params": ["59,104"]
 								}] },
 								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["Fox"]
+									"params": ["Bear"]
 								}] },
 								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 5, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [] }
+								{ "__identifier": "WaveDuration", "__value": 30, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [30] }] }
 							]
 						}
 					]

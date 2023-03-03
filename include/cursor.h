@@ -25,7 +25,6 @@
 #include "bn_sprite_builder.h"
 #include "bn_sprite_items_bear.h"
 #include "bn_sprite_items_cursor.h"
-#include "bn_sprite_items_store_select.h"
 #include "bn_sprite_ptr.h"
 #include "bn_timer.h"
 #include "bn_unique_ptr.h"
@@ -54,6 +53,8 @@ namespace cd
         void hide_shop();
         void show_shop();
         void check_screen_bounds();
+        void hide();
+        void show();
 
     private:
         bool can_build(Level *level);

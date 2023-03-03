@@ -16,6 +16,8 @@ TowerBasic::TowerBasic(bn::camera_ptr _camera, bn::fixed_point _position) : Towe
     cost = 10;
     fire_rate_per_sec = 1;
 
+    type = TowerType::Canon;
+
     bullet_sprite = bn::sprite_items::bullet_canon;
 }
 

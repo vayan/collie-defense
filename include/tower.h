@@ -59,6 +59,9 @@ namespace cd
         virtual void set_position(bn::fixed x, bn::fixed y);
         void set_position(bn::fixed_point pos);
         void clear_bullets_with_invalid_target();
+        TowerType get_type();
+        bn::optional<bn::sprite_ptr> get_sprite();
+        bn::fixed_point get_position();
 
     private:
         bn::camera_ptr camera;
@@ -77,6 +80,7 @@ namespace cd
         bn::fixed fire_rate_per_sec = 0;
         bn::optional<bn::sprite_item>
             bullet_sprite;
+        TowerType type = TowerType::Canon;
 
     private:
         bn::fixed frame_elapsed_since_last_fire = 0;

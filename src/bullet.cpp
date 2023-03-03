@@ -21,7 +21,7 @@ Bullet::Bullet(
 
     sprite->set_camera(camera);
     sprite->set_visible(true);
-    sprite->set_z_order(-3);
+    sprite->set_z_order(-10);
     target_id = target->get_id();
 }
 

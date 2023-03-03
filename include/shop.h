@@ -34,6 +34,7 @@
 #include "generated/world_config.h"
 #include "level.h"
 #include "text.h"
+#include "tower_fire.h"
 #include "utils.h"
 
 namespace cd
@@ -48,25 +49,26 @@ namespace cd
 
         bn::optional<TowerType> get_purchase();
         bool is_closed();
-        void select_next();
-        void select_previous();
         void refresh_money(Player *player);
 
     private:
         void display_level_count(bn::fixed current_level_index, bn::fixed total_level_count);
+        void display_tower_info();
+
         bn::camera_ptr camera;
         bn::optional<bn::regular_bg_ptr> store;
-        bn::optional<bn::sprite_ptr>
+        bn::optional<bn::regular_bg_ptr>
             select_highlight;
         bn::optional<bn::regular_bg_ptr>
             overlay_bg;
         bool open = true;
         bn::optional<TowerType> purchase;
-        bn::vector<bn::pair<TowerType, bn::fixed>, 3> elements;
+        bn::vector<Tower, 4> elements;
         int current_element = 0;
         bn::optional<bn::sprite_text_generator> text_generator;
         bn::vector<bn::sprite_ptr, 32> text_sprites;
         bn::vector<bn::sprite_ptr, 32> text_sprites_level;
+        bn::vector<bn::sprite_ptr, 32> text_sprites_tower;
     };
 }
 

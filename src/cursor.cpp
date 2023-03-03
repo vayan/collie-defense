@@ -14,6 +14,7 @@ Cursor::Cursor(bn::camera_ptr _camera) : camera(_camera)
     sprite->set_camera(_camera);
     sprite.value()
         .set_position(position);
+    hide();
 }
 
 Cursor::~Cursor()
@@ -243,14 +244,20 @@ void Cursor::set_selection(TowerType type)
 
     switch (type)
     {
-    case TowerType::Sticky:
+    case TowerType::Magic:
         current_selection = new TowerMagic(camera, position);
         break;
-    case TowerType::AoE:
+    case TowerType::Arrow:
         current_selection = new TowerBallista(camera, position);
         break;
-    default:
+    case TowerType::Canon:
         current_selection = new TowerBasic(camera, position);
+        break;
+    case TowerType::Fire:
+        current_selection = new TowerFire(camera, position);
+        break;
+    default:
+        log("this type of tower cannot be created for now");
         break;
     }
 
@@ -294,4 +301,14 @@ void Cursor::check_screen_bounds()
 
     position.set_x(x);
     position.set_y(y);
+}
+
+void Cursor::hide()
+{
+    sprite->set_visible(false);
+}
+
+void Cursor::show()
+{
+    sprite->set_visible(true);
 }

@@ -7,6 +7,7 @@ Game::Game(Menu *_menu) : menu(_menu)
     camera = bn::camera_ptr::create(0, 0);
     current_level = levels[0];
     save = new Save();
+    player = cd::Player(camera.value());
 
     log("game manager created!");
 }
@@ -35,6 +36,8 @@ void Game::start_level(int level_index)
         player->reset();
         player->set_money(current_level->get_start_money());
     }
+
+    player->activate();
 
     current_level->init(camera.value());
     display_memory_left();

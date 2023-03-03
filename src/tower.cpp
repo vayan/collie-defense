@@ -197,3 +197,18 @@ void Tower::clear_bullets_with_invalid_target()
             return false;
         });
 }
+
+TowerType Tower::get_type()
+{
+    return type;
+}
+
+bn::optional<bn::sprite_ptr> Tower::get_sprite()
+{
+    return sprite;
+}
+
+bn::fixed_point Tower::get_position()
+{
+    return position;
+}
