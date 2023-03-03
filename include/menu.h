@@ -61,6 +61,7 @@ namespace cd
         void switch_screen(MenuScreen screen, Game *game);
         bool handle_start_menu(Game *game);
         bool handle_level_select_menu(Game *game);
+        bool handle_gameover_menu(Game *game);
         bn::string<10> human_readable_score(bn::fixed score);
 
         bn::optional<bn::regular_bg_ptr> select_highlight;

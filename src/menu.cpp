@@ -136,6 +136,16 @@ bn::string<10> Menu::human_readable_score(bn::fixed score)
     }
 }
 
+bool Menu::handle_gameover_menu(Game *game)
+{
+    if (bn::keypad::start_pressed() || bn::keypad::a_pressed())
+    {
+        switch_screen(MenuScreen::Start, game);
+        return false;
+    }
+    return true;
+}
+
 bool Menu::handle_level_select_menu(Game *game)
 {
     if (bn::keypad::up_pressed())
@@ -225,6 +235,11 @@ bool Menu::on_tick(Game *game)
     if (current_screen == MenuScreen::LevelSelect)
     {
         return handle_level_select_menu(game);
+    }
+
+    if (current_screen == MenuScreen::GameOver)
+    {
+        return handle_gameover_menu(game);
     }
 
     return true;
