@@ -31,11 +31,13 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
     {
     case MenuScreen::GameOver:
         log("start game over screen");
+        game->get_camera().set_position(0, 0);
         bg = bn::regular_bg_items::gameover.create_bg(0, 0);
         break;
 
     case MenuScreen::Win:
         log("start win screen");
+        game->get_camera().set_position(0, 0);
         bg = bn::regular_bg_items::gamewin.create_bg(0, 0);
         break;
     case MenuScreen::LevelSelect:
@@ -52,6 +54,7 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
 
     default:
         log("start title screen");
+        game->get_camera().set_position(0, 0);
         collie_select = bn::sprite_items::dog.create_sprite(-85, 71);
         bg = bn::regular_bg_items::launch_background.create_bg(0, 0);
         break;
@@ -88,7 +91,11 @@ bool Menu::handle_start_menu(Game *game)
         if (selected_menu_item == MenuScreen::Start)
         {
             game->set_game_mode(GameMode::Story);
-            selected_level = game->get_save()->get_data().latest_level.integer();
+            save_data data = game->get_save()->get_data();
+            selected_level = data.latest_story_level.integer();
+            game->get_player()->set_money(data.story_money);
+            game->get_player()->set_life(data.story_life);
+
             return false;
         }
         if (selected_menu_item == MenuScreen::LevelSelect)

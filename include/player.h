@@ -44,12 +44,16 @@ namespace cd
         void add_money(bn::fixed amount);
         void set_money(const bn::fixed amount);
         void on_reset_store();
+        void activate();
+        void set_life(bn::fixed value);
+
+        static const int fallback_money = 50;
 
     private:
         bn::optional<Cursor>
             cursor;
         bn::fixed life = 100;
-        bn::fixed money = 0;
+        bn::fixed money = Player::fallback_money;
         bn::optional<bn::rumble_toggle_action> rumble;
     };
 }

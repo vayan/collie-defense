@@ -63,7 +63,7 @@ void Player::add_money(bn::fixed amount)
         log("player cannot have more than 999 money");
         return;
     }
-    log("player earned money:", amount);
+    log("player earned money", amount);
     money += amount;
 }
 
@@ -75,7 +75,8 @@ bool Player::is_dead()
 void Player::reset()
 {
     life = 100;
-    money = 50;
+    money = Player::fallback_money;
+    cursor->hide();
 }
 
 void Player::spend_money(bn::fixed cost)
@@ -93,4 +94,14 @@ void Player::spend_money(bn::fixed cost)
 void Player::set_money(const bn::fixed amount)
 {
     money = amount;
+}
+
+void Player::set_life(bn::fixed value)
+{
+    life = value;
+}
+
+void Player::activate()
+{
+    cursor->show();
 }

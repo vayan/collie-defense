@@ -21,7 +21,10 @@ namespace cd
 
         // we need to keep the data simple to save it in the sram.
         // so forget maps, list, etc.. :)
-        bn::fixed latest_level;
+
+        bn::fixed latest_story_level;
+        bn::fixed story_money;
+        bn::fixed story_life;
 
         bn::fixed score_per_level[MAX_LEVEL_COUNT];
     };
@@ -38,8 +41,8 @@ namespace cd
         void write();
         void reset();
         save_data get_data();
-        void set_latest_level(int level_index);
-        void set_level_score(int level_index, bn::fixed score);
+        void save_story_progress(int level_index, bn::fixed money, bn::fixed life);
+        void save_level_score(int level_index, bn::fixed score);
     };
 }
 

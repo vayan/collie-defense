@@ -32,3 +32,20 @@ void cd::log(bn::string<50> message, bn::fixed number)
 {
     BN_LOG(bn::format<50>("{}: {}", message, number));
 }
+
+void cd::log(bn::string<50> label, save_data data)
+{
+    bn::string<255> scores = "";
+    for (int i = 0; i < number_of_levels; i += 1)
+    {
+        scores = scores + bn::format<60>("{}\t| {}\n", i, data.score_per_level[i]);
+    }
+
+    BN_LOG(bn::format<255>(
+        "{}\nstory:\n level: {}\n money: {}\n life: {}\nstage\t| score\n{}",
+        label,
+        data.latest_story_level,
+        data.story_money,
+        data.story_life,
+        scores));
+}

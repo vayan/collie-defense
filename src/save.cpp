@@ -11,14 +11,17 @@ Save::~Save()
 {
 }
 
-void Save::set_latest_level(int level_index)
+void Save::save_story_progress(int level_index, bn::fixed money, bn::fixed life)
 {
     read();
-    cart_save_data.latest_level = level_index;
+    cart_save_data.latest_story_level = level_index;
+    cart_save_data.story_money = money;
+    cart_save_data.story_life = life;
+
     write();
 }
 
-void Save::set_level_score(int level_index, bn::fixed score)
+void Save::save_level_score(int level_index, bn::fixed score)
 {
     read();
     cart_save_data.score_per_level[level_index] = score;
@@ -28,25 +31,27 @@ void Save::set_level_score(int level_index, bn::fixed score)
 void Save::read()
 {
     bn::sram::read(cart_save_data);
-    log("Save read!");
+    log("Save read!", cart_save_data);
+
     if (cart_save_data.status != SAVE_STATUS_VALID_CODE) // this mean the save was never created
     {
         reset();
     }
-    log("latest level in story saved", cart_save_data.latest_level);
 }
 
 void Save::write()
 {
     bn::sram::write(cart_save_data);
-    log("Save wrote!");
+    log("Save wrote!", cart_save_data);
 }
 
 void Save::reset()
 {
-    log("Save reset!");
+    log("Reseting save...");
     cart_save_data.status = SAVE_STATUS_VALID_CODE;
-    cart_save_data.latest_level = 0;
+    cart_save_data.latest_story_level = 0;
+    cart_save_data.story_money = 50;
+    cart_save_data.story_life = 100;
     for (int i = 0; i < MAX_LEVEL_COUNT; i++)
     {
         cart_save_data.score_per_level[i] = -1;

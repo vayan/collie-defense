@@ -85,7 +85,7 @@ MenuScreen Game::start_level_loop()
         else if (current_level->is_won() && get_game_mode() == GameMode::Story)
         {
             current_level_index += 1;
-            save->set_latest_level(current_level_index);
+            save->save_story_progress(current_level_index, player->get_money(), player->get_life());
 
             start_level(current_level_index);
         }
@@ -96,7 +96,7 @@ MenuScreen Game::start_level_loop()
             current_level->reset();
 
             // add a timer or keep life left for scoring?? mhhh
-            save->set_level_score(
+            save->save_level_score(
                 current_level_index,
                 player->get_life().safe_division(10).round_integer());
 
@@ -117,15 +117,14 @@ int Game::start_main_loop()
 
     while (true)
     {
+        player->reset();
         start_menu_screen_loop();
 
-        player = cd::Player(camera.value());
         current_level_index = menu->get_selected_level().integer();
 
         bn::core::update();
         MenuScreen transition_to = start_level_loop();
         menu->set_current_screen(transition_to);
-        player.reset();
         bn::core::update();
     }
 }

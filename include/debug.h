@@ -18,12 +18,16 @@
 #include "bn_timer.h"
 #include "bn_unique_ptr.h"
 #include "bn_vector.h"
+#include "generated/world_config.h"
+#include "save.h"
 
 namespace cd
 {
+    struct save_data;
     void log(bn::string<50> label, bn::fixed number);
     void log(bn::string<20> label, bn::fixed_point point);
     void log(bn::string<50> message);
+    void log(bn::string<50> label, save_data data);
     void display_memory_left();
 }
 
