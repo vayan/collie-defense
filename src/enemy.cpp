@@ -23,6 +23,7 @@ Enemy::Enemy(
 
     life_bar->set_camera(camera);
     life_bar->set_visible(false);
+    life_bar->set_z_order(-5);
     hit_sfx = bn::sound_items::hit;
     death_sfx = bn::sound_items::death;
 
