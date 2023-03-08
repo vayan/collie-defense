@@ -141,7 +141,6 @@ bool Menu::handle_gameover_menu(Game *game)
     if (bn::keypad::start_pressed() || bn::keypad::a_pressed())
     {
         switch_screen(MenuScreen::Start, game);
-        return false;
     }
     return true;
 }
