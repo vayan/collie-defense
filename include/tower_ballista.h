@@ -1,5 +1,4 @@
-#ifndef COLLIE_DEFENCE_GBA_BALLISTA_TOWER_H
-#define COLLIE_DEFENCE_GBA_BALLISTA_TOWER_H
+#pragma once
 
 #include "bn_camera_ptr.h"
 #include "bn_core.h"
@@ -43,5 +42,3 @@ namespace cd
         void set_animation_shoot_up();
     };
 }
-
-#endif

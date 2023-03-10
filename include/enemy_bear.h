@@ -1,5 +1,4 @@
-#ifndef COLLIE_DEFENCE_GBA_ENEMY_BEAR_H
-#define COLLIE_DEFENCE_GBA_ENEMY_BEAR_H
+#pragma once
 
 #include "bn_camera_ptr.h"
 #include "bn_core.h"
@@ -44,5 +43,3 @@ namespace cd
         virtual void set_animation_up_walk();
     };
 }
-
-#endif

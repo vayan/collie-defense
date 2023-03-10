@@ -91,8 +91,7 @@ def generate_world_file(_grid_tiles_values, _entities_tiles_values, _levels, _en
     with open(intgrid_map_filename, "w") as intgridkey_file:
         intgridkey_file.write(
             f"""
-#ifndef COLLIE_DEFENCE_GBA_LEVEL_WORLDCONFIG_H
-#define COLLIE_DEFENCE_GBA_LEVEL_WORLDCONFIG_H
+#pragma once
 
 #include "bn_fixed.h"
 
@@ -100,8 +99,6 @@ namespace cd {{
     const bn::fixed number_of_levels = {len(_levels)};
     {enums}
 }}
-
-#endif
 """
         )
     print("Done!\n")
@@ -193,16 +190,14 @@ def generate_level_intgrid_file(_levels):
     with open(intgridfilename, "w") as cpp_file:
         cpp_file.write(
             f"""
-#ifndef COLLIE_DEFENCE_GBA_LEVEL_INTGRID_H
-#define COLLIE_DEFENCE_GBA_LEVEL_INTGRID_H
+#pragma once
+
 {headers}
 #include "level.h"
 
 namespace cd {{
     BN_DATA_EWRAM __attribute__((unused)) static Level* levels[] = {str(intgrid_string).replace('[', '{').replace(']', '}').replace("'", '')};
 }}
-
-#endif
 """
         )
 
@@ -375,8 +370,8 @@ for level_index, level in enumerate(levels):
     with open(filename, "w") as cpp_level:
         cpp_level.write(
             f"""
-#ifndef COLLIE_DEFENCE_GBA_LEVEL_{zfill_id}_H
-#define COLLIE_DEFENCE_GBA_LEVEL_{zfill_id}_H
+#pragma once
+
 
 #include "bn_regular_bg_items_levels_{zfill_id}.h"
 #include "bn_utility.h"
@@ -399,7 +394,6 @@ namespace cd {{
         {level['start_money']}
     );
 }}
-#endif
 """
         )
 print("Done!")

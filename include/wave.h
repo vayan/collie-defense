@@ -1,5 +1,4 @@
-#ifndef COLLIE_DEFENCE_GBA_WAVE_H
-#define COLLIE_DEFENCE_GBA_WAVE_H
+#pragma once
 
 #include "bn_camera_ptr.h"
 #include "bn_core.h"
@@ -83,5 +82,3 @@ namespace cd
         EnemyType enemy_type;
     };
 }
-
-#endif

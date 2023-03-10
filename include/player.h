@@ -1,5 +1,4 @@
-#ifndef COLLIE_DEFENCE_GBA_PLAYER_H
-#define COLLIE_DEFENCE_GBA_PLAYER_H
+#pragma once
 
 #include "bn_camera_ptr.h"
 #include "bn_core.h"
@@ -57,5 +56,3 @@ namespace cd
         bn::optional<bn::rumble_toggle_action> rumble;
     };
 }
-
-#endif

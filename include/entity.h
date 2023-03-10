@@ -1,5 +1,4 @@
-#ifndef COLLIE_DEFENCE_GBA_ENTITY_H
-#define COLLIE_DEFENCE_GBA_ENTITY_H
+#pragma once
 
 #include "bn_fixed.h"
 #include "bn_fixed_point.h"
@@ -52,5 +51,3 @@ namespace cd
         bn::fixed_point position;
     };
 }
-
-#endif

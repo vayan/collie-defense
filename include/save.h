@@ -1,5 +1,4 @@
-#ifndef COLLIE_DEFENCE_SAVE_H
-#define COLLIE_DEFENCE_SAVE_H
+#pragma once
 
 #include "bn_core.h"
 #include "bn_fixed.h"
@@ -45,5 +44,3 @@ namespace cd
         void save_level_score(int level_index, bn::fixed score);
     };
 }
-
-#endif

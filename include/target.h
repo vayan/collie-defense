@@ -1,5 +1,4 @@
-#ifndef COLLIE_DEFENCE_GBA_TARGET_H
-#define COLLIE_DEFENCE_GBA_TARGET_H
+#pragma once
 
 #include "bn_camera_ptr.h"
 #include "bn_core.h"
@@ -36,5 +35,3 @@ namespace cd
         virtual ~Target() = default;
     };
 }
-
-#endif

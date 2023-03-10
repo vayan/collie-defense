@@ -1,5 +1,4 @@
-#ifndef COLLIE_DEFENCE_GBA_SHOP_H
-#define COLLIE_DEFENCE_GBA_SHOP_H
+#pragma once
 
 #include "bn_affine_bg_item.h"
 #include "bn_affine_bg_ptr.h"
@@ -71,5 +70,3 @@ namespace cd
         bn::vector<bn::sprite_ptr, 32> text_sprites_tower;
     };
 }
-
-#endif

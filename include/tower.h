@@ -1,5 +1,4 @@
-#ifndef COLLIE_DEFENCE_GBA_TOWER_H
-#define COLLIE_DEFENCE_GBA_TOWER_H
+#pragma once
 
 #include "bn_camera_ptr.h"
 #include "bn_core.h"
@@ -88,5 +87,3 @@ namespace cd
         bn::optional<bn::sound_item> fire_sfx;
     };
 }
-
-#endif

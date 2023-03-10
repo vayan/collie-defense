@@ -1,5 +1,4 @@
-#ifndef COLLIE_DEFENCE_GBA_LEVEL_H
-#define COLLIE_DEFENCE_GBA_LEVEL_H
+#pragma once
 
 #include "bn_camera_ptr.h"
 #include "bn_core.h"
@@ -82,5 +81,3 @@ namespace cd
         bool all_waves_finished = false;
     };
 }
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef COLLIE_DEFENCE_GBA_CURSOR_H
-#define COLLIE_DEFENCE_GBA_CURSOR_H
+#pragma once
 
 #include "bn_affine_bg_item.h"
 #include "bn_affine_bg_items_range.h"
@@ -69,5 +68,3 @@ namespace cd
             shop;
     };
 }
-
-#endif

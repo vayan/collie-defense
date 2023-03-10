@@ -1,5 +1,4 @@
-#ifndef COLLIE_DEFENCE_GBA_DEBUG_H
-#define COLLIE_DEFENCE_GBA_DEBUG_H
+#pragma once
 
 #include "bn_camera_ptr.h"
 #include "bn_core.h"
@@ -30,5 +29,3 @@ namespace cd
     void log(bn::string<50> label, save_data data);
     void display_memory_left();
 }
-
-#endif

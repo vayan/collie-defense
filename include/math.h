@@ -1,5 +1,4 @@
-#ifndef COLLIE_DEFENCE_GBA_MATH_H
-#define COLLIE_DEFENCE_GBA_MATH_H
+#pragma once
 
 #include "bn_fixed_point.h"
 #include "bn_log.h"
@@ -16,5 +15,3 @@ namespace cd
     bn::fixed_point move_to(bn::fixed_point start, bn::fixed_point end, bn::fixed delta);
     bn::fixed to_360_angle(bn::fixed deg);
 }
-
-#endif
