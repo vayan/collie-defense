@@ -1,9 +1,10 @@
-name: Deploy score sharing website
+name: deploy web
 
 on:
   push:
-    branches: ["master"]
-
+    branches: [master]
+  release:
+    types: [published]
   workflow_dispatch:
 
 permissions:
@@ -31,5 +32,6 @@ jobs:
         with:
           path: 'web'
       - name: Deploy to GitHub Pages
+        if: ${{ github.event_name == 'release' }}
         id: deployment
         uses: actions/deploy-pages@v1
