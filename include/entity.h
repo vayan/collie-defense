@@ -48,6 +48,6 @@ namespace cd
         const bn::fixed number_1;
         const bn::fixed number_2;
         const bn::fixed number_3;
-        bn::fixed_point position;
+        const bn::fixed_point position;
     };
 }

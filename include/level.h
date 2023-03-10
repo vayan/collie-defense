@@ -38,7 +38,7 @@ namespace cd
             bn::regular_bg_item _load_bg,
             const int *_int_grid,
             const Entity **_entities,
-            bn::fixed _number_of_entities,
+            const bn::fixed _number_of_entities,
             bn::optional<bn::music_item> _music,
             const bn::fixed start_money);
 
@@ -59,6 +59,7 @@ namespace cd
         void stop_music();
         void clear_bullets_with_invalid_target();
         const bn::fixed get_start_money();
+        Level *copy() const;
 
     private:
         GridTileType
@@ -67,13 +68,13 @@ namespace cd
         bn::regular_bg_item load_bg;
         const int *int_grid;
         const Entity **entities;
-        bn::fixed number_of_entities;
+        const bn::fixed number_of_entities;
         bn::optional<bn::music_item> music;
         const bn::fixed start_money;
 
         bn::optional<bn::regular_bg_ptr>
             bg;
-        bn::optional<HUD> hud;
+        bn::optional<HUD *> hud;
         bn::vector<Wave *, 10> waves;
         bn::vector<Sheep *, 10> sheeps;
         bn::vector<Tower *, 20> towers;

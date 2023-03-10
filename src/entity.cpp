@@ -19,9 +19,9 @@ Entity::Entity(
                                  enemy_type(_enemy_type),
                                  number_1(_number_1),
                                  number_2(_number_2),
-                                 number_3(_number_3)
+                                 number_3(_number_3),
+                                 position(bn::fixed_point(x, y))
 {
-    position = bn::fixed_point(x, y);
 }
 
 Entity::~Entity()

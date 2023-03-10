@@ -5,9 +5,8 @@ using namespace cd;
 Game::Game(Menu *_menu) : menu(_menu)
 {
     camera = bn::camera_ptr::create(0, 0);
-    current_level = levels[0];
     save = new Save();
-    player = cd::Player(camera.value());
+    player = new Player(camera.value());
 
     log("game manager created!");
 }
@@ -23,23 +22,27 @@ void Game::start_level(int level_index)
         return;
     }
 
-    player->on_reset_store();
+    if (current_level.has_value())
+    {
+        delete current_level.value();
+        current_level.reset();
+    }
 
-    current_level->reset();
+    player.value()->on_reset_store();
 
     cd::log("loading level number", level_index);
 
-    current_level = levels[level_index];
+    current_level = levels[level_index]->copy();
 
     if (get_game_mode() == GameMode::Single)
     {
-        player->reset();
-        player->set_money(current_level->get_start_money());
+        player.value()->reset();
+        player.value()->set_money(current_level.value()->get_start_money());
     }
 
-    player->activate();
+    player.value()->activate();
 
-    current_level->init(camera.value());
+    current_level.value()->init(camera.value());
     display_memory_left();
 }
 
@@ -58,58 +61,58 @@ MenuScreen Game::start_level_loop()
         {
             log("restart the game");
             stop_pause();
-            player->on_reset_store();
-            current_level->reset();
+            player.value()->on_reset_store();
+            current_level.value()->reset();
             return MenuScreen::Start;
         }
 
         if (!is_paused)
         {
-            current_level->tick(this);
-            player->on_tick(this);
+            current_level.value()->tick(this);
+            player.value()->on_tick(this);
         }
 
         bn::core::update();
 
-        if (player->is_dead())
+        if (player.value()->is_dead())
         {
             cd::log("game over");
-            player->on_reset_store();
-            current_level->reset();
+            player.value()->on_reset_store();
+            current_level.value()->reset();
 
             return MenuScreen::GameOver;
         }
         else if (current_level_index >= cd::number_of_levels)
         {
             cd::log("end of game");
-            current_level->reset();
+            current_level.value()->reset();
             return MenuScreen::Win;
         }
-        else if (current_level->is_won() && get_game_mode() == GameMode::Story)
+        else if (current_level.value()->is_won() && get_game_mode() == GameMode::Story)
         {
             current_level_index += 1;
-            save->save_story_progress(current_level_index, player->get_money(), player->get_life());
+            save->save_story_progress(current_level_index, player.value()->get_money(), player.value()->get_life());
 
             start_level(current_level_index);
         }
-        else if (current_level->is_won() && get_game_mode() == GameMode::Single)
+        else if (current_level.value()->is_won() && get_game_mode() == GameMode::Single)
         {
             cd::log("level finished");
             bn::sound_items::win.play();
-            current_level->reset();
+            current_level.value()->reset();
 
             // add a timer or keep life left for scoring?? mhhh
             save->save_level_score(
                 current_level_index,
-                player->get_life().safe_division(10).round_integer());
+                player.value()->get_life().safe_division(10).round_integer());
 
-            player->on_reset_store();
-            player->reset();
+            player.value()->on_reset_store();
+            player.value()->reset();
 
             return MenuScreen::LevelSelect;
         }
     }
-    player->on_reset_store();
+    player.value()->on_reset_store();
 
     return MenuScreen::Start;
 }
@@ -120,7 +123,7 @@ int Game::start_main_loop()
 
     while (true)
     {
-        player->reset();
+        player.value()->reset();
         start_menu_screen_loop();
 
         current_level_index = menu->get_selected_level().integer();
@@ -155,7 +158,7 @@ void Game::toggle_pause()
     }
     else
     {
-        player->on_reset_store();
+        player.value()->on_reset_store();
         is_paused = true;
         pause_bg = bn::regular_bg_items::pause.create_bg(0, 0);
         pause_bg->set_camera(camera);
@@ -168,12 +171,12 @@ void Game::toggle_pause()
 
 Player *Game::get_player()
 {
-    return &player.value();
+    return player.value();
 }
 
 Level *Game::get_current_level()
 {
-    return current_level;
+    return current_level.value();
 }
 
 int Game::get_current_level_index()

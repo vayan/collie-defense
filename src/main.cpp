@@ -14,5 +14,7 @@ int main()
     cd::Menu *menu = new cd::Menu();
     cd::Game *game = new cd::Game(menu);
 
+    cd::display_memory_left();
+
     return game->start_main_loop();
 }

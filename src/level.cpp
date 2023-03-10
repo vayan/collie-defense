@@ -21,11 +21,17 @@ Level::Level(
 Level::~Level()
 {
     reset();
+    log("current level deleted");
+}
+
+Level *Level::copy() const
+{
+    return new Level(load_bg, int_grid, entities, number_of_entities, music, start_money);
 }
 
 void Level::tick(Game *game)
 {
-    hud->on_tick(game);
+    hud.value()->on_tick(game);
     bg->set_camera(game->get_camera());
     bool current_wave_finished = true;
 
@@ -98,7 +104,7 @@ void Level::init(bn::camera_ptr camera)
     clear_towers();
     clear_sheeps();
     camera.set_position(0, 0);
-    hud = HUD();
+    hud = new HUD();
 
     bg = load_bg.create_bg(0, 0);
 
@@ -196,7 +202,13 @@ bool Level::is_won()
 
 void Level::reset()
 {
+    log("reset/free current level data");
+    if (hud.has_value())
+    {
+        delete hud.value();
+    }
     hud.reset();
+    hud = new HUD();
     clear_towers();
     clear_waves();
     clear_sheeps();

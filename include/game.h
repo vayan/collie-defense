@@ -64,8 +64,8 @@ namespace cd
         bn::optional<bn::regular_bg_ptr> pause_bg;
         int current_level_index = 0;
         bn::optional<bn::camera_ptr> camera;
-        Level *current_level;
-        bn::optional<Player> player;
+        bn::optional<Level *> current_level;
+        bn::optional<Player *> player;
         Menu *menu;
         Save *save;
         GameMode game_mode = GameMode::Story;

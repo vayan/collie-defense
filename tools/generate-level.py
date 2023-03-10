@@ -196,7 +196,7 @@ def generate_level_intgrid_file(_levels):
 #include "level.h"
 
 namespace cd {{
-    BN_DATA_EWRAM __attribute__((unused)) static Level* levels[] = {str(intgrid_string).replace('[', '{').replace(']', '}').replace("'", '')};
+    inline const Level* levels[] = {str(intgrid_string).replace('[', '{').replace(']', '}').replace("'", '')};
 }}
 """
         )
@@ -339,13 +339,13 @@ for level_index, level in enumerate(levels):
 
         for index, path_point in enumerate(entity["fields"]["points"]):
             path_point_var_name = f"{var_name}_path_point_{index}"
-            path_points_var_declr = f'{path_points_var_declr}\nconst bn::fixed_point {path_point_var_name} = bn::fixed_point({(path_point["cx"] * 2) - (level["width"] / 2)}, {(path_point["cy"] * 2) - (level["height"] / 2)});'
+            path_points_var_declr = f'{path_points_var_declr}\nconstexpr const bn::fixed_point {path_point_var_name} = bn::fixed_point({(path_point["cx"] * 2) - (level["width"] / 2)}, {(path_point["cy"] * 2) - (level["height"] / 2)});'
             path_points_var_list.append(f"&{path_point_var_name}")
 
         path_coords_value = ""
         path_coords_var_name = "nullptr"
         if len(path_points_var_list) > 0:
-            path_coords_value = f"""BN_DATA_EWRAM static const bn::fixed_point *{var_name}_path_coords[] = {str(path_points_var_list).replace('[', '{').replace(']', '}').replace("'", '')};"""
+            path_coords_value = f"""inline const bn::fixed_point *{var_name}_path_coords[] = {str(path_points_var_list).replace('[', '{').replace(']', '}').replace("'", '')};"""
             path_coords_var_name = f"{var_name}_path_coords"
 
         entities_var_list.append(f"&{var_name}")
@@ -353,7 +353,7 @@ for level_index, level in enumerate(levels):
 
 {path_points_var_declr}
 {path_coords_value}
-{entities_var_declar}\nconst Entity {var_name} = Entity(
+{entities_var_declar}\ninline const Entity {var_name} = Entity(
     {id},
     EntityType::{entity["type"]},
     {entity["location"][0]},
@@ -383,9 +383,9 @@ for level_index, level in enumerate(levels):
 
 namespace cd {{
     {entities_var_declar}
-    BN_DATA_EWRAM static const Entity* entities_{level['int_identifier']}[] = {str(entities_var_list).replace('[', '{').replace(']', '}').replace("'", '')};
-    const int int_grid_{level['int_identifier']}[] = {str(level['int_grid']).replace('[', '{').replace(']', '}')};
-    BN_DATA_EWRAM static Level level_{level['int_identifier']} = Level(
+    inline const Entity* entities_{level['int_identifier']}[] = {str(entities_var_list).replace('[', '{').replace(']', '}').replace("'", '')};
+    constexpr const int int_grid_{level['int_identifier']}[] = {str(level['int_grid']).replace('[', '{').replace(']', '}')};
+    inline const Level level_{level['int_identifier']} = Level(
         bn::regular_bg_items::levels_{zfill_id},
         int_grid_{level['int_identifier']},
         entities_{level['int_identifier']},
