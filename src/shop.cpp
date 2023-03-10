@@ -33,7 +33,7 @@ Shop::Shop(bn::camera_ptr _camera) : camera(_camera)
         element.set_position(element.get_position());
     }
 
-    bn::sprite_text_generator _sprite_text_generator(as::fixed_font_8x8);
+    bn::sprite_text_generator _sprite_text_generator(cd::fixed_font_8x8);
     text_generator = _sprite_text_generator;
 }
 

@@ -7,7 +7,7 @@ Menu::Menu()
 {
     bn::music_items::takeawalk.play(0.2);
     bn::blending::set_transparency_alpha(0.6);
-    bn::sprite_text_generator _sprite_text_generator(as::fixed_font_8x8);
+    bn::sprite_text_generator _sprite_text_generator(cd::fixed_font_8x8);
     text_generator = _sprite_text_generator;
 }
 
@@ -22,6 +22,8 @@ void Menu::clear()
     current_screen = Start;
     collie_select.reset();
     text_sprites_level.clear();
+    text_sprites.clear();
+    text_sprites_qrcode.clear();
 }
 
 void Menu::switch_screen(MenuScreen screen, Game *game)
@@ -51,7 +53,15 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
         game->get_camera()
             .set_position(0, -174);
         break;
+    case MenuScreen::Share:
+    {
+        log("start sharing menu");
+        bg = bn::regular_bg_items::bg_qrcode.create_bg(0, 0);
 
+        generate_qrcode("HTTP://TD.GY/CRE66I9R"); // TODO get real data
+
+        break;
+    }
     default:
         log("start title screen");
         game->get_camera().set_position(0, 0);
@@ -61,6 +71,73 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
     }
 
     current_screen = screen;
+}
+
+/*
+   for the message, limit yourself to these chars:
+   uppercase letters (A-Z)
+   numbers (0-9)
+   space ( )
+   dollar sign ($)
+   percent sign (%)
+   asterisk (*)
+   plus (+)
+   minus (-)
+   decimal point (.)
+   slash (/)
+   colon (:)
+*/
+void Menu::generate_qrcode(const char *message)
+{
+    if (qrcode.has_value())
+    {
+        qrcode.reset();
+    }
+
+    qrcode = QRCode();
+
+    uint8_t qrcodeBytes[256];
+
+    qrcode_initText(&qrcode.value(), qrcodeBytes, 1, ECC_LOW, message);
+
+    bn::string<100> data = "";
+
+    bn::sprite_text_generator text_gen(cd::fake_qrcode_font);
+
+    text_gen.set_one_sprite_per_character(false);
+    text_gen.set_left_alignment();
+
+    for (int y = 0; y < qrcode->size; y++)
+    {
+        for (int x = 0; x < qrcode->size; x++)
+        {
+            if (qrcode_getModule(&qrcode.value(), x, y))
+            {
+                data = data + "y";
+            }
+            else
+            {
+                data = data + " ";
+            }
+        }
+
+        // 7 distorded the qrcode (should be 8)
+        // but it's still scannable and fit on the screen
+        text_gen.generate(0, y * 7, data, text_sprites_qrcode);
+
+        data = "";
+    }
+
+    for (bn::sprite_ptr qr_sprite : text_sprites_qrcode)
+    {
+        qr_sprite.set_visible(true);
+        qr_sprite.set_bg_priority(0);
+        qr_sprite.set_z_order(-1);
+        qr_sprite.put_above();
+        qr_sprite.set_y(qr_sprite.y() - 70);
+        qr_sprite.set_x(qr_sprite.x() - 87);
+    }
+    display_memory_left();
 }
 
 bn::fixed Menu::get_selected_level()
@@ -82,6 +159,11 @@ bool Menu::handle_start_menu(Game *game)
         selected_menu_item = MenuScreen::Start;
         collie_select->set_position(-85, 71);
         bn::sound_items::select.play();
+    }
+
+    if (bn::keypad::select_pressed())
+    {
+        switch_screen(MenuScreen::Share, game);
     }
 
     if (bn::keypad::start_pressed() || bn::keypad::a_pressed())
@@ -239,6 +321,15 @@ bool Menu::on_tick(Game *game)
     if (current_screen == MenuScreen::GameOver)
     {
         return handle_gameover_menu(game);
+    }
+
+    if (current_screen == MenuScreen::Share)
+    {
+
+        if (bn::keypad::b_pressed())
+        {
+            switch_screen(MenuScreen::Start, game);
+        }
     }
 
     return true;

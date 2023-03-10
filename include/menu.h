@@ -15,6 +15,7 @@
 #include "bn_optional.h"
 #include "bn_regular_bg_item.h"
 #include "bn_regular_bg_items_all_levels.h"
+#include "bn_regular_bg_items_bg_qrcode.h"
 #include "bn_regular_bg_items_gameover.h"
 #include "bn_regular_bg_items_gamewin.h"
 #include "bn_regular_bg_items_launch_background.h"
@@ -32,6 +33,7 @@
 #include "debug.h"
 #include "level.h"
 #include "player.h"
+#include "qrcode.h"
 #include "text.h"
 
 namespace cd
@@ -41,7 +43,8 @@ namespace cd
         Start = 0,
         GameOver = 1,
         Win = 2,
-        LevelSelect = 3
+        LevelSelect = 3,
+        Share = 4
     };
 
     class Game;
@@ -55,6 +58,7 @@ namespace cd
         void clear();
         bn::fixed get_selected_level();
         void set_current_screen(MenuScreen screen);
+        void generate_qrcode(const char *message);
 
     private:
         void switch_screen(MenuScreen screen, Game *game);
@@ -62,6 +66,7 @@ namespace cd
         bool handle_level_select_menu(Game *game);
         bool handle_gameover_menu(Game *game);
         bn::string<10> human_readable_score(bn::fixed score);
+        bn::optional<QRCode> qrcode;
 
         bn::optional<bn::regular_bg_ptr> select_highlight;
         bn::optional<bn::sprite_ptr>
@@ -73,5 +78,6 @@ namespace cd
         bn::optional<bn::sprite_text_generator> text_generator;
         bn::vector<bn::sprite_ptr, 32> text_sprites;
         bn::vector<bn::sprite_ptr, 32> text_sprites_level;
+        bn::vector<bn::sprite_ptr, 120> text_sprites_qrcode;
     };
 }
