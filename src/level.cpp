@@ -208,7 +208,6 @@ void Level::reset()
         delete hud.value();
     }
     hud.reset();
-    hud = new HUD();
     clear_towers();
     clear_waves();
     clear_sheeps();

@@ -19,6 +19,10 @@ HUD::HUD()
 
 HUD::~HUD()
 {
+    log("destroying hud");
+    player_life_sprite.reset();
+    text_generator.reset();
+    text_sprites.clear();
 }
 
 void HUD::on_tick(Game *game)
