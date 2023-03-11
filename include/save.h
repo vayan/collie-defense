@@ -8,6 +8,8 @@
 #include "bn_log.h"
 #include "bn_sram.h"
 #include "debug.h"
+#include "utils.h"
+#include <string>
 
 namespace cd
 {
@@ -39,6 +41,7 @@ namespace cd
         void read();
         void write();
         void reset();
+        const char *encode_for_qrcode();
         save_data get_data();
         void save_story_progress(int level_index, bn::fixed money, bn::fixed life);
         void save_level_score(int level_index, bn::fixed score);

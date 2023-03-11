@@ -33,6 +33,11 @@ void cd::log(bn::string<50> message, bn::fixed number)
     BN_LOG(bn::format<50>("{}: {}", message, number));
 }
 
+void cd::log(bn::string<50> message, long number)
+{
+    BN_LOG(bn::format<50>("{}: {}", message, number));
+}
+
 void cd::log(bn::string<50> label, save_data data)
 {
     bn::string<255> scores = "";

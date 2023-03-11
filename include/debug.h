@@ -24,6 +24,7 @@ namespace cd
 {
     struct save_data;
     void log(bn::string<50> label, bn::fixed number);
+    void log(bn::string<50> label, long number);
     void log(bn::string<20> label, bn::fixed_point point);
     void log(bn::string<50> message);
     void log(bn::string<50> label, save_data data);

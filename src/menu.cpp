@@ -57,9 +57,11 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
     {
         log("start sharing menu");
         bg = bn::regular_bg_items::bg_qrcode.create_bg(0, 0);
-
-        generate_qrcode("HTTP://TD.GY/CRE66I9R"); // TODO get real data
-
+        text_generator.value()
+            .generate(bn::fixed_point(-70, 0), "loading...", text_sprites);
+        bn::core::update(); // trigger a refresh for the background to show first. the QRcode takes a while to load
+        generate_qrcode(game->get_save()->encode_for_qrcode());
+        text_sprites.clear();
         break;
     }
     default:
@@ -135,7 +137,7 @@ void Menu::generate_qrcode(const char *message)
         qr_sprite.set_z_order(-1);
         qr_sprite.put_above();
         qr_sprite.set_y(qr_sprite.y() - 70);
-        qr_sprite.set_x(qr_sprite.x() - 87);
+        qr_sprite.set_x(qr_sprite.x() - 113);
     }
     display_memory_left();
 }
