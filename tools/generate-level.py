@@ -268,7 +268,7 @@ def import_level_png(_levels):
         image_to_merge = newimg.crop(bbox)
         level_resized = (image_to_merge.width // 3, image_to_merge.height // 3)
         image_to_merge = image_to_merge.resize(
-            (image_to_merge.width // 15, image_to_merge.height // 15)
+            (image_to_merge.width // 12, image_to_merge.height // 12)
         )
 
         image_to_merge = image_to_merge.resize(level_resized, resample=Image.NEAREST)

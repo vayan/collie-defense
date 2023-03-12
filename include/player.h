@@ -46,7 +46,7 @@ namespace cd
         void activate();
         void set_life(bn::fixed value);
 
-        static const int fallback_money = 50;
+        static const int fallback_money = 20;
 
     private:
         bn::optional<Cursor>

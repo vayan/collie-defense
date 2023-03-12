@@ -50,7 +50,7 @@ void Save::reset()
     log("Reseting save...");
     cart_save_data.status = SAVE_STATUS_VALID_CODE;
     cart_save_data.latest_story_level = 0;
-    cart_save_data.story_money = 50;
+    cart_save_data.story_money = 20;
     cart_save_data.story_life = 100;
     for (int i = 0; i < MAX_LEVEL_COUNT; i++)
     {
