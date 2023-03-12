@@ -32,6 +32,6 @@ jobs:
         with:
           path: 'web'
       - name: Deploy to GitHub Pages
-        if: ${{ github.event_name == 'release' }}
+        if: ${{ github.event_name == 'release' || github.event_name == 'workflow_dispatch' }}
         id: deployment
         uses: actions/deploy-pages@v1
