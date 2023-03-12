@@ -39,8 +39,11 @@ namespace cd
             const int *_int_grid,
             const Entity **_entities,
             const bn::fixed _number_of_entities,
-            bn::optional<bn::music_item> _music,
-            const bn::fixed start_money);
+            bn::optional<bn::music_item>
+                _music,
+            const bn::fixed start_money,
+            const TowerType *_available_towers,
+            const int _available_towers_number);
 
         ~Level();
         void init(bn::camera_ptr camera);
@@ -60,6 +63,7 @@ namespace cd
         void clear_bullets_with_invalid_target();
         const bn::fixed get_start_money();
         Level *copy() const;
+        bn::vector<TowerType, 4> get_available_towers();
 
     private:
         GridTileType
@@ -71,6 +75,8 @@ namespace cd
         const bn::fixed number_of_entities;
         bn::optional<bn::music_item> music;
         const bn::fixed start_money;
+        const TowerType *available_towers;
+        const int available_towers_number;
 
         bn::optional<bn::regular_bg_ptr>
             bg;

@@ -4,7 +4,7 @@
 
 using namespace cd;
 
-Shop::Shop(bn::camera_ptr _camera) : camera(_camera)
+Shop::Shop(bn::camera_ptr _camera, bn::vector<TowerType, 4> available_towers) : camera(_camera)
 {
 
     select_highlight = bn::regular_bg_items::store_select.create_bg(78, 0);
@@ -22,10 +22,27 @@ Shop::Shop(bn::camera_ptr _camera) : camera(_camera)
     overlay_bg.value()
         .set_visible(true);
 
-    elements.push_back(TowerBasic(camera, bn::fixed_point(65, -25)));
-    elements.push_back(TowerBallista(camera, bn::fixed_point(90, -25)));
-    elements.push_back(TowerMagic(camera, bn::fixed_point(65, 25)));
-    elements.push_back(TowerFire(camera, bn::fixed_point(90, 25)));
+    for (TowerType type : available_towers)
+    {
+        switch (type)
+        {
+        case TowerType::Magic:
+            elements.push_back(TowerMagic(camera, bn::fixed_point(65, 25)));
+            break;
+        case TowerType::Arrow:
+            elements.push_back(TowerBallista(camera, bn::fixed_point(90, -25)));
+            break;
+        case TowerType::Canon:
+            elements.push_back(TowerBasic(camera, bn::fixed_point(65, -25)));
+            break;
+        case TowerType::Fire:
+            elements.push_back(TowerFire(camera, bn::fixed_point(90, 25)));
+            break;
+        default:
+            log("this type of tower cannot be added to store");
+            break;
+        }
+    }
 
     for (Tower element : elements)
     {

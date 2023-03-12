@@ -42,7 +42,7 @@ namespace cd
     class Shop
     {
     public:
-        Shop(bn::camera_ptr camera);
+        Shop(bn::camera_ptr camera, bn::vector<TowerType, 4> available_towers);
         ~Shop();
         void on_tick(Game *game);
 

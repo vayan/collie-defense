@@ -111,6 +111,7 @@ def parse_levels(_levels):
         music = None
         is_for_production = True
         start_money = 0
+        available_towers = []
         for field in raw_level.field_instances:
             if field.identifier == "production":
                 is_for_production = field.value
@@ -120,6 +121,9 @@ def parse_levels(_levels):
 
             if field.identifier == "start_money":
                 start_money = field.value
+
+            if field.identifier == "available_towers":
+                available_towers = field.value
 
         parsed_level = {
             "int_identifier": index,
@@ -131,6 +135,7 @@ def parse_levels(_levels):
             "music": music,
             "is_for_production": is_for_production,
             "start_money": start_money,
+            "available_towers": available_towers,
         }
         for layer_instance in raw_level.layer_instances:
             if (
@@ -385,13 +390,17 @@ namespace cd {{
     {entities_var_declar}
     inline const Entity* entities_{level['int_identifier']}[] = {str(entities_var_list).replace('[', '{').replace(']', '}').replace("'", '')};
     constexpr const int int_grid_{level['int_identifier']}[] = {str(level['int_grid']).replace('[', '{').replace(']', '}')};
+    constexpr const TowerType available_towers_{level['int_identifier']}[] = {str(list(map( lambda t : "TowerType::"+t, level['available_towers']))).replace('[', '{').replace(']', '}').replace("'", '')};
+
     inline const Level level_{level['int_identifier']} = Level(
         bn::regular_bg_items::levels_{zfill_id},
         int_grid_{level['int_identifier']},
         entities_{level['int_identifier']},
         {len(entities_var_list)},
         {music_declar},
-        {level['start_money']}
+        {level['start_money']},
+        available_towers_{level['int_identifier']},
+        {len(level['available_towers'])}
     );
 }}
 """

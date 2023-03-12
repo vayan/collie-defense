@@ -120,7 +120,7 @@ void Cursor::on_tick(Game *game)
     {
         if (bn::keypad::b_pressed())
         {
-            show_shop();
+            show_shop(game);
         }
 
         if (bn::keypad::right_pressed())
@@ -232,10 +232,10 @@ void Cursor::hide_shop()
     }
 }
 
-void Cursor::show_shop()
+void Cursor::show_shop(Game *game)
 {
     remove_current_selection(true);
-    shop = Shop(camera);
+    shop = Shop(camera, game->get_current_level()->get_available_towers());
 }
 
 void Cursor::set_selection(TowerType type)

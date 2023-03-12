@@ -9,12 +9,16 @@ Level::Level(
     const Entity **_entities,
     bn::fixed _number_of_entities,
     bn::optional<bn::music_item> _music,
-    const bn::fixed _start_money) : load_bg(_load_bg),
-                                    int_grid(_int_grid),
-                                    entities(_entities),
-                                    number_of_entities(_number_of_entities),
-                                    music(_music),
-                                    start_money(_start_money)
+    const bn::fixed _start_money,
+    const TowerType *_available_towers,
+    const int _available_towers_number) : load_bg(_load_bg),
+                                          int_grid(_int_grid),
+                                          entities(_entities),
+                                          number_of_entities(_number_of_entities),
+                                          music(_music),
+                                          start_money(_start_money),
+                                          available_towers(_available_towers),
+                                          available_towers_number(_available_towers_number)
 {
 }
 
@@ -26,7 +30,7 @@ Level::~Level()
 
 Level *Level::copy() const
 {
-    return new Level(load_bg, int_grid, entities, number_of_entities, music, start_money);
+    return new Level(load_bg, int_grid, entities, number_of_entities, music, start_money, available_towers, available_towers_number);
 }
 
 void Level::tick(Game *game)
@@ -255,4 +259,16 @@ void Level::clear_bullets_with_invalid_target()
 const bn::fixed Level::get_start_money()
 {
     return start_money;
+}
+
+bn::vector<TowerType, 4> Level::get_available_towers()
+{
+    bn::vector<TowerType, 4> list;
+
+    for (int i = 0; i < available_towers_number; i += 1)
+    {
+        list.emplace_back(available_towers[i]);
+    }
+
+    return list;
 }

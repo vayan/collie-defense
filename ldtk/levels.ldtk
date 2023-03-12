@@ -11,7 +11,7 @@
 	"iid": "d8784060-9f30-11ed-8672-1384fdf412fb",
 	"jsonVersion": "1.2.5",
 	"appBuildId": 464870,
-	"nextUid": 133,
+	"nextUid": 134,
 	"identifierStyle": "Capitalize",
 	"toc": [],
 	"worldLayout": "LinearVertical",
@@ -1277,6 +1277,38 @@
 			"allowedRefs": "OnlySame",
 			"allowedRefTags": [],
 			"tilesetUid": null
+		},
+		{
+			"identifier": "available_towers",
+			"doc": "which towers are available for this level",
+			"__type": "Array<LocalEnum.TowerType>",
+			"uid": 133,
+			"type": "F_Enum(35)",
+			"isArray": true,
+			"canBeNull": false,
+			"arrayMinLength": 1,
+			"arrayMaxLength": 4,
+			"editorDisplayMode": "NameAndValue",
+			"editorDisplayPos": "Above",
+			"editorLinkStyle": "StraightArrow",
+			"editorAlwaysShow": true,
+			"editorShowInWorld": true,
+			"editorCutLongValues": true,
+			"editorTextSuffix": null,
+			"editorTextPrefix": null,
+			"useForSmartColor": false,
+			"min": null,
+			"max": null,
+			"regex": null,
+			"acceptFileTypes": null,
+			"defaultOverride": null,
+			"textLanguageMode": null,
+			"symmetricalRef": false,
+			"autoChainRef": true,
+			"allowOutOfLevelRef": true,
+			"allowedRefs": "OnlySame",
+			"allowedRefTags": [],
+			"tilesetUid": null
 		}
 	] },
 	"levels": [
@@ -1305,7 +1337,11 @@
 					"params": ["../audio/music/viral_legacy.xm"]
 				}] },
 				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
-				{ "__identifier": "start_money", "__value": 150, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [{ "id": "V_Int", "params": [150] }] }
+				{ "__identifier": "start_money", "__value": 150, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [{ "id": "V_Int", "params": [150] }] },
+				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["Canon"]
+				}] }
 			],
 			"layerInstances": [
 				{
@@ -1826,7 +1862,11 @@
 					"params": ["../audio/music/the_epic_chip.xm"]
 				}] },
 				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["Canon"]
+				}] }
 			],
 			"layerInstances": [
 				{
@@ -2273,7 +2313,11 @@
 					"params": ["../audio/music/porn_industryy.xm"]
 				}] },
 				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["Canon"]
+				}] }
 			],
 			"layerInstances": [
 				{
@@ -2746,7 +2790,11 @@
 					"params": ["../audio/music/viral_legacy.xm"]
 				}] },
 				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["Canon"]
+				}] }
 			],
 			"layerInstances": [
 				{
@@ -3330,7 +3378,11 @@
 					"params": ["../audio/music/the_epic_chip.xm"]
 				}] },
 				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["Canon"]
+				}] }
 			],
 			"layerInstances": [
 				{
@@ -3911,7 +3963,11 @@
 					"id": "V_Bool",
 					"params": [ true ]
 				}] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["Canon"]
+				}] }
 			],
 			"layerInstances": [
 				{
@@ -4519,7 +4575,11 @@
 					"id": "V_Bool",
 					"params": [ true ]
 				}] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["Canon"]
+				}] }
 			],
 			"layerInstances": [
 				{
@@ -4995,7 +5055,11 @@
 					"id": "V_Bool",
 					"params": [ false ]
 				}] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["Canon"]
+				}] }
 			],
 			"layerInstances": [
 				{
@@ -5360,7 +5424,11 @@
 					"id": "V_Bool",
 					"params": [ false ]
 				}] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["Canon"]
+				}] }
 			],
 			"layerInstances": [
 				{
@@ -5725,7 +5793,11 @@
 					"id": "V_Bool",
 					"params": [ false ]
 				}] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["Canon"]
+				}] }
 			],
 			"layerInstances": [
 				{
@@ -6090,7 +6162,11 @@
 					"id": "V_Bool",
 					"params": [ false ]
 				}] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["Canon"]
+				}] }
 			],
 			"layerInstances": [
 				{
@@ -6455,7 +6531,14 @@
 					"id": "V_Bool",
 					"params": [ false ]
 				}] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] }
+				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
+					"id": "V_String",
+					"params": ["Canon"]
+				}, {
+					"id": "V_String",
+					"params": ["Arrow"]
+				} ] }
 			],
 			"layerInstances": [
 				{

@@ -50,7 +50,7 @@ namespace cd
         void remove_current_selection(bool hard_clean);
         void set_selection(TowerType type);
         void hide_shop();
-        void show_shop();
+        void show_shop(Game *Game);
         void check_screen_bounds();
         void hide();
         void show();
@@ -64,7 +64,6 @@ namespace cd
         bn::camera_ptr camera;
         bn::optional<bn::affine_bg_ptr> range;
         bn::optional<Tower *> current_selection;
-        bn::optional<Shop>
-            shop;
+        bn::optional<Shop> shop;
     };
 }
