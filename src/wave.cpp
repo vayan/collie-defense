@@ -25,7 +25,6 @@ namespace cd
     {
         log("wave created", id);
 
-        frame_elapsed_since_last_fire = fire_pause_sec;
         rand = bn::random();
 
         for (bn::fixed i = 0; i < id; i += 1)

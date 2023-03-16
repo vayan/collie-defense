@@ -71,7 +71,7 @@ namespace cd
         bn::fixed delta = 0.02;
         bn::fixed current_step = 0;
         bn::fixed wave_ = 0;
-        bn::fixed frame_elapsed_since_last_fire = 0;
+        bn::fixed frame_elapsed_since_last_fire = 999999;
         bn::fixed frame_elapsed_since_create = 0;
         bn::optional<bn::random>
             rand;
