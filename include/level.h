@@ -61,6 +61,8 @@ namespace cd
         void clear_waves();
         void stop_music();
         void clear_bullets_with_invalid_target();
+        bn::fixed get_current_wave();
+        bn::fixed get_number_of_waves();
         const bn::fixed get_start_money();
         Level *copy() const;
         bn::vector<TowerType, 4> get_available_towers();
@@ -85,6 +87,8 @@ namespace cd
         bn::vector<Sheep *, 10> sheeps;
         bn::vector<Tower *, 20> towers;
         bn::fixed current_wave = 0;
+        bn::fixed number_of_waves = 0;
+
         bool all_waves_finished = false;
     };
 }

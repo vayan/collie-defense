@@ -146,6 +146,8 @@ void Level::init(bn::camera_ptr camera)
             log("cannot create unkown entity, im not god yet");
         }
     }
+
+    number_of_waves = waves.size();
 }
 
 bn::vector<Wave *, 10> *Level::get_waves()
@@ -271,4 +273,14 @@ bn::vector<TowerType, 4> Level::get_available_towers()
     }
 
     return list;
+}
+
+bn::fixed Level::get_current_wave()
+{
+    return current_wave;
+}
+
+bn::fixed Level::get_number_of_waves()
+{
+    return number_of_waves;
 }

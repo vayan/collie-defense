@@ -52,6 +52,7 @@ namespace cd
 
     private:
         void display_level_count(bn::fixed current_level_index, bn::fixed total_level_count);
+        void display_wave_count(bn::fixed current_wave, bn::fixed max_wave);
         void display_tower_info();
 
         bn::camera_ptr camera;

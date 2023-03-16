@@ -108,7 +108,9 @@ void Shop::on_tick(Game *game)
     select_highlight.value().set_position(elements.at(current_element).get_position().x() + 12, elements.at(current_element).get_position().y() + 10);
 
     refresh_money(game->get_player());
+    text_sprites_level.clear();
     display_level_count(game->get_current_level_index() + 1, cd::number_of_levels);
+    display_wave_count(game->get_current_level()->get_current_wave() + 1, game->get_current_level()->get_number_of_waves());
     display_tower_info();
 }
 
@@ -125,9 +127,20 @@ bool Shop::is_closed()
 void Shop::display_level_count(bn::fixed current_level_index, bn::fixed total_level_count)
 {
     bn::string<50> text = bn::format<50>("STAGE {}/{}", current_level_index, total_level_count);
-    text_sprites_level.clear();
     text_generator.value()
         .generate(bn::fixed_point(-111, 70), text, text_sprites_level);
+
+    for (bn::sprite_ptr text_sprite : text_sprites_level)
+    {
+        text_sprite.set_bg_priority(0);
+    }
+}
+
+void Shop::display_wave_count(bn::fixed current_wave, bn::fixed max_wave)
+{
+    bn::string<50> text = bn::format<50>("WAVE  {}/{}", current_wave, max_wave);
+    text_generator.value()
+        .generate(bn::fixed_point(-110, 55), text, text_sprites_level);
 
     for (bn::sprite_ptr text_sprite : text_sprites_level)
     {
