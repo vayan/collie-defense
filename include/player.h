@@ -1,5 +1,6 @@
 #pragma once
 
+#include "bn_camera_actions.h"
 #include "bn_camera_ptr.h"
 #include "bn_core.h"
 #include "bn_fixed.h"
@@ -45,14 +46,17 @@ namespace cd
         void on_reset_store();
         void activate();
         void set_life(bn::fixed value);
+        void clear_animations();
 
         static const int fallback_money = 20;
 
     private:
+        bn::camera_ptr camera;
         bn::optional<Cursor>
             cursor;
         bn::fixed life = 100;
         bn::fixed money = Player::fallback_money;
         bn::optional<bn::rumble_toggle_action> rumble;
+        bn::vector<bn::camera_move_to_action, 3> camera_actions;
     };
 }

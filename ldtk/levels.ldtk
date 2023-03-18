@@ -5870,7 +5870,7 @@
 					"entityInstances": [
 						{
 							"__identifier": "Wave",
-							"__grid": [59,79],
+							"__grid": [59,80],
 							"__pivot": [0.5,0.5],
 							"__tags": ["visible"],
 							"__tile": null,
@@ -5879,19 +5879,45 @@
 							"width": 4,
 							"height": 4,
 							"defUid": 18,
-							"px": [119,159],
+							"px": [119,161],
 							"fieldInstances": [
 								{ "__identifier": "Step", "__value": [{ "cx": 59, "cy": 104 }], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["59,104"]
 								}] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "PauseBetweenFireSec", "__value": 5, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [5] }] },
 								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
 								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 30, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [30] }] }
+								{ "__identifier": "WaveDuration", "__value": 10, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [10] }] }
+							]
+						},
+						{
+							"__identifier": "Wave",
+							"__grid": [60,27],
+							"__pivot": [0.5,0.5],
+							"__tags": ["visible"],
+							"__tile": null,
+							"__smartColor": "#E5E511",
+							"iid": "6eea1c60-9f30-11ed-80e0-c3f778873c7a",
+							"width": 4,
+							"height": 4,
+							"defUid": 18,
+							"px": [121,55],
+							"fieldInstances": [
+								{ "__identifier": "Step", "__value": [{ "cx": 60, "cy": 105 }], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["60,105"]
+								}] },
+								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__value": "Tiger", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Tiger"]
+								}] },
+								{ "__identifier": "WaveNumber", "__value": 1, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
+								{ "__identifier": "WaveDuration", "__value": 1, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
 							]
 						}
 					]
