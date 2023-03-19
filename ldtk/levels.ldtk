@@ -2748,10 +2748,13 @@
 				}] },
 				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
 				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
-				}] }
+				}, {
+					"id": "V_String",
+					"params": ["Arrow"]
+				} ] }
 			],
 			"layerInstances": [
 				{
@@ -3336,10 +3339,13 @@
 				}] },
 				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
 				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
-				}] }
+				}, {
+					"id": "V_String",
+					"params": ["Arrow"]
+				} ] }
 			],
 			"layerInstances": [
 				{
@@ -3921,10 +3927,13 @@
 					"params": [ true ]
 				}] },
 				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
-				}] }
+				}, {
+					"id": "V_String",
+					"params": ["Arrow"]
+				} ] }
 			],
 			"layerInstances": [
 				{
@@ -4533,10 +4542,16 @@
 					"params": [ true ]
 				}] },
 				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow", "Magic" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
-				}] }
+				}, {
+					"id": "V_String",
+					"params": ["Arrow"]
+				}, {
+					"id": "V_String",
+					"params": ["Magic"]
+				} ] }
 			],
 			"layerInstances": [
 				{
@@ -5013,10 +5028,16 @@
 					"params": [ false ]
 				}] },
 				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow", "Magic" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
-				}] }
+				}, {
+					"id": "V_String",
+					"params": ["Arrow"]
+				}, {
+					"id": "V_String",
+					"params": ["Magic"]
+				} ] }
 			],
 			"layerInstances": [
 				{
@@ -5382,10 +5403,16 @@
 					"params": [ false ]
 				}] },
 				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow", "Magic" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
-				}] }
+				}, {
+					"id": "V_String",
+					"params": ["Arrow"]
+				}, {
+					"id": "V_String",
+					"params": ["Magic"]
+				} ] }
 			],
 			"layerInstances": [
 				{
@@ -5751,10 +5778,19 @@
 					"params": [ false ]
 				}] },
 				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow", "Magic", "Fire" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
-				}] }
+				}, {
+					"id": "V_String",
+					"params": ["Arrow"]
+				}, {
+					"id": "V_String",
+					"params": ["Magic"]
+				}, {
+					"id": "V_String",
+					"params": ["Fire"]
+				} ] }
 			],
 			"layerInstances": [
 				{
@@ -6146,10 +6182,19 @@
 					"params": [ false ]
 				}] },
 				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow", "Magic", "Fire" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
-				}] }
+				}, {
+					"id": "V_String",
+					"params": ["Arrow"]
+				}, {
+					"id": "V_String",
+					"params": ["Magic"]
+				}, {
+					"id": "V_String",
+					"params": ["Fire"]
+				} ] }
 			],
 			"layerInstances": [
 				{
@@ -6515,12 +6560,18 @@
 					"params": [ false ]
 				}] },
 				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
+				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow", "Magic", "Fire" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
 				}, {
 					"id": "V_String",
 					"params": ["Arrow"]
+				}, {
+					"id": "V_String",
+					"params": ["Magic"]
+				}, {
+					"id": "V_String",
+					"params": ["Fire"]
 				} ] }
 			],
 			"layerInstances": [
