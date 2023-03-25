@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     container: devkitpro/devkitarm
     steps:
-      - name: Checkout 'vayan/collie-defence'
+      - name: Checkout 'vayan/collie-defense'
         uses: actions/checkout@v3
 
       - name: Install Python
@@ -55,8 +55,8 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: collie-defence
-          path: collie-defence.gba
+          name: collie-defense
+          path: collie-defense.gba
           retention-days: 7
           if-no-files-found: error
 
@@ -74,8 +74,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./collie-defence/collie-defence.gba
-          asset_name: collie-defence-${{ github.event.release.tag_name }}.gba
+          asset_path: ./collie-defense/collie-defense.gba
+          asset_name: collie-defense-${{ github.event.release.tag_name }}.gba
           asset_content_type: application/octet-stream
 
   release-itch:
@@ -91,6 +91,6 @@ jobs:
           unzip butler.zip
           chmod +x ./butler
           ./butler -V
-          ./butler push ./collie-defence/collie-defence.gba xvayan/collie-defence:rom --userversion ${{ github.event.release.tag_name }}
+          ./butler push ./collie-defense/collie-defense.gba xvayan/collie-defense:rom --userversion ${{ github.event.release.tag_name }}
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}

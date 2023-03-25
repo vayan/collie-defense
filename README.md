@@ -1,4 +1,4 @@
-# Collie Defence
+# Collie Defense
 
 |![](./doc/screen1.png) | ![](./doc/screen4.png)  |
 |---|---|
@@ -6,7 +6,7 @@
 
 ## How To Play
 
-1. Download the latest .gba rom file in the [release page](https://github.com/vayan/collie-defence/releases)
+1. Download the latest .gba rom file in the [release page](https://github.com/vayan/collie-defense/releases)
 2. Open the rom with an emulator (e.g [mGBA](https://mgba.io/downloads.html))
 
 ## How to contribute
@@ -53,7 +53,7 @@ You can also add mGBA to you path if you want `/Applications/mGBA.app/Contents/M
 
 ### Run rom file with debug log
 
-`mgba collie-defence.gba -l 4`
+`mgba collie-defense.gba -l 4`
 
 ### Generate graphics (optionals)
 

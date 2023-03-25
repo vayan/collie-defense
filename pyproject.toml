@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "collie-defence-tools"
+name = "collie-defense-tools"
 version = "0.1.0"
 description = ""
 authors = ["Yann Vaillant <yann@vaillant.im>"]
