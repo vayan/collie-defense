@@ -25,8 +25,16 @@
 #include "bn_sound_items.h"
 #include "bn_sprite_builder.h"
 #include "bn_sprite_items_collie_title.h"
+#include "bn_sprite_items_dancing_collie.h"
+#include "bn_sprite_items_dancing_sheep_0.h"
+#include "bn_sprite_items_dancing_sheep_1.h"
+#include "bn_sprite_items_dancing_sheep_2.h"
+#include "bn_sprite_items_dancing_sheep_3.h"
 #include "bn_sprite_items_player_life.h"
 #include "bn_sprite_items_title_menu_select.h"
+#include "bn_sprite_items_victory_banner_left.h"
+#include "bn_sprite_items_victory_banner_middle.h"
+#include "bn_sprite_items_victory_banner_right.h"
 #include "bn_sprite_ptr.h"
 #include "bn_sprite_text_generator.h"
 #include "bn_unique_ptr.h"
@@ -76,6 +84,11 @@ namespace cd
         bn::optional<bn::sprite_animate_action<6>>
             collie_title_anim;
         bn::optional<bn::regular_bg_ptr> bg;
+        bn::vector<bn::sprite_ptr, 3> victory_banner_sprites;
+        bn::vector<bn::sprite_ptr, 5> dancing_animals;
+        bn::vector<bn::sprite_animate_action<10>, 3> victory_banner_animations;
+        bn::vector<bn::sprite_animate_action<10>, 5> dancing_animals_animation;
+
         bn::fixed selected_level = 0;
         MenuScreen selected_menu_item = MenuScreen::Start;
         MenuScreen current_screen = MenuScreen::Start;

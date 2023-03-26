@@ -26,6 +26,10 @@ void Menu::clear()
     text_sprites_qrcode.clear();
     collie_title.reset();
     collie_title_anim.reset();
+    victory_banner_sprites.clear();
+    victory_banner_animations.clear();
+    dancing_animals.clear();
+    dancing_animals_animation.clear();
 }
 
 void Menu::switch_screen(MenuScreen screen, Game *game)
@@ -43,6 +47,58 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
         log("start win screen");
         game->get_camera().set_position(0, 0);
         bg = bn::regular_bg_items::gamewin.create_bg(0, 0);
+        victory_banner_sprites.push_back(bn::sprite_items::victory_banner_left.create_sprite(-48, -30));
+        victory_banner_sprites.push_back(bn::sprite_items::victory_banner_middle.create_sprite(16, -30));
+        victory_banner_sprites.push_back(bn::sprite_items::victory_banner_right.create_sprite(80, -30));
+        victory_banner_animations.push_back(bn::create_sprite_animate_action_forever(
+            victory_banner_sprites.at(0),
+            8,
+            bn::sprite_items::victory_banner_left.tiles_item(),
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+        victory_banner_animations.push_back(bn::create_sprite_animate_action_forever(
+            victory_banner_sprites.at(1),
+            8,
+            bn::sprite_items::victory_banner_middle.tiles_item(),
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+        victory_banner_animations.push_back(bn::create_sprite_animate_action_forever(
+            victory_banner_sprites.at(2),
+            8,
+            bn::sprite_items::victory_banner_right.tiles_item(),
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+        dancing_animals.push_back(bn::sprite_items::dancing_sheep_0.create_sprite(-72, 30));
+        dancing_animals.push_back(bn::sprite_items::dancing_sheep_1.create_sprite(-40, 30));
+        dancing_animals.push_back(bn::sprite_items::dancing_collie.create_sprite(0, 30));
+        dancing_animals.push_back(bn::sprite_items::dancing_sheep_2.create_sprite(40, 30));
+        dancing_animals.push_back(bn::sprite_items::dancing_sheep_3.create_sprite(72, 30));
+
+        dancing_animals_animation.push_back(bn::create_sprite_animate_action_forever(
+            dancing_animals.at(0),
+            4,
+            bn::sprite_items::dancing_sheep_0.tiles_item(),
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
+        dancing_animals_animation.push_back(bn::create_sprite_animate_action_forever(
+            dancing_animals.at(1),
+            4,
+            bn::sprite_items::dancing_sheep_1.tiles_item(),
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
+        dancing_animals_animation.push_back(bn::create_sprite_animate_action_forever(
+            dancing_animals.at(2),
+            4,
+            bn::sprite_items::dancing_collie.tiles_item(),
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
+        dancing_animals_animation.push_back(bn::create_sprite_animate_action_forever(
+            dancing_animals.at(3),
+            4,
+            bn::sprite_items::dancing_sheep_2.tiles_item(),
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
+        dancing_animals_animation.push_back(bn::create_sprite_animate_action_forever(
+            dancing_animals.at(4),
+            4,
+            bn::sprite_items::dancing_sheep_3.tiles_item(),
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
         break;
     case MenuScreen::LevelSelect:
         log("start leveling selection");
@@ -345,6 +401,19 @@ bool Menu::on_tick(Game *game)
         {
             switch_screen(MenuScreen::Start, game);
         }
+    }
+
+    if (current_screen == MenuScreen::Win)
+    {
+        victory_banner_animations.at(0).update();
+        victory_banner_animations.at(1).update();
+        victory_banner_animations.at(2).update();
+
+        dancing_animals_animation.at(0).update();
+        dancing_animals_animation.at(1).update();
+        dancing_animals_animation.at(2).update();
+        dancing_animals_animation.at(3).update();
+        dancing_animals_animation.at(4).update();
     }
 
     return true;
