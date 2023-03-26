@@ -11,7 +11,6 @@ async function process() {
     canvas.height = image.height;
 
     const context = canvas.getContext('2d');
-    console.log({ image });
     context.drawImage(image, 0, 0);
 
     context.font = 'bold 24px Arial';
@@ -21,8 +20,15 @@ async function process() {
 
     document.getElementById('levels').src = canvas.toDataURL();
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const data = urlParams.get('data');
+    if (!data) {
+        window.location.href = "https://xvayan.itch.io/collie-defense";
+        return;
+    }
+
     // C3.2E73.J9RB
-    const data = "C3.2E73.J9RB"
+    //const data = "C3.2E73.J9RB"
 
     const parts = data.split(".");
 
