@@ -294,7 +294,8 @@ def import_level_png(_levels):
         mode="RGB",
     )
     merged_image = convert_palette(merged_image)
-    merged_image.save(f"./graphics/generated/levels/all_levels.bmp")
+    merged_image.save("./graphics/generated/levels/all_levels.bmp")
+    merged_image.save("./web/levels.bmp")
     json_filename = f"./graphics/generated/levels/all_levels.json"
     with open(json_filename, "w") as json_file:
         json_file.write(
