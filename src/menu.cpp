@@ -20,10 +20,12 @@ void Menu::clear()
     bg.reset();
     select_highlight.reset();
     current_screen = Start;
-    collie_select.reset();
+    title_menu_select.reset();
     text_sprites_level.clear();
     text_sprites.clear();
     text_sprites_qrcode.clear();
+    collie_title.reset();
+    collie_title_anim.reset();
 }
 
 void Menu::switch_screen(MenuScreen screen, Game *game)
@@ -67,7 +69,13 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
     default:
         log("start title screen");
         game->get_camera().set_position(0, 0);
-        collie_select = bn::sprite_items::dog.create_sprite(-85, 71);
+        title_menu_select = bn::sprite_items::title_menu_select.create_sprite(0, 44);
+        collie_title = bn::sprite_items::collie_title.create_sprite(1, 14);
+        collie_title_anim = bn::create_sprite_animate_action_forever(
+            collie_title.value(),
+            8,
+            bn::sprite_items::collie_title.tiles_item(),
+            0, 1, 2, 3, 4, 5);
         bg = bn::regular_bg_items::launch_background.create_bg(0, 0);
         break;
     }
@@ -149,17 +157,22 @@ bn::fixed Menu::get_selected_level()
 
 bool Menu::handle_start_menu(Game *game)
 {
-    if (bn::keypad::right_pressed())
+    if (collie_title_anim.has_value())
+    {
+        collie_title_anim->update();
+    }
+
+    if (bn::keypad::down_pressed())
     {
         selected_menu_item = MenuScreen::LevelSelect;
-        collie_select->set_position(2, 71);
+        title_menu_select->set_position(0, 57);
         bn::sound_items::select.play();
     }
 
-    if (bn::keypad::left_pressed())
+    if (bn::keypad::up_pressed())
     {
         selected_menu_item = MenuScreen::Start;
-        collie_select->set_position(-85, 71);
+        title_menu_select->set_position(0, 44);
         bn::sound_items::select.play();
     }
 
@@ -170,7 +183,7 @@ bool Menu::handle_start_menu(Game *game)
 
     if (bn::keypad::start_pressed() || bn::keypad::a_pressed())
     {
-        collie_select.reset();
+        title_menu_select.reset();
 
         if (selected_menu_item == MenuScreen::Start)
         {

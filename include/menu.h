@@ -24,8 +24,9 @@
 #include "bn_size.h"
 #include "bn_sound_items.h"
 #include "bn_sprite_builder.h"
-#include "bn_sprite_items_dog.h"
+#include "bn_sprite_items_collie_title.h"
 #include "bn_sprite_items_player_life.h"
+#include "bn_sprite_items_title_menu_select.h"
 #include "bn_sprite_ptr.h"
 #include "bn_sprite_text_generator.h"
 #include "bn_unique_ptr.h"
@@ -70,7 +71,10 @@ namespace cd
 
         bn::optional<bn::regular_bg_ptr> select_highlight;
         bn::optional<bn::sprite_ptr>
-            collie_select;
+            title_menu_select;
+        bn::optional<bn::sprite_ptr> collie_title;
+        bn::optional<bn::sprite_animate_action<6>>
+            collie_title_anim;
         bn::optional<bn::regular_bg_ptr> bg;
         bn::fixed selected_level = 0;
         MenuScreen selected_menu_item = MenuScreen::Start;
