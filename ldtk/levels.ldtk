@@ -1996,7 +1996,7 @@
 									"params": ["Bear"]
 								}] },
 								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 15, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
+								{ "__identifier": "WaveDuration", "__value": 8, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [8] }] }
 							]
 						},
 						{

@@ -102,7 +102,7 @@ void Player::clear_animations()
 void Player::reset()
 {
     life = 100;
-    money = Player::fallback_money;
+    money = fallback_money;
     cursor->hide();
     clear_animations();
 }

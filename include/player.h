@@ -20,6 +20,7 @@
 #include "bn_timer.h"
 #include "bn_unique_ptr.h"
 #include "bn_vector.h"
+#include "const.h"
 #include "cursor.h"
 #include "debug.h"
 #include "level.h"
@@ -48,14 +49,12 @@ namespace cd
         void set_life(bn::fixed value);
         void clear_animations();
 
-        static const int fallback_money = 20;
-
     private:
         bn::camera_ptr camera;
         bn::optional<Cursor>
             cursor;
         bn::fixed life = 100;
-        bn::fixed money = Player::fallback_money;
+        bn::fixed money = fallback_money;
         bn::optional<bn::rumble_toggle_action> rumble;
         bn::vector<bn::camera_move_to_action, 3> camera_actions;
     };

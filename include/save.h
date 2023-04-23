@@ -7,6 +7,7 @@
 #include "bn_list.h"
 #include "bn_log.h"
 #include "bn_sram.h"
+#include "const.h"
 #include "debug.h"
 #include "utils.h"
 #include <string>
