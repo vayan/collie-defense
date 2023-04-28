@@ -5,12 +5,12 @@
 		"doc": "https://ldtk.io/json",
 		"schema": "https://ldtk.io/files/JSON_SCHEMA.json",
 		"appAuthor": "Sebastien 'deepnight' Benard",
-		"appVersion": "1.2.5",
+		"appVersion": "1.3.0",
 		"url": "https://ldtk.io"
 	},
 	"iid": "d8784060-9f30-11ed-8672-1384fdf412fb",
-	"jsonVersion": "1.2.5",
-	"appBuildId": 464870,
+	"jsonVersion": "1.3.0",
+	"appBuildId": 467368,
 	"nextUid": 134,
 	"identifierStyle": "Capitalize",
 	"toc": [],
@@ -33,6 +33,7 @@
 	"pngFilePattern": null,
 	"backupOnSave": true,
 	"backupLimit": 10,
+	"backupRelPath": null,
 	"levelNamePattern": "Level_%idx",
 	"tutorialDesc": null,
 	"customCommands": [],
@@ -75,6 +76,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -99,6 +106,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -123,6 +136,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -147,6 +166,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -260,6 +285,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -284,6 +315,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -308,6 +345,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -332,6 +375,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -356,6 +405,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -380,6 +435,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -404,6 +465,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -428,6 +495,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -452,6 +525,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -476,6 +555,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -500,6 +585,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -524,6 +615,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -548,6 +645,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -572,6 +675,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -596,6 +705,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -620,6 +735,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -644,6 +765,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -668,6 +795,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -692,6 +825,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -716,6 +855,12 @@
 					"yModulo": 1,
 					"xOffset": 0,
 					"yOffset": 0,
+					"tileXOffset": 0,
+					"tileYOffset": 0,
+					"tileRandomXMin": 0,
+					"tileRandomXMax": 0,
+					"tileRandomYMin": 0,
+					"tileRandomYMax": 0,
 					"checker": "None",
 					"tileMode": "Single",
 					"pivotX": 0,
@@ -772,6 +917,7 @@
 					"arrayMinLength": 1,
 					"arrayMaxLength": null,
 					"editorDisplayMode": "PointPath",
+					"editorDisplayScale": 1,
 					"editorDisplayPos": "Center",
 					"editorLinkStyle": "StraightArrow",
 					"editorAlwaysShow": true,
@@ -790,6 +936,7 @@
 					"autoChainRef": true,
 					"allowOutOfLevelRef": true,
 					"allowedRefs": "OnlySame",
+					"allowedRefsEntityUid": null,
 					"allowedRefTags": [],
 					"tilesetUid": null
 				},
@@ -804,6 +951,7 @@
 					"arrayMinLength": null,
 					"arrayMaxLength": null,
 					"editorDisplayMode": "NameAndValue",
+					"editorDisplayScale": 1,
 					"editorDisplayPos": "Beneath",
 					"editorLinkStyle": "StraightArrow",
 					"editorAlwaysShow": true,
@@ -822,6 +970,7 @@
 					"autoChainRef": true,
 					"allowOutOfLevelRef": true,
 					"allowedRefs": "OnlySame",
+					"allowedRefsEntityUid": null,
 					"allowedRefTags": [],
 					"tilesetUid": null
 				},
@@ -836,6 +985,7 @@
 					"arrayMinLength": null,
 					"arrayMaxLength": null,
 					"editorDisplayMode": "EntityTile",
+					"editorDisplayScale": 1,
 					"editorDisplayPos": "Above",
 					"editorLinkStyle": "StraightArrow",
 					"editorAlwaysShow": true,
@@ -854,6 +1004,7 @@
 					"autoChainRef": true,
 					"allowOutOfLevelRef": true,
 					"allowedRefs": "OnlySame",
+					"allowedRefsEntityUid": null,
 					"allowedRefTags": [],
 					"tilesetUid": null
 				},
@@ -868,6 +1019,7 @@
 					"arrayMinLength": null,
 					"arrayMaxLength": null,
 					"editorDisplayMode": "NameAndValue",
+					"editorDisplayScale": 1,
 					"editorDisplayPos": "Beneath",
 					"editorLinkStyle": "StraightArrow",
 					"editorAlwaysShow": true,
@@ -886,6 +1038,7 @@
 					"autoChainRef": true,
 					"allowOutOfLevelRef": true,
 					"allowedRefs": "OnlySame",
+					"allowedRefsEntityUid": null,
 					"allowedRefTags": [],
 					"tilesetUid": null
 				},
@@ -900,6 +1053,7 @@
 					"arrayMinLength": null,
 					"arrayMaxLength": null,
 					"editorDisplayMode": "NameAndValue",
+					"editorDisplayScale": 1,
 					"editorDisplayPos": "Beneath",
 					"editorLinkStyle": "StraightArrow",
 					"editorAlwaysShow": true,
@@ -918,6 +1072,7 @@
 					"autoChainRef": true,
 					"allowOutOfLevelRef": true,
 					"allowedRefs": "OnlySame",
+					"allowedRefsEntityUid": null,
 					"allowedRefTags": [],
 					"tilesetUid": null
 				}
@@ -962,6 +1117,7 @@
 					"arrayMinLength": null,
 					"arrayMaxLength": null,
 					"editorDisplayMode": "RadiusPx",
+					"editorDisplayScale": 1,
 					"editorDisplayPos": "Above",
 					"editorLinkStyle": "StraightArrow",
 					"editorAlwaysShow": true,
@@ -980,6 +1136,7 @@
 					"autoChainRef": true,
 					"allowOutOfLevelRef": true,
 					"allowedRefs": "OnlySame",
+					"allowedRefsEntityUid": null,
 					"allowedRefTags": [],
 					"tilesetUid": null
 				}
@@ -1053,6 +1210,7 @@
 					"arrayMinLength": 1,
 					"arrayMaxLength": null,
 					"editorDisplayMode": "PointPathLoop",
+					"editorDisplayScale": 1,
 					"editorDisplayPos": "Above",
 					"editorLinkStyle": "StraightArrow",
 					"editorAlwaysShow": true,
@@ -1071,6 +1229,7 @@
 					"autoChainRef": true,
 					"allowOutOfLevelRef": true,
 					"allowedRefs": "OnlySame",
+					"allowedRefsEntityUid": null,
 					"allowedRefTags": [],
 					"tilesetUid": null
 				}
@@ -1167,16 +1326,16 @@
 		}
 	], "enums": [
 		{ "identifier": "EnemyType", "uid": 27, "values": [
-			{ "id": "Tiger", "tileId": null, "color": 15066385, "__tileSrcRect": null },
-			{ "id": "Fox", "tileId": null, "color": 16737280, "__tileSrcRect": null },
-			{ "id": "Bear", "tileId": null, "color": 7416593, "__tileSrcRect": null },
-			{ "id": "None", "tileId": null, "color": 0, "__tileSrcRect": null }
+			{ "id": "Tiger", "tileRect": null, "tileId": -1, "color": 15066385, "__tileSrcRect": null },
+			{ "id": "Fox", "tileRect": null, "tileId": -1, "color": 16737280, "__tileSrcRect": null },
+			{ "id": "Bear", "tileRect": null, "tileId": -1, "color": 7416593, "__tileSrcRect": null },
+			{ "id": "None", "tileRect": null, "tileId": -1, "color": 0, "__tileSrcRect": null }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] },
 		{ "identifier": "TowerType", "uid": 35, "values": [
-			{ "id": "Canon", "tileId": null, "color": 2300898, "__tileSrcRect": null },
-			{ "id": "Arrow", "tileId": null, "color": 12783375, "__tileSrcRect": null },
-			{ "id": "Magic", "tileId": null, "color": 2531088, "__tileSrcRect": null },
-			{ "id": "Fire", "tileId": null, "color": 12470831, "__tileSrcRect": null }
+			{ "id": "Canon", "tileRect": null, "tileId": -1, "color": 2300898, "__tileSrcRect": null },
+			{ "id": "Arrow", "tileRect": null, "tileId": -1, "color": 12783375, "__tileSrcRect": null },
+			{ "id": "Magic", "tileRect": null, "tileId": -1, "color": 2531088, "__tileSrcRect": null },
+			{ "id": "Fire", "tileRect": null, "tileId": -1, "color": 12470831, "__tileSrcRect": null }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] }
 	], "externalEnums": [], "levelFields": [
 		{
@@ -1190,6 +1349,7 @@
 			"arrayMinLength": null,
 			"arrayMaxLength": null,
 			"editorDisplayMode": "NameAndValue",
+			"editorDisplayScale": 1,
 			"editorDisplayPos": "Above",
 			"editorLinkStyle": "StraightArrow",
 			"editorAlwaysShow": true,
@@ -1208,6 +1368,7 @@
 			"autoChainRef": true,
 			"allowOutOfLevelRef": true,
 			"allowedRefs": "OnlySame",
+			"allowedRefsEntityUid": null,
 			"allowedRefTags": [],
 			"tilesetUid": null
 		},
@@ -1222,6 +1383,7 @@
 			"arrayMinLength": null,
 			"arrayMaxLength": null,
 			"editorDisplayMode": "NameAndValue",
+			"editorDisplayScale": 1,
 			"editorDisplayPos": "Above",
 			"editorLinkStyle": "StraightArrow",
 			"editorAlwaysShow": true,
@@ -1243,6 +1405,7 @@
 			"autoChainRef": true,
 			"allowOutOfLevelRef": true,
 			"allowedRefs": "OnlySame",
+			"allowedRefsEntityUid": null,
 			"allowedRefTags": [],
 			"tilesetUid": null
 		},
@@ -1257,6 +1420,7 @@
 			"arrayMinLength": null,
 			"arrayMaxLength": null,
 			"editorDisplayMode": "NameAndValue",
+			"editorDisplayScale": 1,
 			"editorDisplayPos": "Above",
 			"editorLinkStyle": "StraightArrow",
 			"editorAlwaysShow": true,
@@ -1275,6 +1439,7 @@
 			"autoChainRef": true,
 			"allowOutOfLevelRef": true,
 			"allowedRefs": "OnlySame",
+			"allowedRefsEntityUid": null,
 			"allowedRefTags": [],
 			"tilesetUid": null
 		},
@@ -1289,6 +1454,7 @@
 			"arrayMinLength": 1,
 			"arrayMaxLength": 4,
 			"editorDisplayMode": "NameAndValue",
+			"editorDisplayScale": 1,
 			"editorDisplayPos": "Above",
 			"editorLinkStyle": "StraightArrow",
 			"editorAlwaysShow": true,
@@ -1307,6 +1473,7 @@
 			"autoChainRef": true,
 			"allowOutOfLevelRef": true,
 			"allowedRefs": "OnlySame",
+			"allowedRefsEntityUid": null,
 			"allowedRefTags": [],
 			"tilesetUid": null
 		}
@@ -1332,13 +1499,13 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__value": "../audio/music/viral_legacy.xm", "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/viral_legacy.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
 					"id": "V_String",
 					"params": ["../audio/music/viral_legacy.xm"]
 				}] },
-				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
-				{ "__identifier": "start_money", "__value": 20, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [{ "id": "V_Int", "params": [20] }] },
-				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [] },
+				{ "__identifier": "start_money", "__type": "Int", "__value": 20, "__tile": null, "defUid": 128, "realEditorValues": [{ "id": "V_Int", "params": [20] }] },
+				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": ["Canon"], "__tile": null, "defUid": 133, "realEditorValues": [{
 					"id": "V_String",
 					"params": ["Canon"]
 				}] }
@@ -1454,7 +1621,7 @@
 							"height": 32,
 							"defUid": 60,
 							"px": [28,28],
-							"fieldInstances": [{ "__identifier": "Range", "__value": 32, "__type": "Int", "__tile": null, "defUid": 62, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "Range", "__type": "Int", "__value": 32, "__tile": null, "defUid": 62, "realEditorValues": [] }]
 						},
 						{
 							"__identifier": "BasicEnemy",
@@ -1508,7 +1675,7 @@
 							"height": 16,
 							"defUid": 116,
 							"px": [231,57],
-							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 115, "cy": 48 }, { "cx": 106, "cy": 46 }, { "cx": 99, "cy": 35 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+							"fieldInstances": [{ "__identifier": "Point", "__type": "Array<Point>", "__value": [ { "cx": 115, "cy": 48 }, { "cx": 106, "cy": 46 }, { "cx": 99, "cy": 35 } ], "__tile": null, "defUid": 118, "realEditorValues": [ {
 								"id": "V_String",
 								"params": ["115,48"]
 							}, {
@@ -1531,7 +1698,7 @@
 							"height": 16,
 							"defUid": 116,
 							"px": [229,197],
-							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 113, "cy": 83 }, { "cx": 102, "cy": 90 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+							"fieldInstances": [{ "__identifier": "Point", "__type": "Array<Point>", "__value": [ { "cx": 113, "cy": 83 }, { "cx": 102, "cy": 90 } ], "__tile": null, "defUid": 118, "realEditorValues": [ {
 								"id": "V_String",
 								"params": ["113,83"]
 							}, {
@@ -1551,7 +1718,7 @@
 							"height": 16,
 							"defUid": 116,
 							"px": [65,57],
-							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 74, "cy": 26 }, { "cx": 73, "cy": 35 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+							"fieldInstances": [{ "__identifier": "Point", "__type": "Array<Point>", "__value": [ { "cx": 74, "cy": 26 }, { "cx": 73, "cy": 35 } ], "__tile": null, "defUid": 118, "realEditorValues": [ {
 								"id": "V_String",
 								"params": ["74,26"]
 							}, {
@@ -1572,7 +1739,7 @@
 							"defUid": 18,
 							"px": [3,87],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 36, "cy": 44 }, { "cx": 35, "cy": 75 }, { "cx": 75, "cy": 76 }, { "cx": 75, "cy": 104 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 36, "cy": 44 }, { "cx": 35, "cy": 75 }, { "cx": 75, "cy": 76 }, { "cx": 75, "cy": 104 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["36,44"]
 								}, {
@@ -1585,13 +1752,13 @@
 									"id": "V_String",
 									"params": ["75,104"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 5, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [5] }] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 5, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [5] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 10, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [10] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 10, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [10] }] }
 							]
 						}
 					]
@@ -1814,13 +1981,13 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__value": "../audio/music/the_epic_chip.xm", "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/the_epic_chip.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
 					"id": "V_String",
 					"params": ["../audio/music/the_epic_chip.xm"]
 				}] },
-				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [] },
+				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": ["Canon"], "__tile": null, "defUid": 133, "realEditorValues": [{
 					"id": "V_String",
 					"params": ["Canon"]
 				}] }
@@ -1952,7 +2119,7 @@
 							"defUid": 18,
 							"px": [55,53],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [
 									{ "cx": 27, "cy": 43 },
 									{ "cx": 83, "cy": 44 },
 									{ "cx": 83, "cy": 59 },
@@ -1960,7 +2127,7 @@
 									{ "cx": 28, "cy": 83 },
 									{ "cx": 100, "cy": 84 },
 									{ "cx": 100, "cy": 103 }
-								], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [
+								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
 										"id": "V_String",
 										"params": ["27,43"]
@@ -1990,13 +2157,13 @@
 										"params": ["100,103"]
 									}
 								] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 4, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [4] }] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 4, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [4] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 8, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [8] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 8, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [8] }] }
 							]
 						},
 						{
@@ -2011,7 +2178,7 @@
 							"height": 16,
 							"defUid": 116,
 							"px": [229,59],
-							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 114, "cy": 43 }, { "cx": 98, "cy": 42 }, { "cx": 93, "cy": 29 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+							"fieldInstances": [{ "__identifier": "Point", "__type": "Array<Point>", "__value": [ { "cx": 114, "cy": 43 }, { "cx": 98, "cy": 42 }, { "cx": 93, "cy": 29 } ], "__tile": null, "defUid": 118, "realEditorValues": [ {
 								"id": "V_String",
 								"params": ["114,43"]
 							}, {
@@ -2034,7 +2201,7 @@
 							"height": 16,
 							"defUid": 116,
 							"px": [229,119],
-							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 98, "cy": 64 }, { "cx": 111, "cy": 82 }, { "cx": 117, "cy": 79 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+							"fieldInstances": [{ "__identifier": "Point", "__type": "Array<Point>", "__value": [ { "cx": 98, "cy": 64 }, { "cx": 111, "cy": 82 }, { "cx": 117, "cy": 79 } ], "__tile": null, "defUid": 118, "realEditorValues": [ {
 								"id": "V_String",
 								"params": ["98,64"]
 							}, {
@@ -2265,13 +2432,13 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__value": "../audio/music/porn_industryy.xm", "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/porn_industryy.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
 					"id": "V_String",
 					"params": ["../audio/music/porn_industryy.xm"]
 				}] },
-				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": ["Canon"], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [{
+				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [] },
+				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": ["Canon"], "__tile": null, "defUid": 133, "realEditorValues": [{
 					"id": "V_String",
 					"params": ["Canon"]
 				}] }
@@ -2407,7 +2574,7 @@
 							"defUid": 18,
 							"px": [55,53],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 27, "cy": 59 }, { "cx": 52, "cy": 59 }, { "cx": 52, "cy": 103 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 27, "cy": 59 }, { "cx": 52, "cy": 59 }, { "cx": 52, "cy": 103 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["27,59"]
 								}, {
@@ -2417,13 +2584,13 @@
 									"id": "V_String",
 									"params": ["52,103"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 3, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 3, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 10, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [10] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 10, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [10] }] }
 							]
 						},
 						{
@@ -2438,7 +2605,7 @@
 							"height": 16,
 							"defUid": 116,
 							"px": [29,195],
-							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 36, "cy": 88 }, { "cx": 33, "cy": 71 }, { "cx": 13, "cy": 70 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+							"fieldInstances": [{ "__identifier": "Point", "__type": "Array<Point>", "__value": [ { "cx": 36, "cy": 88 }, { "cx": 33, "cy": 71 }, { "cx": 13, "cy": 70 } ], "__tile": null, "defUid": 118, "realEditorValues": [ {
 								"id": "V_String",
 								"params": ["36,88"]
 							}, {
@@ -2461,7 +2628,7 @@
 							"height": 16,
 							"defUid": 116,
 							"px": [137,59],
-							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 56, "cy": 45 }, { "cx": 42, "cy": 40 }, { "cx": 40, "cy": 30 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+							"fieldInstances": [{ "__identifier": "Point", "__type": "Array<Point>", "__value": [ { "cx": 56, "cy": 45 }, { "cx": 42, "cy": 40 }, { "cx": 40, "cy": 30 } ], "__tile": null, "defUid": 118, "realEditorValues": [ {
 								"id": "V_String",
 								"params": ["56,45"]
 							}, {
@@ -2485,13 +2652,13 @@
 							"defUid": 18,
 							"px": [185,53],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [
 									{ "cx": 92, "cy": 59 },
 									{ "cx": 68, "cy": 60 },
 									{ "cx": 68, "cy": 84 },
 									{ "cx": 91, "cy": 84 },
 									{ "cx": 92, "cy": 104 }
-								], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [
+								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
 										"id": "V_String",
 										"params": ["92,59"]
@@ -2513,13 +2680,13 @@
 										"params": ["92,104"]
 									}
 								] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1, "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 1, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
-								{ "__identifier": "WaveDuration", "__value": 1, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 1, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 1, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
 							]
 						}
 					]
@@ -2742,13 +2909,13 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__value": "../audio/music/viral_legacy.xm", "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/viral_legacy.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
 					"id": "V_String",
 					"params": ["../audio/music/viral_legacy.xm"]
 				}] },
-				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
+				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [] },
+				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
 				}, {
@@ -2882,7 +3049,7 @@
 							"defUid": 18,
 							"px": [3,89],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [
 									{ "cx": 19, "cy": 44 },
 									{ "cx": 20, "cy": 35 },
 									{ "cx": 43, "cy": 36 },
@@ -2891,7 +3058,7 @@
 									{ "cx": 35, "cy": 76 },
 									{ "cx": 51, "cy": 76 },
 									{ "cx": 51, "cy": 104 }
-								], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [
+								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
 										"id": "V_String",
 										"params": ["19,44"]
@@ -2925,13 +3092,13 @@
 										"params": ["51,104"]
 									}
 								] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 4, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [4] }] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 4, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [4] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 20, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [20] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 20, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [20] }] }
 							]
 						},
 						{
@@ -2947,7 +3114,7 @@
 							"defUid": 18,
 							"px": [253,87],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [
 									{ "cx": 91, "cy": 43 },
 									{ "cx": 91, "cy": 36 },
 									{ "cx": 75, "cy": 36 },
@@ -2956,7 +3123,7 @@
 									{ "cx": 83, "cy": 76 },
 									{ "cx": 68, "cy": 76 },
 									{ "cx": 67, "cy": 105 }
-								], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [
+								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
 										"id": "V_String",
 										"params": ["91,43"]
@@ -2990,13 +3157,13 @@
 										"params": ["67,105"]
 									}
 								] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 5, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [5] }] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 5, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [5] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 20, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [20] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 20, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [20] }] }
 							]
 						},
 						{
@@ -3011,7 +3178,7 @@
 							"height": 16,
 							"defUid": 116,
 							"px": [201,193],
-							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 115, "cy": 90 }, { "cx": 114, "cy": 66 }, { "cx": 97, "cy": 68 }, { "cx": 93, "cy": 88 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+							"fieldInstances": [{ "__identifier": "Point", "__type": "Array<Point>", "__value": [ { "cx": 115, "cy": 90 }, { "cx": 114, "cy": 66 }, { "cx": 97, "cy": 68 }, { "cx": 93, "cy": 88 } ], "__tile": null, "defUid": 118, "realEditorValues": [ {
 								"id": "V_String",
 								"params": ["115,90"]
 							}, {
@@ -3037,7 +3204,7 @@
 							"height": 16,
 							"defUid": 116,
 							"px": [25,199],
-							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 11, "cy": 80 }, { "cx": 23, "cy": 81 }, { "cx": 26, "cy": 95 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+							"fieldInstances": [{ "__identifier": "Point", "__type": "Array<Point>", "__value": [ { "cx": 11, "cy": 80 }, { "cx": 23, "cy": 81 }, { "cx": 26, "cy": 95 } ], "__tile": null, "defUid": 118, "realEditorValues": [ {
 								"id": "V_String",
 								"params": ["11,80"]
 							}, {
@@ -3061,7 +3228,7 @@
 							"defUid": 18,
 							"px": [9,85],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [
 									{ "cx": 19, "cy": 44 },
 									{ "cx": 20, "cy": 35 },
 									{ "cx": 43, "cy": 36 },
@@ -3070,7 +3237,7 @@
 									{ "cx": 35, "cy": 76 },
 									{ "cx": 51, "cy": 76 },
 									{ "cx": 51, "cy": 105 }
-								], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [
+								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
 										"id": "V_String",
 										"params": ["19,44"]
@@ -3104,13 +3271,13 @@
 										"params": ["51,105"]
 									}
 								] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 1.5, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [1.5] }] },
-								{ "__identifier": "EnemyType", "__value": "Tiger", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1.5, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [1.5] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Tiger", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Tiger"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 1, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
-								{ "__identifier": "WaveDuration", "__value": 5, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 1, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 5, "__tile": null, "defUid": 38, "realEditorValues": [] }
 							]
 						}
 					]
@@ -3333,13 +3500,13 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__value": "../audio/music/the_epic_chip.xm", "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/the_epic_chip.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
 					"id": "V_String",
 					"params": ["../audio/music/the_epic_chip.xm"]
 				}] },
-				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
+				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [] },
+				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
 				}, {
@@ -3477,7 +3644,7 @@
 							"defUid": 18,
 							"px": [55,51],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 27, "cy": 43 }, { "cx": 84, "cy": 44 }, { "cx": 84, "cy": 24 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 27, "cy": 43 }, { "cx": 84, "cy": 44 }, { "cx": 84, "cy": 24 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["27,43"]
 								}, {
@@ -3487,13 +3654,13 @@
 									"id": "V_String",
 									"params": ["84,24"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 2, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [2] }] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 2, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [2] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 5, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 5, "__tile": null, "defUid": 38, "realEditorValues": [] }
 							]
 						},
 						{
@@ -3509,7 +3676,7 @@
 							"defUid": 18,
 							"px": [55,205],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 28, "cy": 84 }, { "cx": 84, "cy": 84 }, { "cx": 84, "cy": 104 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 28, "cy": 84 }, { "cx": 84, "cy": 84 }, { "cx": 84, "cy": 104 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["28,84"]
 								}, {
@@ -3519,13 +3686,13 @@
 									"id": "V_String",
 									"params": ["84,104"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 2, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [2] }] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 2, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [2] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 5, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 5, "__tile": null, "defUid": 38, "realEditorValues": [] }
 							]
 						},
 						{
@@ -3541,7 +3708,7 @@
 							"defUid": 18,
 							"px": [19,135],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [
 									{ "cx": 57, "cy": 67 },
 									{ "cx": 88, "cy": 67 },
 									{ "cx": 100, "cy": 67 },
@@ -3550,7 +3717,7 @@
 									{ "cx": 108, "cy": 44 },
 									{ "cx": 99, "cy": 43 },
 									{ "cx": 99, "cy": 24 }
-								], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [
+								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
 										"id": "V_String",
 										"params": ["57,67"]
@@ -3584,13 +3751,13 @@
 										"params": ["99,24"]
 									}
 								] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 4, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [4] }] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 4, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [4] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 1, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
-								{ "__identifier": "WaveDuration", "__value": 15, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 1, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 15, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
 							]
 						},
 						{
@@ -3606,7 +3773,7 @@
 							"defUid": 18,
 							"px": [57,45],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 29, "cy": 44 }, { "cx": 84, "cy": 42 }, { "cx": 83, "cy": 22 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 29, "cy": 44 }, { "cx": 84, "cy": 42 }, { "cx": 83, "cy": 22 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["29,44"]
 								}, {
@@ -3616,13 +3783,13 @@
 									"id": "V_String",
 									"params": ["83,22"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1, "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 2, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [2] }] },
-								{ "__identifier": "WaveDuration", "__value": 1, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 2, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [2] }] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 1, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
 							]
 						},
 						{
@@ -3638,7 +3805,7 @@
 							"defUid": 18,
 							"px": [59,211],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 29, "cy": 84 }, { "cx": 84, "cy": 84 }, { "cx": 84, "cy": 105 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 29, "cy": 84 }, { "cx": 84, "cy": 84 }, { "cx": 84, "cy": 105 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["29,84"]
 								}, {
@@ -3648,13 +3815,13 @@
 									"id": "V_String",
 									"params": ["84,105"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1, "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 2, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [2] }] },
-								{ "__identifier": "WaveDuration", "__value": 1, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 2, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [2] }] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 1, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
 							]
 						},
 						{
@@ -3669,13 +3836,13 @@
 							"height": 16,
 							"defUid": 116,
 							"px": [199,191],
-							"fieldInstances": [{ "__identifier": "Point", "__value": [
+							"fieldInstances": [{ "__identifier": "Point", "__type": "Array<Point>", "__value": [
 								{ "cx": 100, "cy": 83 },
 								{ "cx": 105, "cy": 77 },
 								{ "cx": 115, "cy": 76 },
 								{ "cx": 115, "cy": 68 },
 								{ "cx": 95, "cy": 77 }
-							], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [
+							], "__tile": null, "defUid": 118, "realEditorValues": [
 								{
 									"id": "V_String",
 									"params": ["100,83"]
@@ -3918,16 +4085,16 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__value": "../audio/music/porn_industryy.xm", "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/porn_industryy.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
 					"id": "V_String",
 					"params": ["../audio/music/porn_industryy.xm"]
 				}] },
-				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
+				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
 				}] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
+				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
 				}, {
@@ -4065,7 +4232,7 @@
 							"defUid": 18,
 							"px": [37,45],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [
 									{ "cx": 20, "cy": 43 },
 									{ "cx": 43, "cy": 43 },
 									{ "cx": 44, "cy": 35 },
@@ -4083,7 +4250,7 @@
 									{ "cx": 107, "cy": 83 },
 									{ "cx": 84, "cy": 84 },
 									{ "cx": 84, "cy": 104 }
-								], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [
+								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
 										"id": "V_String",
 										"params": ["20,43"]
@@ -4153,13 +4320,13 @@
 										"params": ["84,104"]
 									}
 								] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 4, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [4] }] },
-								{ "__identifier": "EnemyType", "__value": "Tiger", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 4, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [4] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Tiger", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Tiger"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 60, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [60] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 60, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [60] }] }
 							]
 						},
 						{
@@ -4175,7 +4342,7 @@
 							"defUid": 18,
 							"px": [43,47],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [
 									{ "cx": 20, "cy": 44 },
 									{ "cx": 44, "cy": 43 },
 									{ "cx": 44, "cy": 36 },
@@ -4193,7 +4360,7 @@
 									{ "cx": 107, "cy": 83 },
 									{ "cx": 84, "cy": 84 },
 									{ "cx": 84, "cy": 105 }
-								], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [
+								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
 										"id": "V_String",
 										"params": ["20,44"]
@@ -4263,13 +4430,13 @@
 										"params": ["84,105"]
 									}
 								] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 2, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [2] }] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 2, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [2] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 1, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
-								{ "__identifier": "WaveDuration", "__value": 60, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [60] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 1, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 60, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [60] }] }
 							]
 						},
 						{
@@ -4284,13 +4451,13 @@
 							"height": 16,
 							"defUid": 116,
 							"px": [27,197],
-							"fieldInstances": [{ "__identifier": "Point", "__value": [
+							"fieldInstances": [{ "__identifier": "Point", "__type": "Array<Point>", "__value": [
 								{ "cx": 12, "cy": 88 },
 								{ "cx": 28, "cy": 86 },
 								{ "cx": 48, "cy": 90 },
 								{ "cx": 45, "cy": 98 },
 								{ "cx": 28, "cy": 96 }
-							], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [
+							], "__tile": null, "defUid": 118, "realEditorValues": [
 								{
 									"id": "V_String",
 									"params": ["12,88"]
@@ -4533,16 +4700,16 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__value": "../audio/music/spdim.xm", "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/spdim.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
 					"id": "V_String",
 					"params": ["../audio/music/spdim.xm"]
 				}] },
-				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
+				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
 				}] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow", "Magic" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
+				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow", "Magic" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
 				}, {
@@ -4678,7 +4845,7 @@
 							"defUid": 18,
 							"px": [3,89],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 44, "cy": 44 }, { "cx": 44, "cy": 68 }, { "cx": 68, "cy": 68 }, { "cx": 68, "cy": 103 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 44, "cy": 44 }, { "cx": 44, "cy": 68 }, { "cx": 68, "cy": 68 }, { "cx": 68, "cy": 103 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["44,44"]
 								}, {
@@ -4691,13 +4858,13 @@
 									"id": "V_String",
 									"params": ["68,103"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 3, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 3, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 30, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [30] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 30, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [30] }] }
 							]
 						},
 						{
@@ -4713,7 +4880,7 @@
 							"defUid": 18,
 							"px": [153,51],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 76, "cy": 43 }, { "cx": 83, "cy": 43 }, { "cx": 83, "cy": 52 }, { "cx": 127, "cy": 52 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 76, "cy": 43 }, { "cx": 83, "cy": 43 }, { "cx": 83, "cy": 52 }, { "cx": 127, "cy": 52 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["76,43"]
 								}, {
@@ -4726,13 +4893,13 @@
 									"id": "V_String",
 									"params": ["127,52"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 5, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [5] }] },
-								{ "__identifier": "EnemyType", "__value": "Tiger", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 5, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [5] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Tiger", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Tiger"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 15, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 15, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
 							]
 						},
 						{
@@ -4747,7 +4914,7 @@
 							"height": 16,
 							"defUid": 116,
 							"px": [197,191],
-							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 114, "cy": 91 }, { "cx": 114, "cy": 70 }, { "cx": 101, "cy": 66 }, { "cx": 91, "cy": 72 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+							"fieldInstances": [{ "__identifier": "Point", "__type": "Array<Point>", "__value": [ { "cx": 114, "cy": 91 }, { "cx": 114, "cy": 70 }, { "cx": 101, "cy": 66 }, { "cx": 91, "cy": 72 } ], "__tile": null, "defUid": 118, "realEditorValues": [ {
 								"id": "V_String",
 								"params": ["114,91"]
 							}, {
@@ -4773,13 +4940,13 @@
 							"height": 16,
 							"defUid": 116,
 							"px": [27,165],
-							"fieldInstances": [{ "__identifier": "Point", "__value": [
+							"fieldInstances": [{ "__identifier": "Point", "__type": "Array<Point>", "__value": [
 								{ "cx": 22, "cy": 76 },
 								{ "cx": 32, "cy": 77 },
 								{ "cx": 33, "cy": 89 },
 								{ "cx": 26, "cy": 99 },
 								{ "cx": 11, "cy": 98 }
-							], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [
+							], "__tile": null, "defUid": 118, "realEditorValues": [
 								{
 									"id": "V_String",
 									"params": ["22,76"]
@@ -5022,13 +5189,13 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__value": null, "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [] },
-				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": null, "__tile": null, "defUid": 119, "realEditorValues": [] },
+				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
 				}] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow", "Magic" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
+				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow", "Magic" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
 				}, {
@@ -5167,7 +5334,7 @@
 							"height": 16,
 							"defUid": 116,
 							"px": [227,61],
-							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 113, "cy": 101 }, { "cx": 97, "cy": 99 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+							"fieldInstances": [{ "__identifier": "Point", "__type": "Array<Point>", "__value": [ { "cx": 113, "cy": 101 }, { "cx": 97, "cy": 99 } ], "__tile": null, "defUid": 118, "realEditorValues": [ {
 								"id": "V_String",
 								"params": ["113,101"]
 							}, {
@@ -5188,7 +5355,7 @@
 							"defUid": 18,
 							"px": [105,47],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [
 									{ "cx": 52, "cy": 44 },
 									{ "cx": 77, "cy": 44 },
 									{ "cx": 74, "cy": 60 },
@@ -5198,7 +5365,7 @@
 									{ "cx": 75, "cy": 92 },
 									{ "cx": 51, "cy": 92 },
 									{ "cx": 51, "cy": 104 }
-								], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [
+								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
 										"id": "V_String",
 										"params": ["52,44"]
@@ -5236,13 +5403,13 @@
 										"params": ["51,104"]
 									}
 								] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 3, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
-								{ "__identifier": "EnemyType", "__value": "Tiger", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 3, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Tiger", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Tiger"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 10, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [10] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 10, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [10] }] }
 							]
 						},
 						{
@@ -5258,7 +5425,7 @@
 							"defUid": 18,
 							"px": [1,71],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 27, "cy": 35 }, { "cx": 27, "cy": 91 }, { "cx": 0, "cy": 92 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 27, "cy": 35 }, { "cx": 27, "cy": 91 }, { "cx": 0, "cy": 92 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["27,35"]
 								}, {
@@ -5268,13 +5435,13 @@
 									"id": "V_String",
 									"params": ["0,92"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1, "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 1, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 1, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
 							]
 						},
 						{
@@ -5290,7 +5457,7 @@
 							"defUid": 18,
 							"px": [7,71],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 27, "cy": 35 }, { "cx": 27, "cy": 91 }, { "cx": 0, "cy": 91 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 27, "cy": 35 }, { "cx": 27, "cy": 91 }, { "cx": 0, "cy": 91 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["27,35"]
 								}, {
@@ -5300,13 +5467,13 @@
 									"id": "V_String",
 									"params": ["0,91"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1, "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 1, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
-								{ "__identifier": "WaveDuration", "__value": 5, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 1, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 5, "__tile": null, "defUid": 38, "realEditorValues": [] }
 							]
 						}
 					]
@@ -5529,13 +5696,13 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__value": null, "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [] },
-				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": null, "__tile": null, "defUid": 119, "realEditorValues": [] },
+				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
 				}] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow", "Magic" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
+				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow", "Magic" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
 				}, {
@@ -5663,7 +5830,7 @@
 							"height": 16,
 							"defUid": 116,
 							"px": [25,199],
-							"fieldInstances": [{ "__identifier": "Point", "__value": [ { "cx": 29, "cy": 92 }, { "cx": 51, "cy": 97 }, { "cx": 34, "cy": 102 } ], "__type": "Array<Point>", "__tile": null, "defUid": 118, "realEditorValues": [ {
+							"fieldInstances": [{ "__identifier": "Point", "__type": "Array<Point>", "__value": [ { "cx": 29, "cy": 92 }, { "cx": 51, "cy": 97 }, { "cx": 34, "cy": 102 } ], "__tile": null, "defUid": 118, "realEditorValues": [ {
 								"id": "V_String",
 								"params": ["29,92"]
 							}, {
@@ -5687,7 +5854,7 @@
 							"defUid": 18,
 							"px": [215,49],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [
 									{ "cx": 107, "cy": 36 },
 									{ "cx": 19, "cy": 36 },
 									{ "cx": 20, "cy": 51 },
@@ -5697,7 +5864,7 @@
 									{ "cx": 20, "cy": 83 },
 									{ "cx": 108, "cy": 84 },
 									{ "cx": 108, "cy": 104 }
-								], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [
+								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
 										"id": "V_String",
 										"params": ["107,36"]
@@ -5735,13 +5902,13 @@
 										"params": ["108,104"]
 									}
 								] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 10, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [10] }] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 10, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [10] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 20, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [20] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 20, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [20] }] }
 							]
 						},
 						{
@@ -5757,7 +5924,7 @@
 							"defUid": 18,
 							"px": [217,55],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [
 									{ "cx": 106, "cy": 35 },
 									{ "cx": 20, "cy": 35 },
 									{ "cx": 19, "cy": 52 },
@@ -5767,7 +5934,7 @@
 									{ "cx": 21, "cy": 84 },
 									{ "cx": 108, "cy": 83 },
 									{ "cx": 108, "cy": 105 }
-								], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [
+								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
 										"id": "V_String",
 										"params": ["106,35"]
@@ -5805,13 +5972,13 @@
 										"params": ["108,105"]
 									}
 								] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 3, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 3, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 9, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [9] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 9, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [9] }] }
 							]
 						}
 					]
@@ -6034,13 +6201,13 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__value": null, "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [] },
-				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": null, "__tile": null, "defUid": 119, "realEditorValues": [] },
+				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
 				}] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow", "Magic", "Fire" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
+				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow", "Magic", "Fire" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
 				}, {
@@ -6178,7 +6345,7 @@
 							"defUid": 18,
 							"px": [3,121],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 59, "cy": 60 }, { "cx": 59, "cy": 67 }, { "cx": 125, "cy": 67 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 59, "cy": 60 }, { "cx": 59, "cy": 67 }, { "cx": 125, "cy": 67 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["59,60"]
 								}, {
@@ -6188,13 +6355,13 @@
 									"id": "V_String",
 									"params": ["125,67"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "EnemyType", "__value": "Tiger", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1, "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Tiger", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Tiger"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 5, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 5, "__tile": null, "defUid": 38, "realEditorValues": [] }
 							]
 						},
 						{
@@ -6210,7 +6377,7 @@
 							"defUid": 18,
 							"px": [57,51],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 28, "cy": 44 }, { "cx": 60, "cy": 44 }, { "cx": 60, "cy": 23 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 28, "cy": 44 }, { "cx": 60, "cy": 44 }, { "cx": 60, "cy": 23 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["28,44"]
 								}, {
@@ -6220,13 +6387,13 @@
 									"id": "V_String",
 									"params": ["60,23"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1, "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 1, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
-								{ "__identifier": "WaveDuration", "__value": 1, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 1, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 1, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
 							]
 						},
 						{
@@ -6242,7 +6409,7 @@
 							"defUid": 18,
 							"px": [119,207],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 59, "cy": 84 }, { "cx": 100, "cy": 84 }, { "cx": 100, "cy": 103 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 59, "cy": 84 }, { "cx": 100, "cy": 84 }, { "cx": 100, "cy": 103 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["59,84"]
 								}, {
@@ -6252,13 +6419,13 @@
 									"id": "V_String",
 									"params": ["100,103"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1, "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 1, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
-								{ "__identifier": "WaveDuration", "__value": 1, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 1, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 1, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
 							]
 						},
 						{
@@ -6274,7 +6441,7 @@
 							"defUid": 18,
 							"px": [9,121],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 58, "cy": 60 }, { "cx": 61, "cy": 68 }, { "cx": 125, "cy": 68 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 58, "cy": 60 }, { "cx": 61, "cy": 68 }, { "cx": 125, "cy": 68 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["58,60"]
 								}, {
@@ -6284,13 +6451,13 @@
 									"id": "V_String",
 									"params": ["125,68"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 3, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 3, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 1, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
-								{ "__identifier": "WaveDuration", "__value": 18, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [18] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 1, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 18, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [18] }] }
 							]
 						}
 					]
@@ -6513,13 +6680,13 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__value": null, "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [] },
-				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": null, "__tile": null, "defUid": 119, "realEditorValues": [] },
+				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
 				}] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow", "Magic", "Fire" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
+				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow", "Magic", "Fire" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
 				}, {
@@ -6653,20 +6820,20 @@
 							"defUid": 18,
 							"px": [1,103],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 28, "cy": 51 }, { "cx": 28, "cy": 24 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 28, "cy": 51 }, { "cx": 28, "cy": 24 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["28,51"]
 								}, {
 									"id": "V_String",
 									"params": ["28,24"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1, "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 1, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 1, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
 							]
 						},
 						{
@@ -6682,20 +6849,20 @@
 							"defUid": 18,
 							"px": [1,153],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 28, "cy": 76 }, { "cx": 28, "cy": 104 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 28, "cy": 76 }, { "cx": 28, "cy": 104 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["28,76"]
 								}, {
 									"id": "V_String",
 									"params": ["28,104"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1, "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 1, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 1, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
 							]
 						},
 						{
@@ -6711,20 +6878,20 @@
 							"defUid": 18,
 							"px": [199,49],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 99, "cy": 51 }, { "cx": 125, "cy": 51 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 99, "cy": 51 }, { "cx": 125, "cy": 51 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["99,51"]
 								}, {
 									"id": "V_String",
 									"params": ["125,51"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1, "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 1, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 1, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
 							]
 						},
 						{
@@ -6740,20 +6907,20 @@
 							"defUid": 18,
 							"px": [255,151],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 99, "cy": 76 }, { "cx": 99, "cy": 104 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 99, "cy": 76 }, { "cx": 99, "cy": 104 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["99,76"]
 								}, {
 									"id": "V_String",
 									"params": ["99,104"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1, "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 1, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 1, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [1] }] }
 							]
 						},
 						{
@@ -6769,17 +6936,17 @@
 							"defUid": 18,
 							"px": [87,49],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [{ "cx": 44, "cy": 104 }], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [{
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [{ "cx": 44, "cy": 104 }], "__tile": null, "defUid": 22, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["44,104"]
 								}] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 4, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [4] }] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 4, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [4] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 1, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
-								{ "__identifier": "WaveDuration", "__value": 16, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [16] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 1, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 16, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [16] }] }
 							]
 						},
 						{
@@ -6795,17 +6962,17 @@
 							"defUid": 18,
 							"px": [167,49],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [{ "cx": 83, "cy": 104 }], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [{
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [{ "cx": 83, "cy": 104 }], "__tile": null, "defUid": 22, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["83,104"]
 								}] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 5, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [5] }] },
-								{ "__identifier": "EnemyType", "__value": "Tiger", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 5, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [5] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Tiger", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Tiger"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 1, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
-								{ "__identifier": "WaveDuration", "__value": 15, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 1, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 15, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
 							]
 						}
 					]
@@ -7028,13 +7195,13 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__value": null, "__type": "FilePath", "__tile": null, "defUid": 119, "realEditorValues": [] },
-				{ "__identifier": "production", "__value": true, "__type": "Bool", "__tile": null, "defUid": 125, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": null, "__tile": null, "defUid": 119, "realEditorValues": [] },
+				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
 				}] },
-				{ "__identifier": "start_money", "__value": 50, "__type": "Int", "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__value": [ "Canon", "Arrow", "Magic", "Fire" ], "__type": "Array<LocalEnum.TowerType>", "__tile": null, "defUid": 133, "realEditorValues": [ {
+				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
+				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow", "Magic", "Fire" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
 				}, {
@@ -7164,7 +7331,7 @@
 							"defUid": 18,
 							"px": [39,51],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 19, "cy": 44 }, { "cx": 100, "cy": 44 }, { "cx": 100, "cy": 59 }, { "cx": 0, "cy": 59 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 19, "cy": 44 }, { "cx": 100, "cy": 44 }, { "cx": 100, "cy": 59 }, { "cx": 0, "cy": 59 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["19,44"]
 								}, {
@@ -7177,13 +7344,13 @@
 									"id": "V_String",
 									"params": ["0,59"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 2, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [2] }] },
-								{ "__identifier": "EnemyType", "__value": "Tiger", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 2, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [2] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Tiger", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Tiger"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 15, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 15, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
 							]
 						},
 						{
@@ -7199,17 +7366,17 @@
 							"defUid": 18,
 							"px": [231,51],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [{ "cx": 116, "cy": 104 }], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [{
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [{ "cx": 116, "cy": 104 }], "__tile": null, "defUid": 22, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["116,104"]
 								}] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 3, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 3, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 15, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 15, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
 							]
 						},
 						{
@@ -7225,7 +7392,7 @@
 							"defUid": 18,
 							"px": [1,153],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 52, "cy": 76 }, { "cx": 51, "cy": 84 }, { "cx": 100, "cy": 84 }, { "cx": 100, "cy": 104 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 52, "cy": 76 }, { "cx": 51, "cy": 84 }, { "cx": 100, "cy": 84 }, { "cx": 100, "cy": 104 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["52,76"]
 								}, {
@@ -7238,13 +7405,13 @@
 									"id": "V_String",
 									"params": ["100,104"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 6, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [6] }] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 6, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [6] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 15, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 15, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
 							]
 						},
 						{
@@ -7260,20 +7427,20 @@
 							"defUid": 18,
 							"px": [1,185],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 36, "cy": 92 }, { "cx": 36, "cy": 104 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 36, "cy": 92 }, { "cx": 36, "cy": 104 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["36,92"]
 								}, {
 									"id": "V_String",
 									"params": ["36,104"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 6, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [6] }] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 6, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [6] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 0, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__value": 15, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 15, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
 							]
 						},
 						{
@@ -7289,20 +7456,20 @@
 							"defUid": 18,
 							"px": [7,183],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 36, "cy": 92 }, { "cx": 36, "cy": 105 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 36, "cy": 92 }, { "cx": 36, "cy": 105 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["36,92"]
 								}, {
 									"id": "V_String",
 									"params": ["36,105"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 3, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 3, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 1, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
-								{ "__identifier": "WaveDuration", "__value": 6, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [6] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 1, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 6, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [6] }] }
 							]
 						},
 						{
@@ -7318,17 +7485,17 @@
 							"defUid": 18,
 							"px": [231,59],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [{ "cx": 115, "cy": 106 }], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [{
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [{ "cx": 115, "cy": 106 }], "__tile": null, "defUid": 22, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["115,106"]
 								}] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 2, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [2] }] },
-								{ "__identifier": "EnemyType", "__value": "Bear", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 2, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [2] }] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 1, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
-								{ "__identifier": "WaveDuration", "__value": 4, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [4] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 1, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 4, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [4] }] }
 							]
 						},
 						{
@@ -7344,7 +7511,7 @@
 							"defUid": 18,
 							"px": [45,53],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__value": [ { "cx": 19, "cy": 44 }, { "cx": 101, "cy": 44 }, { "cx": 100, "cy": 59 }, { "cx": 0, "cy": 59 } ], "__type": "Array<Point>", "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 19, "cy": 44 }, { "cx": 101, "cy": 44 }, { "cx": 100, "cy": 59 }, { "cx": 0, "cy": 59 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
 									"params": ["19,44"]
 								}, {
@@ -7357,13 +7524,13 @@
 									"id": "V_String",
 									"params": ["0,59"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__value": 1, "__type": "Float", "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "EnemyType", "__value": "Fox", "__type": "LocalEnum.EnemyType", "__tile": null, "defUid": 28, "realEditorValues": [{
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1, "__tile": null, "defUid": 26, "realEditorValues": [] },
+								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
-								{ "__identifier": "WaveNumber", "__value": 2, "__type": "Int", "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [2] }] },
-								{ "__identifier": "WaveDuration", "__value": 30, "__type": "Int", "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [30] }] }
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 2, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [2] }] },
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 30, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [30] }] }
 							]
 						}
 					]
@@ -7567,5 +7734,6 @@
 			"__neighbours": []
 		}
 	],
-	"worlds": []
+	"worlds": [],
+	"dummyWorldIid": "1274c840-c640-11ed-b217-995937c8e04d"
 }
