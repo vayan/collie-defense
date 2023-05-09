@@ -1499,9 +1499,9 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/viral_legacy.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/takeawalk.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
 					"id": "V_String",
-					"params": ["../audio/music/viral_legacy.xm"]
+					"params": ["../audio/music/takeawalk.xm"]
 				}] },
 				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [] },
 				{ "__identifier": "start_money", "__type": "Int", "__value": 20, "__tile": null, "defUid": 128, "realEditorValues": [{ "id": "V_Int", "params": [20] }] },
@@ -1758,7 +1758,7 @@
 									"params": ["Fox"]
 								}] },
 								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 10, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [10] }] }
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 15, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
 							]
 						}
 					]
@@ -1981,9 +1981,9 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/the_epic_chip.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/sexxy_bit_2.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
 					"id": "V_String",
-					"params": ["../audio/music/the_epic_chip.xm"]
+					"params": ["../audio/music/sexxy_bit_2.xm"]
 				}] },
 				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [] },
 				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
@@ -2163,7 +2163,7 @@
 									"params": ["Bear"]
 								}] },
 								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 8, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [8] }] }
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 12, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [12] }] }
 							]
 						},
 						{
@@ -2432,9 +2432,9 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/porn_industryy.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/stranger_run.mod", "__tile": null, "defUid": 119, "realEditorValues": [{
 					"id": "V_String",
-					"params": ["../audio/music/porn_industryy.xm"]
+					"params": ["../audio/music/stranger_run.mod"]
 				}] },
 				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [] },
 				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
@@ -2584,13 +2584,13 @@
 									"id": "V_String",
 									"params": ["52,103"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 3, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 4, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [4] }] },
 								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
 								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 10, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [10] }] }
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 12, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [12] }] }
 							]
 						},
 						{
@@ -2909,9 +2909,9 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/viral_legacy.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/rmz1postchaos.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
 					"id": "V_String",
-					"params": ["../audio/music/viral_legacy.xm"]
+					"params": ["../audio/music/rmz1postchaos.xm"]
 				}] },
 				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [] },
 				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
@@ -3092,7 +3092,7 @@
 										"params": ["51,104"]
 									}
 								] },
-								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 4, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [4] }] },
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 5, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [5] }] },
 								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
@@ -3157,7 +3157,7 @@
 										"params": ["67,105"]
 									}
 								] },
-								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 5, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [5] }] },
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 10, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [10] }] },
 								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
@@ -3500,9 +3500,9 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/the_epic_chip.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/necromancers_castle.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
 					"id": "V_String",
-					"params": ["../audio/music/the_epic_chip.xm"]
+					"params": ["../audio/music/necromancers_castle.xm"]
 				}] },
 				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [] },
 				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
@@ -3654,13 +3654,13 @@
 									"id": "V_String",
 									"params": ["84,24"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 2, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [2] }] },
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 10, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [10] }] },
 								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
 								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 5, "__tile": null, "defUid": 38, "realEditorValues": [] }
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 5, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [5] }] }
 							]
 						},
 						{
@@ -3686,13 +3686,13 @@
 									"id": "V_String",
 									"params": ["84,104"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 2, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [2] }] },
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 10, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [10] }] },
 								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Fox"]
 								}] },
 								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 5, "__tile": null, "defUid": 38, "realEditorValues": [] }
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 5, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [5] }] }
 							]
 						},
 						{
@@ -3751,7 +3751,7 @@
 										"params": ["99,24"]
 									}
 								] },
-								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 4, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [4] }] },
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 5, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [5] }] },
 								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
@@ -4085,9 +4085,9 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/porn_industryy.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/spc.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
 					"id": "V_String",
-					"params": ["../audio/music/porn_industryy.xm"]
+					"params": ["../audio/music/spc.xm"]
 				}] },
 				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
@@ -4326,7 +4326,7 @@
 									"params": ["Tiger"]
 								}] },
 								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
-								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 60, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [60] }] }
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 30, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [30] }] }
 							]
 						},
 						{
@@ -4436,7 +4436,7 @@
 									"params": ["Fox"]
 								}] },
 								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 1, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
-								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 60, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [60] }] }
+								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 30, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [30] }] }
 							]
 						},
 						{
@@ -4700,9 +4700,9 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/spdim.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/thcmd.it", "__tile": null, "defUid": 119, "realEditorValues": [{
 					"id": "V_String",
-					"params": ["../audio/music/spdim.xm"]
+					"params": ["../audio/music/thcmd.it"]
 				}] },
 				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
@@ -4858,7 +4858,7 @@
 									"id": "V_String",
 									"params": ["68,103"]
 								} ] },
-								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 3, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [3] }] },
+								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 4, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [4] }] },
 								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Bear", "__tile": null, "defUid": 28, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Bear"]
@@ -4898,7 +4898,7 @@
 									"id": "V_String",
 									"params": ["Tiger"]
 								}] },
-								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 0, "__tile": null, "defUid": 37, "realEditorValues": [] },
+								{ "__identifier": "WaveNumber", "__type": "Int", "__value": 1, "__tile": null, "defUid": 37, "realEditorValues": [{ "id": "V_Int", "params": [1] }] },
 								{ "__identifier": "WaveDuration", "__type": "Int", "__value": 15, "__tile": null, "defUid": 38, "realEditorValues": [{ "id": "V_Int", "params": [15] }] }
 							]
 						},
@@ -5189,7 +5189,10 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__type": "FilePath", "__value": null, "__tile": null, "defUid": 119, "realEditorValues": [] },
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/the_dim_dungeon.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["../audio/music/the_dim_dungeon.xm"]
+				}] },
 				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
@@ -5696,7 +5699,10 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__type": "FilePath", "__value": null, "__tile": null, "defUid": 119, "realEditorValues": [] },
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/sum.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["../audio/music/sum.xm"]
+				}] },
 				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
@@ -6201,7 +6207,10 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__type": "FilePath", "__value": null, "__tile": null, "defUid": 119, "realEditorValues": [] },
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/urbanxp.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["../audio/music/urbanxp.xm"]
+				}] },
 				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
@@ -6680,7 +6689,10 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__type": "FilePath", "__value": null, "__tile": null, "defUid": 119, "realEditorValues": [] },
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/the_radix_point.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["../audio/music/the_radix_point.xm"]
+				}] },
 				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
@@ -7195,7 +7207,10 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__type": "FilePath", "__value": null, "__tile": null, "defUid": 119, "realEditorValues": [] },
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/viral_legacy.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
+					"id": "V_String",
+					"params": ["../audio/music/viral_legacy.xm"]
+				}] },
 				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
 					"params": [ true ]
