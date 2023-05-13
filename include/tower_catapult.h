@@ -17,7 +17,8 @@
 #include "bn_sprite_animate_actions.h"
 #include "bn_sprite_builder.h"
 #include "bn_sprite_items_bullet_fire.h"
-#include "bn_sprite_items_tower_fire.h"
+#include "bn_sprite_items_tower_catapult.h"
+#include "bn_sprite_items_tower_catapult.h"
 #include "bn_sprite_ptr.h"
 #include "bn_unique_ptr.h"
 #include "bn_vector.h"
@@ -30,11 +31,11 @@
 
 namespace cd
 {
-    class TowerFire : public Tower
+    class TowerCatapult : public Tower
     {
     public:
-        TowerFire(bn::camera_ptr _camera, bn::fixed_point _position);
-        ~TowerFire();
+        TowerCatapult(bn::camera_ptr _camera, bn::fixed_point _position);
+        ~TowerCatapult();
 
         bn::fixed_rect get_hitbox();
         void set_animation_shoot_right();

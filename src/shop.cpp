@@ -35,8 +35,8 @@ Shop::Shop(bn::camera_ptr _camera, bn::vector<TowerType, 4> available_towers) : 
         case TowerType::Canon:
             elements.push_back(TowerBasic(camera, bn::fixed_point(65, -25)));
             break;
-        case TowerType::Fire:
-            elements.push_back(TowerFire(camera, bn::fixed_point(90, 25)));
+        case TowerType::Catapult:
+            elements.push_back(TowerCatapult(camera, bn::fixed_point(90, 25)));
             break;
         default:
             log("this type of tower cannot be added to store");

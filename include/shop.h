@@ -33,7 +33,7 @@
 #include "generated/world_config.h"
 #include "level.h"
 #include "text.h"
-#include "tower_fire.h"
+#include "tower_catapult.h"
 #include "utils.h"
 
 namespace cd

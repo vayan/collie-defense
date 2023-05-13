@@ -1335,7 +1335,7 @@
 			{ "id": "Canon", "tileRect": null, "tileId": -1, "color": 2300898, "__tileSrcRect": null },
 			{ "id": "Arrow", "tileRect": null, "tileId": -1, "color": 12783375, "__tileSrcRect": null },
 			{ "id": "Magic", "tileRect": null, "tileId": -1, "color": 2531088, "__tileSrcRect": null },
-			{ "id": "Fire", "tileRect": null, "tileId": -1, "color": 12470831, "__tileSrcRect": null }
+			{ "id": "Catapult", "tileRect": null, "tileId": -1, "color": 12470831, "__tileSrcRect": null }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] }
 	], "externalEnums": [], "levelFields": [
 		{
@@ -6216,7 +6216,7 @@
 					"params": [ true ]
 				}] },
 				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow", "Magic", "Fire" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
+				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow", "Magic", "Catapult" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
 				}, {
@@ -6227,7 +6227,7 @@
 					"params": ["Magic"]
 				}, {
 					"id": "V_String",
-					"params": ["Fire"]
+					"params": ["Catapult"]
 				} ] }
 			],
 			"layerInstances": [
@@ -6698,7 +6698,7 @@
 					"params": [ true ]
 				}] },
 				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow", "Magic", "Fire" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
+				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow", "Magic", "Catapult" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
 				}, {
@@ -6709,7 +6709,7 @@
 					"params": ["Magic"]
 				}, {
 					"id": "V_String",
-					"params": ["Fire"]
+					"params": ["Catapult"]
 				} ] }
 			],
 			"layerInstances": [
@@ -7216,7 +7216,7 @@
 					"params": [ true ]
 				}] },
 				{ "__identifier": "start_money", "__type": "Int", "__value": 50, "__tile": null, "defUid": 128, "realEditorValues": [] },
-				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow", "Magic", "Fire" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
+				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow", "Magic", "Catapult" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
 				}, {
@@ -7227,7 +7227,7 @@
 					"params": ["Magic"]
 				}, {
 					"id": "V_String",
-					"params": ["Fire"]
+					"params": ["Catapult"]
 				} ] }
 			],
 			"layerInstances": [

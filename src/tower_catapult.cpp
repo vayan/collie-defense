@@ -1,10 +1,10 @@
-#include "tower_fire.h"
+#include "tower_catapult.h"
 
 using namespace cd;
 
-TowerFire::TowerFire(bn::camera_ptr _camera, bn::fixed_point _position) : Tower(_camera, _position)
+TowerCatapult::TowerCatapult(bn::camera_ptr _camera, bn::fixed_point _position) : Tower(_camera, _position)
 {
-    sprite = bn::sprite_items::tower_fire.create_sprite(0, 0);
+    sprite = bn::sprite_items::tower_catapult.create_sprite(0, 0);
 
     sprite->set_camera(_camera);
     sprite->set_visible(true);
@@ -18,16 +18,16 @@ TowerFire::TowerFire(bn::camera_ptr _camera, bn::fixed_point _position) : Tower(
 
     bullet_sprite = bn::sprite_items::bullet_fire;
 
-    type = TowerType::Fire;
+    type = TowerType::Catapult;
 
     bullet_start_position_offset = bn::fixed_point(0, -18);
 }
 
-TowerFire::~TowerFire()
+TowerCatapult::~TowerCatapult()
 {
 }
 
-bn::fixed_rect TowerFire::get_hitbox()
+bn::fixed_rect TowerCatapult::get_hitbox()
 {
     return bn::fixed_rect(
         position.x(),
@@ -36,31 +36,31 @@ bn::fixed_rect TowerFire::get_hitbox()
         sprite->dimensions().height());
 }
 
-void TowerFire::set_animation_shoot_right()
+void TowerCatapult::set_animation_shoot_right()
 {
     set_animation_shoot_left();
 }
 
-void TowerFire::set_animation_shoot_left()
+void TowerCatapult::set_animation_shoot_left()
 {
     animation = bn::create_sprite_animate_action_once(
         sprite.value(),
         8,
-        bn::sprite_items::tower_fire.tiles_item(),
+        bn::sprite_items::tower_catapult.tiles_item(),
         0, 1, 2, 3, 4, 5, 6, 7);
 }
 
-void TowerFire::set_animation_shoot_up()
+void TowerCatapult::set_animation_shoot_up()
 {
     set_animation_shoot_left();
 }
 
-void TowerFire::set_animation_shoot_down()
+void TowerCatapult::set_animation_shoot_down()
 {
     set_animation_shoot_left();
 }
 
-void TowerFire::set_position(bn::fixed x, bn::fixed y)
+void TowerCatapult::set_position(bn::fixed x, bn::fixed y)
 {
     Tower::set_position(x, y);
 

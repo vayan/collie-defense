@@ -253,8 +253,8 @@ void Cursor::set_selection(TowerType type)
     case TowerType::Canon:
         current_selection = new TowerBasic(camera, position);
         break;
-    case TowerType::Fire:
-        current_selection = new TowerFire(camera, position);
+    case TowerType::Catapult:
+        current_selection = new TowerCatapult(camera, position);
         break;
     default:
         log("this type of tower cannot be created for now");
