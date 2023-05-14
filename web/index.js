@@ -2,6 +2,15 @@ function base36ToBase10(base36Num) {
     return parseInt(base36Num, 36);
 }
 
+function drawStroked(ctx, text, x, y) {
+    ctx.font = '14px monospace';
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 4;
+    ctx.strokeText(text, x, y);
+    ctx.fillStyle = 'white';
+    ctx.fillText(text, x, y);
+}
+
 async function process() {
     let image = new Image();
     image.src = "./levels.bmp";
@@ -12,13 +21,6 @@ async function process() {
 
     const context = canvas.getContext('2d');
     context.drawImage(image, 0, 0);
-
-    context.font = 'bold 24px Arial';
-    context.fillStyle = '#ffffff';
-
-    context.fillText('Hello, world!', 50, 50);
-
-    document.getElementById('levels').src = canvas.toDataURL();
 
     const urlParams = new URLSearchParams(window.location.search);
     const data = urlParams.get('data');
@@ -38,16 +40,59 @@ async function process() {
     const totalLevels = base36ToBase10(levelsData[0]);
     const progress = base36ToBase10(levelsData[1]);
 
-    console.log({
-        progress, totalLevels
-    })
+    drawStroked(context, "story progress: " + progress + "/" + totalLevels, 26, 14);
 
     let i = 0;
+    let y = 60;
     for (const pack of levelsScorePacks) {
         for (const score of "" + base36ToBase10(pack)) {
-            console.log(`level ${i} score -> ${score}`);
+            const x = (i % 2 == 0) ? 64 : 184;
+            y = (i % 2 == 1 || i < 2) ? y : y + 80;
+            console.log({ x, y });
+
+            let letter;
+            switch (+score) {
+                case 1:
+                    letter = "F";
+                    break;
+                case 2:
+                    letter = "D";
+                    break;
+                case 3:
+                    letter = "C";
+                    break;
+                case 4:
+                    letter = "B-";
+                    break;
+                case 5:
+                    letter = "B";
+                    break;
+                case 6:
+                    letter = "B+";
+                    break;
+                case 7:
+                    letter = "A-";
+                    break;
+                case 8:
+                    letter = "A";
+                    break;
+                case 9:
+                    letter = "A+";
+                    break;
+                case 10:
+                    letter = "A++";
+                    break;
+                default:
+                    letter = "-";
+                    break;
+            }
+
+            drawStroked(context, letter, x, y);
+
             i++;
         }
     }
+
+    document.getElementById('levels').src = canvas.toDataURL();
 }
 process();
