@@ -69,6 +69,31 @@ bool Cursor::can_build(Level *level)
     return false;
 }
 
+bool Cursor::long_key_press_logic(bn::keypad::key_type key)
+{
+    if (bn::keypad::pressed(key) || bn::keypad::held(key))
+    {
+        bn::fixed time_since_last_press = 0;
+
+        if (bn::keypad::held(key) && frame_elapse_since_last_press.first == key)
+        {
+            time_since_last_press = frame_elapse_since_last_press.second + 1;
+        }
+
+        frame_elapse_since_last_press = bn::pair(key, time_since_last_press);
+    }
+
+    if (bn::keypad::released(key))
+    {
+        frame_elapse_since_last_press = bn::pair(key, 0);
+    }
+
+    // when a long press happens, only start moving after a few frames (makes it easier to do a single press)
+    // and every other frame (to slow it down).
+    return frame_elapse_since_last_press.first == key &&
+           (frame_elapse_since_last_press.second > 20 && frame_elapse_since_last_press.second.integer() % 2 == 0);
+}
+
 void Cursor::on_tick(Game *game)
 {
     if (can_build(game->get_current_level()))
@@ -123,22 +148,22 @@ void Cursor::on_tick(Game *game)
             show_shop(game);
         }
 
-        if (bn::keypad::right_pressed())
+        if (bn::keypad::right_pressed() || long_key_press_logic(bn::keypad::key_type::RIGHT))
         {
             position.set_x(position.x() + 8);
         }
 
-        if (bn::keypad::left_pressed())
+        if (bn::keypad::left_pressed() || long_key_press_logic(bn::keypad::key_type::LEFT))
         {
             position.set_x(position.x() - 8);
         }
 
-        if (bn::keypad::down_pressed())
+        if (bn::keypad::down_pressed() || long_key_press_logic(bn::keypad::key_type::DOWN))
         {
             position.set_y(position.y() + 8);
         }
 
-        if (bn::keypad::up_pressed())
+        if (bn::keypad::up_pressed() || long_key_press_logic(bn::keypad::key_type::UP))
         {
             position.set_y(position.y() - 8);
         }

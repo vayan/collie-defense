@@ -27,6 +27,7 @@
 #include "bn_sprite_ptr.h"
 #include "bn_timer.h"
 #include "bn_unique_ptr.h"
+#include "bn_utility.h"
 #include "bn_vector.h"
 #include "generated/world_config.h"
 #include "level.h"
@@ -65,5 +66,7 @@ namespace cd
         bn::optional<bn::affine_bg_ptr> range;
         bn::optional<Tower *> current_selection;
         bn::optional<Shop> shop;
+        bn::pair<bn::keypad::key_type, bn::fixed> frame_elapse_since_last_press;
+        bool long_key_press_logic(bn::keypad::key_type key);
     };
 }
