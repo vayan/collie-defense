@@ -122,6 +122,23 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
         text_sprites.clear();
         break;
     }
+    case MenuScreen::Play:
+        log("start play menu");
+        game->get_camera().set_position(0, 0);
+        title_menu_select = bn::sprite_items::title_menu_select.create_sprite(0, 44);
+        collie_title = bn::sprite_items::collie_title.create_sprite(1, 14);
+        collie_title_anim = bn::create_sprite_animate_action_forever(
+            collie_title.value(),
+            8,
+            bn::sprite_items::collie_title.tiles_item(),
+            0, 1, 2, 3, 4, 5);
+        bg = bn::regular_bg_items::play_menu_background.create_bg(0, 0);
+        current_selection_index = 0;
+        menu_elements.clear();
+        menu_elements.emplace_back(MenuScreen::StoryItem, bn::fixed_point(0, 44));
+        menu_elements.emplace_back(MenuScreen::LevelSelect, bn::fixed_point(0, 57));
+        menu_elements.emplace_back(MenuScreen::Start, bn::fixed_point(0, 70));
+        break;
     default:
         log("start title screen");
         game->get_camera().set_position(0, 0);
@@ -133,6 +150,11 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
             bn::sprite_items::collie_title.tiles_item(),
             0, 1, 2, 3, 4, 5);
         bg = bn::regular_bg_items::launch_background.create_bg(0, 0);
+        current_selection_index = 0;
+        menu_elements.clear();
+        menu_elements.emplace_back(MenuScreen::Play, bn::fixed_point(0, 44));
+        menu_elements.emplace_back(MenuScreen::Share, bn::fixed_point(0, 57));
+        menu_elements.emplace_back(MenuScreen::Config, bn::fixed_point(0, 70));
         break;
     }
 
@@ -220,40 +242,103 @@ bool Menu::handle_start_menu(Game *game)
 
     if (bn::keypad::down_pressed())
     {
-        selected_menu_item = MenuScreen::LevelSelect;
-        title_menu_select->set_position(0, 57);
+        current_selection_index += 1;
         bn::sound_items::select.play();
     }
 
     if (bn::keypad::up_pressed())
     {
-        selected_menu_item = MenuScreen::Start;
-        title_menu_select->set_position(0, 44);
+        current_selection_index -= 1;
         bn::sound_items::select.play();
     }
 
-    if (bn::keypad::select_pressed())
+    if (current_selection_index < 0)
     {
-        switch_screen(MenuScreen::Share, game);
+        current_selection_index = menu_elements.size() - 1;
     }
+
+    if (current_selection_index >= menu_elements.size())
+    {
+        current_selection_index = 0;
+    }
+
+    title_menu_select->set_position(menu_elements.at(current_selection_index).second);
 
     if (bn::keypad::start_pressed() || bn::keypad::a_pressed())
     {
-        title_menu_select.reset();
+        switch (menu_elements.at(current_selection_index).first)
+        {
+        case MenuScreen::Play:
+            switch_screen(MenuScreen::Play, game);
+            break;
+        case MenuScreen::Share:
+            switch_screen(MenuScreen::Share, game);
+            break;
+        case MenuScreen::Config:
+            break;
+        default:
+            break;
+        }
+    }
 
-        if (selected_menu_item == MenuScreen::Start)
+    return true;
+}
+
+bool Menu::handle_play_menu(Game *game)
+{
+    if (collie_title_anim.has_value())
+    {
+        collie_title_anim->update();
+    }
+
+    if (bn::keypad::down_pressed())
+    {
+        current_selection_index += 1;
+        bn::sound_items::select.play();
+    }
+
+    if (bn::keypad::up_pressed())
+    {
+        current_selection_index -= 1;
+        bn::sound_items::select.play();
+    }
+
+    if (current_selection_index < 0)
+    {
+        current_selection_index = menu_elements.size() - 1;
+    }
+
+    if (current_selection_index >= menu_elements.size())
+    {
+        current_selection_index = 0;
+    }
+
+    title_menu_select->set_position(menu_elements.at(current_selection_index).second);
+
+    if (bn::keypad::start_pressed() || bn::keypad::a_pressed())
+    {
+        MenuScreen selectedMenu = menu_elements.at(current_selection_index).first;
+
+        if (selectedMenu == MenuScreen::StoryItem)
         {
             game->set_game_mode(GameMode::Story);
             save_data data = game->get_save()->get_data();
             selected_level = data.latest_story_level.integer();
             game->get_player()->set_money(data.story_money);
             game->get_player()->set_life(data.story_life);
-
             return false;
         }
-        if (selected_menu_item == MenuScreen::LevelSelect)
+
+        switch (selectedMenu)
         {
+        case MenuScreen::LevelSelect:
             switch_screen(MenuScreen::LevelSelect, game);
+            break;
+        case MenuScreen::Start:
+            switch_screen(MenuScreen::Start, game);
+            break;
+        default:
+            break;
         }
     }
 
@@ -392,6 +477,11 @@ bool Menu::on_tick(Game *game)
     if (current_screen == MenuScreen::GameOver)
     {
         return handle_gameover_menu(game);
+    }
+
+    if (current_screen == MenuScreen::Play)
+    {
+        return handle_play_menu(game);
     }
 
     if (current_screen == MenuScreen::Share)
