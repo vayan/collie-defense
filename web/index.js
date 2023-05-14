@@ -48,12 +48,11 @@ async function process() {
         for (const score of "" + base36ToBase10(pack)) {
             const x = (i % 2 == 0) ? 64 : 184;
             y = (i % 2 == 1 || i < 2) ? y : y + 80;
-            console.log({ x, y });
 
             let letter;
             switch (+score) {
                 case 1:
-                    letter = "F";
+                    letter = "-";
                     break;
                 case 2:
                     letter = "D";

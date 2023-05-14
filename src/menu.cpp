@@ -487,7 +487,7 @@ bool Menu::on_tick(Game *game)
     if (current_screen == MenuScreen::Share)
     {
 
-        if (bn::keypad::b_pressed())
+        if (bn::keypad::any_pressed())
         {
             switch_screen(MenuScreen::Start, game);
         }
