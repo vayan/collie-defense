@@ -14,6 +14,7 @@ Cursor::Cursor(bn::camera_ptr _camera) : camera(_camera)
     sprite->set_camera(_camera);
     sprite.value()
         .set_position(position);
+    sprite->set_z_order(-1300);
     hide();
 }
 

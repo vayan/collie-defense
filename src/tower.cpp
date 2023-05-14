@@ -174,6 +174,7 @@ void Tower::set_position(bn::fixed x, bn::fixed y)
     if (sprite.has_value())
     {
         sprite->set_position(position);
+        sprite->set_z_order((y * -1).integer());
     }
 }
 

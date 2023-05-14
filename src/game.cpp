@@ -79,6 +79,7 @@ MenuScreen Game::start_level_loop()
             cd::log("game over");
             player.value()->on_reset_store();
             current_level.value()->reset();
+            save->save_story_progress(0, fallback_money, 100);
 
             return MenuScreen::GameOver;
         }

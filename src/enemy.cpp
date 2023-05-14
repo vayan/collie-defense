@@ -23,7 +23,7 @@ Enemy::Enemy(
 
     life_bar->set_camera(camera);
     life_bar->set_visible(false);
-    life_bar->set_z_order(-5);
+    life_bar->set_z_order(-1000); // needs to be lower than the lowest towers's z order
     hit_sfx = bn::sound_items::hit;
     death_sfx = bn::sound_items::death;
 
@@ -70,6 +70,7 @@ void Enemy::on_tick(Game *game)
 
     life_bar->set_position(bn::fixed_point(position.x(), position.y() - 8));
     sprite->set_position(position);
+    sprite->set_z_order(1000); // needs to be higher than the highest towers's z order
 
     if (animation.has_value())
     {
