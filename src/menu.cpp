@@ -370,7 +370,7 @@ bn::string<10> Menu::human_readable_score(bn::fixed score)
     case 10:
         return "A++";
     default:
-        return "-";
+        return "";
     }
 }
 
@@ -426,8 +426,18 @@ bool Menu::handle_level_select_menu(Game *game)
 
     bn::fixed score = game->get_save()->get_data().score_per_level[selected_level.integer()];
 
-    bn::string<50>
-        text_score = bn::format<50>("RANK {}", human_readable_score(score));
+    bn::string<10> score_value = human_readable_score(score);
+
+    bn::string<50> text_score;
+
+    if (score_value.length() == 0)
+    {
+        text_score = bn::format<50>("NEW GAME");
+    }
+    else
+    {
+        text_score = bn::format<50>("RANK {}", score_value);
+    }
 
     text_sprites_level.clear();
     text_generator.value()

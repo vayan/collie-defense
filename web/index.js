@@ -51,9 +51,6 @@ async function process() {
 
             let letter;
             switch (+score) {
-                case 1:
-                    letter = "-";
-                    break;
                 case 2:
                     letter = "D";
                     break;
