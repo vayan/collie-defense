@@ -9,6 +9,8 @@ Game::Game(Menu *_menu) : menu(_menu)
     player = new Player(camera.value());
 
     log("game manager created!");
+
+    log("BN_CFG_SPRITES_MAX_SORT_LAYERS value is", BN_CFG_SPRITES_MAX_SORT_LAYERS);
 }
 
 Game::~Game()

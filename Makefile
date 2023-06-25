@@ -32,7 +32,7 @@ GRAPHICS    :=  graphics graphics/generated/levels graphics/fonts
 AUDIO       :=  audio/music audio/sfx
 ROMTITLE    :=  CollieDefense
 ROMCODE     :=  CDGBA
-USERFLAGS   :=
+USERFLAGS   := -DBN_CFG_AUDIO_MIXING_RATE=BN_AUDIO_MIXING_RATE_21_KHZ -DBN_CFG_SPRITES_MAX_SORT_LAYERS=1000
 USERLIBDIRS :=
 USERLIBS    :=
 USERBUILD   :=
@@ -43,11 +43,11 @@ ifndef TYPE
 endif
 
 ifeq ($(TYPE),RELEASE)
-	USERFLAGS := -O3 -DBN_CFG_LOG_ENABLED=false -DBN_CFG_AUDIO_MIXING_RATE=BN_AUDIO_MIXING_RATE_21_KHZ
+	USERFLAGS := -O3 -DBN_CFG_LOG_ENABLED=false $(USERFLAGS)
 endif
 
 ifeq ($(TYPE), DEBUG)
-	USERFLAGS := -DBN_CFG_LOG_ENABLED=true -Werror -O3 -DBN_CFG_AUDIO_MIXING_RATE=BN_AUDIO_MIXING_RATE_21_KHZ
+	USERFLAGS := -DBN_CFG_LOG_ENABLED=true -Werror -O3 $(USERFLAGS)
 endif
 
 RAW_GRAPHICS = $(wildcard graphics_raw/*.aseprite)

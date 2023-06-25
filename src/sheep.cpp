@@ -57,7 +57,11 @@ void Sheep::on_tick()
     }
 
     sprite->set_position(position);
-    sprite->set_z_order(((position.y() * -1) + 1).integer());
+
+    if (position.y().integer() % 8 == 0)
+    {
+        sprite->set_z_order(((position.y() * -1) + 1).integer());
+    }
 
     if (animation.has_value())
     {
