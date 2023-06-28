@@ -46,6 +46,7 @@ namespace cd
         void set_money(const bn::fixed amount);
         void on_reset_store();
         void activate();
+        void disable();
         void set_life(bn::fixed value);
         void clear_animations();
 

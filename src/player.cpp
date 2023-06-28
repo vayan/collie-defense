@@ -129,6 +129,12 @@ void Player::set_life(bn::fixed value)
     life = value;
 }
 
+void Player::disable()
+{
+    cursor->hide();
+    on_reset_store();
+}
+
 void Player::activate()
 {
     cursor->show();

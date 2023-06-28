@@ -93,26 +93,24 @@ MenuScreen Game::start_level_loop()
         }
         else if (current_level.value()->is_won() && get_game_mode() == GameMode::Story)
         {
+            cd::log("story level finished");
+            player.value()->disable();
             current_level_index += 1;
             save->save_story_progress(current_level_index, player.value()->get_money(), player.value()->get_life());
-
-            start_level(current_level_index);
+            return MenuScreen::LevelWin;
         }
         else if (current_level.value()->is_won() && get_game_mode() == GameMode::Single)
         {
-            cd::log("level finished");
-            bn::sound_items::win.play();
-            current_level.value()->reset();
-
+            cd::log("score level finished");
             // add a timer or keep life left for scoring?? mhhh
             save->save_level_score(
                 current_level_index,
                 player.value()->get_life().safe_division(10).round_integer());
 
-            player.value()->on_reset_store();
+            player.value()->disable();
             player.value()->reset();
 
-            return MenuScreen::LevelSelect;
+            return MenuScreen::LevelWin;
         }
     }
     player.value()->on_reset_store();
@@ -126,7 +124,7 @@ int Game::start_main_loop()
 
     while (true)
     {
-        player.value()->reset();
+        player.value()->disable();
         start_menu_screen_loop();
 
         current_level_index = menu->get_selected_level().integer();
@@ -157,6 +155,7 @@ void Game::toggle_pause()
 {
     if (is_paused)
     {
+        player.value()->activate();
         stop_pause();
 
         if (bn::music::paused() && bn::music::playing())
@@ -170,7 +169,7 @@ void Game::toggle_pause()
         {
             bn::music::pause();
         }
-        player.value()->on_reset_store();
+        player.value()->disable();
         is_paused = true;
         pause_bg = bn::regular_bg_items::pause.create_bg(0, 0);
         pause_bg->set_camera(camera);

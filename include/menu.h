@@ -20,6 +20,7 @@
 #include "bn_regular_bg_items_gamewin.h"
 #include "bn_regular_bg_items_launch_background.h"
 #include "bn_regular_bg_items_level_select.h"
+#include "bn_regular_bg_items_level_win_bg.h"
 #include "bn_regular_bg_items_play_menu_background.h"
 #include "bn_regular_bg_ptr.h"
 #include "bn_size.h"
@@ -59,6 +60,7 @@ namespace cd
         Play = 5,
         Config = 6,
         StoryItem = 7,
+        LevelWin = 8
     };
 
     class Game;

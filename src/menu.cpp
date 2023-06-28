@@ -139,6 +139,43 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
         menu_elements.emplace_back(MenuScreen::LevelSelect, bn::fixed_point(0, 57));
         menu_elements.emplace_back(MenuScreen::Start, bn::fixed_point(0, 70));
         break;
+    case MenuScreen::LevelWin:
+        log("start level win screen");
+        if (bn::music::playing())
+        {
+            bn::music::stop();
+        }
+        bn::sound_items::win.play();
+        bg = bn::regular_bg_items::level_win_bg.create_bg(0, 0);
+        bg->set_priority(1);
+        bg->set_blending_enabled(true);
+        game->get_camera().set_position(0, 0);
+        victory_banner_sprites.push_back(bn::sprite_items::victory_banner_left.create_sprite(-48, -30));
+        victory_banner_sprites.push_back(bn::sprite_items::victory_banner_middle.create_sprite(16, -30));
+        victory_banner_sprites.push_back(bn::sprite_items::victory_banner_right.create_sprite(80, -30));
+
+        victory_banner_sprites.at(0).set_bg_priority(0);
+        victory_banner_sprites.at(1).set_bg_priority(0);
+        victory_banner_sprites.at(2).set_bg_priority(0);
+
+        victory_banner_animations.push_back(bn::create_sprite_animate_action_forever(
+            victory_banner_sprites.at(0),
+            8,
+            bn::sprite_items::victory_banner_left.tiles_item(),
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+        victory_banner_animations.push_back(bn::create_sprite_animate_action_forever(
+            victory_banner_sprites.at(1),
+            8,
+            bn::sprite_items::victory_banner_middle.tiles_item(),
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+        victory_banner_animations.push_back(bn::create_sprite_animate_action_forever(
+            victory_banner_sprites.at(2),
+            8,
+            bn::sprite_items::victory_banner_right.tiles_item(),
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
+        break;
     default:
         log("start title screen");
         game->get_camera().set_position(0, 0);
@@ -514,6 +551,27 @@ bool Menu::on_tick(Game *game)
         dancing_animals_animation.at(2).update();
         dancing_animals_animation.at(3).update();
         dancing_animals_animation.at(4).update();
+    }
+
+    if (current_screen == MenuScreen::LevelWin)
+    {
+        victory_banner_animations.at(0).update();
+        victory_banner_animations.at(1).update();
+        victory_banner_animations.at(2).update();
+
+        if (bn::keypad::start_pressed() || bn::keypad::a_pressed())
+        {
+            if (game->get_game_mode() == GameMode::Single)
+            {
+                game->get_current_level()->reset();
+                switch_screen(MenuScreen::LevelSelect, game);
+            }
+            else
+            {
+                selected_level = game->get_current_level_index();
+                return false;
+            }
+        }
     }
 
     return true;
