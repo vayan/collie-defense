@@ -158,9 +158,18 @@ void Game::toggle_pause()
     if (is_paused)
     {
         stop_pause();
+
+        if (bn::music::paused() && bn::music::playing())
+        {
+            bn::music::resume();
+        }
     }
     else
     {
+        if (!bn::music::paused() && bn::music::playing())
+        {
+            bn::music::pause();
+        }
         player.value()->on_reset_store();
         is_paused = true;
         pause_bg = bn::regular_bg_items::pause.create_bg(0, 0);
