@@ -19,10 +19,9 @@ jobs:
 
       - name: Install Python # need manual install because we're in devkitpro/devkitarm container
         run: |
-          sudo pacman -Syu libxcrypt-compat
           echo deb http://deb.debian.org/debian stable main contrib non-free >> /etc/apt/sources.list
           sudo apt-get update
-          sudo apt-get install python-is-python3 python3 python3-pip -y
+          sudo apt-get install libxcrypt python-is-python3 python3 python3-pip -y
 
       - name: Checkout 'GValiente/butano'
         uses: actions/checkout@v3
