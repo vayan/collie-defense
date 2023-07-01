@@ -11,9 +11,7 @@ function drawStroked(ctx, text, x, y) {
     ctx.fillText(text, x, y);
 }
 
-async function process() {
-    let image = new Image();
-    image.src = "./levels.bmp";
+function process(image) {
 
     const canvas = document.createElement('canvas');
     canvas.width = image.width;
@@ -22,8 +20,8 @@ async function process() {
     const context = canvas.getContext('2d');
     context.drawImage(image, 0, 0);
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const data = urlParams.get('data');
+    const data = window.location.pathname.substring(1);
+
     if (!data) {
         window.location.href = "https://xvayan.itch.io/collie-defense";
         return;
@@ -88,7 +86,17 @@ async function process() {
             i++;
         }
     }
-
-    document.getElementById('levels').src = canvas.toDataURL();
+    image.src = canvas.toDataURL();
 }
-process();
+
+let image = document.getElementById('levels');
+image.addEventListener(
+    "load",
+    function () {
+        process(image);
+    },
+    { once: true }
+);
+
+let now = new Date();
+image.src = "./levels.bmp?ver=" + now.getTime()
