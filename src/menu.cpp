@@ -456,7 +456,17 @@ bool Menu::handle_level_select_menu(Game *game)
         selected_level = cd::number_of_levels - 1;
     }
 
-    game->get_camera().set_y(-186 + (81 * (selected_level.safe_division(2).floor_integer())));
+    if (selected_level >= cd::number_of_levels - 2)
+    {
+        game->get_camera().set_y(204);
+        select_highlight->set_y(-1);
+    }
+    else
+    {
+        game->get_camera().set_y(-186 + (81 * (selected_level.safe_division(2).floor_integer())));
+        select_highlight->set_y(-17);
+    }
+
     select_highlight->set_x(-55 + (115 * (selected_level.integer() % 2)));
 
     bn::string<50> text = bn::format<50>("STAGE {}", selected_level + 1);
