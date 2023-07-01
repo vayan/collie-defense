@@ -24,7 +24,7 @@
 TARGET      :=  $(notdir $(CURDIR))
 BUILD       :=  build
 LIBBUTANO   :=  $(LIBBUTANO)
-PYTHON      :=  python
+PYTHON      :=  python3
 SOURCES     :=  src lib/src
 INCLUDES    :=  include lib/include
 DATA        :=
