@@ -12,7 +12,7 @@ jobs:
   build:
     name: Build ROM File
     runs-on: ubuntu-latest
-    container: devkitpro/devkitarm
+    container: devkitpro/devkitarm:20230526
     steps:
       - name: Checkout 'vayan/collie-defense'
         uses: actions/checkout@v3
@@ -21,7 +21,7 @@ jobs:
         run: |
           echo deb http://deb.debian.org/debian stable main contrib non-free >> /etc/apt/sources.list
           sudo apt-get update
-          sudo apt-get install libxcrypt python-is-python3 python3 python3-pip -y
+          sudo apt-get install python-is-python3 python3 python3-pip -y
 
       - name: Checkout 'GValiente/butano'
         uses: actions/checkout@v3
