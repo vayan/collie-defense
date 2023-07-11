@@ -16,6 +16,7 @@
 #include "bn_regular_bg_item.h"
 #include "bn_regular_bg_items_all_levels.h"
 #include "bn_regular_bg_items_bg_qrcode.h"
+#include "bn_regular_bg_items_config_menu_background.h"
 #include "bn_regular_bg_items_gameover.h"
 #include "bn_regular_bg_items_gamewin.h"
 #include "bn_regular_bg_items_launch_background.h"
@@ -82,6 +83,8 @@ namespace cd
         bool handle_level_select_menu(Game *game);
         bool handle_gameover_menu(Game *game);
         bool handle_play_menu(Game *game);
+        bool handle_config_menu(Game *game);
+
         bn::string<10> human_readable_score(bn::fixed score);
         bn::optional<QRCode> qrcode;
 

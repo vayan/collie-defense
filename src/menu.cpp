@@ -139,6 +139,21 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
         menu_elements.emplace_back(MenuScreen::LevelSelect, bn::fixed_point(0, 57));
         menu_elements.emplace_back(MenuScreen::Start, bn::fixed_point(0, 70));
         break;
+    case MenuScreen::Config:
+        log("start config menu");
+        game->get_camera().set_position(0, 0);
+        title_menu_select = bn::sprite_items::title_menu_select.create_sprite(0, 44);
+        collie_title = bn::sprite_items::collie_title.create_sprite(1, 14);
+        collie_title_anim = bn::create_sprite_animate_action_forever(
+            collie_title.value(),
+            8,
+            bn::sprite_items::collie_title.tiles_item(),
+            0, 1, 2, 3, 4, 5);
+        bg = bn::regular_bg_items::config_menu_background.create_bg(0, 0);
+        current_selection_index = 0;
+        menu_elements.clear();
+        menu_elements.emplace_back(MenuScreen::Start, bn::fixed_point(0, 70));
+        break;
     case MenuScreen::LevelWin:
         log("start level win screen");
         if (bn::music::playing())
@@ -312,6 +327,55 @@ bool Menu::handle_start_menu(Game *game)
             switch_screen(MenuScreen::Share, game);
             break;
         case MenuScreen::Config:
+            switch_screen(MenuScreen::Config, game);
+            break;
+        default:
+            break;
+        }
+    }
+
+    return true;
+}
+
+bool Menu::handle_config_menu(Game *game)
+{
+    if (collie_title_anim.has_value())
+    {
+        collie_title_anim->update();
+    }
+
+    if (bn::keypad::down_pressed())
+    {
+        current_selection_index += 1;
+        bn::sound_items::select.play();
+    }
+
+    if (bn::keypad::up_pressed())
+    {
+        current_selection_index -= 1;
+        bn::sound_items::select.play();
+    }
+
+    if (current_selection_index < 0)
+    {
+        current_selection_index = menu_elements.size() - 1;
+    }
+
+    if (current_selection_index >= menu_elements.size())
+    {
+        current_selection_index = 0;
+    }
+
+    title_menu_select->set_position(menu_elements.at(current_selection_index).second);
+
+    if (bn::keypad::start_pressed() || bn::keypad::a_pressed())
+    {
+        MenuScreen selectedMenu = menu_elements.at(current_selection_index).first;
+
+        switch (selectedMenu)
+        {
+        case MenuScreen::Start:
+            switch_screen(MenuScreen::Start, game);
             break;
         default:
             break;
@@ -539,6 +603,11 @@ bool Menu::on_tick(Game *game)
     if (current_screen == MenuScreen::Play)
     {
         return handle_play_menu(game);
+    }
+
+    if (current_screen == MenuScreen::Config)
+    {
+        return handle_config_menu(game);
     }
 
     if (current_screen == MenuScreen::Share)
