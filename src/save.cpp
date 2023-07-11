@@ -62,6 +62,7 @@ void Save::reset()
 
 save_data Save::get_data()
 {
+    reset();
     return cart_save_data;
 }
 

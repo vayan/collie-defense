@@ -32,7 +32,7 @@ GRAPHICS    :=  graphics graphics/generated/levels graphics/fonts
 AUDIO       :=  audio/music audio/sfx
 ROMTITLE    :=  CollieDefense
 ROMCODE     :=  CDGBA
-USERFLAGS   := -DBN_CFG_AUDIO_MIXING_RATE=BN_AUDIO_MIXING_RATE_21_KHZ -DBN_CFG_SPRITES_MAX_SORT_LAYERS=1000
+USERFLAGS   :=  -DBN_CFG_SPRITES_MAX_SORT_LAYERS=1000
 USERLIBDIRS :=
 USERLIBS    :=
 USERBUILD   :=

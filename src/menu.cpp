@@ -204,9 +204,7 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
         bg = bn::regular_bg_items::launch_background.create_bg(0, 0);
         current_selection_index = 0;
         menu_elements.clear();
-        menu_elements.emplace_back(MenuScreen::Play, bn::fixed_point(0, 44));
-        menu_elements.emplace_back(MenuScreen::Share, bn::fixed_point(0, 57));
-        menu_elements.emplace_back(MenuScreen::Config, bn::fixed_point(0, 70));
+        menu_elements.emplace_back(MenuScreen::StoryItem, bn::fixed_point(0, 57));
         break;
     }
 
@@ -330,6 +328,12 @@ bool Menu::handle_start_menu(Game *game)
             switch_screen(MenuScreen::Config, game);
             break;
         default:
+            game->set_game_mode(GameMode::Story);
+            save_data data = game->get_save()->get_data();
+            selected_level = data.latest_story_level.integer();
+            game->get_player()->set_money(data.story_money);
+            game->get_player()->set_life(data.story_life);
+            return false;
             break;
         }
     }
