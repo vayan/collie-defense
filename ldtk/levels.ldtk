@@ -4141,7 +4141,7 @@
 					"id": "V_Bool",
 					"params": [ true ]
 				}] },
-				{ "__identifier": "start_money", "__type": "Int", "__value": 999, "__tile": null, "defUid": 128, "realEditorValues": [{ "id": "V_Int", "params": [999] }] },
+				{ "__identifier": "start_money", "__type": "Int", "__value": 60, "__tile": null, "defUid": 128, "realEditorValues": [{ "id": "V_Int", "params": [60] }] },
 				{ "__identifier": "available_towers", "__type": "Array<LocalEnum.TowerType>", "__value": [ "Canon", "Arrow" ], "__tile": null, "defUid": 133, "realEditorValues": [ {
 					"id": "V_String",
 					"params": ["Canon"]
