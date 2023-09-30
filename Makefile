@@ -37,6 +37,7 @@ USERLIBDIRS :=
 USERLIBS    :=
 USERBUILD   :=
 EXTTOOL     :=
+DEFAULTLIBS := stdlib string
 
 ifndef TYPE
 	TYPE := DEBUG
