@@ -15,14 +15,16 @@
 #include "bn_optional.h"
 #include "bn_regular_bg_item.h"
 #include "bn_regular_bg_items_all_levels.h"
-#include "bn_regular_bg_items_bg_qrcode.h"
-#include "bn_regular_bg_items_config_menu_background.h"
 #include "bn_regular_bg_items_gameover.h"
 #include "bn_regular_bg_items_gamewin.h"
-#include "bn_regular_bg_items_launch_background.h"
 #include "bn_regular_bg_items_level_select.h"
 #include "bn_regular_bg_items_level_win_bg.h"
-#include "bn_regular_bg_items_play_menu_background.h"
+#include "bn_regular_bg_items_menu_config.h"
+#include "bn_regular_bg_items_menu_playmode.h"
+#include "bn_regular_bg_items_menu_qrcode.h"
+#include "bn_regular_bg_items_menu_select_item_highlight.h"
+#include "bn_regular_bg_items_menu_title.h"
+#include "bn_regular_bg_items_menu_title_screen.h"
 #include "bn_regular_bg_ptr.h"
 #include "bn_size.h"
 #include "bn_sound_items.h"
@@ -33,8 +35,8 @@
 #include "bn_sprite_items_dancing_sheep_1.h"
 #include "bn_sprite_items_dancing_sheep_2.h"
 #include "bn_sprite_items_dancing_sheep_3.h"
+#include "bn_sprite_items_dog.h"
 #include "bn_sprite_items_player_life.h"
-#include "bn_sprite_items_title_menu_select.h"
 #include "bn_sprite_items_victory_banner_left.h"
 #include "bn_sprite_items_victory_banner_middle.h"
 #include "bn_sprite_items_victory_banner_right.h"
@@ -61,7 +63,8 @@ namespace cd
         Play = 5,
         Config = 6,
         StoryItem = 7,
-        LevelWin = 8
+        LevelWin = 8,
+        Title = 9
     };
 
     class Game;
@@ -89,7 +92,7 @@ namespace cd
         bn::optional<QRCode> qrcode;
 
         bn::optional<bn::regular_bg_ptr> select_highlight;
-        bn::optional<bn::sprite_ptr>
+        bn::optional<bn::regular_bg_ptr>
             title_menu_select;
         bn::optional<bn::sprite_ptr> collie_title;
         bn::optional<bn::sprite_animate_action<6>>
@@ -102,7 +105,7 @@ namespace cd
 
         bn::fixed selected_level = 0;
         MenuScreen selected_menu_item = MenuScreen::Start;
-        MenuScreen current_screen = MenuScreen::Start;
+        MenuScreen current_screen = MenuScreen::Title;
         bn::optional<bn::sprite_text_generator> text_generator;
         bn::vector<bn::sprite_ptr, 32> text_sprites;
         bn::vector<bn::sprite_ptr, 32> text_sprites_level;

@@ -51,7 +51,9 @@ ifeq ($(TYPE), DEBUG)
 	USERFLAGS := -DBN_CFG_LOG_ENABLED=true -Werror -O3 $(USERFLAGS)
 endif
 
-RAW_GRAPHICS = $(wildcard graphics_raw/*.aseprite)
+RAW_GRAPHICS_BG = $(wildcard graphics_raw/bg/*.aseprite)
+RAW_GRAPHICS_SPRITE = $(wildcard graphics_raw/sprite/*.aseprite)
+
 ALL_SFX = $(wildcard audio/sfx/*.wav)
 
 
@@ -74,7 +76,7 @@ endif
 levels:
 	poetry run python ./tools/generate-level.py $(TYPE)
 
-graphics: $(RAW_GRAPHICS)
+graphics: $(RAW_GRAPHICS_BG) $(RAW_GRAPHICS_SPRITE)
 
 cl:
 	@echo cleaning generated assets
@@ -82,8 +84,13 @@ cl:
 	@rm -f graphics/*.bmp
 
 .PHONY: force
-$(RAW_GRAPHICS): force
+$(RAW_GRAPHICS_SPRITE): force
 	aseprite --split-layers --batch $@ --color-mode indexed --sheet graphics/$(@F:.aseprite=.bmp) --sheet-type vertical
+
+.PHONY: force
+$(RAW_GRAPHICS_BG): force
+	aseprite --batch $@ --color-mode indexed --sheet graphics/$(@F:.aseprite=.bmp)
+
 
 $(ALL_SFX): force
 	mv $@ $@.old.wav

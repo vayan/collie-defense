@@ -19,7 +19,7 @@ void Menu::clear()
 {
     bg.reset();
     select_highlight.reset();
-    current_screen = Start;
+    current_screen = Title;
     title_menu_select.reset();
     text_sprites_level.clear();
     text_sprites.clear();
@@ -30,6 +30,7 @@ void Menu::clear()
     victory_banner_animations.clear();
     dancing_animals.clear();
     dancing_animals_animation.clear();
+    menu_elements.clear();
 }
 
 void Menu::switch_screen(MenuScreen screen, Game *game)
@@ -114,7 +115,7 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
     case MenuScreen::Share:
     {
         log("start sharing menu");
-        bg = bn::regular_bg_items::bg_qrcode.create_bg(0, 0);
+        bg = bn::regular_bg_items::menu_qrcode.create_bg(0, 0);
         text_generator.value()
             .generate(bn::fixed_point(-70, 0), "loading...", text_sprites);
         bn::core::update(); // trigger a refresh for the background to show first. the QRcode takes a while to load
@@ -125,34 +126,20 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
     case MenuScreen::Play:
         log("start play menu");
         game->get_camera().set_position(0, 0);
-        title_menu_select = bn::sprite_items::title_menu_select.create_sprite(0, 44);
-        collie_title = bn::sprite_items::collie_title.create_sprite(1, 14);
-        collie_title_anim = bn::create_sprite_animate_action_forever(
-            collie_title.value(),
-            8,
-            bn::sprite_items::collie_title.tiles_item(),
-            0, 1, 2, 3, 4, 5);
-        bg = bn::regular_bg_items::play_menu_background.create_bg(0, 0);
+        title_menu_select = bn::regular_bg_items::menu_select_item_highlight.create_bg(0, 0);
+        bg = bn::regular_bg_items::menu_playmode.create_bg(0, 0);
         current_selection_index = 0;
-        menu_elements.clear();
-        menu_elements.emplace_back(MenuScreen::StoryItem, bn::fixed_point(0, 44));
-        menu_elements.emplace_back(MenuScreen::LevelSelect, bn::fixed_point(0, 57));
-        menu_elements.emplace_back(MenuScreen::Start, bn::fixed_point(0, 70));
+        menu_elements.emplace_back(MenuScreen::StoryItem, bn::fixed_point(0, 0));
+        menu_elements.emplace_back(MenuScreen::LevelSelect, bn::fixed_point(0, 24));
+        menu_elements.emplace_back(MenuScreen::Start, bn::fixed_point(0, 49));
         break;
     case MenuScreen::Config:
         log("start config menu");
         game->get_camera().set_position(0, 0);
-        title_menu_select = bn::sprite_items::title_menu_select.create_sprite(0, 44);
-        collie_title = bn::sprite_items::collie_title.create_sprite(1, 14);
-        collie_title_anim = bn::create_sprite_animate_action_forever(
-            collie_title.value(),
-            8,
-            bn::sprite_items::collie_title.tiles_item(),
-            0, 1, 2, 3, 4, 5);
-        bg = bn::regular_bg_items::config_menu_background.create_bg(0, 0);
+        title_menu_select = bn::regular_bg_items::menu_select_item_highlight.create_bg(0, 0);
+        bg = bn::regular_bg_items::menu_config.create_bg(0, 0);
         current_selection_index = 0;
-        menu_elements.clear();
-        menu_elements.emplace_back(MenuScreen::Start, bn::fixed_point(0, 70));
+        menu_elements.emplace_back(MenuScreen::Start, bn::fixed_point(0, 49));
         break;
     case MenuScreen::LevelWin:
         log("start level win screen");
@@ -191,23 +178,38 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
             bn::sprite_items::victory_banner_right.tiles_item(),
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
         break;
-    default:
-        log("start title screen");
+    case MenuScreen::Start:
+        log("start screen");
         game->get_camera().set_position(0, 0);
-        title_menu_select = bn::sprite_items::title_menu_select.create_sprite(0, 44);
+        title_menu_select = bn::regular_bg_items::menu_select_item_highlight.create_bg(0, 0);
+        bg = bn::regular_bg_items::menu_title.create_bg(0, 0);
+        current_selection_index = 0;
+        menu_elements.emplace_back(MenuScreen::Play, bn::fixed_point(0, 0));
+        menu_elements.emplace_back(MenuScreen::Share, bn::fixed_point(0, 24));
+        menu_elements.emplace_back(MenuScreen::Config, bn::fixed_point(0, 49));
+        break;
+    default:
+        log("start tilte screen");
+        game->get_camera().set_position(0, 0);
         collie_title = bn::sprite_items::collie_title.create_sprite(1, 14);
         collie_title_anim = bn::create_sprite_animate_action_forever(
             collie_title.value(),
             8,
             bn::sprite_items::collie_title.tiles_item(),
             0, 1, 2, 3, 4, 5);
-        bg = bn::regular_bg_items::launch_background.create_bg(0, 0);
+        collie_title->set_bg_priority(1);
+        bg = bn::regular_bg_items::menu_title_screen.create_bg(0, 0);
         current_selection_index = 0;
-        menu_elements.clear();
-        menu_elements.emplace_back(MenuScreen::Play, bn::fixed_point(0, 44));
-        menu_elements.emplace_back(MenuScreen::Share, bn::fixed_point(0, 57));
-        menu_elements.emplace_back(MenuScreen::Config, bn::fixed_point(0, 70));
         break;
+    }
+
+    if (bg.has_value())
+    {
+        bg->set_priority(2);
+    }
+    if (title_menu_select.has_value())
+    {
+        title_menu_select->set_priority(1);
     }
 
     current_screen = screen;
@@ -287,11 +289,6 @@ bn::fixed Menu::get_selected_level()
 
 bool Menu::handle_start_menu(Game *game)
 {
-    if (collie_title_anim.has_value())
-    {
-        collie_title_anim->update();
-    }
-
     if (bn::keypad::down_pressed())
     {
         current_selection_index += 1;
@@ -584,6 +581,20 @@ bool Menu::on_tick(Game *game)
     }
 
     bg->set_camera(game->get_camera());
+
+    if (current_screen == MenuScreen::Title)
+    {
+        if (collie_title_anim.has_value())
+        {
+            collie_title_anim->update();
+        }
+
+        if (bn::keypad::start_pressed() || bn::keypad::a_pressed())
+        {
+            bn::core::update();
+            switch_screen(MenuScreen::Start, game);
+        }
+    }
 
     if (current_screen == MenuScreen::Start)
     {
