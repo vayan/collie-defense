@@ -49,13 +49,16 @@ namespace cd
         void disable();
         void set_life(bn::fixed value);
         void clear_animations();
+        void reset_to_checkpoint();
 
     private:
         bn::camera_ptr camera;
         bn::optional<Cursor>
             cursor;
         bn::fixed life = 100;
+        bn::fixed checkpoint_life = 100;
         bn::fixed money = fallback_money;
+        bn::fixed checkpoint_money = fallback_money;
         bn::optional<bn::rumble_toggle_action> rumble;
         bn::vector<bn::camera_move_to_action, 3> camera_actions;
     };

@@ -22,11 +22,7 @@ void Game::start_level(int level_index)
         return;
     }
 
-    if (current_level.has_value())
-    {
-        delete current_level.value();
-        current_level.reset();
-    }
+    reset_current_level();
 
     player.value()->on_reset_store();
 
@@ -57,13 +53,62 @@ MenuScreen Game::start_level_loop()
             toggle_pause();
         }
 
-        if (bn::keypad::select_pressed() && is_paused)
+        if (is_paused)
         {
-            log("restart the game");
-            stop_pause();
-            player.value()->on_reset_store();
-            current_level.value()->reset();
-            return MenuScreen::Start;
+            if (bn::keypad::down_pressed())
+            {
+                current_selection_index += 1;
+                bn::sound_items::select.play();
+            }
+
+            if (bn::keypad::up_pressed())
+            {
+                current_selection_index -= 1;
+                bn::sound_items::select.play();
+            }
+
+            if (current_selection_index < 0)
+            {
+                current_selection_index = menu_elements.size() - 1;
+            }
+
+            if (current_selection_index >= menu_elements.size())
+            {
+                current_selection_index = 0;
+            }
+
+            menu_select->set_position(menu_elements.at(current_selection_index).second);
+
+            if (bn::keypad::a_pressed())
+            {
+                switch (menu_elements.at(current_selection_index).first)
+                {
+                case MenuScreen::Cancel:
+                    log("continue the level");
+                    toggle_pause();
+                    break;
+                case MenuScreen::Restart:
+                    log("restart the level");
+                    pause_bg.reset();
+                    menu_select.reset();
+                    current_selection_index = 0;
+                    menu_elements.clear();
+                    player.value()->reset_to_checkpoint();
+                    stop_pause();
+                    return MenuScreen::Restart;
+                case MenuScreen::Play:
+                    log("restart the game");
+                    pause_bg.reset();
+                    menu_select.reset();
+                    current_selection_index = 0;
+                    menu_elements.clear();
+                    stop_pause();
+                    player.value()->on_reset_store();
+                    return MenuScreen::Play;
+                default:
+                    break;
+                }
+            }
         }
 
         if (!is_paused)
@@ -93,6 +138,8 @@ MenuScreen Game::start_level_loop()
         {
             cd::log("story level finished");
             player.value()->disable();
+            player.value()->set_life(player.value()->get_life());
+            player.value()->set_money(player.value()->get_money());
             current_level_index += 1;
             save->save_story_progress(current_level_index, player.value()->get_money(), player.value()->get_life());
             return MenuScreen::LevelWin;
@@ -116,19 +163,30 @@ MenuScreen Game::start_level_loop()
     return MenuScreen::Start;
 }
 
+void Game::reset_current_level()
+{
+    if (current_level.has_value())
+    {
+        delete current_level.value();
+        current_level.reset();
+    }
+}
+
 int Game::start_main_loop()
 {
     log("starting main loop");
 
     while (true)
     {
+        display_memory_left();
         player.value()->disable();
         start_menu_screen_loop();
-
+        display_memory_left();
         current_level_index = menu->get_selected_level().integer();
 
         bn::core::update();
         MenuScreen transition_to = start_level_loop();
+        display_memory_left();
         menu->set_current_screen(transition_to);
         bn::core::update();
     }
@@ -155,6 +213,10 @@ void Game::toggle_pause()
     {
         player.value()->activate();
         stop_pause();
+        current_level.value()->get_hud()->set_state(true);
+        menu_select.reset();
+        current_selection_index = 0;
+        menu_elements.clear();
 
         if (bn::music::paused() && bn::music::playing())
         {
@@ -173,7 +235,13 @@ void Game::toggle_pause()
         pause_bg->set_camera(camera);
         pause_bg->set_visible(true);
         pause_bg->set_priority(1);
-        pause_bg->set_blending_enabled(true);
+        current_level.value()->get_hud()->set_state(false);
+        menu_select = bn::regular_bg_items::menu_select_item_highlight.create_bg(0, -20);
+        menu_select->set_priority(1);
+        current_selection_index = 0;
+        menu_elements.emplace_back(MenuScreen::Cancel, bn::fixed_point(2, -20));
+        menu_elements.emplace_back(MenuScreen::Restart, bn::fixed_point(2, 4));
+        menu_elements.emplace_back(MenuScreen::Play, bn::fixed_point(2, 29));
         bn::core::update();
     }
 }

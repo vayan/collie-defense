@@ -25,13 +25,20 @@ HUD::~HUD()
     text_sprites.clear();
 }
 
-void HUD::on_tick(Game *game)
+void HUD::set_state(bool activate)
 {
-    if (bn::keypad::start_pressed())
+
+    if (activate == false)
     {
-        paused = !paused;
+        player_life_sprite->set_visible(false);
+        return;
     }
 
+    player_life_sprite->set_visible(true);
+}
+
+void HUD::on_tick(Game *game)
+{
     int life_sprite_index = game->get_player()->get_life().safe_division(10).ceil_integer() - 1;
     if (life_sprite_index < 0)
     {
@@ -40,9 +47,4 @@ void HUD::on_tick(Game *game)
 
     player_life_sprite.value()
         .set_item(bn::sprite_items::player_life, life_sprite_index);
-}
-
-bool HUD::is_paused()
-{
-    return paused;
 }

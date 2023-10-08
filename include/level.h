@@ -66,6 +66,7 @@ namespace cd
         const bn::fixed get_start_money();
         Level *copy() const;
         bn::vector<TowerType, 4> get_available_towers();
+        HUD *get_hud();
 
     private:
         GridTileType

@@ -57,6 +57,7 @@ namespace cd
         GameMode get_game_mode();
         void set_game_mode(GameMode mode);
         Save *get_save();
+        void reset_current_level();
 
     private:
         void stop_pause();
@@ -69,6 +70,9 @@ namespace cd
         Menu *menu;
         Save *save;
         GameMode game_mode = GameMode::Story;
+        bn::optional<bn::regular_bg_ptr> menu_select;
+        int current_selection_index = 0;
+        bn::vector<bn::pair<MenuScreen, bn::fixed_point>, 3> menu_elements;
     };
 
 }

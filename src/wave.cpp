@@ -39,6 +39,7 @@ namespace cd
         {
             delete enemy;
         }
+        enemies.clear();
         log("wave deleted", id);
     }
 

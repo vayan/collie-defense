@@ -284,3 +284,8 @@ bn::fixed Level::get_number_of_waves()
 {
     return number_of_waves;
 }
+
+HUD *Level::get_hud()
+{
+    return hud.value();
+}

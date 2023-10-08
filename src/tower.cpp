@@ -37,6 +37,7 @@ Tower::~Tower()
     {
         delete bullet;
     }
+    bullets.clear();
     log("tower deleted");
 }
 

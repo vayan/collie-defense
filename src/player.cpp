@@ -103,8 +103,16 @@ void Player::reset()
 {
     life = 100;
     money = fallback_money;
+    checkpoint_money = fallback_money;
     cursor->hide();
     clear_animations();
+}
+
+void Player::reset_to_checkpoint()
+{
+    log("reset player to checkpoint values");
+    money = checkpoint_money;
+    life = checkpoint_life;
 }
 
 void Player::spend_money(bn::fixed cost)
@@ -122,11 +130,13 @@ void Player::spend_money(bn::fixed cost)
 void Player::set_money(const bn::fixed amount)
 {
     money = amount;
+    checkpoint_money = amount;
 }
 
 void Player::set_life(bn::fixed value)
 {
     life = value;
+    checkpoint_life = value;
 }
 
 void Player::disable()

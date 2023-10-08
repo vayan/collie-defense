@@ -33,15 +33,12 @@ namespace cd
         ~HUD();
 
         void on_tick(Game *game);
-
-        bool is_paused();
+        void set_state(bool activate);
 
     private:
         bn::optional<bn::sprite_ptr>
             player_life_sprite;
         bn::optional<bn::sprite_text_generator> text_generator;
         bn::vector<bn::sprite_ptr, 32> text_sprites;
-
-        bool paused = false;
     };
 }

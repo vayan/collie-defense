@@ -64,7 +64,9 @@ namespace cd
         Config = 6,
         StoryItem = 7,
         LevelWin = 8,
-        Title = 9
+        Title = 9,
+        Restart = 10,
+        Cancel = 11
     };
 
     class Game;
