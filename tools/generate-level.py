@@ -1,6 +1,4 @@
-from cgitb import enable
 import json
-import numpy
 import os
 import sys
 from PIL import Image
@@ -86,7 +84,7 @@ def generate_world_file(_grid_tiles_values, _entities_tiles_values, _levels, _en
     }};
     """
 
-    intgrid_map_filename = f"./include/generated/world_config.h"
+    intgrid_map_filename = "./include/generated/world_config.h"
     os.makedirs(os.path.dirname(intgrid_map_filename), exist_ok=True)
     with open(intgrid_map_filename, "w") as intgridkey_file:
         intgridkey_file.write(
@@ -116,7 +114,7 @@ def parse_levels(_levels):
             if field.identifier == "production":
                 is_for_production = field.value
 
-            if field.identifier == "music" and field.value != None:
+            if field.identifier == "music" and field.value is not None:
                 music, _ = os.path.splitext(os.path.basename(field.value))
 
             if field.identifier == "start_money":
@@ -183,7 +181,7 @@ def parse_levels(_levels):
 def generate_level_intgrid_file(_levels):
     intgrid_string = []
     headers = ""
-    intgridfilename = f"./include/generated/levels_intgrid.h"
+    intgridfilename = "./include/generated/levels_intgrid.h"
     os.makedirs(os.path.dirname(intgridfilename), exist_ok=True)
 
     for _level in _levels:
@@ -229,7 +227,7 @@ def convert_palette(img):
             new_mapping[0],
         )
 
-    except:
+    except Exception:
         # .index() will raise an error if there's no black in the palette
         print("no transparent color in this level")
         os.exit(1)
@@ -285,9 +283,9 @@ def import_level_png(_levels):
         json_filename = f"./graphics/generated/levels/levels_{zfill_id}.json"
         with open(json_filename, "w") as json_file:
             json_file.write(
-                f"""{{
+                """{
   "type": "regular_bg"
-}}"""
+}"""
             )
 
     merged_image = merged_image.convert(
@@ -296,12 +294,12 @@ def import_level_png(_levels):
     merged_image = convert_palette(merged_image)
     merged_image.save("./graphics/generated/levels/all_levels.bmp")
     merged_image.save("./web/levels.bmp")
-    json_filename = f"./graphics/generated/levels/all_levels.json"
+    json_filename = "./graphics/generated/levels/all_levels.json"
     with open(json_filename, "w") as json_file:
         json_file.write(
-            f"""{{
+            """{
                 "type": "regular_bg"
-            }}"""
+            }"""
         )
 
     print("Done!\n")

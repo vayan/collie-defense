@@ -5,11 +5,12 @@ description = ""
 authors = ["Yann Vaillant <yann@vaillant.im>"]
 
 [tool.poetry.dependencies]
-python = ">= 3.7"
+python = ">= 3.10"
 Pillow = "*"
 numpy = "*"
 ldtkpy = "*"
 black = "*"
+ruff = "*"
 
 [tool.poetry.dev-dependencies]
 
