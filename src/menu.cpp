@@ -40,6 +40,7 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
     {
     case MenuScreen::GameOver:
         log("start game over screen");
+        // play_music(bn::music_items::take_my_love, 0.2); // this music crash the game TODO replace it
         game->get_camera().set_position(0, 0);
         bg = bn::regular_bg_items::gameover.create_bg(0, 0);
         break;
@@ -732,7 +733,7 @@ void Menu::set_current_screen(MenuScreen screen)
 
 void Menu::try_play_menu_music()
 {
-    if (!bn::music::playing() || bn::music::paused())
+    if (!bn::music::playing_item().has_value() || bn::music::playing_item().value() != bn::music_items::takeawalk)
     {
         play_music(bn::music_items::takeawalk, 0.2);
     }
