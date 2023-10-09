@@ -21,6 +21,28 @@ void Save::save_story_progress(int level_index, bn::fixed money, bn::fixed life)
     write();
 }
 
+void Save::toggle_music()
+{
+    read();
+    cart_save_data.music_off = !cart_save_data.music_off;
+    write();
+    if (cart_save_data.music_off && bn::music::playing() && !bn::music::paused())
+    {
+        bn::music::pause();
+    }
+    if (!cart_save_data.music_off && bn::music::paused())
+    {
+        bn::music::resume();
+    }
+}
+
+void Save::toggle_sounds()
+{
+    read();
+    cart_save_data.sounds_off = !cart_save_data.sounds_off;
+    write();
+}
+
 void Save::save_level_score(int level_index, bn::fixed score)
 {
     read();
@@ -37,11 +59,15 @@ void Save::read()
     {
         reset();
     }
+    global_music_off = cart_save_data.music_off;
+    global_sounds_off = cart_save_data.sounds_off;
 }
 
 void Save::write()
 {
     bn::sram::write(cart_save_data);
+    global_music_off = cart_save_data.music_off;
+    global_sounds_off = cart_save_data.sounds_off;
     log("Save wrote!", cart_save_data);
 }
 
@@ -52,6 +78,8 @@ void Save::reset()
     cart_save_data.latest_story_level = 0;
     cart_save_data.story_money = fallback_money;
     cart_save_data.story_life = 100;
+    cart_save_data.music_off = false;
+    cart_save_data.sounds_off = false;
     for (int i = 0; i < MAX_LEVEL_COUNT; i++)
     {
         cart_save_data.score_per_level[i] = -1;

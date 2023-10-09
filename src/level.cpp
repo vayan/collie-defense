@@ -102,7 +102,7 @@ void Level::init(bn::camera_ptr camera)
     stop_music();
     if (music.has_value())
     {
-        music->play(0.1);
+        play_music(music.value(), 0.1);
     }
     clear_waves();
     clear_towers();

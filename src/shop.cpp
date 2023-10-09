@@ -73,25 +73,25 @@ void Shop::on_tick(Game *game)
 
     if (bn::keypad::right_pressed())
     {
-        bn::sound_items::select.play();
+        play_sfx(bn::sound_items::select, 1);
         current_element += 1;
     }
 
     if (bn::keypad::down_pressed())
     {
-        bn::sound_items::select.play();
+        play_sfx(bn::sound_items::select, 1);
         current_element += 2;
     }
 
     if (bn::keypad::left_pressed())
     {
-        bn::sound_items::select.play();
+        play_sfx(bn::sound_items::select, 1);
         current_element -= 1;
     }
 
     if (bn::keypad::up_pressed())
     {
-        bn::sound_items::select.play();
+        play_sfx(bn::sound_items::select, 1);
         current_element -= 2;
     }
 

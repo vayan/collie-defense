@@ -2,6 +2,7 @@
 #include "debug.h"
 #include "game.h"
 #include "menu.h"
+#include "save.h"
 
 int main()
 {
@@ -11,8 +12,9 @@ int main()
 
     cd::log("butano initiated");
 
+    cd::Save *save = new cd::Save();
     cd::Menu *menu = new cd::Menu();
-    cd::Game *game = new cd::Game(menu);
+    cd::Game *game = new cd::Game(menu, save);
 
     cd::display_memory_left();
 

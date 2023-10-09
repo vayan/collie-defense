@@ -41,7 +41,7 @@ namespace cd
     class Game
     {
     public:
-        Game(Menu *_menu);
+        Game(Menu *_menu, Save *_save);
         ~Game();
         int start_main_loop();
         void start_level(int level_index);

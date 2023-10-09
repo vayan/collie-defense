@@ -102,11 +102,11 @@ void Enemy::hit(bn::fixed dmg, Player *player)
         log("enemy dead, id:", id);
         player->on_target_killed(this);
         dead = true;
-        death_sfx->play();
+        play_sfx(death_sfx.value(), 1);
         return;
     }
 
-    hit_sfx->play();
+    play_sfx(hit_sfx.value(), 1);
 
     bn::fixed progress_index = life.safe_multiplication(11).safe_division(100).round_integer();
     if (progress_index < 0)

@@ -47,8 +47,10 @@ void cd::log(bn::string<50> label, save_data data)
     }
 
     BN_LOG(bn::format<255>(
-        "{}\nstory:\n level: {}\n money: {}\n life: {}\nstage\t| score\n{}",
+        "{}\ncfg: {},{}\nstory:\n level: {}\n money: {}\n life: {}\nstage\t| score\n{}",
         label,
+        data.sounds_off,
+        data.music_off,
         data.latest_story_level,
         data.story_money,
         data.story_life,

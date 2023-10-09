@@ -6,6 +6,7 @@
 #include "bn_format.h"
 #include "bn_list.h"
 #include "bn_log.h"
+#include "bn_music.h"
 #include "bn_sram.h"
 #include "const.h"
 #include "debug.h"
@@ -27,9 +28,14 @@ namespace cd
         bn::fixed latest_story_level;
         bn::fixed story_money;
         bn::fixed story_life;
+        bool music_off;
+        bool sounds_off;
 
         bn::fixed score_per_level[MAX_LEVEL_COUNT];
     };
+
+    inline bool global_music_off = false;
+    inline bool global_sounds_off = false;
 
     class Save
     {
@@ -46,5 +52,7 @@ namespace cd
         save_data get_data();
         void save_story_progress(int level_index, bn::fixed money, bn::fixed life);
         void save_level_score(int level_index, bn::fixed score);
+        void toggle_music();
+        void toggle_sounds();
     };
 }

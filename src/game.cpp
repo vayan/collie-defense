@@ -2,10 +2,9 @@
 
 using namespace cd;
 
-Game::Game(Menu *_menu) : menu(_menu)
+Game::Game(Menu *_menu, Save *_save) : menu(_menu), save(_save)
 {
     camera = bn::camera_ptr::create(0, 0);
-    save = new Save();
     player = new Player(camera.value());
 
     log("game manager created!");
@@ -58,13 +57,13 @@ MenuScreen Game::start_level_loop()
             if (bn::keypad::down_pressed())
             {
                 current_selection_index += 1;
-                bn::sound_items::select.play();
+                play_sfx(bn::sound_items::select, 1);
             }
 
             if (bn::keypad::up_pressed())
             {
                 current_selection_index -= 1;
-                bn::sound_items::select.play();
+                play_sfx(bn::sound_items::select, 1);
             }
 
             if (current_selection_index < 0)

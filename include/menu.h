@@ -20,6 +20,7 @@
 #include "bn_regular_bg_items_level_select.h"
 #include "bn_regular_bg_items_level_win_bg.h"
 #include "bn_regular_bg_items_menu_config.h"
+#include "bn_regular_bg_items_menu_credit.h"
 #include "bn_regular_bg_items_menu_playmode.h"
 #include "bn_regular_bg_items_menu_qrcode.h"
 #include "bn_regular_bg_items_menu_select_item_highlight.h"
@@ -29,6 +30,7 @@
 #include "bn_size.h"
 #include "bn_sound_items.h"
 #include "bn_sprite_builder.h"
+#include "bn_sprite_items_checkbox_button.h"
 #include "bn_sprite_items_collie_title.h"
 #include "bn_sprite_items_dancing_collie.h"
 #include "bn_sprite_items_dancing_sheep_0.h"
@@ -66,7 +68,12 @@ namespace cd
         LevelWin = 8,
         Title = 9,
         Restart = 10,
-        Cancel = 11
+        Cancel = 11,
+        MusicToggle = 12,
+        SoundsToggle = 13,
+        ResetSave = 14,
+        ResetStory = 15,
+        Credit = 16,
     };
 
     class Game;
@@ -89,6 +96,7 @@ namespace cd
         bool handle_gameover_menu(Game *game);
         bool handle_play_menu(Game *game);
         bool handle_config_menu(Game *game);
+        void try_play_menu_music();
 
         bn::string<10> human_readable_score(bn::fixed score);
         bn::optional<QRCode> qrcode;
@@ -100,6 +108,7 @@ namespace cd
         bn::optional<bn::sprite_animate_action<6>>
             collie_title_anim;
         bn::optional<bn::regular_bg_ptr> bg;
+        bn::vector<bn::sprite_ptr, 2> config_sprites;
         bn::vector<bn::sprite_ptr, 3> victory_banner_sprites;
         bn::vector<bn::sprite_ptr, 5> dancing_animals;
         bn::vector<bn::sprite_animate_action<10>, 3> victory_banner_animations;
@@ -113,6 +122,6 @@ namespace cd
         bn::vector<bn::sprite_ptr, 32> text_sprites_level;
         bn::vector<bn::sprite_ptr, 120> text_sprites_qrcode;
         int current_selection_index = 0;
-        bn::vector<bn::pair<MenuScreen, bn::fixed_point>, 3> menu_elements;
+        bn::vector<bn::pair<MenuScreen, bn::fixed_point>, 6> menu_elements;
     };
 }

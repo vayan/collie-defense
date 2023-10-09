@@ -28,3 +28,23 @@ std::string cd::convertToBase36(int num)
     reverse(base36.begin(), base36.end());
     return base36;
 }
+
+void cd::play_music(bn::music_item music, bn::fixed volume)
+{
+    if (global_music_off)
+    {
+        log("music disabled, cannot play it");
+        return;
+    }
+    music.play(volume);
+}
+
+void cd::play_sfx(bn::sound_item sfx, bn::fixed volume)
+{
+    if (global_sounds_off)
+    {
+        log("sfx disabled, cannot play it");
+        return;
+    }
+    sfx.play(volume);
+}

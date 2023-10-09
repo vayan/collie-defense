@@ -5,7 +5,6 @@ using namespace cd;
 
 Menu::Menu()
 {
-    bn::music_items::takeawalk.play(0.2);
     bn::blending::set_transparency_alpha(0.6);
     bn::sprite_text_generator _sprite_text_generator(cd::fixed_font_8x8);
     text_generator = _sprite_text_generator;
@@ -31,6 +30,7 @@ void Menu::clear()
     dancing_animals.clear();
     dancing_animals_animation.clear();
     menu_elements.clear();
+    config_sprites.clear();
 }
 
 void Menu::switch_screen(MenuScreen screen, Game *game)
@@ -118,6 +118,7 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
     case MenuScreen::Share:
     {
         log("start sharing menu");
+        try_play_menu_music();
         game->reset_current_level();
         bg = bn::regular_bg_items::menu_qrcode.create_bg(0, 0);
         text_generator.value()
@@ -129,6 +130,7 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
     }
     case MenuScreen::Play:
         log("start play menu");
+        try_play_menu_music();
         game->get_camera().set_position(0, 0);
         title_menu_select = bn::regular_bg_items::menu_select_item_highlight.create_bg(0, 0);
         bg = bn::regular_bg_items::menu_playmode.create_bg(0, 0);
@@ -139,11 +141,24 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
         break;
     case MenuScreen::Config:
         log("start config menu");
+        try_play_menu_music();
         game->get_camera().set_position(0, 0);
         title_menu_select = bn::regular_bg_items::menu_select_item_highlight.create_bg(0, 0);
         bg = bn::regular_bg_items::menu_config.create_bg(0, 0);
-        current_selection_index = 0;
+        current_selection_index = 5;
+        menu_elements.emplace_back(MenuScreen::MusicToggle, bn::fixed_point(0, -72));
+        menu_elements.emplace_back(MenuScreen::SoundsToggle, bn::fixed_point(0, -48));
+        menu_elements.emplace_back(MenuScreen::ResetSave, bn::fixed_point(0, -24));
+        menu_elements.emplace_back(MenuScreen::ResetStory, bn::fixed_point(0, 0));
+        menu_elements.emplace_back(MenuScreen::Credit, bn::fixed_point(0, 24));
         menu_elements.emplace_back(MenuScreen::Start, bn::fixed_point(0, 49));
+
+        config_sprites.push_back(bn::sprite_items::checkbox_button.create_sprite(28, -63));
+        config_sprites.push_back(bn::sprite_items::checkbox_button.create_sprite(28, -38));
+
+        config_sprites.at(0).set_bg_priority(0);
+        config_sprites.at(1).set_bg_priority(0);
+
         break;
     case MenuScreen::LevelWin:
         log("start level win screen");
@@ -151,7 +166,7 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
         {
             bn::music::stop();
         }
-        bn::sound_items::win.play();
+        play_sfx(bn::sound_items::win, 1);
         bg = bn::regular_bg_items::level_win_bg.create_bg(0, 0);
         bg->set_priority(1);
         bg->set_blending_enabled(true);
@@ -184,6 +199,7 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
         break;
     case MenuScreen::Start:
         log("start screen");
+        try_play_menu_music();
         game->get_camera().set_position(0, 0);
         title_menu_select = bn::regular_bg_items::menu_select_item_highlight.create_bg(0, 0);
         bg = bn::regular_bg_items::menu_title.create_bg(0, 0);
@@ -192,8 +208,17 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
         menu_elements.emplace_back(MenuScreen::Share, bn::fixed_point(0, 24));
         menu_elements.emplace_back(MenuScreen::Config, bn::fixed_point(0, 49));
         break;
+    case MenuScreen::Credit:
+        log("credit screen");
+        try_play_menu_music();
+        game->get_camera().set_position(0, 0);
+        bg = bn::regular_bg_items::menu_credit.create_bg(0, 0);
+        current_selection_index = 0;
+        menu_elements.emplace_back(MenuScreen::Config, bn::fixed_point(0, 0));
+        break;
     default:
         log("start tilte screen");
+        try_play_menu_music();
         game->get_camera().set_position(0, 0);
         collie_title = bn::sprite_items::collie_title.create_sprite(1, 14);
         collie_title_anim = bn::create_sprite_animate_action_forever(
@@ -296,13 +321,13 @@ bool Menu::handle_start_menu(Game *game)
     if (bn::keypad::down_pressed())
     {
         current_selection_index += 1;
-        bn::sound_items::select.play();
+        play_sfx(bn::sound_items::select, 1);
     }
 
     if (bn::keypad::up_pressed())
     {
         current_selection_index -= 1;
-        bn::sound_items::select.play();
+        play_sfx(bn::sound_items::select, 1);
     }
 
     if (current_selection_index < 0)
@@ -340,21 +365,16 @@ bool Menu::handle_start_menu(Game *game)
 
 bool Menu::handle_config_menu(Game *game)
 {
-    if (collie_title_anim.has_value())
-    {
-        collie_title_anim->update();
-    }
-
     if (bn::keypad::down_pressed())
     {
         current_selection_index += 1;
-        bn::sound_items::select.play();
+        play_sfx(bn::sound_items::select, 1);
     }
 
     if (bn::keypad::up_pressed())
     {
         current_selection_index -= 1;
-        bn::sound_items::select.play();
+        play_sfx(bn::sound_items::select, 1);
     }
 
     if (current_selection_index < 0)
@@ -367,6 +387,9 @@ bool Menu::handle_config_menu(Game *game)
         current_selection_index = 0;
     }
 
+    config_sprites.at(0).set_item(bn::sprite_items::checkbox_button, game->get_save()->get_data().music_off ? 1 : 0);
+    config_sprites.at(1).set_item(bn::sprite_items::checkbox_button, game->get_save()->get_data().sounds_off ? 1 : 0);
+
     title_menu_select->set_position(menu_elements.at(current_selection_index).second);
 
     if (bn::keypad::start_pressed() || bn::keypad::a_pressed())
@@ -377,6 +400,23 @@ bool Menu::handle_config_menu(Game *game)
         {
         case MenuScreen::Start:
             switch_screen(MenuScreen::Start, game);
+            break;
+        case MenuScreen::ResetSave:
+            game->get_save()->reset();
+            switch_screen(MenuScreen::Title, game);
+            break;
+        case MenuScreen::ResetStory:
+            game->get_save()->save_story_progress(0, fallback_money, 100);
+            switch_screen(MenuScreen::Start, game);
+            break;
+        case MenuScreen::SoundsToggle:
+            game->get_save()->toggle_sounds();
+            break;
+        case MenuScreen::MusicToggle:
+            game->get_save()->toggle_music();
+            break;
+        case MenuScreen::Credit:
+            switch_screen(MenuScreen::Credit, game);
             break;
         default:
             break;
@@ -396,13 +436,13 @@ bool Menu::handle_play_menu(Game *game)
     if (bn::keypad::down_pressed())
     {
         current_selection_index += 1;
-        bn::sound_items::select.play();
+        play_sfx(bn::sound_items::select, 1);
     }
 
     if (bn::keypad::up_pressed())
     {
         current_selection_index -= 1;
-        bn::sound_items::select.play();
+        play_sfx(bn::sound_items::select, 1);
     }
 
     if (current_selection_index < 0)
@@ -489,25 +529,25 @@ bool Menu::handle_level_select_menu(Game *game)
 {
     if (bn::keypad::up_pressed())
     {
-        bn::sound_items::select.play();
+        play_sfx(bn::sound_items::select, 1);
         selected_level = selected_level - 2;
     }
 
     if (bn::keypad::down_pressed())
     {
-        bn::sound_items::select.play();
+        play_sfx(bn::sound_items::select, 1);
         selected_level = selected_level + 2;
     }
 
     if (bn::keypad::right_pressed())
     {
-        bn::sound_items::select.play();
+        play_sfx(bn::sound_items::select, 1);
         selected_level = selected_level + 1;
     }
 
     if (bn::keypad::left_pressed())
     {
-        bn::sound_items::select.play();
+        play_sfx(bn::sound_items::select, 1);
         selected_level = selected_level - 1;
     }
 
@@ -611,6 +651,14 @@ bool Menu::on_tick(Game *game)
         return handle_start_menu(game);
     }
 
+    if (current_screen == MenuScreen::Credit)
+    {
+        if (bn::keypad::start_pressed() || bn::keypad::a_pressed())
+        {
+            switch_screen(MenuScreen::Config, game);
+        }
+    }
+
     if (current_screen == MenuScreen::LevelSelect)
     {
         return handle_level_select_menu(game);
@@ -680,4 +728,12 @@ bool Menu::on_tick(Game *game)
 void Menu::set_current_screen(MenuScreen screen)
 {
     current_screen = screen;
+}
+
+void Menu::try_play_menu_music()
+{
+    if (!bn::music::playing() || bn::music::paused())
+    {
+        play_music(bn::music_items::takeawalk, 0.2);
+    }
 }
