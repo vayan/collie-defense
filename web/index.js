@@ -38,10 +38,10 @@ function process(image) {
     const totalLevels = base36ToBase10(levelsData[0]);
     const progress = base36ToBase10(levelsData[1]);
 
-    drawStroked(context, "story progress: " + progress + "/" + totalLevels, 26, 14);
+    drawStroked(context, "story progress: " + progress + "/" + totalLevels, 34, 115);
 
     let i = 0;
-    let y = 60;
+    let y = 160;
     for (const pack of levelsScorePacks) {
         for (const score of "" + base36ToBase10(pack)) {
             const x = (i % 2 == 0) ? 64 : 184;
