@@ -98,3 +98,6 @@ $(ALL_SFX): force
 	rm $@.old.wav
 
 sfx: $(ALL_SFX)
+
+run:
+	make -j16 && mgba collie-defense.gba -l 4
