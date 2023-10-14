@@ -3,6 +3,7 @@
 #include "bn_fixed_point.h"
 #include "bn_log.h"
 #include "bn_math.h"
+#include "debug.h"
 
 namespace cd
 {
