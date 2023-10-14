@@ -214,3 +214,13 @@ bn::fixed_point Tower::get_position()
 {
     return position;
 }
+
+bn::fixed Tower::get_dps()
+{
+    return dps;
+}
+
+bn::fixed Tower::get_speed()
+{
+    return bullet_speed;
+}

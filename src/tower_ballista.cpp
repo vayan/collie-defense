@@ -15,6 +15,7 @@ TowerBallista::TowerBallista(bn::camera_ptr _camera, bn::fixed_point _position) 
     bullet_speed = 0.9;
     cost = 20;
     fire_rate_per_sec = 1.1;
+    dps = fire_rate_per_sec.safe_multiplication(damage);
 
     type = TowerType::Arrow;
 

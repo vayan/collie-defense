@@ -138,11 +138,20 @@ void Shop::display_level_count(bn::fixed current_level_index)
 void Shop::display_tower_info()
 {
     Tower *tower = &elements.at(current_element);
-    bn::string<50> text = bn::format<50>("{}$", tower->get_cost(), tower->get_aggro_range());
+    bn::string<50> text = bn::format<50>("{}$", tower->get_cost());
+    bn::string<50> info_range = bn::format<50>("RANGE:{}", tower->get_aggro_range().floor_integer());
+    bn::string<50> info_power = bn::format<50>("POWER:{}", tower->get_dps().floor_integer());
+    bn::string<50> info_speed = bn::format<50>("SPEED:{}", tower->get_speed().safe_multiplication(10).floor_integer());
 
     text_sprites_tower.clear();
     text_generator.value()
         .generate(bn::fixed_point(tower->get_position().x() - 11, tower->get_position().y() + 27), text, text_sprites_tower);
+    text_generator.value()
+        .generate(bn::fixed_point(-30, tower->get_position().y() - 10), info_range, text_sprites_tower);
+    text_generator.value()
+        .generate(bn::fixed_point(-30, tower->get_position().y()), info_power, text_sprites_tower);
+    text_generator.value()
+        .generate(bn::fixed_point(-30, tower->get_position().y() + 10), info_speed, text_sprites_tower);
 
     for (bn::sprite_ptr text_sprite : text_sprites_tower)
     {

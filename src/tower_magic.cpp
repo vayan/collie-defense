@@ -15,6 +15,7 @@ TowerMagic::TowerMagic(bn::camera_ptr _camera, bn::fixed_point _position) : Towe
     bullet_speed = 1.1;
     cost = 30;
     fire_rate_per_sec = 1;
+    dps = fire_rate_per_sec.safe_multiplication(damage);
 
     bullet_sprite = bn::sprite_items::bullet_magic;
 

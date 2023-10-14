@@ -61,6 +61,8 @@ namespace cd
         TowerType get_type();
         bn::optional<bn::sprite_ptr> get_sprite();
         bn::fixed_point get_position();
+        bn::fixed get_dps();
+        bn::fixed get_speed();
 
     private:
         bn::camera_ptr camera;
@@ -77,6 +79,7 @@ namespace cd
         bn::fixed bullet_speed = 0;
         bn::fixed cost = 0;
         bn::fixed fire_rate_per_sec = 0;
+        bn::fixed dps = 0; // mostly to display to user
         bn::optional<bn::sprite_item>
             bullet_sprite;
         TowerType type = TowerType::Canon;
