@@ -41,7 +41,7 @@ namespace cd
         virtual ~Tower();
 
         void on_tick(Game *game);
-        void fire(Target *target);
+        bool fire(Target *target);
         bn::vector<Bullet *, 2> *get_bullets();
         virtual bn::fixed_rect get_hitbox();
 

@@ -12,11 +12,11 @@ Tower::Tower(bn::camera_ptr _camera, bn::fixed_point _position) : camera(_camera
     fire_sfx = bn::sound_items::ranged_shot;
 }
 
-void Tower::fire(Target *target)
+bool Tower::fire(Target *target)
 {
     if (bullets.full() || (frame_elapsed_since_last_fire / frame_per_sec) < fire_rate_per_sec)
     {
-        return;
+        return false;
     }
     play_sfx(fire_sfx.value(), 0.2);
     frame_elapsed_since_last_fire = 0;
@@ -29,6 +29,7 @@ void Tower::fire(Target *target)
         bullet_speed,
         damage,
         bullet_sprite.value()));
+    return true;
 }
 
 Tower::~Tower()
@@ -72,8 +73,11 @@ void Tower::on_tick(Game *game)
             bool is_inside = delta_x * delta_x + delta_y * delta_y < get_aggro_range() * get_aggro_range();
             if (is_inside)
             {
-                update_animation(enemy);
-                fire(enemy);
+                bool successful_fire = fire(enemy);
+                if (successful_fire)
+                {
+                    update_animation(enemy);
+                }
             }
         }
     }
