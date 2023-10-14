@@ -241,17 +241,15 @@ def convert_palette(img):
 
 def import_level_png(_levels):
     print("Converting all levels PNG to BMP/JSON...")
-    logo_img = Image.open("./tools/logo.png")
-
     num_columns = 2
     column_spacing = 30
     x_base_offset = 28
     y_base_offset = 28
 
-    merged_image = Image.new("RGB", (256, 512 + logo_img.height), color="#a8c23d")
+    merged_image = Image.new("RGB", (256, 512), color="#a8c23d")
 
     x_offset = x_base_offset
-    y_offset = y_base_offset + logo_img.height
+    y_offset = y_base_offset
 
     for i, _level in enumerate(_levels):
         zfill_id = str(_level["int_identifier"]).zfill(4)
@@ -295,7 +293,6 @@ def import_level_png(_levels):
     merged_image = merged_image.convert(
         mode="RGB",
     )
-    merged_image.paste(logo_img, (8, 8))
     merged_image = convert_palette(merged_image)
     merged_image.save("./graphics/generated/levels/all_levels.bmp")
     merged_image.save("./web/levels.bmp")
@@ -306,6 +303,56 @@ def import_level_png(_levels):
                 "type": "regular_bg"
             }}"""
         )
+
+    print("Done!\n")
+
+
+def make_web_backgound_levels(_levels):
+    print("Merging all levels for web bg...")
+    logo_img = Image.open("./tools/logo.png")
+
+    num_columns = 2
+    column_spacing = 30
+    x_base_offset = 28
+    y_base_offset = 28
+
+    merged_image = Image.new("RGB", (256, 512 + logo_img.height), color="#a8c23d")
+
+    x_offset = x_base_offset
+    y_offset = y_base_offset + logo_img.height
+
+    for i, _level in enumerate(_levels):
+        image_png = f'{BASE_LTDK_PROJECT_PATH}/levels/png/{_level["identifier"]}.png'
+        img = Image.open(image_png)
+
+        newimg = img.convert(
+            mode="RGB",
+        )
+        newimg = convert_palette(newimg)
+
+        alpha = newimg.split()[-1]
+        bbox = alpha.getbbox()
+        image_to_merge = newimg.crop(bbox)
+        level_resized = (image_to_merge.width // 3, image_to_merge.height // 3)
+        image_to_merge = image_to_merge.resize(
+            (image_to_merge.width // 12, image_to_merge.height // 12)
+        )
+
+        image_to_merge = image_to_merge.resize(level_resized, resample=Image.NEAREST)
+        column_index = i % num_columns
+        if column_index > 0:
+            x_offset += level_resized[0] + column_spacing
+        if column_index == 0 and i > 0:
+            y_offset += level_resized[1] + y_base_offset
+            x_offset = x_base_offset
+        merged_image.paste(image_to_merge, (x_offset, y_offset))
+
+    merged_image = merged_image.convert(
+        mode="RGB",
+    )
+    merged_image.paste(logo_img, (8, 8))
+    merged_image = convert_palette(merged_image)
+    merged_image.save("./web/levels.bmp")
 
     print("Done!\n")
 
@@ -323,6 +370,8 @@ generate_world_file(
 generate_level_intgrid_file(levels)
 
 import_level_png(levels)
+
+make_web_backgound_levels(levels)
 
 print("Generating all levels header files...")
 for level_index, level in enumerate(levels):
