@@ -575,7 +575,7 @@ bool Menu::handle_level_select_menu(Game *game)
 
     select_highlight->set_x(-55 + (115 * (selected_level.integer() % 2)));
 
-    bn::string<50> text = bn::format<50>("STAGE {}", selected_level + 1);
+    bn::string<50> text = bn::format<50>("LEVEL {}", selected_level + 1);
 
     bn::fixed score = game->get_save()->get_data().score_per_level[selected_level.integer()];
 
@@ -589,7 +589,7 @@ bool Menu::handle_level_select_menu(Game *game)
     }
     else
     {
-        text_score = bn::format<50>("RANK {}", score_value);
+        text_score = bn::format<50>("SCORE:{}", score_value);
     }
 
     text_sprites_level.clear();
