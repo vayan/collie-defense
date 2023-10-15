@@ -10,14 +10,14 @@ TowerCatapult::TowerCatapult(bn::camera_ptr _camera, bn::fixed_point _position) 
     sprite->set_visible(true);
     sprite->set_z_order(-2);
 
-    aggro_range = 18;
-    damage = 15;
-    bullet_speed = 1.1;
-    cost = 30;
-    fire_rate_per_sec = 1;
+    aggro_range = 60;
+    damage = 20;
+    bullet_speed = 0.7;
+    cost = 40;
+    fire_rate_per_sec = 2;
     dps = fire_rate_per_sec.safe_multiplication(damage);
 
-    bullet_sprite = bn::sprite_items::bullet_fire;
+    bullet_sprite = bn::sprite_items::bullet_catapult;
 
     type = TowerType::Catapult;
 
@@ -46,7 +46,7 @@ void TowerCatapult::set_animation_shoot_left()
 {
     animation = bn::create_sprite_animate_action_once(
         sprite.value(),
-        8,
+        4,
         bn::sprite_items::tower_catapult.tiles_item(),
         0, 1, 2, 3, 4, 5, 6, 7);
 }
@@ -54,11 +54,13 @@ void TowerCatapult::set_animation_shoot_left()
 void TowerCatapult::set_animation_shoot_up()
 {
     set_animation_shoot_left();
+    sprite.value().set_vertical_flip(false);
 }
 
 void TowerCatapult::set_animation_shoot_down()
 {
     set_animation_shoot_left();
+    sprite.value().set_vertical_flip(true);
 }
 
 void TowerCatapult::set_position(bn::fixed x, bn::fixed y)
