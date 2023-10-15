@@ -135,23 +135,38 @@ void Shop::display_level_count(bn::fixed current_level_index)
     }
 }
 
+bn::string<6> Shop::get_tower_normalize_to_star(bn::fixed value, bn::fixed min, bn::fixed max)
+{
+    bn::string<6> text = "*";
+    bn::fixed number_normalized = 1.0 + ((value - min).safe_division(max - min)).safe_multiplication(4.0).floor_integer();
+
+    for (int i = 1; i < number_normalized; i++)
+    {
+        text += "*";
+    }
+
+    return text;
+}
+
 void Shop::display_tower_info()
 {
     Tower *tower = &elements.at(current_element);
     bn::string<50> text = bn::format<50>("{}$", tower->get_cost());
-    bn::string<50> info_range = bn::format<50>("RANGE:{}", tower->get_aggro_range().floor_integer());
-    bn::string<50> info_power = bn::format<50>("POWER:{}", tower->get_dps().floor_integer());
-    bn::string<50> info_speed = bn::format<50>("SPEED:{}", tower->get_speed().safe_multiplication(10).floor_integer());
+
+    // TODO update those min / max values to get accurate star equivalent
+    bn::string<50> info_range = bn::format<50>("RANGE:{}", get_tower_normalize_to_star(tower->get_aggro_range(), 18, 60));
+    bn::string<50> info_power = bn::format<50>("POWER:{}", get_tower_normalize_to_star(tower->get_dps(), 9, 40));
+    bn::string<50> info_speed = bn::format<50>("SPEED:{}", get_tower_normalize_to_star(tower->get_speed().safe_multiplication(10).floor_integer(), 8, 10));
 
     text_sprites_tower.clear();
     text_generator.value()
         .generate(bn::fixed_point(tower->get_position().x() - 11, tower->get_position().y() + 27), text, text_sprites_tower);
     text_generator.value()
-        .generate(bn::fixed_point(-30, tower->get_position().y() - 10), info_range, text_sprites_tower);
+        .generate(bn::fixed_point(-45, tower->get_position().y() - 10), info_range, text_sprites_tower);
     text_generator.value()
-        .generate(bn::fixed_point(-30, tower->get_position().y()), info_power, text_sprites_tower);
+        .generate(bn::fixed_point(-45, tower->get_position().y()), info_power, text_sprites_tower);
     text_generator.value()
-        .generate(bn::fixed_point(-30, tower->get_position().y() + 10), info_speed, text_sprites_tower);
+        .generate(bn::fixed_point(-45, tower->get_position().y() + 10), info_speed, text_sprites_tower);
 
     for (bn::sprite_ptr text_sprite : text_sprites_tower)
     {

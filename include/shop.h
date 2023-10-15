@@ -53,6 +53,7 @@ namespace cd
     private:
         void display_level_count(bn::fixed current_level_index);
         void display_tower_info();
+        bn::string<6> get_tower_normalize_to_star(bn::fixed value, bn::fixed min, bn::fixed max);
 
         bn::camera_ptr camera;
         bn::optional<bn::regular_bg_ptr> store;
