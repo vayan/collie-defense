@@ -63,6 +63,8 @@ namespace cd
         void stop_pause();
         bool is_paused = false;
         bn::optional<bn::regular_bg_ptr> pause_bg;
+        bn::optional<bn::regular_bg_ptr> overlay_bg;
+
         int current_level_index = 0;
         bn::optional<bn::camera_ptr> camera;
         bn::optional<Level *> current_level;

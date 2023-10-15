@@ -89,6 +89,7 @@ MenuScreen Game::start_level_loop()
                 case MenuScreen::Restart:
                     log("restart the level");
                     pause_bg.reset();
+                    overlay_bg.reset();
                     menu_select.reset();
                     current_selection_index = 0;
                     menu_elements.clear();
@@ -98,6 +99,7 @@ MenuScreen Game::start_level_loop()
                 case MenuScreen::Play:
                     log("restart the game");
                     pause_bg.reset();
+                    overlay_bg.reset();
                     menu_select.reset();
                     current_selection_index = 0;
                     menu_elements.clear();
@@ -203,6 +205,7 @@ void Game::start_menu_screen_loop()
 void Game::stop_pause()
 {
     pause_bg.reset();
+    overlay_bg.reset();
     is_paused = false;
 }
 
@@ -230,12 +233,22 @@ void Game::toggle_pause()
         }
         player.value()->disable();
         is_paused = true;
+
+        overlay_bg = bn::regular_bg_items::overlay_bg.create_bg(0, 0);
+        overlay_bg->set_camera(camera);
+        overlay_bg->set_visible(false);
+        overlay_bg->set_priority(2);
+        overlay_bg->set_blending_enabled(true);
+
+        overlay_bg.value()
+            .set_visible(true);
+
         pause_bg = bn::regular_bg_items::pause.create_bg(0, 0);
         pause_bg->set_camera(camera);
         pause_bg->set_visible(true);
         pause_bg->set_priority(1);
         current_level.value()->get_hud()->set_state(false);
-        menu_select = bn::regular_bg_items::menu_select_item_highlight.create_bg(0, -20);
+        menu_select = bn::regular_bg_items::menu_select_item_highlight.create_bg(2, -20);
         menu_select->set_priority(1);
         current_selection_index = 0;
         menu_elements.emplace_back(MenuScreen::Cancel, bn::fixed_point(2, -20));
