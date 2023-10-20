@@ -415,6 +415,7 @@ bool Menu::handle_config_menu(Game *game)
             {
                 game->get_save()->reset();
                 switch_screen(MenuScreen::Title, game);
+                return true;
             }
             title_menu_select->set_visible(true);
             break;
