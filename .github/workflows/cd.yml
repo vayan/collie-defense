@@ -43,8 +43,10 @@ jobs:
       - name: Install Python packages
         run: poetry install
 
-      - name: Import levels from LDtk
-        run: make levels TYPE=RELEASE
+      - name: Generate Code
+        run: |
+          make levels TYPE=RELEASE
+          make credits
         env:
           LIBBUTANO: ${{ github.workspace }}/butano/butano
 

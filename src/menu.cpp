@@ -214,6 +214,7 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
         try_play_menu_music();
         game->get_camera().set_position(0, 0);
         bg = bn::regular_bg_items::menu_credit.create_bg(0, 0);
+        bg->set_blending_enabled(true);
         current_selection_index = 0;
         menu_elements.emplace_back(MenuScreen::Config, bn::fixed_point(0, 0));
         break;
@@ -642,6 +643,71 @@ bool Menu::handle_level_select_menu(Game *game)
     return true;
 }
 
+bool Menu::handle_credit_menu(Game *game)
+{
+    bn::fixed credit_x = -114;
+    bn::fixed credit_y = -64;
+    bn::fixed max_item = 10;
+
+    text_sprites.clear();
+    config_sprites.clear();
+    for (int i = current_selection_index; i < max_item + current_selection_index; i++)
+    {
+        text_generator.value()
+            .generate(bn::fixed_point(credit_x, credit_y), credits_lines.at(i), text_sprites);
+        credit_y += 14;
+        // log(line);
+    }
+
+    for (bn::sprite_ptr text_sprite : text_sprites)
+    {
+        text_sprite.set_visible(true);
+        text_sprite.set_bg_priority(0);
+        text_sprite.set_z_order(-1);
+        text_sprite.put_above();
+    }
+
+    if (bn::keypad::start_pressed() || bn::keypad::a_pressed())
+    {
+        text_sprites.clear();
+        config_sprites.clear();
+        switch_screen(MenuScreen::Config, game);
+        return true;
+    }
+
+    if (bn::keypad::up_pressed() && current_selection_index > 0)
+    {
+        current_selection_index--;
+    }
+
+    if (bn::keypad::down_pressed() && max_item + current_selection_index < credits_lines.size())
+    {
+        current_selection_index++;
+    }
+
+    if (current_selection_index > 0)
+    {
+        config_sprites.push_back(bn::sprite_items::menu_arrow.create_sprite(110, -64));
+        config_sprites.at(0).set_vertical_flip(false);
+    }
+
+    if (max_item + current_selection_index < credits_lines.size())
+    {
+        config_sprites.push_back(bn::sprite_items::menu_arrow.create_sprite(110, 64));
+        config_sprites.at(config_sprites.size() - 1).set_vertical_flip(true);
+    }
+
+    for (bn::sprite_ptr config_sprite : config_sprites)
+    {
+        config_sprite.set_visible(true);
+        config_sprite.set_bg_priority(0);
+        config_sprite.set_z_order(-1);
+        config_sprite.put_above();
+    }
+
+    return true;
+}
+
 bool Menu::on_tick(Game *game)
 {
     if (current_screen == MenuScreen::Restart)
@@ -678,10 +744,7 @@ bool Menu::on_tick(Game *game)
 
     if (current_screen == MenuScreen::Credit)
     {
-        if (bn::keypad::start_pressed() || bn::keypad::a_pressed())
-        {
-            switch_screen(MenuScreen::Config, game);
-        }
+        return handle_credit_menu(game);
     }
 
     if (current_screen == MenuScreen::LevelSelect)

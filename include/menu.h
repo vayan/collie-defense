@@ -39,6 +39,7 @@
 #include "bn_sprite_items_dancing_sheep_2.h"
 #include "bn_sprite_items_dancing_sheep_3.h"
 #include "bn_sprite_items_dog.h"
+#include "bn_sprite_items_menu_arrow.h"
 #include "bn_sprite_items_player_life.h"
 #include "bn_sprite_items_victory_banner_left.h"
 #include "bn_sprite_items_victory_banner_middle.h"
@@ -49,6 +50,7 @@
 #include "bn_utility.h"
 #include "bn_vector.h"
 #include "debug.h"
+#include "generated/credits.h"
 #include "level.h"
 #include "menu_confirm.h"
 #include "player.h"
@@ -99,6 +101,7 @@ namespace cd
         bool handle_play_menu(Game *game);
         bool handle_config_menu(Game *game);
         void try_play_menu_music();
+        bool handle_credit_menu(Game *game);
 
         bn::string<10> human_readable_score(bn::fixed score);
         bn::optional<QRCode> qrcode;
@@ -120,7 +123,7 @@ namespace cd
         MenuScreen selected_menu_item = MenuScreen::Start;
         MenuScreen current_screen = MenuScreen::Title;
         bn::optional<bn::sprite_text_generator> text_generator;
-        bn::vector<bn::sprite_ptr, 32> text_sprites;
+        bn::vector<bn::sprite_ptr, 120> text_sprites;
         bn::vector<bn::sprite_ptr, 32> text_sprites_level;
         bn::vector<bn::sprite_ptr, 120> text_sprites_qrcode;
         int current_selection_index = 0;

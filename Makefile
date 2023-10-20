@@ -76,12 +76,16 @@ endif
 levels:
 	poetry run python ./tools/generate-level.py $(TYPE)
 
+credits:
+	poetry run python ./tools/generate-credits.py
+
 graphics: $(RAW_GRAPHICS_BG) $(RAW_GRAPHICS_SPRITE)
 
 cl:
 	@echo cleaning generated assets
 	@rm -rf graphics/generated/levels
 	@rm -f graphics/*.bmp
+	@rm -rf include/generated
 
 .PHONY: force
 $(RAW_GRAPHICS_SPRITE): force
