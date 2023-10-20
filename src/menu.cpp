@@ -403,13 +403,37 @@ bool Menu::handle_config_menu(Game *game)
             switch_screen(MenuScreen::Start, game);
             break;
         case MenuScreen::ResetSave:
-            game->get_save()->reset();
-            switch_screen(MenuScreen::Title, game);
+        {
+            title_menu_select->set_visible(false);
+            MenuConfirm confirm = MenuConfirm(
+                bn::fixed_point(
+                    title_menu_select->position().x() + 57,
+                    title_menu_select->position().y() + 9));
+
+            if (confirm.accepted())
+            {
+                game->get_save()->reset();
+                switch_screen(MenuScreen::Title, game);
+            }
+            title_menu_select->set_visible(true);
             break;
+        }
         case MenuScreen::ResetStory:
-            game->get_save()->save_story_progress(0, fallback_money, 100);
-            switch_screen(MenuScreen::Start, game);
+        {
+            title_menu_select->set_visible(false);
+            MenuConfirm confirm = MenuConfirm(
+                bn::fixed_point(
+                    title_menu_select->position().x() + 57,
+                    title_menu_select->position().y() + 9));
+
+            if (confirm.accepted())
+            {
+                game->get_save()->save_story_progress(0, fallback_money, 100);
+                switch_screen(MenuScreen::Start, game);
+            }
+            title_menu_select->set_visible(true);
             break;
+        }
         case MenuScreen::SoundsToggle:
             game->get_save()->toggle_sounds();
             break;
