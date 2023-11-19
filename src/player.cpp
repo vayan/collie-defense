@@ -25,16 +25,6 @@ void Player::on_tick(Game *game)
 {
     cursor->on_tick(game);
 
-    if (rumble.has_value())
-    {
-        rumble->update();
-
-        if (rumble->duration_updates() == 200)
-        {
-            rumble.reset();
-        }
-    }
-
     if (!camera_actions.empty())
     {
         camera_actions.front().update();
@@ -55,7 +45,6 @@ void Player::on_hit(Enemy *enemy)
 {
     life -= enemy->get_strenght();
     log("player life is now", life);
-    rumble = bn::rumble_toggle_action(200);
     if (camera_actions.empty())
     {
         camera_actions.push_back(bn::camera_move_to_action(camera, 2, camera.x() + 10, camera.y()));

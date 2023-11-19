@@ -12,7 +12,6 @@
 #include "bn_optional.h"
 #include "bn_regular_bg_item.h"
 #include "bn_regular_bg_ptr.h"
-#include "bn_rumble_actions.h"
 #include "bn_size.h"
 #include "bn_sprite_builder.h"
 #include "bn_sprite_items_bear.h"
@@ -59,7 +58,6 @@ namespace cd
         bn::fixed checkpoint_life = 100;
         bn::fixed money = fallback_money;
         bn::fixed checkpoint_money = fallback_money;
-        bn::optional<bn::rumble_toggle_action> rumble;
         bn::vector<bn::camera_move_to_action, 3> camera_actions;
     };
 }
