@@ -40,7 +40,7 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
     {
     case MenuScreen::GameOver:
         log("start game over screen");
-        // play_music(bn::music_items::take_my_love, 0.2); // this music crash the game TODO replace it
+        play_music(bn::music_items::rainbow_factory_simplified, 0.2);
         game->get_camera().set_position(0, 0);
         bg = bn::regular_bg_items::gameover.create_bg(0, 0);
         break;
