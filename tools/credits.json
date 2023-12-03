@@ -66,18 +66,13 @@
         ]
     },
     {
-        "title": "Programmer Creators",
-        "names": [
-            "Isabelle Vaillant",
-            "Stephane Vaillant"
-        ]
-    },
-    {
         "title": "Special Thanks",
         "names": [
             "Whisky",
             "Junio Branco",
-            "GValiente"
+            "GValiente",
+            "Isabelle Vaillant",
+            "Stephane Vaillant"
         ]
     }
 ]
