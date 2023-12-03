@@ -97,7 +97,7 @@ MenuScreen Game::start_level_loop()
                     stop_pause();
                     return MenuScreen::Restart;
                 case MenuScreen::Play:
-                    log("restart the game");
+                    log("exit the game");
                     pause_bg.reset();
                     overlay_bg.reset();
                     menu_select.reset();
@@ -105,6 +105,7 @@ MenuScreen Game::start_level_loop()
                     menu_elements.clear();
                     stop_pause();
                     player.value()->on_reset_store();
+                    current_level.value()->reset();
                     return MenuScreen::Play;
                 default:
                     break;
