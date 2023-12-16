@@ -1820,15 +1820,15 @@
 							"defUid": 18,
 							"px": [3,87],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 36, "cy": 44 }, { "cx": 35, "cy": 75 }, { "cx": 75, "cy": 76 }, { "cx": 75, "cy": 104 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 35, "cy": 43 }, { "cx": 35, "cy": 75 }, { "cx": 75, "cy": 75 }, { "cx": 75, "cy": 104 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
-									"params": ["36,44"]
+									"params": ["35,43"]
 								}, {
 									"id": "V_String",
 									"params": ["35,75"]
 								}, {
 									"id": "V_String",
-									"params": ["75,76"]
+									"params": ["75,75"]
 								}, {
 									"id": "V_String",
 									"params": ["75,104"]
@@ -2204,11 +2204,11 @@
 							"fieldInstances": [
 								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [
 									{ "cx": 27, "cy": 43 },
-									{ "cx": 83, "cy": 44 },
+									{ "cx": 83, "cy": 43 },
 									{ "cx": 83, "cy": 59 },
 									{ "cx": 28, "cy": 59 },
 									{ "cx": 28, "cy": 83 },
-									{ "cx": 100, "cy": 84 },
+									{ "cx": 100, "cy": 83 },
 									{ "cx": 100, "cy": 103 }
 								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
@@ -2217,7 +2217,7 @@
 									},
 									{
 										"id": "V_String",
-										"params": ["83,44"]
+										"params": ["83,43"]
 									},
 									{
 										"id": "V_String",
@@ -2233,7 +2233,7 @@
 									},
 									{
 										"id": "V_String",
-										"params": ["100,84"]
+										"params": ["100,83"]
 									},
 									{
 										"id": "V_String",
@@ -2749,10 +2749,10 @@
 							"fieldInstances": [
 								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [
 									{ "cx": 92, "cy": 59 },
-									{ "cx": 68, "cy": 60 },
+									{ "cx": 68, "cy": 59 },
 									{ "cx": 68, "cy": 84 },
 									{ "cx": 91, "cy": 84 },
-									{ "cx": 92, "cy": 104 }
+									{ "cx": 91, "cy": 104 }
 								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
 										"id": "V_String",
@@ -2760,7 +2760,7 @@
 									},
 									{
 										"id": "V_String",
-										"params": ["68,60"]
+										"params": ["68,59"]
 									},
 									{
 										"id": "V_String",
@@ -2772,7 +2772,7 @@
 									},
 									{
 										"id": "V_String",
-										"params": ["92,104"]
+										"params": ["91,104"]
 									}
 								] },
 								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1, "__tile": null, "defUid": 26, "realEditorValues": [] },
@@ -3218,10 +3218,10 @@
 									{ "cx": 91, "cy": 36 },
 									{ "cx": 75, "cy": 36 },
 									{ "cx": 75, "cy": 59 },
-									{ "cx": 84, "cy": 60 },
+									{ "cx": 83, "cy": 59 },
 									{ "cx": 83, "cy": 76 },
 									{ "cx": 68, "cy": 76 },
-									{ "cx": 67, "cy": 105 }
+									{ "cx": 68, "cy": 105 }
 								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
 										"id": "V_String",
@@ -3241,7 +3241,7 @@
 									},
 									{
 										"id": "V_String",
-										"params": ["84,60"]
+										"params": ["83,59"]
 									},
 									{
 										"id": "V_String",
@@ -3253,7 +3253,7 @@
 									},
 									{
 										"id": "V_String",
-										"params": ["67,105"]
+										"params": ["68,105"]
 									}
 								] },
 								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 10, "__tile": null, "defUid": 26, "realEditorValues": [{ "id": "V_Float", "params": [10] }] },
@@ -3334,30 +3334,30 @@
 							"px": [9,85],
 							"fieldInstances": [
 								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [
-									{ "cx": 19, "cy": 44 },
-									{ "cx": 20, "cy": 35 },
-									{ "cx": 43, "cy": 36 },
-									{ "cx": 44, "cy": 59 },
+									{ "cx": 19, "cy": 42 },
+									{ "cx": 19, "cy": 35 },
+									{ "cx": 43, "cy": 35 },
+									{ "cx": 43, "cy": 60 },
 									{ "cx": 36, "cy": 60 },
-									{ "cx": 35, "cy": 76 },
+									{ "cx": 36, "cy": 76 },
 									{ "cx": 51, "cy": 76 },
 									{ "cx": 51, "cy": 105 }
 								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
 										"id": "V_String",
-										"params": ["19,44"]
+										"params": ["19,42"]
 									},
 									{
 										"id": "V_String",
-										"params": ["20,35"]
+										"params": ["19,35"]
 									},
 									{
 										"id": "V_String",
-										"params": ["43,36"]
+										"params": ["43,35"]
 									},
 									{
 										"id": "V_String",
-										"params": ["44,59"]
+										"params": ["43,60"]
 									},
 									{
 										"id": "V_String",
@@ -3365,7 +3365,7 @@
 									},
 									{
 										"id": "V_String",
-										"params": ["35,76"]
+										"params": ["36,76"]
 									},
 									{
 										"id": "V_String",
@@ -3751,9 +3751,9 @@
 							"defUid": 18,
 							"px": [55,51],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 27, "cy": 43 }, { "cx": 84, "cy": 44 }, { "cx": 84, "cy": 24 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 27, "cy": 44 }, { "cx": 84, "cy": 44 }, { "cx": 84, "cy": 24 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
-									"params": ["27,43"]
+									"params": ["27,44"]
 								}, {
 									"id": "V_String",
 									"params": ["84,44"]
@@ -3772,18 +3772,18 @@
 						},
 						{
 							"__identifier": "Wave",
-							"__grid": [27,102],
+							"__grid": [28,102],
 							"__pivot": [0.5,0.5],
 							"__tags": ["visible"],
 							"__tile": null,
 							"__smartColor": "#FF6400",
-							"__worldX": 55,
+							"__worldX": 57,
 							"__worldY": 1421,
 							"iid": "9736a060-5110-11ed-8029-69a12f3d5c3e",
 							"width": 4,
 							"height": 4,
 							"defUid": 18,
-							"px": [55,205],
+							"px": [57,205],
 							"fieldInstances": [
 								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 28, "cy": 84 }, { "cx": 84, "cy": 84 }, { "cx": 84, "cy": 104 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
@@ -3826,7 +3826,7 @@
 									{ "cx": 100, "cy": 60 },
 									{ "cx": 108, "cy": 60 },
 									{ "cx": 108, "cy": 44 },
-									{ "cx": 99, "cy": 43 },
+									{ "cx": 99, "cy": 44 },
 									{ "cx": 99, "cy": 24 }
 								], "__tile": null, "defUid": 22, "realEditorValues": [
 									{
@@ -3855,7 +3855,7 @@
 									},
 									{
 										"id": "V_String",
-										"params": ["99,43"]
+										"params": ["99,44"]
 									},
 									{
 										"id": "V_String",
@@ -3886,15 +3886,15 @@
 							"defUid": 18,
 							"px": [57,45],
 							"fieldInstances": [
-								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 29, "cy": 44 }, { "cx": 84, "cy": 42 }, { "cx": 83, "cy": 22 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
+								{ "__identifier": "Step", "__type": "Array<Point>", "__value": [ { "cx": 28, "cy": 44 }, { "cx": 83, "cy": 44 }, { "cx": 83, "cy": 23 } ], "__tile": null, "defUid": 22, "realEditorValues": [ {
 									"id": "V_String",
-									"params": ["29,44"]
+									"params": ["28,44"]
 								}, {
 									"id": "V_String",
-									"params": ["84,42"]
+									"params": ["83,44"]
 								}, {
 									"id": "V_String",
-									"params": ["83,22"]
+									"params": ["83,23"]
 								} ] },
 								{ "__identifier": "PauseBetweenFireSec", "__type": "Float", "__value": 1, "__tile": null, "defUid": 26, "realEditorValues": [] },
 								{ "__identifier": "EnemyType", "__type": "LocalEnum.EnemyType", "__value": "Fox", "__tile": null, "defUid": 28, "realEditorValues": [{
@@ -3958,7 +3958,7 @@
 								{ "cx": 105, "cy": 77 },
 								{ "cx": 115, "cy": 76 },
 								{ "cx": 115, "cy": 68 },
-								{ "cx": 95, "cy": 77 }
+								{ "cx": 89, "cy": 75 }
 							], "__tile": null, "defUid": 118, "realEditorValues": [
 								{
 									"id": "V_String",
@@ -3978,7 +3978,7 @@
 								},
 								{
 									"id": "V_String",
-									"params": ["95,77"]
+									"params": ["89,75"]
 								}
 							] }]
 						}
@@ -4359,8 +4359,8 @@
 									{ "cx": 59, "cy": 59 },
 									{ "cx": 28, "cy": 60 },
 									{ "cx": 28, "cy": 75 },
-									{ "cx": 75, "cy": 76 },
-									{ "cx": 76, "cy": 36 },
+									{ "cx": 75, "cy": 75 },
+									{ "cx": 75, "cy": 36 },
 									{ "cx": 107, "cy": 36 },
 									{ "cx": 107, "cy": 51 },
 									{ "cx": 92, "cy": 52 },
@@ -4400,11 +4400,11 @@
 									},
 									{
 										"id": "V_String",
-										"params": ["75,76"]
+										"params": ["75,75"]
 									},
 									{
 										"id": "V_String",
-										"params": ["76,36"]
+										"params": ["75,36"]
 									},
 									{
 										"id": "V_String",
@@ -4471,13 +4471,13 @@
 									{ "cx": 59, "cy": 59 },
 									{ "cx": 28, "cy": 59 },
 									{ "cx": 28, "cy": 76 },
-									{ "cx": 75, "cy": 76 },
-									{ "cx": 76, "cy": 35 },
-									{ "cx": 108, "cy": 35 },
+									{ "cx": 75, "cy": 75 },
+									{ "cx": 76, "cy": 36 },
+									{ "cx": 107, "cy": 36 },
 									{ "cx": 107, "cy": 51 },
 									{ "cx": 92, "cy": 52 },
 									{ "cx": 92, "cy": 67 },
-									{ "cx": 109, "cy": 68 },
+									{ "cx": 108, "cy": 68 },
 									{ "cx": 107, "cy": 83 },
 									{ "cx": 84, "cy": 84 },
 									{ "cx": 84, "cy": 105 }
@@ -4512,15 +4512,15 @@
 									},
 									{
 										"id": "V_String",
-										"params": ["75,76"]
+										"params": ["75,75"]
 									},
 									{
 										"id": "V_String",
-										"params": ["76,35"]
+										"params": ["76,36"]
 									},
 									{
 										"id": "V_String",
-										"params": ["108,35"]
+										"params": ["107,36"]
 									},
 									{
 										"id": "V_String",
@@ -4536,7 +4536,7 @@
 									},
 									{
 										"id": "V_String",
-										"params": ["109,68"]
+										"params": ["108,68"]
 									},
 									{
 										"id": "V_String",
@@ -6842,9 +6842,9 @@
 			"__bgPos": { "topLeftPx": [0,0], "scale": [1,1], "cropRect": [0,0,256,256] },
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/the_radix_point.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
+				{ "__identifier": "music", "__type": "FilePath", "__value": "../audio/music/viral_legacy.xm", "__tile": null, "defUid": 119, "realEditorValues": [{
 					"id": "V_String",
-					"params": ["../audio/music/the_radix_point.xm"]
+					"params": ["../audio/music/viral_legacy.xm"]
 				}] },
 				{ "__identifier": "production", "__type": "Bool", "__value": true, "__tile": null, "defUid": 125, "realEditorValues": [{
 					"id": "V_Bool",
