@@ -107,6 +107,7 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
         // need to clear any leftover level because level select is quite memory hungry
         // we need leftover level sometimes to display the win screen for example
         game->reset_current_level();
+        try_play_menu_music();
         bg = bn::regular_bg_items::all_levels.create_bg(0, 0);
         select_highlight = bn::regular_bg_items::level_select.create_bg(0, -17);
         select_highlight->set_priority(0);
