@@ -101,6 +101,17 @@ void Menu::switch_screen(MenuScreen screen, Game *game)
             4,
             bn::sprite_items::dancing_sheep_3.tiles_item(),
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+        for (bn::sprite_ptr animal : dancing_animals)
+        {
+            animal.set_bg_priority(0);
+        }
+
+        for (bn::sprite_ptr banner : victory_banner_sprites)
+        {
+            banner.set_bg_priority(0);
+        }
+
         break;
     case MenuScreen::LevelSelect:
         log("start leveling selection");
@@ -801,6 +812,11 @@ bool Menu::on_tick(Game *game)
         dancing_animals_animation.at(2).update();
         dancing_animals_animation.at(3).update();
         dancing_animals_animation.at(4).update();
+
+        if (bn::keypad::a_pressed() || bn::keypad::start_pressed())
+        {
+            switch_screen(MenuScreen::Title, game);
+        }
     }
 
     if (current_screen == MenuScreen::LevelWin)
