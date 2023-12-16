@@ -367,6 +367,12 @@ bool Menu::handle_start_menu(Game *game)
 
 bool Menu::handle_config_menu(Game *game)
 {
+    if (bn::keypad::b_pressed())
+    {
+        switch_screen(MenuScreen::Start, game);
+        return true;
+    }
+
     if (bn::keypad::down_pressed())
     {
         current_selection_index += 1;
@@ -458,6 +464,12 @@ bool Menu::handle_play_menu(Game *game)
     if (collie_title_anim.has_value())
     {
         collie_title_anim->update();
+    }
+
+    if (bn::keypad::b_pressed())
+    {
+        switch_screen(MenuScreen::Start, game);
+        return true;
     }
 
     if (bn::keypad::down_pressed())
@@ -668,7 +680,7 @@ bool Menu::handle_credit_menu(Game *game)
         text_sprite.put_above();
     }
 
-    if (bn::keypad::start_pressed() || bn::keypad::a_pressed())
+    if (bn::keypad::start_pressed() || bn::keypad::a_pressed() || bn::keypad::b_pressed())
     {
         text_sprites.clear();
         config_sprites.clear();
