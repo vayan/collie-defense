@@ -517,6 +517,12 @@ bool Menu::handle_play_menu(Game *game)
             game->set_game_mode(GameMode::Story);
             save_data data = game->get_save()->get_data();
             selected_level = data.latest_story_level.integer();
+
+            if (selected_level >= number_of_levels)
+            {
+                selected_level = number_of_levels - 1;
+            }
+
             game->get_player()->set_money(data.story_money);
             game->get_player()->set_life(data.story_life);
             return false;
